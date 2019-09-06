@@ -43,7 +43,7 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @Warmup(iterations = 3, time = 1, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 50, time = 1, timeUnit = TimeUnit.SECONDS)
-@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockDiagnosticVMOptions", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseEpsilonGC", "-Xms2g", "-Xmx2g", "-Xmn1g"})
+@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseEpsilonGC", "-Xms2g", "-Xmx2g", "-Xmn1g"})
 @Threads(Threads.MAX)
 public class LoopBenchmark {
     @Param({"100000", "1000000"})
