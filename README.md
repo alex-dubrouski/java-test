@@ -22,7 +22,7 @@ I ran these tests couple of times on my MacBook Pro 2015 [Core i7 2.2GHz, 16GB R
 - Bigger numbers mean worse result as metric is microseconds per operation (us/op)
 - Size is the size of ArrayList used for benchmark (it pre-filled with `String$i` strings, where i is [0..size] to make sure GC won't do deduplication)
 
-### Conventional If versus Optional.ofNullable().ifPresent()
+### Conventional If versus Optional.ofNullable().ifPresent() [Bigger is worse]
 ```
 Benchmark                              (size)  Mode  Cnt       Score        Error  Units
 IfBenchmark.walk                       100000  avgt   50     412.908 ±      7.770  us/op
@@ -31,7 +31,7 @@ OptionalBenchmark.walk                 100000  avgt   50     668.345 ±     19.4
 OptionalBenchmark.walk                1000000  avgt   50    6905.794 ±    324.304  us/op
 ```
 
-### Simple for loop versus stream().forEach()
+### Simple for loop versus stream().forEach() [Bigger is worse]
 ```
 Benchmark                              (size)  Mode  Cnt       Score        Error  Units
 LoopBenchmark.walk                     100000  avgt   50    1095.182 ±     23.729  us/op
@@ -40,7 +40,7 @@ StreamForEachBenchmark.walk            100000  avgt   50    1498.113 ±     82.7
 StreamForEachBenchmark.walk           1000000  avgt   50   13610.415 ±    333.496  us/op
 ```
 
-### stream().parallel().forEach() versus submitting parallel tasks to custom ForkJoinPool
+### stream().parallel().forEach() versus submitting parallel tasks to custom ForkJoinPool [Bigger is worse]
 ```
 Benchmark                              (size)  Mode  Cnt       Score        Error  Units
 StreamParallelBenchmark.walk               10  avgt    5   36718.837 ±   2259.852  us/op
