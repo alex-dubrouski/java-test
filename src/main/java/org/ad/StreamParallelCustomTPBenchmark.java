@@ -32,35 +32,35 @@
 package org.ad;
 
 import org.openjdk.jmh.annotations.*;
-import org.openjdk.jmh.infra.Blackhole;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
-@Warmup(iterations = 3, time = 1, timeUnit = TimeUnit.SECONDS)
-@Measurement(iterations = 50, time = 1, timeUnit = TimeUnit.SECONDS)
-@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockDiagnosticVMOptions", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseEpsilonGC", "-Xms2g", "-Xmx2g", "-Xmn1g"})
+@Warmup(iterations = 1, time = 1, timeUnit = TimeUnit.SECONDS)
+@Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
+@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockDiagnosticVMOptions", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseEpsilonGC", "-Xms4g", "-Xmx4g", "-Xmn4g"})
 @Threads(Threads.MAX)
-public class OptionalBenchmark {
-    @Param({"100000", "1000000"})
+public class StreamParallelCustomTPBenchmark {
+
+    //Custom FJPool size, variable size will be used to instantiate FJPool
+    @Param({"10", "200"})
     int size;
 
     List<String> lst;
+    ForkJoinPool forkJoinPool;
 
     private void create() {
         lst = new ArrayList<>(size);
         for (int i = 0; i < size; i++) {
-            if (i % 2 == 0) {
-                lst.add("String" + i);
-            } else {
-                lst.add(null);
-            }
+            lst.add("String" + i);
         }
+        forkJoinPool = new ForkJoinPool(size);
     }
 
     @Setup
@@ -69,9 +69,18 @@ public class OptionalBenchmark {
     }
 
     @Benchmark
-    public void walk(Blackhole bh) {
-        for (int i = 0; i < size; i++) {
-            Optional.ofNullable(lst.get(i)).ifPresent(bh::consume);
+    public void walk() {
+        try {
+            forkJoinPool.submit(() -> lst.stream().parallel().forEach(ins -> {
+                try {
+                    Thread.sleep(5);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                ins = "Nope";
+            })).get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
         }
     }
 

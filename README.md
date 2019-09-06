@@ -9,3 +9,7 @@ I would like to use OpenJDK JMH benchmarking framework to find out how it affect
 - To build code `$ mvn clean install`
 - To run it `$ java -jar target/benchmarks.jar`
 - To see list of possible options `java -jar target/benchmarks.jar -h`
+
+## Prerequisites
+
+Running this benchmark requires Java 11/12 as I used EpsilonGC to avoid possible GC overhead 
