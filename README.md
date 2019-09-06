@@ -18,6 +18,7 @@ Running this benchmark requires Java 11/12 as I used EpsilonGC to avoid possible
 I ran these tests couple of times on my MacBook Pro 2015 [Core i7 2.2GHz, 16GB RAM]
 ### Notes
 - Optional creates so much memory overhead that I had to rollback from Epsilon no-op to Shenandoah compacting GC to avoid OOMs (sic!)
+- All other tests except `if vs Optional` are running no-op EpsilonGC to exclude GC overhead
 - Bigger numbers mean worse result as metric is microseconds per operation (us/op)
 - Size is the size of ArrayList used for benchmark (it pre-filled with `String$i` strings, where i is [0..size] to make sure GC won't do deduplication)
 
@@ -39,7 +40,7 @@ StreamForEachBenchmark.walk            100000  avgt   50    1498.113 ±     82.7
 StreamForEachBenchmark.walk           1000000  avgt   50   13610.415 ±    333.496  us/op
 ```
 
-### stream().parallel().forEach() versus submitting parallel tasks to custom ForkJoin Pool
+### stream().parallel().forEach() versus submitting parallel tasks to custom ForkJoinPool
 ```
 Benchmark                              (size)  Mode  Cnt       Score        Error  Units
 StreamParallelBenchmark.walk               10  avgt    5   36718.837 ±   2259.852  us/op
@@ -47,4 +48,6 @@ StreamParallelBenchmark.walk              200  avgt    5  766506.999 ± 161287.0
 StreamParallelCustomTPBenchmark.walk       10  avgt    5   49163.958 ±   1385.312  us/op
 StreamParallelCustomTPBenchmark.walk      200  avgt    5   50261.844 ±   2173.808  us/op
 ```
-this test supposedly exhausts default FJPool which backs `stream().parallel()`
+this test supposedly exhausts default FJPool which backs `stream().parallel()`.
+Also you might notice that for small collection custom approach is slower. This can be explained by the fact that 
+there is an overhead to spawn custom FJPool, while default one starts with JVM.
