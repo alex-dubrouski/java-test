@@ -53,9 +53,8 @@ public class LambdaBenchmark {
     @Benchmark
     public void walkCapturingLambda(Blackhole bh) {
         for (int i = 0; i < size; i++) {
-            final int j = i;
-            //capturing j instead of bh so we don't have to worry about the cost of autoboxing
-            java.util.function.Consumer<Blackhole> capturingConsumer = b -> b.consume(j);
+            final String value = lst.get(i);
+            java.util.function.Consumer<Blackhole> capturingConsumer = b -> b.consume(value);
             capturingConsumer.accept(bh);
         }
     }
