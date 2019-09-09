@@ -12,7 +12,7 @@ I would like to use OpenJDK JMH benchmarking framework to find out how it affect
 
 ## Prerequisites
 
-Running this benchmark requires Java 11/12 as I used EpsilonGC to avoid possible GC overhead
+Running this benchmark requires Java 12 as I used EpsilonGC to avoid possible GC overhead (ShenandoahGC for some tests, please visit https://adoptopenjdk.net to download JDK12 with ShenandoahGC)
 
 ## Test results
 I ran these tests couple of times on my MacBook Pro 2015 [Core i7 2.2GHz, 16GB RAM]
@@ -50,4 +50,4 @@ StreamParallelCustomTPBenchmark.walk      200  avgt    5   50261.844 ±   2173.8
 ```
 this test supposedly exhausts default FJPool which backs `stream().parallel()`.
 Also you might notice that for small collection custom approach is slower. This can be explained by the fact that 
-there is an overhead to spawn custom FJPool, while default one starts with JVM.
+there is an overhead to spawn custom FJPool and new threads, while default one starts with JVM.
