@@ -70,3 +70,4 @@ AnonymousInterfaceBenchmark.walk     1000000  avgt   50  14128.287 ± 420.497  u
 Slight difference in results might be explained by CPU throttling when I run a lot of tests.
 Overall there is no difference as compiler optimizes this code (inline lambda into a method, capturing lambda into
 `private static synthetic` static method)
+Thanks @jguerra for help with Lambda benchmarks
