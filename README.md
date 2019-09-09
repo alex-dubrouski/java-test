@@ -31,14 +31,17 @@ OptionalBenchmark.walk                 100000  avgt   50     668.345 ±     19.4
 OptionalBenchmark.walk                1000000  avgt   50    6905.794 ±    324.304  us/op
 ```
 
-### Simple for loop versus stream().forEach() [Bigger is worse]
+### Simple for loop versus stream().forEach() vs ArrayList.forEach() [Bigger is worse]
 ```
-Benchmark                              (size)  Mode  Cnt       Score        Error  Units
-LoopBenchmark.walk                     100000  avgt   50    1095.182 ±     23.729  us/op
-LoopBenchmark.walk                    1000000  avgt   50   10536.424 ±    265.327  us/op
-StreamForEachBenchmark.walk            100000  avgt   50    1498.113 ±     82.737  us/op
-StreamForEachBenchmark.walk           1000000  avgt   50   13610.415 ±    333.496  us/op
+LoopBenchmark.walk                100000  avgt   50   1049.909 ±  34.355  us/op
+LoopBenchmark.walk               1000000  avgt   50   9705.087 ± 160.360  us/op
+CollectionForEachBenchmark.walk   100000  avgt   50   1521.542 ±  71.787  us/op
+CollectionForEachBenchmark.walk  1000000  avgt   50  14889.490 ± 232.703  us/op
+StreamForEachBenchmark.walk       100000  avgt   50   1560.984 ± 102.362  us/op
+StreamForEachBenchmark.walk      1000000  avgt   50  14119.169 ± 465.745  us/op
 ```
+`Collection.forEach` and `Collection.stream().forEach()` have similar performance, it can deviate, but I blame CPU
+throttling on my laptop, only classic for loop is always the fastest option
 
 ### stream().parallel().forEach() versus submitting parallel tasks to custom ForkJoinPool [Bigger is worse]
 ```
@@ -51,3 +54,19 @@ StreamParallelCustomTPBenchmark.walk      200  avgt    5   50261.844 ±   2173.8
 this test supposedly exhausts default FJPool which backs `stream().parallel()`.
 Also you might notice that for small collection custom approach is slower. This can be explained by the fact that 
 there is an overhead to spawn custom FJPool and new threads, while default one starts with JVM.
+
+### Anonymous classes vs Capturing and non-capturing lambdas and method references
+```
+Benchmark                             (size)  Mode  Cnt      Score     Error  Units
+LambdaBenchmark.walkCapturingLambda   100000  avgt   50   1375.337 ±  56.069  us/op
+LambdaBenchmark.walkCapturingLambda  1000000  avgt   50  13428.373 ± 246.557  us/op
+LambdaBenchmark.walkInlineLambda      100000  avgt   50   1385.110 ±  39.280  us/op
+LambdaBenchmark.walkInlineLambda     1000000  avgt   50  14017.545 ± 428.827  us/op
+LambdaBenchmark.walkMethodReference   100000  avgt   50   1389.873 ±  48.160  us/op
+LambdaBenchmark.walkMethodReference  1000000  avgt   50  14269.167 ± 327.731  us/op
+AnonymousInterfaceBenchmark.walk      100000  avgt   50   1486.847 ± 121.709  us/op
+AnonymousInterfaceBenchmark.walk     1000000  avgt   50  14128.287 ± 420.497  us/op
+```
+Slight difference in results might be explained by CPU throttling when I run a lot of tests.
+Overall there is no difference as compiler optimizes this code (inline lambda into a method, capturing lambda into
+`private static synthetic` static method)
