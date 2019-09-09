@@ -50,6 +50,15 @@ public class LambdaBenchmark {
         }
     }
 
+    @Benchmark
+    public void walkCapturingLambda(Blackhole bh) {
+        for (int i = 0; i < size; i++) {
+            final String value = lst.get(i);
+            java.util.function.Consumer<Blackhole> capturingConsumer = b -> b.consume(value);
+            capturingConsumer.accept(bh);
+        }
+    }
+
     public interface Consumer {
         void consume(Blackhole bh, String line);
     }
