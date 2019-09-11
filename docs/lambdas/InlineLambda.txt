@@ -1,0 +1,193 @@
+....[Hottest Region 1]..............................................................................
+c2, level 4, org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub, version 853 (366 bytes)
+
+              0x00007f7248489148: jle    0x00007f72484892e4             ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                                        ; - org.ad.LambdaBenchmark::walkInlineLambda@7 (line 41)
+                                                                        ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+              0x00007f724848914e: mov    0x28(%rsp),%r10
+              0x00007f7248489153: test   %r10,%r10
+              0x00007f7248489156: je     0x00007f724848957e
+              0x00007f724848915c: xor    %r9d,%r9d
+         ╭    0x00007f724848915f: jmpq   0x00007f7248489253
+         │    0x00007f7248489164: nopw   0x0(%rax,%rax,1)
+         │    0x00007f724848916a: nopw   0x0(%rax,%rax,1)
+  1.16%  │↗   0x00007f7248489170: mov    %ebp,%r8d
+  0.01%  ││   0x00007f7248489173: mov    0x60(%rsp),%r11
+  0.00%  ││   0x00007f7248489178: mov    (%rsp),%rbx                    ;*aload_0 {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                             ; - org.ad.LambdaBenchmark::walkInlineLambda@10 (line 42)
+         ││                                                             ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+  1.22%  ││   0x00007f724848917c: mov    0x70(%rsp),%r10
+  0.26%  ││   0x00007f7248489181: mov    0x10(%r10),%r9d                ;*getfield lst {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                             ; - org.ad.LambdaBenchmark::walkInlineLambda@16 (line 42)
+         ││                                                             ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+  1.13%  ││   0x00007f7248489185: mov    0x8(%r9),%ecx                  ; implicit exception: dispatches to 0x00007f7248489600
+  2.86%  ││   0x00007f7248489189: mov    0x14(%r10),%r10d               ;*getfield consumer {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                             ; - org.ad.LambdaBenchmark::walkInlineLambda@11 (line 42)
+         ││                                                             ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+  0.00%  ││   0x00007f724848918d: cmp    $0x603c4,%ecx                  ;   {metadata(&apos;java/util/ArrayList&apos;)}
+  0.00%  ││   0x00007f7248489193: jne    0x00007f7248489396             ;*invokeinterface get {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                             ; - org.ad.LambdaBenchmark::walkInlineLambda@20 (line 42)
+         ││                                                             ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+  1.18%  ││   0x00007f7248489199: mov    0x10(%r9),%ecx                 ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                             ; - java.util.ArrayList::get@2 (line 458)
+         ││                                                             ; - org.ad.LambdaBenchmark::walkInlineLambda@20 (line 42)
+         ││                                                             ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+  0.08%  ││   0x00007f724848919d: test   %ecx,%ecx
+  0.00%  ││   0x00007f724848919f: jl     0x00007f72484893d6             ;*invokestatic checkIndex {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                             ; - java.util.Objects::checkIndex@3 (line 372)
+         ││                                                             ; - java.util.ArrayList::get@5 (line 458)
+         ││                                                             ; - org.ad.LambdaBenchmark::walkInlineLambda@20 (line 42)
+         ││                                                             ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+  0.00%  ││   0x00007f72484891a5: cmp    %ecx,%r8d
+  1.12%  ││   0x00007f72484891a8: jae    0x00007f7248489327
+  0.49%  ││   0x00007f72484891ae: mov    0x14(%r9),%ecx                 ;*getfield elementData {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                             ; - java.util.ArrayList::elementData@1 (line 442)
+         ││                                                             ; - java.util.ArrayList::get@11 (line 459)
+         ││                                                             ; - org.ad.LambdaBenchmark::walkInlineLambda@20 (line 42)
+         ││                                                             ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+  0.00%  ││   0x00007f72484891b2: mov    %r8d,%ebp                      ;*invokestatic checkIndex {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                             ; - java.util.Objects::checkIndex@3 (line 372)
+         ││                                                             ; - java.util.ArrayList::get@5 (line 458)
+         ││                                                             ; - org.ad.LambdaBenchmark::walkInlineLambda@20 (line 42)
+         ││                                                             ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+  0.00%  ││   0x00007f72484891b5: mov    0xc(%rcx),%r9d                 ; implicit exception: dispatches to 0x00007f7248489612
+  1.15%  ││   0x00007f72484891b9: cmp    %r9d,%ebp
+ 40.41%  ││   0x00007f72484891bc: jae    0x00007f7248489372
+  0.02%  ││   0x00007f72484891c2: mov    0x10(%rcx,%rbp,4),%r9d         ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                             ; - java.util.ArrayList::elementData@5 (line 442)
+         ││                                                             ; - java.util.ArrayList::get@11 (line 459)
+         ││                                                             ; - org.ad.LambdaBenchmark::walkInlineLambda@20 (line 42)
+         ││                                                             ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+  0.01%  ││   0x00007f72484891c7: mov    0x8(%r9),%r8d                  ; implicit exception: dispatches to 0x00007f724848961e
+  1.34%  ││   0x00007f72484891cb: cmp    $0x6a2d6,%r8d                  ;   {metadata(&apos;java/lang/String&apos;)}
+  0.33%  ││   0x00007f72484891d2: jne    0x00007f72484895ae
+  0.00%  ││   0x00007f72484891d8: mov    %r9,%rdx                       ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                             ; - org.ad.LambdaBenchmark::walkInlineLambda@25 (line 42)
+         ││                                                             ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+  0.01%  ││   0x00007f72484891db: mov    0x8(%r10),%r9d                 ; implicit exception: dispatches to 0x00007f724848963a
+  1.12%  ││   0x00007f72484891df: cmp    $0x235408,%r9d                 ;   {metadata(&apos;org/ad/LambdaBenchmark$$Lambda$42&apos;)}
+  0.17%  ││   0x00007f72484891e6: jne    0x00007f7248489422             ;*invokeinterface consume {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                             ; - org.ad.LambdaBenchmark::walkInlineLambda@28 (line 42)
+         ││                                                             ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+         ││   0x00007f72484891ec: mov    %rbx,(%rsp)
+  1.21%  ││   0x00007f72484891f0: mov    %r11,0x60(%rsp)
+  0.01%  ││   0x00007f72484891f5: mov    0x28(%rsp),%rsi
+         ││   0x00007f72484891fa: nop
+  1.14%  ││   0x00007f72484891fb: callq  0x00007f72408ced80             ; ImmutableOopMap{[96]=Oop [104]=Oop [112]=Oop [40]=Oop }
+         ││                                                             ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                             ; - org.ad.LambdaBenchmark::lambda$create$0@2 (line 30)
+         ││                                                             ; - org.ad.LambdaBenchmark$$Lambda$42/0x00000008011aa040::consume@2
+         ││                                                             ; - org.ad.LambdaBenchmark::walkInlineLambda@28 (line 42)
+         ││                                                             ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+         ││                                                             ;   {optimized virtual_call}
+  1.16%  ││   0x00007f7248489200: mov    0x70(%rsp),%r10
+  0.01%  ││   0x00007f7248489205: mov    0xc(%r10),%r11d
+  0.00%  ││   0x00007f7248489209: inc    %ebp                           ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                             ; - org.ad.LambdaBenchmark::walkInlineLambda@33 (line 41)
+         ││                                                             ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+  0.00%  ││   0x00007f724848920b: cmp    %r11d,%ebp
+  1.16%  │╰   0x00007f724848920e: jl     0x00007f7248489170
+         │    0x00007f7248489214: mov    0x60(%rsp),%r11
+  0.00%  │    0x00007f7248489219: mov    (%rsp),%rbx                    ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+         │                                                              ; - org.ad.LambdaBenchmark::walkInlineLambda@7 (line 41)
+         │                                                              ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+         │    0x00007f724848921d: movzbl 0x94(%r11),%r10d               ;*goto {reexecute=0 rethrow=0 return_oop=0}
+         │                                                              ; - org.ad.LambdaBenchmark::walkInlineLambda@36 (line 41)
+         │                                                              ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+  0.01%  │    0x00007f7248489225: mov    0x108(%r15),%r8
+         │    0x00007f724848922c: add    $0x1,%rbx                      ; ImmutableOopMap{r11=Oop [104]=Oop [112]=Oop [40]=Oop }
+         │                                                              ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         │                                                              ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@30 (line 234)
+  0.00%  │    0x00007f7248489230: test   %eax,(%r8)                     ;   {poll}
+         │    0x00007f7248489233: test   %r10d,%r10d
+         │    0x00007f7248489236: je     0x00007f724848930d             ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │                                                              ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@30 (line 234)
+         │    0x00007f724848923c: jmpq   0x00007f724848953f
+         │    0x00007f7248489241: nopl   0x0(%rax,%rax,1)
+         │    0x00007f7248489249: nopl   0x0(%rax)
+  0.00%  │ ↗  0x00007f7248489250: mov    %ebp,%r9d                      ;*aload_0 {reexecute=0 rethrow=0 return_oop=0}
+         │ │                                                            ; - org.ad.LambdaBenchmark::walkInlineLambda@10 (line 42)
+         │ │                                                            ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+  0.00%  ↘ │  0x00007f7248489253: mov    0x70(%rsp),%r10
+           │  0x00007f7248489258: mov    0x10(%r10),%r11d               ;*getfield lst {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - org.ad.LambdaBenchmark::walkInlineLambda@16 (line 42)
+           │                                                            ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+  0.00%    │  0x00007f724848925c: mov    0x8(%r11),%r8d                 ; implicit exception: dispatches to 0x00007f724848964e
+  0.00%    │  0x00007f7248489260: mov    0x14(%r10),%r10d               ;*getfield consumer {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - org.ad.LambdaBenchmark::walkInlineLambda@11 (line 42)
+           │                                                            ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+           │  0x00007f7248489264: cmp    $0x603c4,%r8d                  ;   {metadata(&apos;java/util/ArrayList&apos;)}
+  0.00%    │  0x00007f724848926b: jne    0x00007f72484894a6             ;*invokeinterface get {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - org.ad.LambdaBenchmark::walkInlineLambda@20 (line 42)
+           │                                                            ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+  0.00%    │  0x00007f7248489271: mov    0x10(%r11),%r8d                ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - java.util.ArrayList::get@2 (line 458)
+           │                                                            ; - org.ad.LambdaBenchmark::walkInlineLambda@20 (line 42)
+           │                                                            ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+           │  0x00007f7248489275: test   %r8d,%r8d
+  0.00%    │  0x00007f7248489278: jl     0x00007f72484894da             ;*invokestatic checkIndex {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - java.util.Objects::checkIndex@3 (line 372)
+           │                                                            ; - java.util.ArrayList::get@5 (line 458)
+           │                                                            ; - org.ad.LambdaBenchmark::walkInlineLambda@20 (line 42)
+           │                                                            ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+  0.00%    │  0x00007f724848927e: cmp    %r8d,%r9d
+  0.00%    │  0x00007f7248489281: jae    0x00007f7248489442
+  0.00%    │  0x00007f7248489287: mov    0x14(%r11),%r8d                ;*getfield elementData {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - java.util.ArrayList::elementData@1 (line 442)
+           │                                                            ; - java.util.ArrayList::get@11 (line 459)
+           │                                                            ; - org.ad.LambdaBenchmark::walkInlineLambda@20 (line 42)
+           │                                                            ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+           │  0x00007f724848928b: mov    %r9d,%ebp                      ;*invokestatic checkIndex {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - java.util.Objects::checkIndex@3 (line 372)
+           │                                                            ; - java.util.ArrayList::get@5 (line 458)
+           │                                                            ; - org.ad.LambdaBenchmark::walkInlineLambda@20 (line 42)
+           │                                                            ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+           │  0x00007f724848928e: mov    0xc(%r8),%r11d                 ; implicit exception: dispatches to 0x00007f724848965e
+  0.00%    │  0x00007f7248489292: cmp    %r11d,%ebp
+  0.08%    │  0x00007f7248489295: jae    0x00007f7248489482
+  0.00%    │  0x00007f724848929b: mov    0x10(%r8,%rbp,4),%r8d          ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - java.util.ArrayList::elementData@5 (line 442)
+           │                                                            ; - java.util.ArrayList::get@11 (line 459)
+           │                                                            ; - org.ad.LambdaBenchmark::walkInlineLambda@20 (line 42)
+           │                                                            ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+           │  0x00007f72484892a0: mov    0x8(%r8),%r11d                 ; implicit exception: dispatches to 0x00007f724848966a
+  0.00%    │  0x00007f72484892a4: cmp    $0x6a2d6,%r11d                 ;   {metadata(&apos;java/lang/String&apos;)}
+  0.00%    │  0x00007f72484892ab: jne    0x00007f72484895ce
+           │  0x00007f72484892b1: mov    %r8,%rdx                       ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - org.ad.LambdaBenchmark::walkInlineLambda@25 (line 42)
+           │                                                            ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+           │  0x00007f72484892b4: mov    0x8(%r10),%r8d                 ; implicit exception: dispatches to 0x00007f7248489686
+  0.00%    │  0x00007f72484892b8: cmp    $0x235408,%r8d                 ;   {metadata(&apos;org/ad/LambdaBenchmark$$Lambda$42&apos;)}
+  0.00%    │  0x00007f72484892bf: jne    0x00007f724848951a             ;*synchronization entry
+           │                                                            ; - org.ad.LambdaBenchmark::lambda$create$0@-1 (line 30)
+           │                                                            ; - org.ad.LambdaBenchmark$$Lambda$42/0x00000008011aa040::consume@2
+           │                                                            ; - org.ad.LambdaBenchmark::walkInlineLambda@28 (line 42)
+           │                                                            ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+           │  0x00007f72484892c5: mov    0x28(%rsp),%rsi
+           │  0x00007f72484892ca: nop
+  0.00%    │  0x00007f72484892cb: callq  0x00007f72408ced80             ; ImmutableOopMap{[96]=Oop [104]=Oop [112]=Oop [40]=Oop }
+           │                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - org.ad.LambdaBenchmark::lambda$create$0@2 (line 30)
+           │                                                            ; - org.ad.LambdaBenchmark$$Lambda$42/0x00000008011aa040::consume@2
+           │                                                            ; - org.ad.LambdaBenchmark::walkInlineLambda@28 (line 42)
+           │                                                            ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+           │                                                            ;   {optimized virtual_call}
+  0.00%    │  0x00007f72484892d0: mov    0x70(%rsp),%r10
+           │  0x00007f72484892d5: mov    0xc(%r10),%r11d
+           │  0x00007f72484892d9: inc    %ebp                           ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - org.ad.LambdaBenchmark::walkInlineLambda@33 (line 41)
+           │                                                            ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+           │  0x00007f72484892db: cmp    %r11d,%ebp
+  0.00%    ╰  0x00007f72484892de: jl     0x00007f7248489250             ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                                        ; - org.ad.LambdaBenchmark::walkInlineLambda@7 (line 41)
+                                                                        ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@17 (line 232)
+              0x00007f72484892e4: mov    0x60(%rsp),%r11
+              0x00007f72484892e9: movzbl 0x94(%r11),%r8d                ;*getfield isDone {reexecute=0 rethrow=0 return_oop=0}
+                                                                        ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@27 (line 234)
+                                                                        ; implicit exception: dispatches to 0x00007f72484896b2
+              0x00007f72484892f1: test   %r8d,%r8d
+              0x00007f72484892f4: jne    0x00007f724848953a             ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+                                                                        ; - org.ad.generated.LambdaBenchmark_walkInlineLambda_jmhTest::walkInlineLambda_avgt_jmhStub@30 (line 234)
+              0x00007f72484892fa: mov    0x28(%rsp),%r10
+....................................................................................................
+ 58.90%  <total for region 1>

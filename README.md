@@ -21,6 +21,7 @@ I ran these tests couple of times on my MacBook Pro 2015 [Core i7 2.2GHz, 16GB R
 - All other tests except `if vs Optional` are running no-op EpsilonGC to exclude GC overhead
 - Bigger numbers mean worse result as metric is microseconds per operation (us/op)
 - Size is the size of ArrayList used for benchmark (it pre-filled with `String$i` strings, where i is [0..size] to make sure GC won't do deduplication)
+- Tests do not produce assembly code by default, but I captured hot spots with help of `-prof perfasm` and added text files with assembly code, you can find it `docs` directory
 
 ### Conventional If versus Optional.ofNullable().ifPresent() [Bigger is worse]
 ```
