@@ -35,8 +35,7 @@ StreamWithFilterBenchmark.walk         100000  avgt   50    2644.813 ±    134.1
 StreamWithFilterBenchmark.walk        1000000  avgt   50   32373.471 ±   1851.291  us/op
 ```
 This group of tests is using `-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:-UseBiasedLocking` because
-Optional test can not survive no-op GC
-Stream based test has different hot spots for 100K and 1MM collections
+Optional test can not survive no-op GC. Stream based test has different hot spots for 100K and 1MM collections
 
 ### Simple for loop versus stream().forEach() vs ArrayList.forEach() [Bigger is worse]
 ```
@@ -58,7 +57,7 @@ StreamParallelBenchmark.walk              200  avgt    5  673440.250 ± 137475.4
 StreamParallelCustomTPBenchmark.walk       10  avgt    5   89570.131 ±   9826.232  us/op
 StreamParallelCustomTPBenchmark.walk      200  avgt    5   84106.558 ±   2396.451  us/op
 ```
-this test supposedly exhausts default FJPool which backs `stream().parallel()`.
+this test supposedly exhausts default FJPool which backs `stream().parallel()`. 
 Also you might notice that for small collection custom approach is slower. This can be explained by the fact that 
 there is an overhead to spawn custom FJPool and new threads, while default one starts with JVM.
 
@@ -75,5 +74,5 @@ LambdaBenchmark.walkMethodReference    100000  avgt   50    1889.369 ±     19.9
 LambdaBenchmark.walkMethodReference   1000000  avgt   50   47084.614 ±   2990.737  us/op
 ```
 Overall there is no difference as compiler optimizes this code (inline lambda into a method, capturing lambda into
-`private static synthetic` static method)
+`private static synthetic` static method). 
 Thanks @jguerra for help with Lambda benchmarks
