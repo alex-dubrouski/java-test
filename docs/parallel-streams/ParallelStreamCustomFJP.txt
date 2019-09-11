@@ -1,0 +1,75 @@
+....[Hottest Region 1]..............................................................................
+ [kernel.kallsyms], native_write_msr_safe (2 bytes)
+
+ <no assembly is recorded, native region>
+....................................................................................................
+ 67.50%  <total for region 1>
+
+....[Hottest Regions]...............................................................................
+ 67.50%   [kernel.kallsyms]  native_write_msr_safe (2 bytes)
+  1.40%   [kernel.kallsyms]  _raw_spin_lock_irqsave (115 bytes)
+  1.23%   [kernel.kallsyms]  system_call (82 bytes)
+  0.62%   [kernel.kallsyms]  mutex_unlock (16 bytes)
+  0.56%  libpthread-2.19.so  pthread_cond_timedwait@@GLIBC_2.3.2 (46 bytes)
+  0.45%          ld-2.19.so  __tls_get_addr (7 bytes)
+  0.39%         c2, level 4  java.util.concurrent.ForkJoinPool::scan, version 952 (100 bytes)
+  0.39%   [kernel.kallsyms]  _raw_spin_lock_irq (41 bytes)
+  0.38%   [kernel.kallsyms]  source_load (28 bytes)
+  0.38%   [kernel.kallsyms]  __srcu_read_lock (95 bytes)
+  0.33%   [kernel.kallsyms]  find_busiest_group (250 bytes)
+  0.33%   [kernel.kallsyms]  system_call_fast_compare_end (92 bytes)
+  0.30%   [kernel.kallsyms]  mutex_lock (36 bytes)
+  0.27%   [kernel.kallsyms]  __switch_to (0 bytes)
+  0.26%   [kernel.kallsyms]  idle_cpu (54 bytes)
+  0.24%        libc-2.19.so  syscall (25 bytes)
+  0.23%  libpthread-2.19.so  [unknown] (6 bytes)
+  0.22%           libjvm.so  Monitor::lock_without_safepoint_check() (7 bytes)
+  0.20%   [kernel.kallsyms]  timerqueue_add (34 bytes)
+  0.19%   [kernel.kallsyms]  cpuacct_charge (54 bytes)
+ 24.15%  <...other 1213 warm regions...>
+....................................................................................................
+100.00%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 67.50%   [kernel.kallsyms]  native_write_msr_safe
+  2.05%         c2, level 4  java.util.concurrent.ForkJoinPool::scan, version 952
+  1.40%   [kernel.kallsyms]  _raw_spin_lock_irqsave
+  1.23%   [kernel.kallsyms]  system_call
+  0.74%  libpthread-2.19.so  pthread_cond_timedwait@@GLIBC_2.3.2
+  0.71%   [kernel.kallsyms]  __switch_to
+  0.69%          ld-2.19.so  __tls_get_addr
+  0.62%   [kernel.kallsyms]  mutex_unlock
+  0.57%   [kernel.kallsyms]  find_busiest_group
+  0.54%           libjvm.so  os::sleep(Thread*, long, bool)
+  0.39%   [kernel.kallsyms]  _raw_spin_lock_irq
+  0.38%   [kernel.kallsyms]  source_load
+  0.38%   [kernel.kallsyms]  __srcu_read_lock
+  0.33%         c1, level 3  java.util.concurrent.ForkJoinPool::scan, version 932
+  0.33%   [kernel.kallsyms]  system_call_fast_compare_end
+  0.30%         c1, level 3  java.util.stream.ForEachOps$ForEachTask::compute, version 924
+  0.30%   [kernel.kallsyms]  mutex_lock
+  0.29%   [kernel.kallsyms]  __schedule
+  0.26%   [kernel.kallsyms]  finish_task_switch
+  0.26%   [kernel.kallsyms]  idle_cpu
+ 20.71%  <...other 617 warm methods...>
+....................................................................................................
+100.00%  <totals>
+
+....[Distribution by Source]........................................................................
+ 83.40%   [kernel.kallsyms]
+  6.28%           libjvm.so
+  2.55%         c2, level 4
+  1.89%  libpthread-2.19.so
+  1.56%        libc-2.19.so
+  1.42%         c1, level 3
+  0.88%         interpreter
+  0.69%          ld-2.19.so
+  0.48%             jbd2.ko
+  0.34%             ext4.ko
+  0.21%    Unknown, level 0
+  0.19%      hsdis-amd64.so
+  0.08%         c1, level 2
+  0.03%      perf-26508.map
+  0.01%        runtime stub
+....................................................................................................
+100.00%  <totals>

@@ -1,0 +1,77 @@
+....[Hottest Region 1]..............................................................................
+ [kernel.kallsyms], native_write_msr_safe (0 bytes)
+
+ <no assembly is recorded, native region>
+....................................................................................................
+ 41.17%  <total for region 1>
+
+....[Hottest Regions]...............................................................................
+ 41.17%   [kernel.kallsyms]  native_write_msr_safe (0 bytes)
+  2.64%   [kernel.kallsyms]  system_call (72 bytes)
+  1.98%   [kernel.kallsyms]  mutex_unlock (11 bytes)
+  1.53%   [kernel.kallsyms]  source_load (49 bytes)
+  1.20%   [kernel.kallsyms]  _raw_spin_lock (26 bytes)
+  1.03%   [kernel.kallsyms]  mutex_lock (3 bytes)
+  0.95%   [kernel.kallsyms]  find_busiest_group (160 bytes)
+  0.91%   [kernel.kallsyms]  __srcu_read_lock (95 bytes)
+  0.83%  libpthread-2.19.so  [unknown] (43 bytes)
+  0.78%   [kernel.kallsyms]  _raw_spin_lock_irqsave (25 bytes)
+  0.78%  libpthread-2.19.so  pthread_cond_timedwait@@GLIBC_2.3.2 (40 bytes)
+  0.74%        libc-2.19.so  syscall (31 bytes)
+  0.70%   [kernel.kallsyms]  cpumask_next_and (59 bytes)
+  0.66%   [kernel.kallsyms]  find_busiest_group (78 bytes)
+  0.62%          ld-2.19.so  __tls_get_addr (7 bytes)
+  0.54%   [kernel.kallsyms]  idle_cpu (57 bytes)
+  0.50%   [kernel.kallsyms]  __sb_end_write (10 bytes)
+  0.45%   [kernel.kallsyms]  futex_wait_queue_me (42 bytes)
+  0.45%   [kernel.kallsyms]  __sb_start_write (25 bytes)
+  0.45%   [kernel.kallsyms]  find_next_bit (91 bytes)
+ 41.05%  <...other 578 warm regions...>
+....................................................................................................
+ 99.96%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 41.17%   [kernel.kallsyms]  native_write_msr_safe
+  2.64%   [kernel.kallsyms]  system_call
+  2.43%   [kernel.kallsyms]  find_busiest_group
+  1.98%   [kernel.kallsyms]  mutex_unlock
+  1.53%   [kernel.kallsyms]  source_load
+  1.20%  libpthread-2.19.so  pthread_cond_timedwait@@GLIBC_2.3.2
+  1.20%   [kernel.kallsyms]  _raw_spin_lock
+  1.16%          ld-2.19.so  __tls_get_addr
+  1.03%   [kernel.kallsyms]  mutex_lock
+  0.91%   [kernel.kallsyms]  __srcu_read_lock
+  0.91%        libc-2.19.so  _IO_default_xsputn
+  0.83%         c2, level 4  java.util.stream.ForEachOps$ForEachTask::compute, version 806
+  0.83%  libpthread-2.19.so  [unknown]
+  0.78%        libc-2.19.so  syscall
+  0.78%   [kernel.kallsyms]  _raw_spin_lock_irqsave
+  0.74%        libc-2.19.so  vfprintf
+  0.70%         c1, level 3  java.util.concurrent.ForkJoinPool$WorkQueue::helpCC, version 816
+  0.70%   [kernel.kallsyms]  cpumask_next_and
+  0.66%   [kernel.kallsyms]  futex_wait_queue_me
+  0.66%           libjvm.so  JVM_Sleep
+ 37.13%  <...other 342 warm methods...>
+....................................................................................................
+ 99.96%  <totals>
+
+....[Distribution by Source]........................................................................
+ 74.01%   [kernel.kallsyms]
+  9.36%           libjvm.so
+  4.50%        libc-2.19.so
+  3.63%  libpthread-2.19.so
+  1.82%         c1, level 3
+  1.53%         interpreter
+  1.16%          ld-2.19.so
+  0.95%             jbd2.ko
+  0.91%         c2, level 4
+  0.87%             ext4.ko
+  0.78%      hsdis-amd64.so
+  0.25%    Unknown, level 0
+  0.04%
+  0.04%         c1, level 1
+  0.04%           libnet.so
+  0.04%              zfs.ko
+  0.04%      perf-23171.map
+....................................................................................................
+ 99.96%  <totals>

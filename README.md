@@ -13,6 +13,7 @@ I would like to use OpenJDK JMH benchmarking framework to find out how it affect
 ## Prerequisites
 
 Running this benchmark requires Java 12 as I used EpsilonGC to avoid possible GC overhead (ShenandoahGC for some tests, please visit https://adoptopenjdk.net to download JDK12 with ShenandoahGC)
+These tests were executed with AdoptOpenJDK `JDK 12.0.2, OpenJDK 64-Bit Server VM, 12.0.2+10`, hsdis compiled from OpenJDK source (binutils 2.32), 
 
 ## Test results
 I ran these tests on idle development server [2x AMD Opteron(tm) Processor 6328, 256GB]
@@ -34,7 +35,8 @@ StreamWithFilterBenchmark.walk         100000  avgt   50    2644.813 ±    134.1
 StreamWithFilterBenchmark.walk        1000000  avgt   50   32373.471 ±   1851.291  us/op
 ```
 This group of tests is using `-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:-UseBiasedLocking` because
-Optional test can not survive no-op GC 
+Optional test can not survive no-op GC
+Stream based test has different hot spots for 100K and 1MM collections
 
 ### Simple for loop versus stream().forEach() vs ArrayList.forEach() [Bigger is worse]
 ```

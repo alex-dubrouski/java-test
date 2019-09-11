@@ -1,0 +1,379 @@
+....[Hottest Region 1]..............................................................................
+c2, level 4, java.util.stream.ReferencePipeline::forEach, version 929 (269 bytes)
+
+            0x00007fc0704937c9: mov    0x10(%r10),%r11d               ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@47 (line 1647)
+                                                                      ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+                                                                      ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+                                                                      ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+                                                                      ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+                                                                      ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+                                                                      ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+            0x00007fc0704937cd: jmp    0x00007fc070493772
+            0x00007fc0704937cf: nop
+  0.07%  ↗  0x00007fc0704937d0: mov    %rbp,%r13
+  0.01%  │  0x00007fc0704937d3: mov    0x8(%rsp),%r14d
+  0.64%  │  0x00007fc0704937d8: mov    0x10(%rsp),%rbp
+  0.08%  │  0x00007fc0704937dd: mov    0xc(%rsp),%r8d
+  0.65%  │  0x00007fc0704937e2: mov    0x18(%rsp),%r11d
+  0.09%  │  0x00007fc0704937e7: mov    0x1c(%rsp),%ecx
+  0.62%  │  0x00007fc0704937eb: mov    0x28(%rsp),%rbx
+  0.07%  │  0x00007fc0704937f0: mov    0x30(%rsp),%rdi                ;*aload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@86 (line 1653)
+         │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+         │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+         │                                                            ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+         │                                                            ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+  0.68%  │  0x00007fc0704937f5: mov    -0x8(%rbx),%rsi
+  1.05%  │  0x00007fc0704937f9: mov    0x10(%rsi),%eax                ;*getfield this$1 {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@1 (line 176)
+         │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+         │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+         │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+         │                                                            ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+         │                                                            ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+  0.63%  │  0x00007fc0704937fc: mov    -0x8(%r12,%rax,1),%r9          ; implicit exception: dispatches to 0x00007fc070493f5e
+  2.43%  │  0x00007fc070493801: mov    0x34(%r9),%eax                 ;*getfield val$predicate {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@4 (line 176)
+         │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+         │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+         │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+         │                                                            ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+         │                                                            ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+  0.69%  │  0x00007fc070493805: mov    -0x8(%r12,%r8,1),%r9
+  0.65%  │  0x00007fc07049380a: mov    0x10(%r9,%r10,4),%r9d          ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@89 (line 1653)
+         │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+         │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+         │                                                            ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+         │                                                            ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+  0.74%  │  0x00007fc07049380f: mov    0x8(%rax),%edx                 ; implicit exception: dispatches to 0x00007fc070493f6a
+  1.16%  │  0x00007fc070493812: cmp    $0x235708,%edx                 ;   {metadata(&apos;org/ad/StreamWithFilterBenchmark$$Lambda$50&apos;)}
+  0.00%  │  0x00007fc070493818: jne    0x00007fc07049397e             ;*invokeinterface test {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@8 (line 176)
+         │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+         │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+         │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+         │                                                            ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+         │                                                            ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+  0.72%  │  0x00007fc07049381e: mov    0x8(%r9),%eax                  ; implicit exception: dispatches to 0x00007fc070493f7a
+ 49.07%  │  0x00007fc070493822: cmp    $0x6a2d6,%eax                  ;   {metadata(&apos;java/lang/String&apos;)}
+  0.00%  │  0x00007fc070493828: jne    0x00007fc070493f1e             ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$50/0x00000008011ab840::test@1
+         │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@8 (line 176)
+         │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+         │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+         │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+         │                                                            ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+         │                                                            ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+  0.67%  │  0x00007fc07049382e: mov    0xc(%rsi),%eax                 ;*getfield downstream {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@17 (line 177)
+         │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+         │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+         │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+         │                                                            ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+         │                                                            ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+  0.01%  │  0x00007fc070493831: mov    %r9,%rdx                       ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$50/0x00000008011ab840::test@1
+         │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@8 (line 176)
+         │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+         │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+         │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+         │                                                            ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+         │                                                            ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+  0.00%  │  0x00007fc070493834: mov    0x8(%rax),%r9d                 ; implicit exception: dispatches to 0x00007fc070493faa
+  0.00%  │  0x00007fc070493838: cmp    $0x229f5e,%r9d                 ;   {metadata(&apos;java/util/stream/ForEachOps$ForEachOp$OfRef&apos;)}
+  0.72%  │  0x00007fc07049383f: jne    0x00007fc0704939b2
+  0.01%  │  0x00007fc070493845: mov    %rax,%r9                       ;*invokeinterface accept {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
+         │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+         │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+         │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+         │                                                            ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+         │                                                            ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+  0.00%  │  0x00007fc070493848: mov    -0x8(%r9),%r9
+  0.00%  │  0x00007fc07049384c: mov    0x10(%r9),%eax                 ;*getfield consumer {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@1 (line 183)
+         │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
+         │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+         │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+         │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+         │                                                            ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+         │                                                            ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+  0.71%  │  0x00007fc070493850: mov    0x8(%rax),%r9d                 ; implicit exception: dispatches to 0x00007fc070493fba
+  0.03%  │  0x00007fc070493854: cmp    $0x235e88,%r9d                 ;   {metadata(&apos;org/ad/StreamWithFilterBenchmark$$Lambda$63&apos;)}
+  0.00%  │  0x00007fc07049385b: jne    0x00007fc0704939e6
+  0.00%  │  0x00007fc070493861: mov    %rax,%r9                       ;*invokeinterface accept {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@5 (line 183)
+         │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
+         │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+         │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+         │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+         │                                                            ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+         │                                                            ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+  0.70%  │  0x00007fc070493864: mov    -0x8(%r9),%r9
+  0.79%  │  0x00007fc070493868: mov    0xc(%r9),%eax                  ;*getfield arg$1 {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$63/0x00000008011af440::accept@1
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@5 (line 183)
+         │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
+         │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+         │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+         │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+         │                                                            ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+         │                                                            ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+  0.01%  │  0x00007fc07049386c: test   %eax,%eax
+  0.00%  │  0x00007fc07049386e: je     0x00007fc07049396e             ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$63/0x00000008011af440::accept@8
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@5 (line 183)
+         │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
+         │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+         │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+         │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+         │                                                            ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+         │                                                            ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+  0.73%  │  0x00007fc070493874: mov    %rdi,0x30(%rsp)
+  0.70%  │  0x00007fc070493879: mov    %rbx,0x28(%rsp)
+  0.77%  │  0x00007fc07049387e: mov    %r10d,0x20(%rsp)
+  0.69%  │  0x00007fc070493883: mov    %ecx,0x1c(%rsp)
+  0.73%  │  0x00007fc070493887: mov    %r11d,0x18(%rsp)
+  0.72%  │  0x00007fc07049388c: mov    %r8d,0xc(%rsp)
+  0.69%  │  0x00007fc070493891: mov    %rbp,0x10(%rsp)
+  0.74%  │  0x00007fc070493896: mov    %r14d,0x8(%rsp)
+  0.00%  │  0x00007fc07049389b: mov    %r13,%rbp                      ;*synchronization entry
+         │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$63/0x00000008011af440::accept@-1
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@5 (line 183)
+         │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
+         │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+         │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+         │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+         │                                                            ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+         │                                                            ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+         │  0x00007fc07049389e: mov    %rax,%rsi                      ;*getfield arg$1 {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$63/0x00000008011af440::accept@1
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@5 (line 183)
+         │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
+         │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+         │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+         │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+         │                                                            ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+         │                                                            ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+         │  0x00007fc0704938a1: xchg   %ax,%ax
+  0.67%  │  0x00007fc0704938a3: callq  0x00007fc070488f50             ; ImmutableOopMap{rbp=Oop [0]=Oop [12]=NarrowOop [16]=Oop [40]=Oop [48]=Oop }
+         │                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$63/0x00000008011af440::accept@8
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@5 (line 183)
+         │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
+         │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+         │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+         │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+         │                                                            ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+         │                                                            ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+         │                                                            ;   {optimized virtual_call}
+  0.54%  │  0x00007fc0704938a8: mov    0x20(%rsp),%r10d
+  0.00%  │  0x00007fc0704938ad: inc    %r10d                          ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@100 (line 1652)
+         │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+         │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+         │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+         │                                                            ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+         │                                                            ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+  0.70%  │  0x00007fc0704938b0: cmp    0x18(%rsp),%r10d
+  0.01%  ╰  0x00007fc0704938b5: jl     0x00007fc0704937d0             ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@83 (line 1652)
+                                                                      ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+                                                                      ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+                                                                      ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+                                                                      ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+                                                                      ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+                                                                      ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+            0x00007fc0704938bb: mov    0x10(%rsp),%r10
+  0.00%     0x00007fc0704938c0: mov    0x18(%r10),%ebx                ;*getfield this$0 {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@107 (line 1656)
+                                                                      ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+                                                                      ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+                                                                      ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+                                                                      ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+                                                                      ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+                                                                      ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+  0.00%     0x00007fc0704938c4: test   %ebx,%ebx
+            0x00007fc0704938c6: je     0x00007fc070493dc4
+            0x00007fc0704938cc: mov    %rbp,%r13
+            0x00007fc0704938cf: mov    0x8(%rsp),%r14d
+            0x00007fc0704938d4: mov    0x1c(%rsp),%ecx                ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@83 (line 1652)
+                                                                      ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+                                                                      ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+                                                                      ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+                                                                      ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+                                                                      ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+                                                                      ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+            0x00007fc0704938d8: mov    -0x8(%r12,%rbx,1),%r10         ;*getfield modCount {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@110 (line 1656)
+                                                                      ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
+                                                                      ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
+                                                                      ; - java.util.stream.ForEachOps$ForEachOp::evaluateSequential@3 (line 150)
+                                                                      ; - java.util.stream.ForEachOps$ForEachOp$OfRef::evaluateSequential@3 (line 173)
+                                                                      ; - java.util.stream.AbstractPipeline::evaluate@88 (line 234)
+                                                                      ; - java.util.stream.ReferencePipeline::forEach@6 (line 497)
+  0.00%     0x00007fc0704938dd: mov    0xc(%r10),%r11d
+            0x00007fc0704938e1: cmp    %ecx,%r11d
+            0x00007fc0704938e4: jne    0x00007fc070493d08             ;*synchronization entry
+                                                                      ; - java.util.stream.AbstractPipeline::copyInto@-1 (line 480)
+....................................................................................................
+ 71.41%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+c2, level 4, java.util.ArrayList$ArrayListSpliterator::forEachRemaining, version 723 (216 bytes)
+
+             0x00007fc07048af23: mov    %rbp,%rsi                      ;*getfield elementData {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@16 (line 1644)
+         ╭   0x00007fc07048af26: jmp    0x00007fc07048af5a
+         │   0x00007fc07048af28: mov    0xc(%r10),%r11d                ;*getfield modCount {reexecute=0 rethrow=0 return_oop=0}
+         │                                                             ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@38 (line 1646)
+         │   0x00007fc07048af2c: mov    0x10(%r10),%r8d                ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
+         │                                                             ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@47 (line 1647)
+         │   0x00007fc07048af30: jmp    0x00007fc07048aed3
+         │   0x00007fc07048af32: nopl   0x0(%rax)
+         │   0x00007fc07048af39: nopl   0x0(%rax)
+  0.18%  │↗  0x00007fc07048af40: mov    %rbp,%r9
+  0.00%  ││  0x00007fc07048af43: mov    (%rsp),%ebp
+  0.00%  ││  0x00007fc07048af46: mov    0x4(%rsp),%r8d
+  0.20%  ││  0x00007fc07048af4b: mov    0x8(%rsp),%r11d
+  0.00%  ││  0x00007fc07048af50: mov    0x10(%rsp),%rcx
+  0.17%  ││  0x00007fc07048af55: mov    0x18(%rsp),%rsi                ;*aload {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@86 (line 1653)
+  0.01%  ↘│  0x00007fc07048af5a: mov    -0x8(%rcx),%rdi
+  0.18%   │  0x00007fc07048af5e: mov    0x10(%rdi),%ebx                ;*getfield this$1 {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@1 (line 176)
+          │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+  0.33%   │  0x00007fc07048af61: mov    -0x8(%r12,%rbx,1),%rbx         ; implicit exception: dispatches to 0x00007fc07048b183
+  0.18%   │  0x00007fc07048af66: mov    0x34(%rbx),%edx                ;*getfield val$predicate {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@4 (line 176)
+          │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+  0.22%   │  0x00007fc07048af69: mov    -0x8(%r12,%rbp,1),%rbx
+  0.18%   │  0x00007fc07048af6e: mov    0x10(%rbx,%r10,4),%ebx         ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@89 (line 1653)
+  0.43%   │  0x00007fc07048af73: mov    0x8(%rdx),%eax                 ; implicit exception: dispatches to 0x00007fc07048b192
+  0.16%   │  0x00007fc07048af76: cmp    $0x235708,%eax                 ;   {metadata(&apos;org/ad/StreamWithFilterBenchmark$$Lambda$50&apos;)}
+  0.19%   │  0x00007fc07048af7c: jne    0x00007fc07048b042             ;*invokeinterface test {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@8 (line 176)
+          │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+ 13.00%   │  0x00007fc07048af82: mov    0x8(%rbx),%edx                 ; implicit exception: dispatches to 0x00007fc07048b1a2
+  0.01%   │  0x00007fc07048af85: cmp    $0x6a2d6,%edx                  ;   {metadata(&apos;java/lang/String&apos;)}
+  0.19%   │  0x00007fc07048af8b: jne    0x00007fc07048b14d             ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$50/0x00000008011ab840::test@1
+          │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@8 (line 176)
+          │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+  0.02%   │  0x00007fc07048af91: mov    0xc(%rdi),%eax                 ;*getfield downstream {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@17 (line 177)
+          │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+  0.00%   │  0x00007fc07048af94: mov    %rbx,%rdx                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$50/0x00000008011ab840::test@1
+          │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@8 (line 176)
+          │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+  0.00%   │  0x00007fc07048af97: mov    0x8(%rax),%ebx                 ; implicit exception: dispatches to 0x00007fc07048b1ca
+  0.17%   │  0x00007fc07048af9a: cmp    $0x229f5e,%ebx                 ;   {metadata(&apos;java/util/stream/ForEachOps$ForEachOp$OfRef&apos;)}
+  0.00%   │  0x00007fc07048afa0: jne    0x00007fc07048b06e
+  0.00%   │  0x00007fc07048afa6: mov    %rax,%rbx                      ;*invokeinterface accept {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
+          │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+  0.00%   │  0x00007fc07048afa9: mov    -0x8(%rbx),%rbx
+  0.18%   │  0x00007fc07048afad: mov    0x10(%rbx),%edi                ;*getfield consumer {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@1 (line 183)
+          │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
+          │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+  0.08%   │  0x00007fc07048afb0: mov    0x8(%rdi),%ebx                 ; implicit exception: dispatches to 0x00007fc07048b1da
+  0.00%   │  0x00007fc07048afb3: cmp    $0x235e88,%ebx                 ;   {metadata(&apos;org/ad/StreamWithFilterBenchmark$$Lambda$63&apos;)}
+  0.00%   │  0x00007fc07048afb9: jne    0x00007fc07048b09e
+  0.18%   │  0x00007fc07048afbf: mov    %rdi,%rbx                      ;*invokeinterface accept {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@5 (line 183)
+          │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
+          │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+  0.15%   │  0x00007fc07048afc2: mov    -0x8(%rbx),%rbx
+  0.00%   │  0x00007fc07048afc6: mov    0xc(%rbx),%ebx                 ;*getfield arg$1 {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$63/0x00000008011af440::accept@1
+          │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@5 (line 183)
+          │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
+          │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+  0.00%   │  0x00007fc07048afc9: test   %ebx,%ebx
+  0.17%   │  0x00007fc07048afcb: je     0x00007fc07048b031             ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$63/0x00000008011af440::accept@8
+          │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@5 (line 183)
+          │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
+          │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+  0.02%   │  0x00007fc07048afcd: mov    %rsi,0x18(%rsp)
+  0.19%   │  0x00007fc07048afd2: mov    %rcx,0x10(%rsp)
+  0.17%   │  0x00007fc07048afd7: mov    %r10d,0xc(%rsp)
+  0.18%   │  0x00007fc07048afdc: mov    %r11d,0x8(%rsp)
+  0.18%   │  0x00007fc07048afe1: mov    %r8d,0x4(%rsp)
+  0.18%   │  0x00007fc07048afe6: mov    %ebp,(%rsp)
+  0.00%   │  0x00007fc07048afe9: mov    %r9,%rbp                       ;*synchronization entry
+          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$63/0x00000008011af440::accept@-1
+          │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@5 (line 183)
+          │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
+          │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+          │  0x00007fc07048afec: mov    %rbx,%rsi
+  0.18%   │  0x00007fc07048afef: callq  0x00007fc070488f50             ; ImmutableOopMap{rbp=Oop [0]=NarrowOop [16]=Oop [24]=Oop }
+          │                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$63/0x00000008011af440::accept@8
+          │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@5 (line 183)
+          │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
+          │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
+          │                                                            ;   {optimized virtual_call}
+  0.15%   │  0x00007fc07048aff4: mov    0xc(%rsp),%r10d
+  0.00%   │  0x00007fc07048aff9: inc    %r10d                          ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@100 (line 1652)
+  0.19%   │  0x00007fc07048affc: cmp    0x4(%rsp),%r10d
+  0.00%   ╰  0x00007fc07048b001: jl     0x00007fc07048af40
+             0x00007fc07048b007: mov    %rbp,%r9
+             0x00007fc07048b00a: mov    0x8(%rsp),%r11d                ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@83 (line 1652)
+             0x00007fc07048b00f: mov    0x18(%r9),%r8d                 ;*getfield this$0 {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@107 (line 1656)
+  0.00%      0x00007fc07048b013: mov    -0x8(%r12,%r8,1),%r10          ;*getfield modCount {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@110 (line 1656)
+                                                                       ; implicit exception: dispatches to 0x00007fc07048b1f6
+  0.00%      0x00007fc07048b018: mov    0xc(%r10),%r10d
+             0x00007fc07048b01c: cmp    %r11d,%r10d
+             0x00007fc07048b01f: jne    0x00007fc07048b106             ;*getfield elementData {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@16 (line 1644)
+             0x00007fc07048b025: add    $0x40,%rsp
+             0x00007fc07048b029: pop    %rbp
+             0x00007fc07048b02a: test   %eax,0x191c7fd0(%rip)        # 0x00007fc089653000
+                                                                       ;   {poll_return}
+             0x00007fc07048b030: retq
+....................................................................................................
+ 18.05%  <total for region 2>
