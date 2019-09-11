@@ -23,14 +23,18 @@ I ran these tests on idle development server [2x AMD Opteron(tm) Processor 6328,
 - Size is the size of ArrayList used for benchmark (it pre-filled with `String$i` strings, where i is [0..size] to make sure GC won't do deduplication)
 - Tests do not produce assembly code by default, but I captured hot spots with help of `-prof perfasm` and added text files with assembly code, you can find it `docs` directory
 
-### Conventional If versus Optional.ofNullable().ifPresent() [Bigger is worse]
+### Conventional If versus Optional.ofNullable().ifPresent() vs stream().filter(Objects::nonNull).forEach() [Bigger is worse]
 ```
-Benchmark                (size)  Mode  Cnt     Score      Error  Units
-IfBenchmark.walk         100000  avgt   50    580.566 ±   4.838  us/op
-IfBenchmark.walk        1000000  avgt   50   5803.784 ±  30.833  us/op
-OptionalBenchmark.walk   100000  avgt   50   1165.590 ±  31.221  us/op
-OptionalBenchmark.walk  1000000  avgt   50  14476.035 ± 170.855  us/op
+Benchmark                        (size)  Mode  Cnt     Score       Error  Units
+IfBenchmark.walk                 100000  avgt   50    580.566 ±    4.838  us/op
+IfBenchmark.walk                1000000  avgt   50   5803.784 ±   30.833  us/op
+OptionalBenchmark.walk           100000  avgt   50   1165.590 ±   31.221  us/op
+OptionalBenchmark.walk          1000000  avgt   50  14476.035 ±  170.855  us/op
+StreamWithFilterBenchmark.walk   100000  avgt   50   2064.681 ±   29.019  us/op
+StreamWithFilterBenchmark.walk  1000000  avgt   50  47731.830 ± 2570.936  us/op
 ```
+This group of tests is using `-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:-UseBiasedLocking` because
+Optional test can not survive no-op GC 
 
 ### Simple for loop versus stream().forEach() vs ArrayList.forEach() [Bigger is worse]
 ```
