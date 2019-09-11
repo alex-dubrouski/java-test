@@ -102,9 +102,8 @@ Iteration   3: 1255.745 us/op
                  ·gc.alloc.rate.norm: 1200000.642 B/op
                  ·gc.count:           ≈ 0 counts
 ```
-600MB/sec
-I used EpsilonGC with `-XX:+HeapDumpOnOutOfMemoryError` to catch the dump and analyze it. Result is pretty strange
-Test fails during 3rd iteration with 100K ArrayList:
+I used EpsilonGC with `-XX:+HeapDumpOnOutOfMemoryError` to catch the dump and analyze it and result is pretty strange. 
+Test fails during 3rd iteration with 100K ArrayList
 ```
 # JMH version: 1.21
 # VM version: JDK 12.0.2, OpenJDK 64-Bit Server VM, 12.0.2+10
