@@ -25,36 +25,36 @@ I ran these tests on idle development server [2x AMD Opteron(tm) Processor 6328,
 
 ### Conventional If versus Optional.ofNullable().ifPresent() vs stream().filter(Objects::nonNull).forEach() [Bigger is worse]
 ```
-Benchmark                        (size)  Mode  Cnt     Score       Error  Units
-IfBenchmark.walk                 100000  avgt   50    580.566 ±    4.838  us/op
-IfBenchmark.walk                1000000  avgt   50   5803.784 ±   30.833  us/op
-OptionalBenchmark.walk           100000  avgt   50   1165.590 ±   31.221  us/op
-OptionalBenchmark.walk          1000000  avgt   50  14476.035 ±  170.855  us/op
-StreamWithFilterBenchmark.walk   100000  avgt   50   2363.002 ±   30.007  us/op
-StreamWithFilterBenchmark.walk  1000000  avgt   50  32650.584 ± 2084.522  us/op
+Benchmark                              (size)  Mode  Cnt       Score        Error  Units
+IfBenchmark.walk                       100000  avgt   50     590.587 ±      5.900  us/op
+IfBenchmark.walk                      1000000  avgt   50    5779.019 ±     36.016  us/op
+OptionalBenchmark.walk                 100000  avgt   50    1156.084 ±     14.082  us/op
+OptionalBenchmark.walk                1000000  avgt   50   15887.035 ±    320.294  us/op
+StreamWithFilterBenchmark.walk         100000  avgt   50    2644.813 ±    134.190  us/op
+StreamWithFilterBenchmark.walk        1000000  avgt   50   32373.471 ±   1851.291  us/op
 ```
 This group of tests is using `-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:-UseBiasedLocking` because
 Optional test can not survive no-op GC 
 
 ### Simple for loop versus stream().forEach() vs ArrayList.forEach() [Bigger is worse]
 ```
-Benchmark                         (size)  Mode  Cnt      Score      Error  Units
-CollectionForEachBenchmark.walk   100000  avgt   50   2088.561 ±   31.492  us/op
-CollectionForEachBenchmark.walk  1000000  avgt   50  47517.317 ± 3877.215  us/op
-LoopBenchmark.walk                100000  avgt   50   1206.834 ±   75.190  us/op
-LoopBenchmark.walk               1000000  avgt   50   9317.702 ±  414.633  us/op
-StreamForEachBenchmark.walk       100000  avgt   50   2040.535 ±   57.324  us/op
-StreamForEachBenchmark.walk      1000000  avgt   50  50436.311 ± 3105.695  us/op
+Benchmark                              (size)  Mode  Cnt       Score        Error  Units
+CollectionForEachBenchmark.walk        100000  avgt   50    2064.416 ±     26.381  us/op
+CollectionForEachBenchmark.walk       1000000  avgt   50   48509.926 ±   2938.986  us/op
+LoopBenchmark.walk                     100000  avgt   50    1203.630 ±     42.822  us/op
+LoopBenchmark.walk                    1000000  avgt   50   11095.643 ±    510.536  us/op
+StreamForEachBenchmark.walk            100000  avgt   50    2054.006 ±    120.990  us/op
+StreamForEachBenchmark.walk           1000000  avgt   50   64965.610 ±   5365.483  us/op
 ```
 `Collection.forEach` and `Collection.stream().forEach()` have similar performance
 
 ### stream().parallel().forEach() versus submitting parallel tasks to custom ForkJoinPool [Bigger is worse]
 ```
-Benchmark                             (size)  Mode  Cnt       Score        Error  Units
-StreamParallelBenchmark.walk              10  avgt    5   31502.180 ±    824.874  us/op
-StreamParallelBenchmark.walk             200  avgt    5  661704.870 ± 107801.757  us/op
-StreamParallelCustomTPBenchmark.walk      10  avgt    5   87797.423 ±   9514.741  us/op
-StreamParallelCustomTPBenchmark.walk     200  avgt    5   83977.889 ±   2185.751  us/op
+Benchmark                              (size)  Mode  Cnt       Score        Error  Units
+StreamParallelBenchmark.walk               10  avgt    5   31829.706 ±    588.942  us/op
+StreamParallelBenchmark.walk              200  avgt    5  673440.250 ± 137475.485  us/op
+StreamParallelCustomTPBenchmark.walk       10  avgt    5   89570.131 ±   9826.232  us/op
+StreamParallelCustomTPBenchmark.walk      200  avgt    5   84106.558 ±   2396.451  us/op
 ```
 this test supposedly exhausts default FJPool which backs `stream().parallel()`.
 Also you might notice that for small collection custom approach is slower. This can be explained by the fact that 
@@ -62,15 +62,15 @@ there is an overhead to spawn custom FJPool and new threads, while default one s
 
 ### Anonymous classes vs Capturing and non-capturing lambdas and method references
 ```
-Benchmark                             (size)  Mode  Cnt      Score      Error  Units
-AnonymousInterfaceBenchmark.walk      100000  avgt   50   1908.382 ±   71.845  us/op
-AnonymousInterfaceBenchmark.walk     1000000  avgt   50  46063.339 ± 2006.328  us/op
-LambdaBenchmark.walkCapturingLambda   100000  avgt   50   1797.824 ±   42.731  us/op
-LambdaBenchmark.walkCapturingLambda  1000000  avgt   50  46714.467 ± 2494.156  us/op
-LambdaBenchmark.walkInlineLambda      100000  avgt   50   1828.876 ±   11.954  us/op
-LambdaBenchmark.walkInlineLambda     1000000  avgt   50  46338.504 ± 2032.320  us/op
-LambdaBenchmark.walkMethodReference   100000  avgt   50   1874.930 ±   13.463  us/op
-LambdaBenchmark.walkMethodReference  1000000  avgt   50  46372.412 ± 2170.001  us/op
+Benchmark                              (size)  Mode  Cnt       Score        Error  Units
+AnonymousInterfaceBenchmark.walk       100000  avgt   50    1851.074 ±     12.511  us/op
+AnonymousInterfaceBenchmark.walk      1000000  avgt   50   48658.413 ±   2919.706  us/op
+LambdaBenchmark.walkCapturingLambda    100000  avgt   50    1787.172 ±     46.124  us/op
+LambdaBenchmark.walkCapturingLambda   1000000  avgt   50   45310.784 ±   2070.665  us/op
+LambdaBenchmark.walkInlineLambda       100000  avgt   50    1879.110 ±     18.840  us/op
+LambdaBenchmark.walkInlineLambda      1000000  avgt   50   46676.991 ±   2397.409  us/op
+LambdaBenchmark.walkMethodReference    100000  avgt   50    1889.369 ±     19.933  us/op
+LambdaBenchmark.walkMethodReference   1000000  avgt   50   47084.614 ±   2990.737  us/op
 ```
 Overall there is no difference as compiler optimizes this code (inline lambda into a method, capturing lambda into
 `private static synthetic` static method)
