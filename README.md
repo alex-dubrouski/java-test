@@ -36,6 +36,100 @@ StreamWithFilterBenchmark.walk        1000000  avgt   50   32373.471 ±   1851.2
 ```
 This group of tests is using `-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:-UseBiasedLocking` because
 Optional test can not survive no-op GC. Stream based test has different hot spots for 100K and 1MM collections
+Profiling GC shows astonishing difference:
+```
+# JMH version: 1.21
+# VM version: JDK 12.0.2, OpenJDK 64-Bit Server VM, 12.0.2+10
+# VM invoker: /home/adubrouski/jdk12/bin/java
+# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:-UseBiasedLocking -Xms2g -Xmx2g
+# Warmup: 3 iterations, 1 s each
+# Measurement: 50 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.ad.IfBenchmark.walk
+# Parameters: (size = 100000)
+
+# Run progress: 0.00% complete, ETA 00:01:46
+# Fork: 1 of 1
+# Warmup Iteration   1: 578.569 us/op
+# Warmup Iteration   2: 575.984 us/op
+# Warmup Iteration   3: 565.938 us/op
+Iteration   1: 562.636 us/op
+                 ·gc.alloc.rate:      ≈ 10⁻³ MB/sec
+                 ·gc.alloc.rate.norm: 0.288 B/op
+                 ·gc.count:           ≈ 0 counts
+
+Iteration   2: 563.880 us/op
+                 ·gc.alloc.rate:      ≈ 10⁻³ MB/sec
+                 ·gc.alloc.rate.norm: 0.289 B/op
+                 ·gc.count:           ≈ 0 counts
+```
+so there is literally no allocation, while for Optional code picture is completely different
+```
+# JMH version: 1.21
+# VM version: JDK 12.0.2, OpenJDK 64-Bit Server VM, 12.0.2+10
+# VM invoker: /home/adubrouski/jdk12/bin/java
+# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:-UseBiasedLocking -Xms2g -Xmx2g
+# Warmup: 3 iterations, 1 s each
+# Measurement: 50 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.ad.OptionalBenchmark.walk
+# Parameters: (size = 100000)
+
+# Run progress: 0.00% complete, ETA 00:01:46
+# Fork: 1 of 1
+# Warmup Iteration   1: 1187.868 us/op
+# Warmup Iteration   2: 1195.507 us/op
+# Warmup Iteration   3: 1148.178 us/op
+Iteration   1: 1296.817 us/op
+                 ·gc.alloc.rate:      588.064 MB/sec
+                 ·gc.alloc.rate.norm: 1200000.715 B/op
+                 ·gc.count:           ≈ 0 counts
+
+Iteration   2: 1307.376 us/op
+                 ·gc.alloc.rate:            583.337 MB/sec
+                 ·gc.alloc.rate.norm:       1200000.668 B/op
+                 ·gc.churn.Shenandoah:      1133.834 MB/sec
+                 ·gc.churn.Shenandoah.norm: 2332447.238 B/op
+                 ·gc.count:                 3.000 counts
+                 ·gc.time:                  6.000 ms
+
+Iteration   3: 1255.745 us/op
+                 ·gc.alloc.rate:      607.271 MB/sec
+                 ·gc.alloc.rate.norm: 1200000.642 B/op
+                 ·gc.count:           ≈ 0 counts
+```
+600MB/sec
+I used EpsilonGC with `-XX:+HeapDumpOnOutOfMemoryError` to catch the dump and analyze it. Result is pretty strange
+Test fails during 3rd iteration with 100K ArrayList:
+```
+# JMH version: 1.21
+# VM version: JDK 12.0.2, OpenJDK 64-Bit Server VM, 12.0.2+10
+# VM invoker: /home/adubrouski/jdk12/bin/java
+# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseEpsilonGC -XX:+AlwaysPreTouch -Xms2g -Xmx2g -XX:+HeapDumpOnOutOfMemoryError
+# Warmup: 3 iterations, 1 s each
+# Measurement: 50 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.ad.OptionalBenchmark.walk
+# Parameters: (size = 100000)
+
+# Run progress: 0.00% complete, ETA 00:01:46
+# Fork: 1 of 1
+# Warmup Iteration   1: 844.715 us/op
+# Warmup Iteration   2: 827.103 us/op
+# Warmup Iteration   3: java.lang.OutOfMemoryError: Java heap space
+Dumping heap to java_pid26975.hprof ...
+Heap dump file created [4418738360 bytes in 24.625 secs]
+Terminating due to java.lang.OutOfMemoryError: Java heap space
+```
+Examining heap shows that there are 133MM of Optional objects, which are holding 50K of Strings (ArrayList is filled with 50/50 Strings and nulls)
+#### [Heap Content](images/HeapContent.png)
+#### [Optional Objects referencing Strings](images/OptionalReferencesStrings.png)
 
 ### Simple for loop versus stream().forEach() vs ArrayList.forEach() [Bigger is worse]
 ```
