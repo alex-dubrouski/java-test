@@ -18,7 +18,7 @@ These tests were executed with AdoptOpenJDK `JDK 12.0.2, OpenJDK 64-Bit Server V
 ## Test results
 I ran these tests on idle development server [2x AMD Opteron(tm) Processor 6328, 256GB]
 ### Notes
-- Optional creates so much memory overhead that I had to rollback from Epsilon no-op to Shenandoah compacting GC to avoid OOMs [Heap is 4GB, ArrayList requires (1MM * 20bytes + some overhead) and Optional benchmark fail at 4 iteration, so ~4MM of Optionals have approximate size of 3.8GB]
+- Optional creates so much memory overhead that I had to rollback from Epsilon no-op to Shenandoah compacting GC to avoid OOMs [Heap was 4GB, ArrayList requires (1MM * 20bytes + some overhead) and Optional benchmark fail at 3 iteration, there are 133MM of Optionals created]
 - All other tests except `if vs Optional` are running no-op EpsilonGC to exclude GC overhead
 - Bigger numbers mean worse result as metric is microseconds per operation (us/op)
 - Size is the size of ArrayList used for benchmark (it pre-filled with `String$i` strings, where i is [0..size] to make sure GC won't do deduplication)
