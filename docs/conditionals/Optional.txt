@@ -1,140 +1,137 @@
 ....[Hottest Region 1]..............................................................................
-c2, level 4, org.ad.OptionalBenchmark::walk, version 685 (284 bytes)
+ [kernel.kallsyms], native_read_msr_safe (34 bytes)
 
-              0x00007ff12c481e8a: nopw   0x0(%rax,%rax,1)
-            [Verified Entry Point]
-              0x00007ff12c481e90: mov    %eax,-0x14000(%rsp)
-              0x00007ff12c481e97: push   %rbp
-              0x00007ff12c481e98: sub    $0x30,%rsp                     ;*synchronization entry
-                                                                        ; - org.ad.OptionalBenchmark::walk@-1 (line 73)
-              0x00007ff12c481e9c: mov    %rsi,%r9
-              0x00007ff12c481e9f: mov    -0x8(%rsi),%rcx
-              0x00007ff12c481ea3: mov    0xc(%rcx),%ebp                 ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
+ <no assembly is recorded, native region>
+....................................................................................................
+ 28.57%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+c2, level 4, org.ad.OptionalBenchmark::walk, version 752 (252 bytes)
+
                                                                         ; - org.ad.OptionalBenchmark::walk@4 (line 73)
-  0.00%       0x00007ff12c481ea6: test   %ebp,%ebp
-              0x00007ff12c481ea8: jle    0x00007ff12c482023             ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+              0x00007fbffc488c26: test   %ebp,%ebp
+              0x00007fbffc488c28: jle    0x00007fbffc488da3             ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
                                                                         ; - org.ad.OptionalBenchmark::walk@7 (line 73)
-              0x00007ff12c481eae: mov    %rdx,%r8
-              0x00007ff12c481eb1: test   %rdx,%rdx
-              0x00007ff12c481eb4: je     0x00007ff12c4820be
-              0x00007ff12c481eba: xor    %r10d,%r10d
-         ╭    0x00007ff12c481ebd: jmp    0x00007ff12c481f00
-         │    0x00007ff12c481ebf: nop
-  1.08%  │ ↗  0x00007ff12c481ec0: mov    %r11d,0x8(%rsp)
-  1.15%  │ │  0x00007ff12c481ec5: mov    %r8,(%rsp)
-  0.01%  │ │  0x00007ff12c481ec9: mov    %r9,%rbp
-         │ │  0x00007ff12c481ecc: mov    %r10,%rdx                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
-         │ │                                                            ; - org.ad.OptionalBenchmark$$Lambda$42/0x00000008011a9c40::accept@5
+              0x00007fbffc488c2e: mov    %rdx,%r8
+              0x00007fbffc488c31: test   %rdx,%rdx
+              0x00007fbffc488c34: je     0x00007fbffc488e3e
+              0x00007fbffc488c3a: xor    %r10d,%r10d
+         ╭    0x00007fbffc488c3d: jmp    0x00007fbffc488c80
+         │    0x00007fbffc488c3f: nop
+  0.14%  │ ↗  0x00007fbffc488c40: mov    %r11d,0x8(%rsp)
+  0.32%  │ │  0x00007fbffc488c45: mov    %r8,(%rsp)
+  0.04%  │ │  0x00007fbffc488c49: mov    %r9,%rbp
+         │ │  0x00007fbffc488c4c: mov    %r10,%rdx                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+         │ │                                                            ; - org.ad.OptionalBenchmark$$Lambda$53/0x00000008011ac840::accept@5
          │ │                                                            ; - java.util.Optional::ifPresent@12 (line 183)
          │ │                                                            ; - org.ad.OptionalBenchmark::walk@37 (line 74)
-         │ │  0x00007ff12c481ecf: mov    %r8,%rsi
-  1.16%  │ │  0x00007ff12c481ed2: nop
-  0.01%  │ │  0x00007ff12c481ed3: callq  0x00007ff1248d0300             ; ImmutableOopMap{rbp=Oop [0]=Oop }
+         │ │  0x00007fbffc488c4f: mov    %r8,%rsi
+  0.18%  │ │  0x00007fbffc488c52: nop
+         │ │  0x00007fbffc488c53: callq  0x00007fbff48d0300             ; ImmutableOopMap{rbp=Oop [0]=Oop }
          │ │                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
-         │ │                                                            ; - org.ad.OptionalBenchmark$$Lambda$42/0x00000008011a9c40::accept@8
+         │ │                                                            ; - org.ad.OptionalBenchmark$$Lambda$53/0x00000008011ac840::accept@8
          │ │                                                            ; - java.util.Optional::ifPresent@12 (line 183)
          │ │                                                            ; - org.ad.OptionalBenchmark::walk@37 (line 74)
          │ │                                                            ;   {optimized virtual_call}
-  0.01%  │ │  0x00007ff12c481ed8: mov    %rbp,%r9
-  1.10%  │ │  0x00007ff12c481edb: mov    (%rsp),%r8
-  0.15%  │ │  0x00007ff12c481edf: mov    0x8(%rsp),%r11d                ;*return {reexecute=0 rethrow=0 return_oop=0}
+  0.11%  │ │  0x00007fbffc488c58: mov    %rbp,%r9
+         │ │  0x00007fbffc488c5b: mov    (%rsp),%r8
+  0.18%  │ │  0x00007fbffc488c5f: mov    0x8(%rsp),%r11d                ;*return {reexecute=0 rethrow=0 return_oop=0}
          │ │                                                            ; - java.util.Optional::ifPresent@17 (line 185)
          │ │                                                            ; - org.ad.OptionalBenchmark::walk@37 (line 74)
-  2.13%  │↗│  0x00007ff12c481ee4: mov    -0x8(%r9),%rcx                 ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
+  0.18%  │↗│  0x00007fbffc488c64: mov    -0x8(%r9),%rcx                 ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
          │││                                                            ; - org.ad.OptionalBenchmark::walk@4 (line 73)
-  0.21%  │││  0x00007ff12c481ee8: mov    0xc(%rcx),%ebx
-  0.00%  │││  0x00007ff12c481eeb: inc    %r11d                          ; ImmutableOopMap{r8=Oop r9=Oop rcx=Oop }
+  0.07%  │││  0x00007fbffc488c68: mov    0xc(%rcx),%ebx
+         │││  0x00007fbffc488c6b: inc    %r11d                          ; ImmutableOopMap{r8=Oop r9=Oop rcx=Oop }
          │││                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
          │││                                                            ; - org.ad.OptionalBenchmark::walk@43 (line 73)
-  2.12%  │││  0x00007ff12c481eee: test   %eax,0x16f6110c(%rip)        # 0x00007ff1433e3000
+  0.11%  │││  0x00007fbffc488c6e: test   %eax,0x173ac38c(%rip)        # 0x00007fc013835000
          │││                                                            ;*goto {reexecute=0 rethrow=0 return_oop=0}
          │││                                                            ; - org.ad.OptionalBenchmark::walk@43 (line 73)
          │││                                                            ;   {poll}
-  0.01%  │││  0x00007ff12c481ef4: cmp    %ebx,%r11d
-  0.15%  │││  0x00007ff12c481ef7: jge    0x00007ff12c482023             ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+         │││  0x00007fbffc488c74: cmp    %ebx,%r11d
+  0.11%  │││  0x00007fbffc488c77: jge    0x00007fbffc488da3             ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
          │││                                                            ; - org.ad.OptionalBenchmark::walk@7 (line 73)
-  0.01%  │││  0x00007ff12c481efd: mov    %r11d,%r10d                    ;*aload_0 {reexecute=0 rethrow=0 return_oop=0}
+  0.04%  │││  0x00007fbffc488c7d: mov    %r11d,%r10d                    ;*aload_0 {reexecute=0 rethrow=0 return_oop=0}
          │││                                                            ; - org.ad.OptionalBenchmark::walk@10 (line 74)
-  2.15%  ↘││  0x00007ff12c481f00: mov    0x10(%rcx),%ecx                ;*getfield lst {reexecute=0 rethrow=0 return_oop=0}
+  0.11%  ↘││  0x00007fbffc488c80: mov    0x10(%rcx),%ecx                ;*getfield lst {reexecute=0 rethrow=0 return_oop=0}
           ││                                                            ; - org.ad.OptionalBenchmark::walk@11 (line 74)
-  0.32%   ││  0x00007ff12c481f03: mov    0x8(%rcx),%r11d                ; implicit exception: dispatches to 0x00007ff12c4820f6
-  0.16%   ││  0x00007ff12c481f07: cmp    $0x603c4,%r11d                 ;   {metadata(&apos;java/util/ArrayList&apos;)}
-  0.10%   ││  0x00007ff12c481f0e: jne    0x00007ff12c48207a             ;*invokeinterface get {reexecute=0 rethrow=0 return_oop=0}
+  0.11%   ││  0x00007fbffc488c83: mov    0x8(%rcx),%r11d                ; implicit exception: dispatches to 0x00007fbffc488e76
+  0.14%   ││  0x00007fbffc488c87: cmp    $0x603c4,%r11d                 ;   {metadata(&apos;java/util/ArrayList&apos;)}
+  0.07%   ││  0x00007fbffc488c8e: jne    0x00007fbffc488dfa             ;*invokeinterface get {reexecute=0 rethrow=0 return_oop=0}
           ││                                                            ; - org.ad.OptionalBenchmark::walk@15 (line 74)
-  2.04%   ││  0x00007ff12c481f14: mov    -0x8(%rcx),%rbx
-  2.00%   ││  0x00007ff12c481f18: mov    0x10(%rbx),%r11d               ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
+  0.14%   ││  0x00007fbffc488c94: mov    -0x8(%rcx),%rbx
+  0.21%   ││  0x00007fbffc488c98: mov    0x10(%rbx),%r11d               ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
           ││                                                            ; - java.util.ArrayList::get@2 (line 458)
           ││                                                            ; - org.ad.OptionalBenchmark::walk@15 (line 74)
-  0.16%   ││  0x00007ff12c481f1c: test   %r11d,%r11d
-  0.03%   ││  0x00007ff12c481f1f: jl     0x00007ff12c482096             ;*invokestatic checkIndex {reexecute=0 rethrow=0 return_oop=0}
+  0.11%   ││  0x00007fbffc488c9c: test   %r11d,%r11d
+  0.04%   ││  0x00007fbffc488c9f: jl     0x00007fbffc488e16             ;*invokestatic checkIndex {reexecute=0 rethrow=0 return_oop=0}
           ││                                                            ; - java.util.Objects::checkIndex@3 (line 372)
           ││                                                            ; - java.util.ArrayList::get@5 (line 458)
           ││                                                            ; - org.ad.OptionalBenchmark::walk@15 (line 74)
-  2.25%   ││  0x00007ff12c481f25: cmp    %r11d,%r10d
-  0.26%   ││  0x00007ff12c481f28: jae    0x00007ff12c48202f
-  0.10%   ││  0x00007ff12c481f2e: mov    0x14(%rbx),%ebx                ;*getfield elementData {reexecute=0 rethrow=0 return_oop=0}
+  0.25%   ││  0x00007fbffc488ca5: cmp    %r11d,%r10d
+  0.21%   ││  0x00007fbffc488ca8: jae    0x00007fbffc488daf
+  0.18%   ││  0x00007fbffc488cae: mov    0x14(%rbx),%ebx                ;*getfield elementData {reexecute=0 rethrow=0 return_oop=0}
           ││                                                            ; - java.util.ArrayList::elementData@1 (line 442)
           ││                                                            ; - java.util.ArrayList::get@11 (line 459)
           ││                                                            ; - org.ad.OptionalBenchmark::walk@15 (line 74)
-  0.01%   ││  0x00007ff12c481f31: mov    %r10d,%r11d                    ;*invokestatic checkIndex {reexecute=0 rethrow=0 return_oop=0}
+          ││  0x00007fbffc488cb1: mov    %r10d,%r11d                    ;*invokestatic checkIndex {reexecute=0 rethrow=0 return_oop=0}
           ││                                                            ; - java.util.Objects::checkIndex@3 (line 372)
           ││                                                            ; - java.util.ArrayList::get@5 (line 458)
           ││                                                            ; - org.ad.OptionalBenchmark::walk@15 (line 74)
-  2.22%   ││  0x00007ff12c481f34: mov    0xc(%rbx),%edi                 ; implicit exception: dispatches to 0x00007ff12c482106
-  1.44%   ││  0x00007ff12c481f37: cmp    %edi,%r11d
-  0.27%   ││  0x00007ff12c481f3a: jae    0x00007ff12c482056
-  0.02%   ││  0x00007ff12c481f40: mov    -0x8(%r12,%rbx,1),%r10
-  2.01%   ││  0x00007ff12c481f45: mov    0x10(%r10,%r11,4),%r10d        ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+  0.32%   ││  0x00007fbffc488cb4: mov    0xc(%rbx),%edi                 ; implicit exception: dispatches to 0x00007fbffc488e86
+  0.32%   ││  0x00007fbffc488cb7: cmp    %edi,%r11d
+  0.18%   ││  0x00007fbffc488cba: jae    0x00007fbffc488dd6
+          ││  0x00007fbffc488cc0: mov    -0x8(%r12,%rbx,1),%r10
+  0.14%   ││  0x00007fbffc488cc5: mov    0x10(%r10,%r11,4),%r10d        ;*aaload {reexecute=0 rethrow=0 return_oop=0}
           ││                                                            ; - java.util.ArrayList::elementData@5 (line 442)
           ││                                                            ; - java.util.ArrayList::get@11 (line 459)
           ││                                                            ; - org.ad.OptionalBenchmark::walk@15 (line 74)
- 25.69%   ││  0x00007ff12c481f4a: test   %r10d,%r10d
-  0.07%   ││  0x00007ff12c481f4d: je     0x00007ff12c481fe6
-  0.06%   ││  0x00007ff12c481f53: mov    0x8(%r10),%ebx
-  1.20%   ││  0x00007ff12c481f57: cmp    $0x6a2d6,%ebx                  ;   {metadata(&apos;java/lang/String&apos;)}
-  0.60%   ││  0x00007ff12c481f5d: jne    0x00007ff12c4820d6
-  0.00%   ││  0x00007ff12c481f63: mov    0x118(%r15),%rax
-          ││  0x00007ff12c481f6a: mov    %rax,%rcx
-  1.07%   ││  0x00007ff12c481f6d: add    $0x18,%rcx
-  0.00%   ││  0x00007ff12c481f71: mov    %r10,%rbp                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+ 11.18%   ││  0x00007fbffc488cca: test   %r10d,%r10d
+  0.14%   ││  0x00007fbffc488ccd: je     0x00007fbffc488d66
+  0.04%   ││  0x00007fbffc488cd3: mov    0x8(%r10),%ebx
+  0.32%   ││  0x00007fbffc488cd7: cmp    $0x6a2d6,%ebx                  ;   {metadata(&apos;java/lang/String&apos;)}
+  0.07%   ││  0x00007fbffc488cdd: jne    0x00007fbffc488e56
+          ││  0x00007fbffc488ce3: mov    0x118(%r15),%rax
+          ││  0x00007fbffc488cea: mov    %rax,%rcx
+  0.18%   ││  0x00007fbffc488ced: add    $0x18,%rcx
+          ││  0x00007fbffc488cf1: mov    %r10,%rbp                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
           ││                                                            ; - org.ad.OptionalBenchmark::walk@20 (line 74)
-          ││  0x00007ff12c481f74: cmp    0x128(%r15),%rcx
-  0.00%   ││  0x00007ff12c481f7b: jae    0x00007ff12c481ff2
-  1.07%   ││  0x00007ff12c481f7d: mov    %rcx,0x118(%r15)
-  0.00%   ││  0x00007ff12c481f84: add    $0x8,%rax
-  1.08%   ││  0x00007ff12c481f88: mov    %rax,-0x8(%rax)
-  1.83%   ││  0x00007ff12c481f8c: movq   $0x1,(%rax)
-  1.91%   ││  0x00007ff12c481f93: movl   $0x5f193,0x8(%rax)             ;   {metadata(&apos;java/util/Optional&apos;)}
-  1.94%   ││  0x00007ff12c481f9a: movl   $0x0,0xc(%rax)                 ;*new {reexecute=0 rethrow=0 return_oop=0}
+          ││  0x00007fbffc488cf4: cmp    0x128(%r15),%rcx
+          ││  0x00007fbffc488cfb: jae    0x00007fbffc488d72
+  0.21%   ││  0x00007fbffc488cfd: mov    %rcx,0x118(%r15)
+  0.04%   ││  0x00007fbffc488d04: add    $0x8,%rax
+  0.25%   ││  0x00007fbffc488d08: mov    %rax,-0x8(%rax)
+  0.39%   ││  0x00007fbffc488d0c: movq   $0x1,(%rax)
+  0.25%   ││  0x00007fbffc488d13: movl   $0x5f193,0x8(%rax)             ;   {metadata(&apos;java/util/Optional&apos;)}
+  0.32%   ││  0x00007fbffc488d1a: movl   $0x0,0xc(%rax)                 ;*new {reexecute=0 rethrow=0 return_oop=0}
           ││                                                            ; - java.util.Optional::of@0 (line 120)
           ││                                                            ; - java.util.Optional::ofNullable@11 (line 133)
           ││                                                            ; - org.ad.OptionalBenchmark::walk@23 (line 74)
-  7.40%   ││  0x00007ff12c481fa1: mov    -0x8(%rbp),%r10
-  0.00%   ││  0x00007ff12c481fa5: mov    %r10,%rcx
-  1.13%   ││  0x00007ff12c481fa8: mov    %ecx,0xc(%rax)                 ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
-          ││                                                            ; - org.ad.OptionalBenchmark$$Lambda$42/0x00000008011a9c40::get$Lambda@5
+  1.44%   ││  0x00007fbffc488d21: mov    -0x8(%rbp),%r10
+          ││  0x00007fbffc488d25: mov    %r10,%rcx
+  0.32%   ││  0x00007fbffc488d28: mov    %ecx,0xc(%rax)                 ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+          ││                                                            ; - org.ad.OptionalBenchmark$$Lambda$53/0x00000008011ac840::get$Lambda@5
           ││                                                            ; - java.lang.invoke.DirectMethodHandle$Holder::invokeStatic@10
           ││                                                            ; - java.lang.invoke.Invokers$Holder::linkToTargetMethod@5
           ││                                                            ; - org.ad.OptionalBenchmark::walk@32 (line 74)
- 11.48%   ││  0x00007ff12c481fab: mov    0xc(%rax),%r10d                ;*getfield value {reexecute=0 rethrow=0 return_oop=0}
+  1.75%   ││  0x00007fbffc488d2b: mov    0xc(%rax),%r10d                ;*getfield value {reexecute=0 rethrow=0 return_oop=0}
           ││                                                            ; - java.util.Optional::ifPresent@1 (line 182)
           ││                                                            ; - org.ad.OptionalBenchmark::walk@37 (line 74)
-  0.02%   ││  0x00007ff12c481faf: test   %r10d,%r10d
-  0.00%   ╰│  0x00007ff12c481fb2: je     0x00007ff12c481ee4             ;*ifnull {reexecute=0 rethrow=0 return_oop=0}
+  0.11%   ││  0x00007fbffc488d2f: test   %r10d,%r10d
+          ╰│  0x00007fbffc488d32: je     0x00007fbffc488c64             ;*ifnull {reexecute=0 rethrow=0 return_oop=0}
            │                                                            ; - java.util.Optional::ifPresent@4 (line 182)
            │                                                            ; - org.ad.OptionalBenchmark::walk@37 (line 74)
-  1.16%    │  0x00007ff12c481fb8: mov    0x8(%r10),%ecx
-  3.38%    │  0x00007ff12c481fbc: cmp    $0x6a2d6,%ecx                  ;   {metadata(&apos;java/lang/String&apos;)}
-  0.02%    ╰  0x00007ff12c481fc2: je     0x00007ff12c481ec0
-              0x00007ff12c481fc8: mov    $0xffffffde,%esi
-              0x00007ff12c481fcd: mov    %r9,%rbp
-              0x00007ff12c481fd0: mov    %r11d,0x8(%rsp)
-              0x00007ff12c481fd5: mov    %r8,0x10(%rsp)
-              0x00007ff12c481fda: mov    %r10d,0xc(%rsp)
-              0x00007ff12c481fdf: callq  0x00007ff1248d1800             ; ImmutableOopMap{rbp=Oop [12]=NarrowOop [16]=Oop }
+  0.11%    │  0x00007fbffc488d38: mov    0x8(%r10),%ecx
+  0.28%    │  0x00007fbffc488d3c: cmp    $0x6a2d6,%ecx                  ;   {metadata(&apos;java/lang/String&apos;)}
+           ╰  0x00007fbffc488d42: je     0x00007fbffc488c40
+              0x00007fbffc488d48: mov    $0xffffffde,%esi
+              0x00007fbffc488d4d: mov    %r9,%rbp
+              0x00007fbffc488d50: mov    %r11d,0x8(%rsp)
+              0x00007fbffc488d55: mov    %r8,0x10(%rsp)
+              0x00007fbffc488d5a: mov    %r10d,0xc(%rsp)
+              0x00007fbffc488d5f: callq  0x00007fbff48d1800             ; ImmutableOopMap{rbp=Oop [12]=NarrowOop [16]=Oop }
                                                                         ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
-                                                                        ; - org.ad.OptionalBenchmark$$Lambda$42/0x00000008011a9c40::accept@5
+                                                                        ; - org.ad.OptionalBenchmark$$Lambda$53/0x00000008011ac840::accept@5
                                                                         ; - java.util.Optional::ifPresent@12 (line 183)
-                                                                        ; - org.ad.OptionalBenchmark::walk@37 (line 74)
 ....................................................................................................
- 86.00%  <total for region 1>
+ 21.28%  <total for region 2>

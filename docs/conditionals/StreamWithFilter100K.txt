@@ -1,250 +1,113 @@
 ....[Hottest Region 1]..............................................................................
-c2, level 4, java.util.stream.AbstractPipeline::wrapAndCopyInto, version 801 (284 bytes)
+ [kernel.kallsyms], native_write_msr_safe (0 bytes)
 
-             0x00007fb12048b47b: cmp    %ebx,%r10d
-             0x00007fb12048b47e: jae    0x00007fb12048b8f2
-             0x00007fb12048b484: movslq %r11d,%r9
-             0x00007fb12048b487: movslq %ebx,%rbx
-             0x00007fb12048b48a: dec    %r9
-             0x00007fb12048b48d: cmp    %rbx,%r9
-             0x00007fb12048b490: jae    0x00007fb12048b8f2
-             0x00007fb12048b496: mov    (%rsp),%ebx
-             0x00007fb12048b499: cmp    $0x3065,%ebx                   ;   {metadata(&apos;java/util/stream/ReferencePipeline$2$1&apos;)}
-             0x00007fb12048b49f: jne    0x00007fb12048b8f2
-  0.00%      0x00007fb12048b4a5: mov    0x28(%rsp),%rbx                ;*invokeinterface accept {reexecute=0 rethrow=0 return_oop=0}
+ <no assembly is recorded, native region>
+....................................................................................................
+ 24.80%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+c2, level 4, java.util.ArrayList$ArrayListSpliterator::forEachRemaining, version 753 (166 bytes)
+
                                                                        ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
-                                                                       ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-                                                                       ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-             0x00007fb12048b4aa: mov    %r8,%rsi                       ;*getfield elementData {reexecute=0 rethrow=0 return_oop=0}
+             0x00007f0b43a0df86: mov    %r11,%rsi                      ;*getfield elementData {reexecute=0 rethrow=0 return_oop=0}
                                                                        ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@16 (line 1644)
-                                                                       ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-                                                                       ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-         ╭   0x00007fb12048b4ad: jmp    0x00007fb12048b4d8
-         │   0x00007fb12048b4af: mov    0xc(%r10),%ecx                 ;*getfield modCount {reexecute=0 rethrow=0 return_oop=0}
+         ╭   0x00007f0b43a0df89: jmp    0x00007f0b43a0dfbd
+         │   0x00007f0b43a0df8b: mov    0xc(%rdi),%r8d                 ;*getfield modCount {reexecute=0 rethrow=0 return_oop=0}
          │                                                             ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@38 (line 1646)
-         │                                                             ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-         │                                                             ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-         │   0x00007fb12048b4b3: mov    0x10(%r10),%r11d               ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
+         │   0x00007f0b43a0df8f: mov    0x10(%rdi),%r9d                ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
          │                                                             ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@47 (line 1647)
-         │                                                             ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-         │                                                             ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-         │   0x00007fb12048b4b7: jmp    0x00007fb12048b458
-         │   0x00007fb12048b4b9: nopl   0x0(%rax)
-  1.41%  │↗  0x00007fb12048b4c0: mov    0x4(%rsp),%r8d
-  0.00%  ││  0x00007fb12048b4c5: mov    0x8(%rsp),%r11d
-  1.26%  ││  0x00007fb12048b4ca: mov    0xc(%rsp),%ecx
-  0.00%  ││  0x00007fb12048b4ce: mov    0x18(%rsp),%rbx
-  1.38%  ││  0x00007fb12048b4d3: mov    0x30(%rsp),%rsi                ;*aload {reexecute=0 rethrow=0 return_oop=0}
+         │   0x00007f0b43a0df93: jmp    0x00007f0b43a0df3b
+         │   0x00007f0b43a0df95: data16 data16 nopw 0x0(%rax,%rax,1)
+  0.04%  │↗  0x00007f0b43a0dfa0: mov    (%rsp),%rcx
+  0.30%  ││  0x00007f0b43a0dfa4: mov    0x8(%rsp),%r11d
+  0.08%  ││  0x00007f0b43a0dfa9: mov    0xc(%rsp),%r9d
+  0.15%  ││  0x00007f0b43a0dfae: mov    0x10(%rsp),%r8d
+  0.19%  ││  0x00007f0b43a0dfb3: mov    0x18(%rsp),%rbx
+  0.30%  ││  0x00007f0b43a0dfb8: mov    0x20(%rsp),%rsi                ;*aload {reexecute=0 rethrow=0 return_oop=0}
          ││                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@86 (line 1653)
-         ││                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-         ││                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-  0.21%  ↘│  0x00007fb12048b4d8: mov    -0x8(%rbx),%rax
-  1.29%   │  0x00007fb12048b4dc: mov    0x10(%rax),%edi                ;*getfield this$1 {reexecute=0 rethrow=0 return_oop=0}
+  0.11%  ↘│  0x00007f0b43a0dfbd: mov    0x10(%rbx),%r10d               ;*getfield this$1 {reexecute=0 rethrow=0 return_oop=0}
           │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@1 (line 176)
           │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
-          │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-          │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-  6.58%   │  0x00007fb12048b4df: mov    -0x8(%r12,%rdi,1),%r9          ; implicit exception: dispatches to 0x00007fb12048ba96
-  1.30%   │  0x00007fb12048b4e4: mov    0x34(%r9),%edx                 ;*getfield val$predicate {reexecute=0 rethrow=0 return_oop=0}
+  0.23%   │  0x00007f0b43a0dfc1: mov    0x34(%r10),%edx                ;*getfield val$predicate {reexecute=0 rethrow=0 return_oop=0}
           │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@4 (line 176)
           │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
-          │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-          │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-  3.22%   │  0x00007fb12048b4e8: mov    -0x8(%r12,%r8,1),%r9
-  1.25%   │  0x00007fb12048b4ed: mov    0x10(%r9,%r10,4),%edi          ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; implicit exception: dispatches to 0x00007f0b43a0e18f
+  0.68%   │  0x00007f0b43a0dfc5: mov    0x10(%r11,%rbp,4),%edi         ;*aaload {reexecute=0 rethrow=0 return_oop=0}
           │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@89 (line 1653)
-          │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-          │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-  3.83%   │  0x00007fb12048b4f2: mov    0x8(%rdx),%r9d                 ; implicit exception: dispatches to 0x00007fb12048baa2
-  0.00%   │  0x00007fb12048b4f6: cmp    $0x235688,%r9d                 ;   {metadata(&apos;org/ad/StreamWithFilterBenchmark$$Lambda$47&apos;)}
-  1.34%   │  0x00007fb12048b4fd: jne    0x00007fb12048b682             ;*invokeinterface test {reexecute=0 rethrow=0 return_oop=0}
+  0.26%   │  0x00007f0b43a0dfca: mov    0x8(%rdx),%eax                 ; implicit exception: dispatches to 0x00007f0b43a0e19e
+ 11.29%   │  0x00007f0b43a0dfcd: cmp    $0x235608,%eax                 ;   {metadata(&apos;org/ad/StreamWithFilterBenchmark$$Lambda$46&apos;)}
+          │  0x00007f0b43a0dfd3: jne    0x00007f0b43a0e092             ;*invokeinterface test {reexecute=0 rethrow=0 return_oop=0}
           │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@8 (line 176)
           │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
-          │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-          │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
- 34.38%   │  0x00007fb12048b503: mov    0x8(%rdi),%r9d                 ; implicit exception: dispatches to 0x00007fb12048bab2
-  0.02%   │  0x00007fb12048b507: cmp    $0x6a2d6,%r9d                  ;   {metadata(&apos;java/lang/String&apos;)}
-  1.30%   │  0x00007fb12048b50e: jne    0x00007fb12048ba5a             ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
-          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$47/0x00000008011ab440::test@1
+  0.15%   │  0x00007f0b43a0dfd9: mov    0x8(%rdi),%edx                 ; implicit exception: dispatches to 0x00007f0b43a0e1ae
+  4.08%   │  0x00007f0b43a0dfdc: cmp    $0x6a2d6,%edx                  ;   {metadata(&apos;java/lang/String&apos;)}
+  0.04%   │  0x00007f0b43a0dfe2: jne    0x00007f0b43a0e15a             ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$46/0x00000008011ab040::test@1
           │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@8 (line 176)
           │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
-          │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-          │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-  0.05%   │  0x00007fb12048b514: mov    0xc(%rax),%eax                 ;*getfield downstream {reexecute=0 rethrow=0 return_oop=0}
+          │  0x00007f0b43a0dfe8: mov    0xc(%rbx),%eax                 ;*getfield downstream {reexecute=0 rethrow=0 return_oop=0}
           │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@17 (line 177)
           │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
-          │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-          │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-  0.00%   │  0x00007fb12048b517: mov    %rdi,%rdx                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
-          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$47/0x00000008011ab440::test@1
+  0.26%   │  0x00007f0b43a0dfeb: mov    %rdi,%rdx                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$46/0x00000008011ab040::test@1
           │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@8 (line 176)
           │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
-          │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-          │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-  0.00%   │  0x00007fb12048b51a: mov    0x8(%rax),%r9d                 ; implicit exception: dispatches to 0x00007fb12048baee
-  1.35%   │  0x00007fb12048b51e: cmp    $0x229f5e,%r9d                 ;   {metadata(&apos;java/util/stream/ForEachOps$ForEachOp$OfRef&apos;)}
-  0.00%   │  0x00007fb12048b525: jne    0x00007fb12048b6c2
-  0.00%   │  0x00007fb12048b52b: mov    %rax,%r9                       ;*invokeinterface accept {reexecute=0 rethrow=0 return_oop=0}
+  0.30%   │  0x00007f0b43a0dfee: mov    0x8(%rax),%r10d                ; implicit exception: dispatches to 0x00007f0b43a0e1d6
+  0.04%   │  0x00007f0b43a0dff2: cmp    $0x229f5e,%r10d                ;   {metadata(&apos;java/util/stream/ForEachOps$ForEachOp$OfRef&apos;)}
+          │  0x00007f0b43a0dff9: jne    0x00007f0b43a0e0be
+  0.38%   │  0x00007f0b43a0dfff: mov    %rax,%r10                      ;*invokeinterface accept {reexecute=0 rethrow=0 return_oop=0}
           │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
           │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
-          │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-          │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-  1.27%   │  0x00007fb12048b52e: mov    -0x8(%r9),%r9
-  0.02%   │  0x00007fb12048b532: mov    0x10(%r9),%eax                 ;*getfield consumer {reexecute=0 rethrow=0 return_oop=0}
+  0.19%   │  0x00007f0b43a0e002: mov    0x10(%r10),%r10d               ;*getfield consumer {reexecute=0 rethrow=0 return_oop=0}
           │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@1 (line 183)
           │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
           │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
-          │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-          │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-  1.36%   │  0x00007fb12048b536: mov    0x8(%rax),%edi                 ; implicit exception: dispatches to 0x00007fb12048bafe
-  0.70%   │  0x00007fb12048b539: cmp    $0x235b88,%edi                 ;   {metadata(&apos;org/ad/StreamWithFilterBenchmark$$Lambda$59&apos;)}
-  0.00%   │  0x00007fb12048b53f: jne    0x00007fb12048b702
-  0.00%   │  0x00007fb12048b545: mov    %rax,%r9                       ;*invokeinterface accept {reexecute=0 rethrow=0 return_oop=0}
+          │  0x00007f0b43a0e006: mov    0x8(%r10),%edi                 ; implicit exception: dispatches to 0x00007f0b43a0e1e6
+          │  0x00007f0b43a0e00a: cmp    $0x235e08,%edi                 ;   {metadata(&apos;org/ad/StreamWithFilterBenchmark$$Lambda$63&apos;)}
+  0.42%   │  0x00007f0b43a0e010: jne    0x00007f0b43a0e0ee             ;*invokeinterface accept {reexecute=0 rethrow=0 return_oop=0}
           │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@5 (line 183)
           │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
           │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
-          │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-          │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-  1.29%   │  0x00007fb12048b548: mov    -0x8(%r9),%r9
-  4.17%   │  0x00007fb12048b54c: mov    0xc(%r9),%r9d                  ;*getfield arg$1 {reexecute=0 rethrow=0 return_oop=0}
-          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$59/0x00000008011adc40::accept@1
+  0.04%   │  0x00007f0b43a0e016: mov    0xc(%r10),%r10d                ;*getfield arg$1 {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$63/0x00000008011af040::accept@1
           │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@5 (line 183)
           │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
           │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
-          │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-          │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-  0.00%   │  0x00007fb12048b550: test   %r9d,%r9d
-  0.00%   │  0x00007fb12048b553: je     0x00007fb12048b672             ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
-          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$59/0x00000008011adc40::accept@8
+          │  0x00007f0b43a0e01a: test   %r10d,%r10d
+  0.19%   │  0x00007f0b43a0e01d: je     0x00007f0b43a0e082             ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$63/0x00000008011af040::accept@8
           │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@5 (line 183)
           │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
           │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
-          │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-          │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-  1.29%   │  0x00007fb12048b559: mov    %rsi,0x30(%rsp)
-  1.26%   │  0x00007fb12048b55e: mov    %rbx,0x18(%rsp)
-  1.37%   │  0x00007fb12048b563: mov    %r10d,0x10(%rsp)
-  1.28%   │  0x00007fb12048b568: mov    %ecx,0xc(%rsp)
-  1.39%   │  0x00007fb12048b56c: mov    %r11d,0x8(%rsp)
-  1.36%   │  0x00007fb12048b571: mov    %r8d,0x4(%rsp)                 ;*synchronization entry
-          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$59/0x00000008011adc40::accept@-1
+          │  0x00007f0b43a0e01f: mov    %rsi,0x20(%rsp)
+  0.26%   │  0x00007f0b43a0e024: mov    %rbx,0x18(%rsp)
+  0.23%   │  0x00007f0b43a0e029: mov    %r8d,0x10(%rsp)
+  0.19%   │  0x00007f0b43a0e02e: mov    %r9d,0xc(%rsp)
+  0.45%   │  0x00007f0b43a0e033: mov    %r11d,0x8(%rsp)
+  0.49%   │  0x00007f0b43a0e038: mov    %rcx,(%rsp)                    ;*synchronization entry
+          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$63/0x00000008011af040::accept@-1
           │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@5 (line 183)
           │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
           │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
-          │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-          │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-  0.06%   │  0x00007fb12048b576: mov    %r9,%rsi                       ;*getfield arg$1 {reexecute=0 rethrow=0 return_oop=0}
-          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$59/0x00000008011adc40::accept@1
-          │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@5 (line 183)
-          │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
-          │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
-          │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-          │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-          │  0x00007fb12048b579: xchg   %ax,%ax
-  1.36%   │  0x00007fb12048b57b: callq  0x00007fb120484250             ; ImmutableOopMap{rbp=Oop [4]=NarrowOop [24]=Oop [32]=Oop [40]=Oop [48]=Oop }
+  0.08%   │  0x00007f0b43a0e03c: mov    %r10,%rsi
+  0.11%   │  0x00007f0b43a0e03f: callq  0x00007f0b3be56d80             ; ImmutableOopMap{[0]=Oop [8]=NarrowOop [24]=Oop [32]=Oop }
           │                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
-          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$59/0x00000008011adc40::accept@8
+          │                                                            ; - org.ad.StreamWithFilterBenchmark$$Lambda$63/0x00000008011af040::accept@8
           │                                                            ; - java.util.stream.ForEachOps$ForEachOp$OfRef::accept@5 (line 183)
           │                                                            ; - java.util.stream.ReferencePipeline$2$1::accept@21 (line 177)
           │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@95 (line 1654)
-          │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-          │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
           │                                                            ;   {optimized virtual_call}
-  0.97%   │  0x00007fb12048b580: mov    0x10(%rsp),%r10d
-  0.01%   │  0x00007fb12048b585: inc    %r10d                          ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+          │  0x00007f0b43a0e044: inc    %ebp                           ;*iinc {reexecute=0 rethrow=0 return_oop=0}
           │                                                            ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@100 (line 1652)
-          │                                                            ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-          │                                                            ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-  1.24%   │  0x00007fb12048b588: cmp    0x8(%rsp),%r10d
-  0.00%   ╰  0x00007fb12048b58d: jl     0x00007fb12048b4c0             ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+  0.38%   │  0x00007f0b43a0e046: cmp    0xc(%rsp),%ebp
+          ╰  0x00007f0b43a0e04a: jl     0x00007f0b43a0dfa0             ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
                                                                        ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@83 (line 1652)
-                                                                       ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-                                                                       ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-  0.00%      0x00007fb12048b593: mov    0x18(%rbp),%r9d                ;*getfield this$0 {reexecute=0 rethrow=0 return_oop=0}
+             0x00007f0b43a0e050: mov    (%rsp),%r10
+             0x00007f0b43a0e054: mov    0x18(%r10),%edi                ;*getfield this$0 {reexecute=0 rethrow=0 return_oop=0}
                                                                        ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@107 (line 1656)
-                                                                       ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-                                                                       ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-  0.00%      0x00007fb12048b597: test   %r9d,%r9d
-             0x00007fb12048b59a: je     0x00007fb12048b97d
-             0x00007fb12048b5a0: mov    0xc(%rsp),%ecx                 ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+             0x00007f0b43a0e058: test   %edi,%edi
+             0x00007f0b43a0e05a: je     0x00007f0b43a0e14e
+             0x00007f0b43a0e060: mov    0x10(%rsp),%r8d                ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
                                                                        ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@83 (line 1652)
-                                                                       ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-                                                                       ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-             0x00007fb12048b5a4: mov    -0x8(%r12,%r9,1),%r10          ;*getfield modCount {reexecute=0 rethrow=0 return_oop=0}
-                                                                       ; - java.util.ArrayList$ArrayListSpliterator::forEachRemaining@110 (line 1656)
-                                                                       ; - java.util.stream.AbstractPipeline::copyInto@32 (line 484)
-                                                                       ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-  0.00%      0x00007fb12048b5a9: mov    0xc(%r10),%r10d
-             0x00007fb12048b5ad: cmp    %ecx,%r10d
-             0x00007fb12048b5b0: jne    0x00007fb12048b8e0             ;*synchronization entry
-                                                                       ; - java.util.stream.AbstractPipeline::copyInto@-1 (line 480)
-                                                                       ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-             0x00007fb12048b5b6: mov    (%rsp),%r10d
-             0x00007fb12048b5ba: cmp    $0x3065,%r10d                  ;   {metadata(&apos;java/util/stream/ReferencePipeline$2$1&apos;)}
-  0.00%      0x00007fb12048b5c1: jne    0x00007fb12048b822
-             0x00007fb12048b5c7: mov    0x28(%rsp),%r10                ;*invokeinterface end {reexecute=0 rethrow=0 return_oop=0}
-                                                                       ; - java.util.stream.AbstractPipeline::copyInto@38 (line 485)
-                                                                       ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-             0x00007fb12048b5cc: mov    -0x8(%r10),%r10
-             0x00007fb12048b5d0: mov    0xc(%r10),%ebp                 ;*getfield downstream {reexecute=0 rethrow=0 return_oop=0}
-                                                                       ; - java.util.stream.Sink$ChainedReference::end@1 (line 258)
-                                                                       ; - java.util.stream.AbstractPipeline::copyInto@-1 (line 480)
-                                                                       ; - java.util.stream.AbstractPipeline::wrapAndCopyInto@13 (line 474)
-             0x00007fb12048b5d4: mov    0x8(%rbp),%r11d                ; implicit exception: dispatches to 0x00007fb12048bb56
-             0x00007fb12048b5d8: cmp    $0x229f5e,%r11d                ;   {metadata(&apos;java/util/stream/ForEachOps$ForEachOp$OfRef&apos;)}
 ....................................................................................................
- 80.60%  <total for region 1>
-
-....[Hottest Region 2]..............................................................................
-c2, level 4, org.openjdk.jmh.infra.Blackhole::consume, version 714 (82 bytes)
-
-            0x00007fb120484224: shl    $0x3,%r10
-            0x00007fb120484228: movabs $0x800000000,%r12
-            0x00007fb120484232: add    %r12,%r10
-            0x00007fb120484235: xor    %r12,%r12
-            0x00007fb120484238: cmp    %r10,%rax
-            0x00007fb12048423b: jne    0x00007fb1188d0080             ;   {runtime_call ic_miss_stub}
-            0x00007fb120484241: data16 xchg %ax,%ax
-            0x00007fb120484244: nopw   0x0(%rax,%rax,1)
-            0x00007fb12048424a: nopw   0x0(%rax,%rax,1)
-          [Verified Entry Point]
-  1.34%     0x00007fb120484250: mov    %eax,-0x14000(%rsp)
-  1.34%     0x00007fb120484257: push   %rbp
-  0.20%     0x00007fb120484258: sub    $0x30,%rsp                     ;*synchronization entry
-                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@-1 (line 307)
-  1.37%     0x00007fb12048425c: mov    %rdx,(%rsp)                    ;*putfield queue {reexecute=0 rethrow=0 return_oop=0}
-                                                                      ; - java.lang.ref.Reference::&lt;init&gt;@21 (line 400)
-                                                                      ; - java.lang.ref.Reference::&lt;init&gt;@3 (line 395)
-                                                                      ; - java.lang.ref.WeakReference::&lt;init&gt;@2 (line 57)
-                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@33 (line 311)
-  1.86%     0x00007fb120484260: testb  $0x1,0x20(%r15)
-  0.00%     0x00007fb120484265: jne    0x00007fb120484347             ;*putfield tlr {reexecute=0 rethrow=0 return_oop=0}
-                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@17 (line 308)
-  1.22%     0x00007fb12048426b: mov    %rsi,0x8(%rsp)
-  0.31%     0x00007fb120484270: mov    0xc4(%rsi),%ebp                ;*getfield tlrMask {reexecute=0 rethrow=0 return_oop=0}
-                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@1 (line 307)
-  1.37%     0x00007fb120484276: imul   $0x19660d,0xc0(%rsi),%r11d
-  5.30%     0x00007fb120484281: add    $0x3c6ef35f,%r11d              ;*iadd {reexecute=0 rethrow=0 return_oop=0}
-                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@15 (line 308)
-  0.00%     0x00007fb120484288: mov    %r11d,0xc0(%rsi)               ;*putfield tlr {reexecute=0 rethrow=0 return_oop=0}
-                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@17 (line 308)
-  1.38%     0x00007fb12048428f: and    %ebp,%r11d
-  0.00%     0x00007fb120484292: test   %r11d,%r11d
-         ╭  0x00007fb120484295: je     0x00007fb1204842a3             ;*putfield obj1 {reexecute=0 rethrow=0 return_oop=0}
-         │                                                            ; - org.openjdk.jmh.infra.Blackhole::consume@36 (line 311)
-  0.00%  │  0x00007fb120484297: add    $0x30,%rsp
-  1.27%  │  0x00007fb12048429b: pop    %rbp
-  0.09%  │  0x00007fb12048429c: test   %eax,0x179f2d5e(%rip)        # 0x00007fb137e77000
-         │                                                            ;   {poll_return}
-  1.32%  │  0x00007fb1204842a2: retq
-         ↘  0x00007fb1204842a3: mov    0x118(%r15),%rbx
-            0x00007fb1204842aa: mov    %rbx,%r10
-            0x00007fb1204842ad: add    $0x28,%r10
-            0x00007fb1204842b1: cmp    0x128(%r15),%r10
-            0x00007fb1204842b8: jae    0x00007fb120484407             ;*putfield queue {reexecute=0 rethrow=0 return_oop=0}
-                                                                      ; - java.lang.ref.Reference::&lt;init&gt;@21 (line 400)
-                                                                      ; - java.lang.ref.Reference::&lt;init&gt;@3 (line 395)
-                                                                      ; - java.lang.ref.WeakReference::&lt;init&gt;@2 (line 57)
-                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@33 (line 311)
-....................................................................................................
- 18.37%  <total for region 2>
+ 21.90%  <total for region 2>

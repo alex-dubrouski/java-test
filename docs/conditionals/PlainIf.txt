@@ -1,89 +1,139 @@
 ....[Hottest Region 1]..............................................................................
-c2, level 4, org.ad.IfBenchmark::walk, version 664 (120 bytes)
+c2, level 4, org.ad.IfBenchmark::walk, version 717 (120 bytes)
 
-              0x00007f1df0480805: mov    -0x8(%rsi),%r11
-              0x00007f1df0480809: mov    0xc(%r11),%ebp                 ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
+              0x00007f3c90486b01: mov    %rsi,(%rsp)
+              0x00007f3c90486b05: mov    0xc(%rsi),%ebp                 ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
                                                                         ; - org.ad.IfBenchmark::walk@4 (line 72)
-              0x00007f1df048080d: test   %ebp,%ebp
-              0x00007f1df048080f: jle    0x00007f1df04808b6             ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+              0x00007f3c90486b08: test   %ebp,%ebp
+              0x00007f3c90486b0a: jle    0x00007f3c90486bae             ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
                                                                         ; - org.ad.IfBenchmark::walk@7 (line 72)
-              0x00007f1df0480815: test   %rdx,%rdx
-              0x00007f1df0480818: je     0x00007f1df048095e
-              0x00007f1df048081e: xor    %r10d,%r10d
-         ╭    0x00007f1df0480821: jmp    0x00007f1df048084c
-  2.83%  │ ↗  0x00007f1df0480823: mov    %r9,%rdx                       ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+              0x00007f3c90486b10: test   %rdx,%rdx
+              0x00007f3c90486b13: je     0x00007f3c90486c5a
+              0x00007f3c90486b19: xor    %r9d,%r9d
+         ╭    0x00007f3c90486b1c: jmp    0x00007f3c90486b4c
+  2.02%  │ ↗  0x00007f3c90486b1e: mov    %r9,%rdx                       ;*aaload {reexecute=0 rethrow=0 return_oop=0}
          │ │                                                            ; - java.util.ArrayList::elementData@5 (line 442)
          │ │                                                            ; - java.util.ArrayList::get@11 (line 459)
          │ │                                                            ; - org.ad.IfBenchmark::walk@15 (line 73)
-         │ │  0x00007f1df0480826: mov    0x8(%rsp),%rsi
-  2.30%  │ │  0x00007f1df048082b: callq  0x00007f1df047f950             ; ImmutableOopMap{[0]=Oop [8]=Oop }
+  0.02%  │ │  0x00007f3c90486b21: mov    0x8(%rsp),%rsi
+         │ │  0x00007f3c90486b26: nop
+  1.49%  │ │  0x00007f3c90486b27: callq  0x00007f3c888ced80             ; ImmutableOopMap{[0]=Oop [8]=Oop }
          │ │                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
          │ │                                                            ; - org.ad.IfBenchmark::walk@34 (line 74)
          │ │                                                            ;   {optimized virtual_call}
-  2.29%  │↗│  0x00007f1df0480830: mov    (%rsp),%r10
-  0.01%  │││  0x00007f1df0480834: mov    -0x8(%r10),%r11                ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
-         │││                                                            ; - org.ad.IfBenchmark::walk@4 (line 72)
-  4.54%  │││  0x00007f1df0480838: mov    0xc(%r11),%r8d
-  0.04%  │││  0x00007f1df048083c: inc    %ebp                           ; ImmutableOopMap{r10=Oop r11=Oop [0]=Oop [8]=Oop }
+         │ │  0x00007f3c90486b2c: nopl   0x0(%rax)                      ;*goto {reexecute=0 rethrow=0 return_oop=0}
+         │ │                                                            ; - org.ad.IfBenchmark::walk@40 (line 72)
+  2.04%  │↗│  0x00007f3c90486b30: mov    0x108(%r15),%r10
+         │││  0x00007f3c90486b37: mov    (%rsp),%r11
+  2.11%  │││  0x00007f3c90486b3b: mov    0xc(%r11),%r8d
+  0.22%  │││  0x00007f3c90486b3f: inc    %ebp                           ; ImmutableOopMap{r11=Oop [0]=Oop [8]=Oop }
          │││                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
          │││                                                            ; - org.ad.IfBenchmark::walk@40 (line 72)
-  0.00%  │││  0x00007f1df048083e: test   %eax,0x17d077bc(%rip)        # 0x00007f1e08188000
-         │││                                                            ;*goto {reexecute=0 rethrow=0 return_oop=0}
+  0.02%  │││  0x00007f3c90486b41: test   %eax,(%r10)                    ;*goto {reexecute=0 rethrow=0 return_oop=0}
          │││                                                            ; - org.ad.IfBenchmark::walk@40 (line 72)
          │││                                                            ;   {poll}
-         │││  0x00007f1df0480844: cmp    %r8d,%ebp
-  4.66%  │││  0x00007f1df0480847: jge    0x00007f1df04808b6             ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+         │││  0x00007f3c90486b44: cmp    %r8d,%ebp
+  2.97%  │││  0x00007f3c90486b47: jge    0x00007f3c90486bae             ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
          │││                                                            ; - org.ad.IfBenchmark::walk@7 (line 72)
-  2.46%  │││  0x00007f1df0480849: mov    %ebp,%r10d                     ;*aload_0 {reexecute=0 rethrow=0 return_oop=0}
+  1.60%  │││  0x00007f3c90486b49: mov    %ebp,%r9d                      ;*aload_0 {reexecute=0 rethrow=0 return_oop=0}
          │││                                                            ; - org.ad.IfBenchmark::walk@10 (line 73)
-  0.00%  ↘││  0x00007f1df048084c: mov    0x10(%r11),%r11d               ;*getfield lst {reexecute=0 rethrow=0 return_oop=0}
+  0.02%  ↘││  0x00007f3c90486b4c: mov    (%rsp),%r10
+          ││  0x00007f3c90486b50: mov    0x10(%r10),%r11d               ;*getfield lst {reexecute=0 rethrow=0 return_oop=0}
           ││                                                            ; - org.ad.IfBenchmark::walk@11 (line 73)
-  0.10%   ││  0x00007f1df0480850: mov    0x8(%r11),%r9d                 ; implicit exception: dispatches to 0x00007f1df0480977
-  4.72%   ││  0x00007f1df0480854: cmp    $0x603c4,%r9d                  ;   {metadata(&apos;java/util/ArrayList&apos;)}
-  0.34%   ││  0x00007f1df048085b: jne    0x00007f1df048090a
-  0.03%   ││  0x00007f1df0480861: mov    %r11,%r8                       ;*invokeinterface get {reexecute=0 rethrow=0 return_oop=0}
+  2.64%   ││  0x00007f3c90486b54: mov    0x8(%r11),%r10d                ; implicit exception: dispatches to 0x00007f3c90486c73
+  5.03%   ││  0x00007f3c90486b58: cmp    $0x603c4,%r10d                 ;   {metadata(&apos;java/util/ArrayList&apos;)}
+  0.02%   ││  0x00007f3c90486b5f: jne    0x00007f3c90486c06
+          ││  0x00007f3c90486b65: mov    %r11,%r10                      ;*invokeinterface get {reexecute=0 rethrow=0 return_oop=0}
           ││                                                            ; - org.ad.IfBenchmark::walk@15 (line 73)
-  0.09%   ││  0x00007f1df0480864: mov    -0x8(%r8),%r9
-  4.69%   ││  0x00007f1df0480868: mov    0x10(%r9),%r11d                ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
+  2.68%   ││  0x00007f3c90486b68: mov    0x10(%r10),%r11d               ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
           ││                                                            ; - java.util.ArrayList::get@2 (line 458)
           ││                                                            ; - org.ad.IfBenchmark::walk@15 (line 73)
-  9.63%   ││  0x00007f1df048086c: test   %r11d,%r11d
-  0.00%   ││  0x00007f1df048086f: jl     0x00007f1df048092e             ;*invokestatic checkIndex {reexecute=0 rethrow=0 return_oop=0}
+  1.16%   ││  0x00007f3c90486b6c: test   %r11d,%r11d
+          ││  0x00007f3c90486b6f: jl     0x00007f3c90486c2a             ;*invokestatic checkIndex {reexecute=0 rethrow=0 return_oop=0}
           ││                                                            ; - java.util.Objects::checkIndex@3 (line 372)
           ││                                                            ; - java.util.ArrayList::get@5 (line 458)
           ││                                                            ; - org.ad.IfBenchmark::walk@15 (line 73)
-  0.11%   ││  0x00007f1df0480875: cmp    %r11d,%r10d
-  4.47%   ││  0x00007f1df0480878: jae    0x00007f1df04808c2
-  3.19%   ││  0x00007f1df048087a: mov    0x14(%r9),%r9d                 ;*getfield elementData {reexecute=0 rethrow=0 return_oop=0}
+          ││  0x00007f3c90486b75: cmp    %r11d,%r9d
+  2.64%   ││  0x00007f3c90486b78: jae    0x00007f3c90486bbe
+  2.53%   ││  0x00007f3c90486b7a: mov    0x14(%r10),%r8d                ;*getfield elementData {reexecute=0 rethrow=0 return_oop=0}
           ││                                                            ; - java.util.ArrayList::elementData@1 (line 442)
           ││                                                            ; - java.util.ArrayList::get@11 (line 459)
           ││                                                            ; - org.ad.IfBenchmark::walk@15 (line 73)
-          ││  0x00007f1df048087e: mov    %r10d,%ebp                     ;*invokestatic checkIndex {reexecute=0 rethrow=0 return_oop=0}
+  0.07%   ││  0x00007f3c90486b7e: mov    %r9d,%ebp                      ;*invokestatic checkIndex {reexecute=0 rethrow=0 return_oop=0}
           ││                                                            ; - java.util.Objects::checkIndex@3 (line 372)
           ││                                                            ; - java.util.ArrayList::get@5 (line 458)
           ││                                                            ; - org.ad.IfBenchmark::walk@15 (line 73)
-  0.10%   ││  0x00007f1df0480881: mov    0xc(%r9),%ebx                  ; implicit exception: dispatches to 0x00007f1df0480986
-  4.69%   ││  0x00007f1df0480885: cmp    %ebx,%ebp
- 13.17%   ││  0x00007f1df0480887: jae    0x00007f1df04808f2
-          ││  0x00007f1df0480889: mov    -0x8(%r12,%r9,1),%r10
-  0.10%   ││  0x00007f1df048088e: mov    0x10(%r10,%rbp,4),%r9d         ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+  0.04%   ││  0x00007f3c90486b81: mov    0xc(%r8),%ebx                  ; implicit exception: dispatches to 0x00007f3c90486c82
+  2.46%   ││  0x00007f3c90486b85: cmp    %ebx,%ebp
+  2.35%   ││  0x00007f3c90486b87: jae    0x00007f3c90486bee
+  0.02%   ││  0x00007f3c90486b89: mov    0x10(%r8,%rbp,4),%r9d          ;*aaload {reexecute=0 rethrow=0 return_oop=0}
           ││                                                            ; - java.util.ArrayList::elementData@5 (line 442)
           ││                                                            ; - java.util.ArrayList::get@11 (line 459)
           ││                                                            ; - org.ad.IfBenchmark::walk@15 (line 73)
-  4.73%   ││  0x00007f1df0480893: test   %r9d,%r9d
-  2.82%   ╰│  0x00007f1df0480896: je     0x00007f1df0480830             ;*ifnull {reexecute=0 rethrow=0 return_oop=0}
+          ││  0x00007f3c90486b8e: test   %r9d,%r9d
+  2.00%   ╰│  0x00007f3c90486b91: je     0x00007f3c90486b30             ;*ifnull {reexecute=0 rethrow=0 return_oop=0}
            │                                                            ; - org.ad.IfBenchmark::walk@20 (line 73)
-  0.06%    │  0x00007f1df0480898: cmp    %r11d,%ebp
-  2.33%    ╰  0x00007f1df048089b: jb     0x00007f1df0480823
-              0x00007f1df048089d: mov    $0xffffffe4,%esi
-              0x00007f1df04808a2: mov    %r8,0x18(%rsp)
-              0x00007f1df04808a7: mov    %r11d,0x28(%rsp)
-              0x00007f1df04808ac: data16 xchg %ax,%ax
-              0x00007f1df04808af: callq  0x00007f1de88d1800             ; ImmutableOopMap{[0]=Oop [8]=Oop [24]=Oop }
+  0.37%    │  0x00007f3c90486b93: cmp    %r11d,%ebp
+  1.30%    ╰  0x00007f3c90486b96: jb     0x00007f3c90486b1e
+              0x00007f3c90486b98: mov    $0xffffffe4,%esi
+              0x00007f3c90486b9d: mov    %r10,0x18(%rsp)
+              0x00007f3c90486ba2: mov    %r11d,0x28(%rsp)
+              0x00007f3c90486ba7: callq  0x00007f3c888d0280             ; ImmutableOopMap{[0]=Oop [8]=Oop [24]=Oop }
                                                                         ;*invokestatic checkIndex {reexecute=0 rethrow=0 return_oop=0}
                                                                         ; - java.util.Objects::checkIndex@3 (line 372)
                                                                         ; - java.util.ArrayList::get@5 (line 458)
                                                                         ; - org.ad.IfBenchmark::walk@29 (line 74)
                                                                         ;   {runtime_call UncommonTrapBlob}
+              0x00007f3c90486bac: ud2                                   ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
 ....................................................................................................
- 74.52%  <total for region 1>
+ 37.84%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+c2, level 4, org.openjdk.jmh.infra.Blackhole::consume, version 689 (75 bytes)
+
+            0x00007f3c904822c4: shl    $0x3,%r10
+            0x00007f3c904822c8: movabs $0x800000000,%r12
+            0x00007f3c904822d2: add    %r12,%r10
+            0x00007f3c904822d5: xor    %r12,%r12
+            0x00007f3c904822d8: cmp    %r10,%rax
+            0x00007f3c904822db: jne    0x00007f3c888ceb00             ;   {runtime_call ic_miss_stub}
+            0x00007f3c904822e1: data16 xchg %ax,%ax
+            0x00007f3c904822e4: nopw   0x0(%rax,%rax,1)
+            0x00007f3c904822ea: nopw   0x0(%rax,%rax,1)
+          [Verified Entry Point]
+  2.48%     0x00007f3c904822f0: mov    %eax,-0x14000(%rsp)
+  1.56%     0x00007f3c904822f7: push   %rbp
+  0.46%     0x00007f3c904822f8: sub    $0x30,%rsp                     ;*synchronization entry
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@-1 (line 307)
+  1.16%     0x00007f3c904822fc: mov    %rdx,(%rsp)
+  1.54%     0x00007f3c90482300: mov    %rsi,0x8(%rsp)
+  2.40%     0x00007f3c90482305: mov    0xc4(%rsi),%ebp                ;*getfield tlrMask {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@1 (line 307)
+  0.02%     0x00007f3c9048230b: imul   $0x19660d,0xc0(%rsi),%r11d
+  1.45%     0x00007f3c90482316: add    $0x3c6ef35f,%r11d              ;*iadd {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@15 (line 308)
+  2.61%     0x00007f3c9048231d: mov    %r11d,0xc0(%rsi)               ;*putfield tlr {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@17 (line 308)
+            0x00007f3c90482324: and    %ebp,%r11d
+            0x00007f3c90482327: test   %r11d,%r11d
+  1.45%  ╭  0x00007f3c9048232a: je     0x00007f3c9048233c
+  0.97%  │  0x00007f3c9048232c: add    $0x30,%rsp
+  0.04%  │  0x00007f3c90482330: pop    %rbp
+         │  0x00007f3c90482331: mov    0x108(%r15),%r10
+  1.21%  │  0x00007f3c90482338: test   %eax,(%r10)                    ;   {poll_return}
+  4.50%  │  0x00007f3c9048233b: retq
+         ↘  0x00007f3c9048233c: mov    0x118(%r15),%rax
+            0x00007f3c90482343: mov    %rax,%r10
+            0x00007f3c90482346: add    $0x20,%r10
+            0x00007f3c9048234a: cmp    0x128(%r15),%r10
+            0x00007f3c90482351: jae    0x00007f3c904823cc
+            0x00007f3c90482353: mov    %r10,0x118(%r15)
+            0x00007f3c9048235a: mov    $0x2d52,%r10d                  ;   {metadata(&apos;java/lang/ref/WeakReference&apos;)}
+            0x00007f3c90482360: shl    $0x3,%r10
+            0x00007f3c90482364: movabs $0x800000000,%r12
+            0x00007f3c9048236e: add    %r12,%r10
+....................................................................................................
+ 21.86%  <total for region 2>
+
+....[Hottest Region 3]..............................................................................
+ [kernel.kallsyms], native_write_msr_safe (0 bytes)
