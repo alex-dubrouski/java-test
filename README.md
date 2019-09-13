@@ -26,43 +26,43 @@ I ran these tests on idle development server [2x AMD Opteron(tm) Processor 6328,
 
 ### Conventional If versus Optional.ofNullable().ifPresent() vs stream().filter(Objects::nonNull).forEach() [Bigger is worse]
 ```
-Benchmark                              (size)  Mode  Cnt       Score        Error  Units
-IfBenchmark.walk                       100000  avgt   50     590.587 ±      5.900  us/op
-IfBenchmark.walk                      1000000  avgt   50    5779.019 ±     36.016  us/op
-OptionalBenchmark.walk                 100000  avgt   50    1156.084 ±     14.082  us/op
-OptionalBenchmark.walk                1000000  avgt   50   15887.035 ±    320.294  us/op
-StreamWithFilterBenchmark.walk         100000  avgt   50    2644.813 ±    134.190  us/op
-StreamWithFilterBenchmark.walk        1000000  avgt   50   32373.471 ±   1851.291  us/op
+Benchmark                        (size)  Mode  Cnt      Score      Error  Units
+IfBenchmark.walk                 100000    ss   50    692.066 ±   30.960  us/op
+IfBenchmark.walk                1000000    ss   50   6998.919 ±  231.874  us/op
+OptionalBenchmark.walk           100000    ss   50   1961.494 ±  166.290  us/op
+OptionalBenchmark.walk          1000000    ss   50  26905.626 ± 2501.974  us/op
+StreamWithFilterBenchmark.walk   100000    ss   50   2227.230 ±   76.654  us/op
+StreamWithFilterBenchmark.walk  1000000    ss   50  38899.323 ± 2323.732  us/op
 ```
 Optional test is using `-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:-UseBiasedLocking` because
 Optional test can not survive no-op GC. Stream based test has different hot spots for 100K and 1MM collections
-Profiling GC:
+Profiling GC, list with 1MM elements:
 ```
 # JMH version: 1.21
 # VM version: JDK 12.0.2, OpenJDK 64-Bit Server VM, 12.0.2+10
 # VM invoker: /home/adubrouski/jdk12/bin/java
-# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:-UseBiasedLocking -Xms2g -Xmx2g
-# Warmup: 3 iterations, 1 s each
-# Measurement: 50 iterations, 1 s each
+# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseEpsilonGC -XX:+AlwaysPreTouch -Xms2g -Xmx2g
+# Warmup: 3 iterations, 1 us each
+# Measurement: 50 iterations, 1 us each
 # Timeout: 10 min per iteration
-# Threads: 1 thread, will synchronize iterations
-# Benchmark mode: Average time, time/op
+# Threads: 16 threads
+# Benchmark mode: Single shot invocation time
 # Benchmark: org.ad.IfBenchmark.walk
-# Parameters: (size = 100000)
+# Parameters: (size = 1000000)
 
-# Run progress: 0.00% complete, ETA 00:01:46
+# Run progress: 50.00% complete, ETA 00:00:29
 # Fork: 1 of 1
-# Warmup Iteration   1: 578.569 us/op
-# Warmup Iteration   2: 575.984 us/op
-# Warmup Iteration   3: 565.938 us/op
-Iteration   1: 562.636 us/op
-                 ·gc.alloc.rate:      ≈ 10⁻³ MB/sec
-                 ·gc.alloc.rate.norm: 0.288 B/op
+# Warmup Iteration   1: 141073.163 ±(99.9%) 30091.424 us/op
+# Warmup Iteration   2: 10274.664 ±(99.9%) 3228.422 us/op
+# Warmup Iteration   3: 7933.534 ±(99.9%) 2074.353 us/op
+Iteration   1: 7062.306 ±(99.9%) 1585.828 us/op
+                 ·gc.alloc.rate:      0.015 MB/sec
+                 ·gc.alloc.rate.norm: 508.000 B/op
                  ·gc.count:           ≈ 0 counts
 
-Iteration   2: 563.880 us/op
-                 ·gc.alloc.rate:      ≈ 10⁻³ MB/sec
-                 ·gc.alloc.rate.norm: 0.289 B/op
+Iteration   2: 7633.737 ±(99.9%) 2390.011 us/op
+                 ·gc.alloc.rate:      0.015 MB/sec
+                 ·gc.alloc.rate.norm: 514.000 B/op
                  ·gc.count:           ≈ 0 counts
 ```
 so there is literally no allocation, while for Optional code picture is completely different
@@ -74,33 +74,28 @@ so there is literally no allocation, while for Optional code picture is complete
 # Warmup: 3 iterations, 1 s each
 # Measurement: 50 iterations, 1 s each
 # Timeout: 10 min per iteration
-# Threads: 1 thread, will synchronize iterations
-# Benchmark mode: Average time, time/op
+# Threads: 16 threads
+# Benchmark mode: Single shot invocation time
 # Benchmark: org.ad.OptionalBenchmark.walk
-# Parameters: (size = 100000)
+# Parameters: (size = 1000000)
 
-# Run progress: 0.00% complete, ETA 00:01:46
+# Run progress: 50.00% complete, ETA 00:00:28
 # Fork: 1 of 1
-# Warmup Iteration   1: 1187.868 us/op
-# Warmup Iteration   2: 1195.507 us/op
-# Warmup Iteration   3: 1148.178 us/op
-Iteration   1: 1296.817 us/op
-                 ·gc.alloc.rate:      588.064 MB/sec
-                 ·gc.alloc.rate.norm: 1200000.715 B/op
+# Warmup Iteration   1: 664979.425 ±(99.9%) 91444.656 us/op
+# Warmup Iteration   2: 86879.835 ±(99.9%) 23592.295 us/op
+# Warmup Iteration   3: 32553.854 ±(99.9%) 7772.345 us/op
+Iteration   1: 25274.961 ±(99.9%) 4044.993 us/op
+                 ·gc.alloc.rate:      328.623 MB/sec
+                 ·gc.alloc.rate.norm: 12000634.500 B/op
                  ·gc.count:           ≈ 0 counts
 
-Iteration   2: 1307.376 us/op
-                 ·gc.alloc.rate:            583.337 MB/sec
-                 ·gc.alloc.rate.norm:       1200000.668 B/op
-                 ·gc.churn.Shenandoah:      1133.834 MB/sec
-                 ·gc.churn.Shenandoah.norm: 2332447.238 B/op
-                 ·gc.count:                 3.000 counts
-                 ·gc.time:                  6.000 ms
-
-Iteration   3: 1255.745 us/op
-                 ·gc.alloc.rate:      607.271 MB/sec
-                 ·gc.alloc.rate.norm: 1200000.642 B/op
-                 ·gc.count:           ≈ 0 counts
+Iteration   2: 28211.536 ±(99.9%) 7414.660 us/op
+                 ·gc.alloc.rate:            323.503 MB/sec
+                 ·gc.alloc.rate.norm:       12000617.000 B/op
+                 ·gc.churn.Shenandoah:      722.086 MB/sec
+                 ·gc.churn.Shenandoah.norm: 26786370.000 B/op
+                 ·gc.count:                 5.000 counts
+                 ·gc.time:                  23.000 ms
 ```
 
 ### Simple for loop versus stream().forEach() vs ArrayList.forEach() [Bigger is worse]
