@@ -18,8 +18,8 @@ These tests were executed with AdoptOpenJDK `JDK 12.0.2, OpenJDK 64-Bit Server V
 ## Test results
 I ran these tests on idle development server [2x AMD Opteron(tm) Processor 6328, 256GB]
 ### Notes
-- Optional creates so much memory overhead that I had to rollback from Epsilon no-op to Shenandoah compacting GC to avoid OOMs [Heap was 2GB, ArrayList requires (1MM * 20bytes + some overhead) and Optional benchmark fail at 3 iteration, there are 133MM of Optionals created]
-- All other tests except `if vs Optional` are running no-op EpsilonGC to exclude GC overhead
+- Optional creates so much memory overhead that I had to rollback from Epsilon no-op to Shenandoah compacting GC to avoid OOMs [Allocating Optional objects requires a lot of memory]
+- All other tests except `Optional` are running no-op EpsilonGC to exclude GC overhead
 - Bigger numbers mean worse result as metric is microseconds per operation (us/op)
 - Size is the size of ArrayList used for benchmark (it pre-filled with `String$i` strings, where i is [0..size] to make sure GC won't do deduplication)
 - Tests do not produce assembly code by default, but I captured hot spots with help of `-prof perfasm` and added text files with assembly code, you can find it `docs` directory
@@ -34,9 +34,9 @@ OptionalBenchmark.walk                1000000  avgt   50   15887.035 ±    320.2
 StreamWithFilterBenchmark.walk         100000  avgt   50    2644.813 ±    134.190  us/op
 StreamWithFilterBenchmark.walk        1000000  avgt   50   32373.471 ±   1851.291  us/op
 ```
-This group of tests is using `-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:-UseBiasedLocking` because
+Optional test is using `-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:-UseBiasedLocking` because
 Optional test can not survive no-op GC. Stream based test has different hot spots for 100K and 1MM collections
-Profiling GC shows astonishing difference:
+Profiling GC:
 ```
 # JMH version: 1.21
 # VM version: JDK 12.0.2, OpenJDK 64-Bit Server VM, 12.0.2+10
@@ -102,33 +102,6 @@ Iteration   3: 1255.745 us/op
                  ·gc.alloc.rate.norm: 1200000.642 B/op
                  ·gc.count:           ≈ 0 counts
 ```
-I used EpsilonGC with `-XX:+HeapDumpOnOutOfMemoryError` to catch the dump and analyze it and result is pretty strange. 
-Test fails during 3rd iteration with 100K ArrayList
-```
-# JMH version: 1.21
-# VM version: JDK 12.0.2, OpenJDK 64-Bit Server VM, 12.0.2+10
-# VM invoker: /home/adubrouski/jdk12/bin/java
-# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseEpsilonGC -XX:+AlwaysPreTouch -Xms2g -Xmx2g -XX:+HeapDumpOnOutOfMemoryError
-# Warmup: 3 iterations, 1 s each
-# Measurement: 50 iterations, 1 s each
-# Timeout: 10 min per iteration
-# Threads: 1 thread, will synchronize iterations
-# Benchmark mode: Average time, time/op
-# Benchmark: org.ad.OptionalBenchmark.walk
-# Parameters: (size = 100000)
-
-# Run progress: 0.00% complete, ETA 00:01:46
-# Fork: 1 of 1
-# Warmup Iteration   1: 844.715 us/op
-# Warmup Iteration   2: 827.103 us/op
-# Warmup Iteration   3: java.lang.OutOfMemoryError: Java heap space
-Dumping heap to java_pid26975.hprof ...
-Heap dump file created [4418738360 bytes in 24.625 secs]
-Terminating due to java.lang.OutOfMemoryError: Java heap space
-```
-Examining heap shows that there are 133MM of Optional objects, which are holding 50K of Strings (ArrayList is filled with 50/50 Strings and nulls)
-#### [Heap Content](images/HeapContent.png)
-#### [Optional Objects referencing Strings](images/OptionalReferencesStrings.png)
 
 ### Simple for loop versus stream().forEach() vs ArrayList.forEach() [Bigger is worse]
 ```

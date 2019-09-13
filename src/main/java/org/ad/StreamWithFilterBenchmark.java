@@ -40,11 +40,11 @@ import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 @State(Scope.Benchmark)
-@BenchmarkMode(Mode.AverageTime)
+@BenchmarkMode(Mode.SingleShotTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
-@Warmup(iterations = 3, time = 1, timeUnit = TimeUnit.SECONDS)
-@Measurement(iterations = 50, time = 1, timeUnit = TimeUnit.SECONDS)
-@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseShenandoahGC", "-XX:+DisableExplicitGC", "-XX:+AlwaysPreTouch", "-XX:-UseBiasedLocking", "-Xms2g", "-Xmx2g"})
+@Warmup(iterations = 3, time = 1, timeUnit = TimeUnit.MICROSECONDS)
+@Measurement(iterations = 50, time = 1, timeUnit = TimeUnit.MICROSECONDS)
+@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseEpsilonGC", "-XX:+AlwaysPreTouch", "-Xms2g", "-Xmx2g"})
 @Threads(Threads.MAX)
 public class StreamWithFilterBenchmark {
     @Param({"100000", "1000000"})
