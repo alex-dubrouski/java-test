@@ -1,0 +1,247 @@
+classMethod test
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub, version 677 (112 bytes)
+
+                                                                      ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@37 (line 193)
+            0x00007f175447a0c4: movq   $0x0,0x20(%r10)                ;*invokevirtual classMethod {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
+            0x00007f175447a0cc: add    $0x20,%rsp
+            0x00007f175447a0d0: pop    %rbp
+            0x00007f175447a0d1: mov    0x108(%r15),%r10
+            0x00007f175447a0d8: test   %eax,(%r10)                    ;   {poll_return}
+            0x00007f175447a0db: retq
+            0x00007f175447a0dc: nopl   0x0(%rax)                      ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
+  4.49%  ↗  0x00007f175447a0e0: mov    %r10,0x118(%r15)
+  0.23%  │  0x00007f175447a0e7: mov    0x8(%rsp),%r11
+  0.04%  │  0x00007f175447a0ec: mov    0xb8(%r11),%r10
+  4.20%  │  0x00007f175447a0f3: mov    %r10,(%rax)
+  9.89%  │  0x00007f175447a0f6: movl   $0x234357,0x8(%rax)            ;   {metadata(&apos;org/ad/LockElisionScalarReplacementNoEA$SomeWork&apos;)}
+  5.98%  │  0x00007f175447a0fd: mov    %r8,(%rsp)                     ;*new {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA::classMethod@1 (line 54)
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
+  4.72%  │  0x00007f175447a101: movl   $0x1,0xc(%rax)                 ;*invokevirtual doAdd {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA::classMethod@11 (line 54)
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
+  1.55%  │  0x00007f175447a108: mov    0x38(%rsp),%rsi
+         │  0x00007f175447a10d: mov    $0x43,%edx
+  4.33%  │  0x00007f175447a112: nop
+  0.02%  │  0x00007f175447a113: callq  0x00007f174c8ced80             ; ImmutableOopMap{[48]=Oop [56]=Oop [64]=Oop [0]=Oop }
+         │                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA::classMethod@14 (line 54)
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
+         │                                                            ;   {optimized virtual_call}
+  4.51%  │  0x00007f175447a118: mov    (%rsp),%r8
+  0.43%  │  0x00007f175447a11c: movzbl 0x94(%r8),%r11d                ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
+  4.53%  │  0x00007f175447a124: mov    0x108(%r15),%r10
+  0.08%  │  0x00007f175447a12b: add    $0x1,%rbp                      ; ImmutableOopMap{r8=Oop [48]=Oop [56]=Oop [64]=Oop }
+         │                                                            ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
+         │  0x00007f175447a12f: test   %eax,(%r10)                    ;   {poll}
+         │  0x00007f175447a132: test   %r11d,%r11d
+  4.55%  │  0x00007f175447a135: jne    0x00007f175447a0aa
+  0.06%  │  0x00007f175447a13b: mov    0x118(%r15),%rax
+         │  0x00007f175447a142: mov    %rax,%r10
+         │  0x00007f175447a145: add    $0x10,%r10                     ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
+  4.51%  │  0x00007f175447a149: cmp    0x128(%r15),%r10
+  0.21%  ╰  0x00007f175447a150: jb     0x00007f175447a0e0
+            0x00007f175447a152: mov    %r8,(%rsp)
+            0x00007f175447a156: movabs $0x8011a1ab8,%rsi              ;   {metadata(&apos;org/ad/LockElisionScalarReplacementNoEA$SomeWork&apos;)}
+            0x00007f175447a160: data16 xchg %ax,%ax
+            0x00007f175447a163: callq  0x00007f174c907e00             ; ImmutableOopMap{[48]=Oop [56]=Oop [64]=Oop [0]=Oop }
+                                                                      ;*new {reexecute=0 rethrow=0 return_oop=1}
+                                                                      ; - org.ad.LockElisionScalarReplacementNoEA::classMethod@1 (line 54)
+                                                                      ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
+                                                                      ;   {runtime_call _new_instance_Java}
+            0x00007f175447a168: mov    (%rsp),%r8
+            0x00007f175447a16c: jmp    0x00007f175447a0fd             ;*synchronization entry
+....................................................................................................
+ 54.31%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+c2, level 4, org.openjdk.jmh.infra.Blackhole::consume, version 654 (52 bytes)
+
+            0x00007f1754476a24: shl    $0x3,%r10
+            0x00007f1754476a28: movabs $0x800000000,%r12
+            0x00007f1754476a32: add    %r12,%r10
+            0x00007f1754476a35: xor    %r12,%r12
+            0x00007f1754476a38: cmp    %r10,%rax
+            0x00007f1754476a3b: jne    0x00007f174c8ceb00             ;   {runtime_call ic_miss_stub}
+            0x00007f1754476a41: data16 xchg %ax,%ax
+            0x00007f1754476a44: nopw   0x0(%rax,%rax,1)
+            0x00007f1754476a4a: nopw   0x0(%rax,%rax,1)
+          [Verified Entry Point]
+  4.35%     0x00007f1754476a50: mov    %eax,-0x14000(%rsp)
+  4.27%     0x00007f1754476a57: push   %rbp
+  0.12%     0x00007f1754476a58: sub    $0x20,%rsp                     ;*synchronization entry
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@-1 (line 378)
+            0x00007f1754476a5c: mov    %edx,%r11d
+            0x00007f1754476a5f: xor    0xb0(%rsi),%r11d               ;*getfield i1 {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@1 (line 378)
+  4.25%     0x00007f1754476a66: mov    %edx,%r8d
+  3.71%     0x00007f1754476a69: xor    0xb8(%rsi),%r8d                ;*ixor {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@15 (line 380)
+            0x00007f1754476a70: cmp    %r8d,%r11d
+         ╭  0x00007f1754476a73: je     0x00007f1754476a85             ;*if_icmpne {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.openjdk.jmh.infra.Blackhole::consume@16 (line 380)
+  4.37%  │  0x00007f1754476a75: add    $0x20,%rsp
+  0.16%  │  0x00007f1754476a79: pop    %rbp
+         │  0x00007f1754476a7a: mov    0x108(%r15),%r10
+  4.70%  │  0x00007f1754476a81: test   %eax,(%r10)                    ;   {poll_return}
+ 13.13%  │  0x00007f1754476a84: retq
+         ↘  0x00007f1754476a85: mov    %rsi,%rbp
+            0x00007f1754476a88: mov    %edx,(%rsp)
+            0x00007f1754476a8b: mov    %r11d,0x4(%rsp)
+            0x00007f1754476a90: mov    %r8d,0x8(%rsp)
+            0x00007f1754476a95: mov    $0xffffff4d,%esi
+            0x00007f1754476a9a: nop
+            0x00007f1754476a9b: callq  0x00007f174c8d0280             ; ImmutableOopMap{rbp=Oop }
+                                                                      ;*if_icmpne {reexecute=1 rethrow=0 return_oop=0}
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@16 (line 380)
+                                                                      ;   {runtime_call UncommonTrapBlob}
+....................................................................................................
+ 39.06%  <total for region 2>
+
+
+syncClassMethod test
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub, version 668 (46 bytes)
+
+            0x00007f824447bd8d: jmp    0x00007f824447bd97
+            0x00007f824447bd8f: mov    (%rax),%rcx
+            0x00007f824447bd92: lock cmpxchg %rcx,(%rdi)
+            0x00007f824447bd97: jne    0x00007f824447bfa9
+            0x00007f824447bd9d: mov    %r8,0x8(%rsp)
+            0x00007f824447bda2: mov    %r9,0x10(%rsp)
+            0x00007f824447bda7: jmpq   0x00007f824447bb8e             ;*invokespecial &lt;init&gt; {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.LockElisionScalarReplacementNoEA$SomeWork::doSyncAdd@4 (line 71)
+                                                                      ; - org.ad.LockElisionScalarReplacementNoEA::syncClassMethod@11 (line 59)
+                                                                      ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@17 (line 190)
+  0.86%     0x00007f824447bdac: test   $0x7,%rdx
+            0x00007f824447bdb3: jne    0x00007f824447bc79
+            0x00007f824447bdb9: test   $0x300,%rdx
+  0.74%  ╭  0x00007f824447bdc0: jne    0x00007f824447bdcf
+         │  0x00007f824447bdc2: and    $0x37f,%rax
+  0.02%  │  0x00007f824447bdc9: mov    %rax,%rbx                      ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@30 (line 192)
+         │  0x00007f824447bdcc: or     %r15,%rbx
+  1.11%  ↘  0x00007f824447bdcf: lock cmpxchg %rbx,(%rdi)
+ 59.87%     0x00007f824447bdd4: jne    0x00007f824447bccb
+  1.07%     0x00007f824447bdda: jmpq   0x00007f824447bb68             ;*synchronization entry
+                                                                      ; - org.ad.LockElisionScalarReplacementNoEA::syncClassMethod@-1 (line 59)
+                                                                      ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@17 (line 190)
+            0x00007f824447bddf: movabs $0x8011a1cc8,%rsi              ;   {metadata(&apos;org/ad/LockElisionScalarReplacementNoEA$SomeWork&apos;)}
+            0x00007f824447bde9: mov    0x50(%rsp),%rbp
+            0x00007f824447bdee: nop
+            0x00007f824447bdef: callq  0x00007f823c908080             ; ImmutableOopMap{rbp=Oop [80]=Oop [88]=Oop [96]=Oop [0]=Oop }
+                                                                      ;*new {reexecute=0 rethrow=0 return_oop=1}
+                                                                      ; - org.ad.LockElisionScalarReplacementNoEA::syncClassMethod@1 (line 59)
+                                                                      ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@17 (line 190)
+                                                                      ;   {runtime_call _new_instance_Java}
+....................................................................................................
+ 63.67%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+c2, level 4, org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub, version 668 (248 bytes)
+
+            0x00007f824447baf4: mov    %rax,0x30(%r10)                ;*putfield stopTime {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@37 (line 193)
+            0x00007f824447baf8: movq   $0x0,0x20(%r10)                ;*invokevirtual syncClassMethod {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@17 (line 190)
+            0x00007f824447bb00: add    $0x40,%rsp
+            0x00007f824447bb04: pop    %rbp
+            0x00007f824447bb05: mov    0x108(%r15),%r10
+            0x00007f824447bb0c: test   %eax,(%r10)                    ;   {poll_return}
+            0x00007f824447bb0f: retq                                  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@30 (line 192)
+  1.11%  ↗  0x00007f824447bb10: mov    %r10,0x118(%r15)
+  0.02%  │  0x00007f824447bb17: mov    0x10(%rsp),%r9
+         │  0x00007f824447bb1c: mov    0xb8(%r9),%r10
+  0.95%  │  0x00007f824447bb23: mov    %r10,(%rdi)
+  1.07%  │  0x00007f824447bb26: movl   $0x684,0x8(%rdi)               ;   {metadata(&apos;java/lang/Object&apos;)}
+  1.54%  │  0x00007f824447bb2d: movl   $0x0,0xc(%rdi)                 ;*new {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA$SomeWork::doSyncAdd@0 (line 71)
+         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA::syncClassMethod@11 (line 59)
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@17 (line 190)
+  2.69%  │  0x00007f824447bb34: mov    (%rdi),%rax
+         │  0x00007f824447bb37: mov    %rax,%r10
+  0.84%  │  0x00007f824447bb3a: and    $0x7,%r10
+  0.02%  │  0x00007f824447bb3e: cmp    $0x5,%r10
+         │  0x00007f824447bb42: jne    0x00007f824447bc7e
+  0.02%  │  0x00007f824447bb48: mov    0xb8(%r9),%r10
+  1.05%  │  0x00007f824447bb4f: mov    %r10,%rbx                      ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@30 (line 192)
+         │  0x00007f824447bb52: or     %r15,%rbx
+         │  0x00007f824447bb55: mov    %rbx,%rdx
+         │  0x00007f824447bb58: xor    %rax,%rdx
+  0.90%  │  0x00007f824447bb5b: test   $0xffffffffffffff87,%rdx
+         │  0x00007f824447bb62: jne    0x00007f824447bdac             ;*monitorenter {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA$SomeWork::doSyncAdd@9 (line 71)
+         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA::syncClassMethod@11 (line 59)
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@17 (line 190)
+         │  0x00007f824447bb68: mov    $0x42,%r10d
+  0.99%  │  0x00007f824447bb6e: add    0xc(%rcx),%r10d
+  0.29%  │  0x00007f824447bb72: mov    $0x7,%ecx
+         │  0x00007f824447bb77: and    (%rdi),%rcx
+  0.02%  │  0x00007f824447bb7a: cmp    $0x5,%rcx
+  0.92%  │  0x00007f824447bb7e: jne    0x00007f824447bd0d
+         │  0x00007f824447bb84: mov    %r8,0x8(%rsp)
+  1.23%  │  0x00007f824447bb89: mov    %r9,0x10(%rsp)                 ;*monitorexit {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA$SomeWork::doSyncAdd@17 (line 72)
+         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA::syncClassMethod@11 (line 59)
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@17 (line 190)
+  1.09%  │  0x00007f824447bb8e: mov    %r11,(%rsp)                    ;*invokevirtual doSyncAdd {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA::syncClassMethod@11 (line 59)
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@17 (line 190)
+         │  0x00007f824447bb92: mov    0x58(%rsp),%rsi
+         │  0x00007f824447bb97: mov    %r10d,%edx
+         │  0x00007f824447bb9a: nop
+  1.09%  │  0x00007f824447bb9b: callq  0x00007f823c8ced80             ; ImmutableOopMap{[80]=Oop [88]=Oop [96]=Oop [0]=Oop }
+         │                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA::syncClassMethod@14 (line 59)
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@17 (line 190)
+         │                                                            ;   {optimized virtual_call}
+  0.95%  │  0x00007f824447bba0: mov    (%rsp),%r11
+  0.02%  │  0x00007f824447bba4: movzbl 0x94(%r11),%r8d                ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@30 (line 192)
+  0.90%  │  0x00007f824447bbac: mov    0x108(%r15),%r10
+         │  0x00007f824447bbb3: add    $0x1,%rbp                      ; ImmutableOopMap{r11=Oop [80]=Oop [88]=Oop [96]=Oop }
+         │                                                            ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@30 (line 192)
+         │  0x00007f824447bbb7: test   %eax,(%r10)                    ;   {poll}
+         │  0x00007f824447bbba: test   %r8d,%r8d
+  0.95%  │  0x00007f824447bbbd: jne    0x00007f824447bade
+         │  0x00007f824447bbc3: mov    0x118(%r15),%rcx
+         │  0x00007f824447bbca: mov    %rcx,%r10
+  1.07%  │  0x00007f824447bbcd: add    $0x10,%r10
+         │  0x00007f824447bbd1: cmp    0x128(%r15),%r10
+         │  0x00007f824447bbd8: jae    0x00007f824447bc53             ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@30 (line 192)
+  0.92%  │  0x00007f824447bbda: mov    %r10,0x118(%r15)
+  0.02%  │  0x00007f824447bbe1: mov    0x8(%rsp),%r8
+         │  0x00007f824447bbe6: mov    0xb8(%r8),%r10
+  0.88%  │  0x00007f824447bbed: mov    %r10,(%rcx)
+  1.13%  │  0x00007f824447bbf0: movl   $0x234399,0x8(%rcx)            ;*new {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA::syncClassMethod@1 (line 59)
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@17 (line 190)
+         │                                                            ;   {metadata(&apos;org/ad/LockElisionScalarReplacementNoEA$SomeWork&apos;)}
+  1.60%  │  0x00007f824447bbf7: movl   $0x1,0xc(%rcx)
+  0.02%  │  0x00007f824447bbfe: mov    0x118(%r15),%rdi
+         │  0x00007f824447bc05: mov    %rdi,%r10
+  1.03%  │  0x00007f824447bc08: add    $0x10,%r10                     ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@30 (line 192)
+         │  0x00007f824447bc0c: cmp    0x128(%r15),%r10
+         ╰  0x00007f824447bc13: jb     0x00007f824447bb10
+            0x00007f824447bc19: mov    %rcx,0x18(%rsp)
+            0x00007f824447bc1e: mov    %r8,0x8(%rsp)
+            0x00007f824447bc23: mov    %r11,(%rsp)                    ;*synchronization entry
+                                                                      ; - org.ad.LockElisionScalarReplacementNoEA$SomeWork::doSyncAdd@-1 (line 71)
+                                                                      ; - org.ad.LockElisionScalarReplacementNoEA::syncClassMethod@11 (line 59)
+                                                                      ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@17 (line 190)
+            0x00007f824447bc27: movabs $0x800003420,%rsi              ;   {metadata(&apos;java/lang/Object&apos;)}
+....................................................................................................
+ 25.31%  <total for region 2>

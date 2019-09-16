@@ -1,0 +1,179 @@
+....[Hottest Region 1]..............................................................................
+c2, level 4, org.openjdk.jmh.infra.Blackhole::consume, version 650 (52 bytes)
+
+            0x00007fab74477524: shl    $0x3,%r10
+            0x00007fab74477528: movabs $0x800000000,%r12
+            0x00007fab74477532: add    %r12,%r10
+            0x00007fab74477535: xor    %r12,%r12
+            0x00007fab74477538: cmp    %r10,%rax
+            0x00007fab7447753b: jne    0x00007fab6c8ceb00             ;   {runtime_call ic_miss_stub}
+            0x00007fab74477541: data16 xchg %ax,%ax
+            0x00007fab74477544: nopw   0x0(%rax,%rax,1)
+            0x00007fab7447754a: nopw   0x0(%rax,%rax,1)
+          [Verified Entry Point]
+  7.61%     0x00007fab74477550: mov    %eax,-0x14000(%rsp)
+  7.86%     0x00007fab74477557: push   %rbp
+  2.43%     0x00007fab74477558: sub    $0x20,%rsp                     ;*synchronization entry
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@-1 (line 378)
+            0x00007fab7447755c: mov    %edx,%r11d
+            0x00007fab7447755f: xor    0xb0(%rsi),%r11d               ;*getfield i1 {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@1 (line 378)
+  6.94%     0x00007fab74477566: mov    %edx,%r8d
+  0.88%     0x00007fab74477569: xor    0xb8(%rsi),%r8d                ;*ixor {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@15 (line 380)
+  0.02%     0x00007fab74477570: cmp    %r8d,%r11d
+         ╭  0x00007fab74477573: je     0x00007fab74477585             ;*if_icmpne {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.openjdk.jmh.infra.Blackhole::consume@16 (line 380)
+  7.33%  │  0x00007fab74477575: add    $0x20,%rsp
+  0.33%  │  0x00007fab74477579: pop    %rbp
+  0.04%  │  0x00007fab7447757a: mov    0x108(%r15),%r10
+  7.67%  │  0x00007fab74477581: test   %eax,(%r10)                    ;   {poll_return}
+ 19.57%  │  0x00007fab74477584: retq
+         ↘  0x00007fab74477585: mov    %rsi,%rbp
+            0x00007fab74477588: mov    %edx,(%rsp)
+            0x00007fab7447758b: mov    %r11d,0x4(%rsp)
+            0x00007fab74477590: mov    %r8d,0x8(%rsp)
+            0x00007fab74477595: mov    $0xffffff4d,%esi
+            0x00007fab7447759a: nop
+            0x00007fab7447759b: callq  0x00007fab6c8d0280             ; ImmutableOopMap{rbp=Oop }
+                                                                      ;*if_icmpne {reexecute=1 rethrow=0 return_oop=0}
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@16 (line 380)
+                                                                      ;   {runtime_call UncommonTrapBlob}
+....................................................................................................
+ 60.70%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+c2, level 4, org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub, version 674 (49 bytes)
+
+            0x00007fab7447a818: mov    %rbp,%r9
+            0x00007fab7447a81b: movzbl 0x94(%r9),%r11d                ;*getfield isDone {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@27 (line 192)
+                                                                      ; implicit exception: dispatches to 0x00007fab7447a8de
+            0x00007fab7447a823: test   %r11d,%r11d
+            0x00007fab7447a826: jne    0x00007fab7447a895             ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
+            0x00007fab7447a828: mov    $0x1,%ebp
+            0x00007fab7447a82d: data16 xchg %ax,%ax                   ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@33 (line 193)
+  0.22%  ↗  0x00007fab7447a830: mov    %r9,(%rsp)
+         │  0x00007fab7447a834: mov    0x38(%rsp),%rsi
+         │  0x00007fab7447a839: mov    $0x43,%edx
+  6.82%  │  0x00007fab7447a83e: nop
+  0.65%  │  0x00007fab7447a83f: callq  0x00007fab6c8ced80             ; ImmutableOopMap{[48]=Oop [56]=Oop [64]=Oop [0]=Oop }
+         │                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.LockElisionScalarReplacement::classMethod@14 (line 54)
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
+         │                                                            ;   {optimized virtual_call}
+  7.55%  │  0x00007fab7447a844: mov    (%rsp),%r9
+  0.16%  │  0x00007fab7447a848: movzbl 0x94(%r9),%r8d                 ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
+  7.92%  │  0x00007fab7447a850: mov    0x108(%r15),%r10
+  0.75%  │  0x00007fab7447a857: add    $0x1,%rbp                      ; ImmutableOopMap{r9=Oop [48]=Oop [56]=Oop [64]=Oop }
+         │                                                            ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
+         │  0x00007fab7447a85b: test   %eax,(%r10)                    ;   {poll}
+         │  0x00007fab7447a85e: test   %r8d,%r8d
+  7.69%  ╰  0x00007fab7447a861: je     0x00007fab7447a830             ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@33 (line 193)
+            0x00007fab7447a863: movabs $0x7fab8c40d670,%r10
+            0x00007fab7447a86d: callq  *%r10                          ;*invokestatic nanoTime {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@34 (line 193)
+            0x00007fab7447a870: mov    0x30(%rsp),%r10
+            0x00007fab7447a875: mov    %rbp,0x18(%r10)                ;*putfield measuredOps {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@49 (line 195)
+            0x00007fab7447a879: mov    %rax,0x30(%r10)                ;*putfield stopTime {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@37 (line 193)
+            0x00007fab7447a87d: movq   $0x0,0x20(%r10)
+....................................................................................................
+ 31.75%  <total for region 2>
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, org.openjdk.jmh.infra.Blackhole::consume, version 641 (52 bytes)
+
+            0x00007f738c4761a4: shl    $0x3,%r10
+            0x00007f738c4761a8: movabs $0x800000000,%r12
+            0x00007f738c4761b2: add    %r12,%r10
+            0x00007f738c4761b5: xor    %r12,%r12
+            0x00007f738c4761b8: cmp    %r10,%rax
+            0x00007f738c4761bb: jne    0x00007f73848ceb00             ;   {runtime_call ic_miss_stub}
+            0x00007f738c4761c1: data16 xchg %ax,%ax
+            0x00007f738c4761c4: nopw   0x0(%rax,%rax,1)
+            0x00007f738c4761ca: nopw   0x0(%rax,%rax,1)
+          [Verified Entry Point]
+  7.87%     0x00007f738c4761d0: mov    %eax,-0x14000(%rsp)
+  7.65%     0x00007f738c4761d7: push   %rbp
+  2.88%     0x00007f738c4761d8: sub    $0x20,%rsp                     ;*synchronization entry
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@-1 (line 378)
+            0x00007f738c4761dc: mov    %edx,%r11d
+            0x00007f738c4761df: xor    0xb0(%rsi),%r11d               ;*getfield i1 {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@1 (line 378)
+  7.99%     0x00007f738c4761e6: mov    %edx,%r8d
+  0.96%     0x00007f738c4761e9: xor    0xb8(%rsi),%r8d                ;*ixor {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@15 (line 380)
+            0x00007f738c4761f0: cmp    %r8d,%r11d
+         ╭  0x00007f738c4761f3: je     0x00007f738c476205             ;*if_icmpne {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.openjdk.jmh.infra.Blackhole::consume@16 (line 380)
+  7.01%  │  0x00007f738c4761f5: add    $0x20,%rsp
+  0.37%  │  0x00007f738c4761f9: pop    %rbp
+  0.02%  │  0x00007f738c4761fa: mov    0x108(%r15),%r10
+  7.50%  │  0x00007f738c476201: test   %eax,(%r10)                    ;   {poll_return}
+ 20.38%  │  0x00007f738c476204: retq
+         ↘  0x00007f738c476205: mov    %rsi,%rbp
+            0x00007f738c476208: mov    %edx,(%rsp)
+            0x00007f738c47620b: mov    %r11d,0x4(%rsp)
+            0x00007f738c476210: mov    %r8d,0x8(%rsp)
+            0x00007f738c476215: mov    $0xffffff4d,%esi
+            0x00007f738c47621a: nop
+            0x00007f738c47621b: callq  0x00007f73848d0280             ; ImmutableOopMap{rbp=Oop }
+                                                                      ;*if_icmpne {reexecute=1 rethrow=0 return_oop=0}
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@16 (line 380)
+                                                                      ;   {runtime_call UncommonTrapBlob}
+....................................................................................................
+ 62.63%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+c2, level 4, org.ad.generated.LockElisionScalarReplacement_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub, version 663 (49 bytes)
+
+            0x00007f738c479218: mov    %rbp,%r9
+            0x00007f738c47921b: movzbl 0x94(%r9),%r11d                ;*getfield isDone {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacement_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@27 (line 192)
+                                                                      ; implicit exception: dispatches to 0x00007f738c4792de
+            0x00007f738c479223: test   %r11d,%r11d
+            0x00007f738c479226: jne    0x00007f738c479295             ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacement_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@30 (line 192)
+            0x00007f738c479228: mov    $0x1,%ebp
+            0x00007f738c47922d: data16 xchg %ax,%ax                   ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacement_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@33 (line 193)
+  0.20%  ↗  0x00007f738c479230: mov    %r9,(%rsp)                     ;*invokevirtual doSyncAdd {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.LockElisionScalarReplacement::syncClassMethod@11 (line 59)
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacement_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@17 (line 190)
+         │  0x00007f738c479234: mov    0x38(%rsp),%rsi
+         │  0x00007f738c479239: mov    $0x43,%edx
+  7.81%  │  0x00007f738c47923e: nop
+  0.74%  │  0x00007f738c47923f: callq  0x00007f73848ced80             ; ImmutableOopMap{[48]=Oop [56]=Oop [64]=Oop [0]=Oop }
+         │                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.LockElisionScalarReplacement::syncClassMethod@14 (line 59)
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacement_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@17 (line 190)
+         │                                                            ;   {optimized virtual_call}
+  7.67%  │  0x00007f738c479244: mov    (%rsp),%r9
+  0.31%  │  0x00007f738c479248: movzbl 0x94(%r9),%r8d                 ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacement_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@30 (line 192)
+  7.60%  │  0x00007f738c479250: mov    0x108(%r15),%r10
+  0.67%  │  0x00007f738c479257: add    $0x1,%rbp                      ; ImmutableOopMap{r9=Oop [48]=Oop [56]=Oop [64]=Oop }
+         │                                                            ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacement_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@30 (line 192)
+         │  0x00007f738c47925b: test   %eax,(%r10)                    ;   {poll}
+         │  0x00007f738c47925e: test   %r8d,%r8d
+  7.32%  ╰  0x00007f738c479261: je     0x00007f738c479230             ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacement_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@33 (line 193)
+            0x00007f738c479263: movabs $0x7f73a2ee5670,%r10
+            0x00007f738c47926d: callq  *%r10                          ;*invokestatic nanoTime {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacement_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@34 (line 193)
+            0x00007f738c479270: mov    0x30(%rsp),%r10
+            0x00007f738c479275: mov    %rbp,0x18(%r10)                ;*putfield measuredOps {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacement_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@49 (line 195)
+            0x00007f738c479279: mov    %rax,0x30(%r10)                ;*putfield stopTime {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacement_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@37 (line 193)
+            0x00007f738c47927d: movq   $0x0,0x20(%r10)
+....................................................................................................
+ 32.32%  <total for region 2>

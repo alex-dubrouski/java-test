@@ -22,7 +22,7 @@ I ran these tests on idle development server [2x AMD Opteron(tm) Processor 6328,
 - All other tests except `Optional` are running no-op EpsilonGC to exclude GC overhead
 - Bigger numbers mean worse result as metric is microseconds per operation (us/op)
 - Size is the size of ArrayList used for benchmark (it pre-filled with `String$i` strings, where i is [0..size] to make sure GC won't do deduplication)
-- Tests do not produce assembly code by default, but I captured hot spots with help of `-prof perfasm` and added text files with assembly code, you can find it `docs` directory
+- Tests do not produce assembly code by default, but I captured hot spots with help of `-prof perfasm` and added text files with assembly code, you can find it here [Assembly code](docs/)
 
 ### Conventional If versus Optional.ofNullable().ifPresent() vs stream().filter(Objects::nonNull).forEach() [Bigger is worse]
 ```
@@ -137,3 +137,98 @@ LambdaBenchmark.walkMethodReference   1000000  avgt   50   47084.614 ±   2990.7
 Overall there is no difference as compiler optimizes this code (inline lambda into a method, capturing lambda into
 `private static synthetic` static method). 
 Thanks @jguerra for help with Lambda benchmarks
+
+### Compiler time optimizations (Lock Elision and Scalar Replacements on and off)
+
+This is not strictly a benchmark, but rather tricky test to show how compile time optimizations affect performance.
+ This test was inspired by set of articles from Aleksey Shipilev:
+- https://shipilev.net/jvm/anatomy-quarks/18-scalar-replacement/
+- https://shipilev.net/jvm/anatomy-quarks/19-lock-elision/
+Both test classes are the same with only one small difference, second class has this command line flag `-XX:-DoEscapeAnalysis`. Please be careful as `LockElisionScalarReplacementNoEA` 
+requires 30GB heap to finish.
+#### Escape Analysis enabled
+I deliberately used pretty dumb code with irrelevant class method and synchronization block, smart compiler compacts entire class with sync on local object to this
+```
+  0.22%  ↗  0x00007fab7447a830: mov    %r9,(%rsp)
+         │  0x00007fab7447a834: mov    0x38(%rsp),%rsi
+         │  0x00007fab7447a839: mov    $0x43,%edx                     ; <-- Yes, yes, entire page of Java code, which inludes 2 classes compacted into 1 constant
+  6.82%  │  0x00007fab7447a83e: nop
+  0.65%  │  0x00007fab7447a83f: callq  0x00007fab6c8ced80             ; ImmutableOopMap{[48]=Oop [56]=Oop [64]=Oop [0]=Oop }
+         │                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.LockElisionScalarReplacement::classMethod@14 (line 54)
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
+         │                                                            ;   {optimized virtual_call}
+  7.55%  │  0x00007fab7447a844: mov    (%rsp),%r9
+  0.16%  │  0x00007fab7447a848: movzbl 0x94(%r9),%r8d                 ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
+  7.92%  │  0x00007fab7447a850: mov    0x108(%r15),%r10
+  0.75%  │  0x00007fab7447a857: add    $0x1,%rbp                      ; ImmutableOopMap{r9=Oop [48]=Oop [56]=Oop [64]=Oop }
+         │                                                            ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
+         │  0x00007fab7447a85b: test   %eax,(%r10)                    ;   {poll}
+         │  0x00007fab7447a85e: test   %r8d,%r8d
+  7.69%  ╰  0x00007fab7447a861: je     0x00007fab7447a830             ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@33 (line 193)
+```
+#### Escape Analysis disabled
+Oh, this get's ugly immediately
+- First of all allocating `new Object()` / `new SomeWork(1)` for synchronization block causes terrible memory allocation
+- Assembly code now contains a lot of additional code
+Simple class method ([Full assembly code](docs/compiler-optimisations/scalar-replacement-and-lock-elision-128M-heap.txt))
+```
+  4.49%  ↗  0x00007f175447a0e0: mov    %r10,0x118(%r15)
+  0.23%  │  0x00007f175447a0e7: mov    0x8(%rsp),%r11
+  0.04%  │  0x00007f175447a0ec: mov    0xb8(%r11),%r10
+  4.20%  │  0x00007f175447a0f3: mov    %r10,(%rax)
+  9.89%  │  0x00007f175447a0f6: movl   $0x234357,0x8(%rax)            ;   {metadata(&apos;org/ad/LockElisionScalarReplacementNoEA$SomeWork&apos;)}
+  5.98%  │  0x00007f175447a0fd: mov    %r8,(%rsp)                     ;*new {reexecute=0 rethrow=0 return_oop=0}                 <------- instantiating class
+         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA::classMethod@1 (line 54)
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
+  4.72%  │  0x00007f175447a101: movl   $0x1,0xc(%rax)                 ;*invokevirtual doAdd {reexecute=0 rethrow=0 return_oop=0} <------- invoking class method
+         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA::classMethod@11 (line 54)
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
+  1.55%  │  0x00007f175447a108: mov    0x38(%rsp),%rsi
+         │  0x00007f175447a10d: mov    $0x43,%edx
+  4.33%  │  0x00007f175447a112: nop
+  0.02%  │  0x00007f175447a113: callq  0x00007f174c8ced80             ; ImmutableOopMap{[48]=Oop [56]=Oop [64]=Oop [0]=Oop }
+         │                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA::classMethod@14 (line 54)
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
+         │                                                            ;   {optimized virtual_call}
+  4.51%  │  0x00007f175447a118: mov    (%rsp),%r8
+  0.43%  │  0x00007f175447a11c: movzbl 0x94(%r8),%r11d                ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
+  4.53%  │  0x00007f175447a124: mov    0x108(%r15),%r10
+  0.08%  │  0x00007f175447a12b: add    $0x1,%rbp                      ; ImmutableOopMap{r8=Oop [48]=Oop [56]=Oop [64]=Oop }
+         │                                                            ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
+         │  0x00007f175447a12f: test   %eax,(%r10)                    ;   {poll}
+         │  0x00007f175447a132: test   %r11d,%r11d
+  4.55%  │  0x00007f175447a135: jne    0x00007f175447a0aa
+  0.06%  │  0x00007f175447a13b: mov    0x118(%r15),%rax
+         │  0x00007f175447a142: mov    %rax,%r10
+         │  0x00007f175447a145: add    $0x10,%r10                     ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
+  4.51%  │  0x00007f175447a149: cmp    0x128(%r15),%r10
+  0.21%  ╰  0x00007f175447a150: jb     0x00007f175447a0e0
+```
+Class method with synchronization block ([Full assembly code](docs/compiler-optimisations/scalar-replacement-and-lock-elision-128M-heap.txt))
+```
+  1.07%  │  0x00007f824447bb26: movl   $0x684,0x8(%rdi)               ;   {metadata(&apos;java/lang/Object&apos;)}
+  1.54%  │  0x00007f824447bb2d: movl   $0x0,0xc(%rdi)                 ;*new {reexecute=0 rethrow=0 return_oop=0}           <---- instantiating lock Object
+...
+  0.90%  │  0x00007f824447bb5b: test   $0xffffffffffffff87,%rdx
+         │  0x00007f824447bb62: jne    0x00007f824447bdac             ;*monitorenter {reexecute=0 rethrow=0 return_oop=0}  <---- Entering sync block
+         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA$SomeWork::doSyncAdd@9 (line 71)
+         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA::syncClassMethod@11 (line 59)
+         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@17 (line 190)
+         │  0x00007f824447bb68: mov    $0x42,%r10d                                                                         <---- Adding 0x42
+  0.99%  │  0x00007f824447bb6e: add    0xc(%rcx),%r10d
+  0.29%  │  0x00007f824447bb72: mov    $0x7,%ecx
+         │  0x00007f824447bb77: and    (%rdi),%rcx
+  0.02%  │  0x00007f824447bb7a: cmp    $0x5,%rcx
+  0.92%  │  0x00007f824447bb7e: jne    0x00007f824447bd0d
+         │  0x00007f824447bb84: mov    %r8,0x8(%rsp)
+  1.23%  │  0x00007f824447bb89: mov    %r9,0x10(%rsp)                 ;*monitorexit {reexecute=0 rethrow=0 return_oop=0}   <---- exiting sync block
+```
+and a lot of other things happening 
