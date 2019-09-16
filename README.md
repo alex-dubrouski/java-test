@@ -151,7 +151,7 @@ I deliberately used pretty dumb code with irrelevant class method and synchroniz
 ```
   0.22%  ↗  0x00007fab7447a830: mov    %r9,(%rsp)
          │  0x00007fab7447a834: mov    0x38(%rsp),%rsi
-         │  0x00007fab7447a839: mov    $0x43,%edx                     ; <-- Yes, yes, entire page of Java code, which inludes 2 classes compacted into 1 constant
+         │  0x00007fab7447a839: mov    $0x43,%edx                     ; <-- Yes, yes, entire page of Java code, which includes 2 classes compacted into 1 constant
   6.82%  │  0x00007fab7447a83e: nop
   0.65%  │  0x00007fab7447a83f: callq  0x00007fab6c8ced80             ; ImmutableOopMap{[48]=Oop [56]=Oop [64]=Oop [0]=Oop }
          │                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
