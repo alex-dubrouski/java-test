@@ -24,6 +24,17 @@ I ran these tests on idle development server [2x AMD Opteron(tm) Processor 6328,
 - Size is the size of ArrayList used for benchmark (it pre-filled with `String$i` strings, where i is [0..size] to make sure GC won't do deduplication)
 - Tests do not produce assembly code by default, but I captured hot spots with help of `-prof perfasm` and added text files with assembly code, you can find it here [Assembly code](docs/)
 
+### Obvious test ArrayList vs LinkedList (accessing LinkedList elements by index is O(n)), for loop vs forEach will be explained later
+```
+Benchmark                                      (size)  Mode  Cnt         Score        Error  Units
+ArrayLinkedListBenchmark.arrayListAdd          100000    ss    5      6156.139 ±   1793.898  us/op
+ArrayLinkedListBenchmark.linkedListAdd         100000    ss    5      6409.345 ±    822.076  us/op
+ArrayLinkedListBenchmark.traverseAList         100000    ss    5       843.464 ±   1042.563  us/op
+ArrayLinkedListBenchmark.traverseLList         100000    ss    5  21241805.077 ± 321046.934  us/op
+ArrayLinkedListBenchmark.traverseAListForEach  100000    ss    5      1981.504 ±   1920.284  us/op
+ArrayLinkedListBenchmark.traverseLListForEach  100000    ss    5      1999.166 ±    927.983  us/op
+```
+
 ### Conventional If versus Optional.ofNullable().ifPresent() vs stream().filter(Objects::nonNull).forEach() [Bigger is worse]
 ```
 Benchmark                        (size)  Mode  Cnt      Score      Error  Units
