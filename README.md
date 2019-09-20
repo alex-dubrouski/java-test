@@ -249,11 +249,11 @@ Here I am trying to find the difference between different ways to synchronize ac
 There are three different implementation of a simple POJO, one fully `synchronized`, second with memory barrier hack (theoretically should work in HotSpot JVM, 
 but not guaranteed). Third one is proper implementation with volatile field
 ```
-Benchmark              Mode  Cnt  Score    Error  Units
-MemBarrierTest.B:getB  avgt   10  0.016 ±  0.005  us/op
-MemBarrierTest.B:setB  avgt   10  9.775 ±  2.796  us/op
-MemBarrierTest.S:getS  avgt   10  2.941 ±  0.437  us/op
-MemBarrierTest.S:setS  avgt   10  3.113 ±  0.629  us/op
-MemBarrierTest.V:getV  avgt   10  0.001 ±  0.001  us/op
-MemBarrierTest.V:setV  avgt   10  1.592 ±  0.427  us/op
+Benchmark                     Mode  Cnt   Score    Error  Units
+MemBarrierTest.bhack:getB     avgt   10   0.014 ±  0.005  us/op
+MemBarrierTest.bhack:setB     avgt   10  15.515 ±  3.193  us/op
+MemBarrierTest.fullsync:getS  avgt   10   3.492 ±  0.272  us/op
+MemBarrierTest.fullsync:setS  avgt   10   3.909 ±  0.438  us/op
+MemBarrierTest.volatile:getV  avgt   10   0.001 ±  0.001  us/op
+MemBarrierTest.volatile:setV  avgt   10   1.845 ±  0.674  us/op
 ```
