@@ -257,3 +257,4 @@ MemBarrierTest.fullsync:setS  avgt   10   3.909 ±  0.438  us/op
 MemBarrierTest.volatile:getV  avgt   10   0.001 ±  0.001  us/op
 MemBarrierTest.volatile:setV  avgt   10   1.845 ±  0.674  us/op
 ```
+Assembly code makes me think barrier hack does not work (in OpenJDK12), as it is optimized into simple static field access

@@ -1,0 +1,250 @@
+....[Hottest Region 1]..............................................................................
+c2, level 4, org.ad.generated.MemBarrierTest_bhack_jmhTest::getB_avgt_jmhStub, version 723 (33 bytes)
+
+             0x00007fb9d047ecf1: mov    %rbp,%rdi
+             0x00007fb9d047ecf4: movzbl 0x94(%rdi),%r11d               ;*getfield isDone {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::getB_avgt_jmhStub@27 (line 314)
+                                                                       ; implicit exception: dispatches to 0x00007fb9d047ed8a
+             0x00007fb9d047ecfc: mov    $0x1,%ebp
+             0x00007fb9d047ed01: test   %r11d,%r11d
+         ╭   0x00007fb9d047ed04: jne    0x00007fb9d047ed33             ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │                                                             ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::getB_avgt_jmhStub@30 (line 314)
+         │   0x00007fb9d047ed06: data16 nopw 0x0(%rax,%rax,1)          ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+         │                                                             ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::getB_avgt_jmhStub@33 (line 315)
+ 19.50%  │↗  0x00007fb9d047ed10: mov    0x70(%r10),%r11d               ;*getstatic SYNC_BARRIER {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.MemBarrierTest$SyncBarrierPojo::get@1 (line 70)
+         ││                                                            ; - org.ad.MemBarrierTest::getB@1 (line 27)
+         ││                                                            ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::getB_avgt_jmhStub@17 (line 312)
+ 45.75%  ││  0x00007fb9d047ed14: mov    %r11d,0xc(%rcx)                ;*invokevirtual getB {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::getB_avgt_jmhStub@17 (line 312)
+  0.00%  ││  0x00007fb9d047ed18: movzbl 0x94(%rdi),%r8d                ;*getfield isDone {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::getB_avgt_jmhStub@27 (line 314)
+  1.77%  ││  0x00007fb9d047ed20: mov    0x108(%r15),%r11
+  0.40%  ││  0x00007fb9d047ed27: add    $0x1,%rbp                      ; ImmutableOopMap{r10=Oop r9=Oop rcx=Oop rbx=Oop rdi=Oop }
+         ││                                                            ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::getB_avgt_jmhStub@30 (line 314)
+  0.00%  ││  0x00007fb9d047ed2b: test   %eax,(%r11)                    ;   {poll}
+         ││  0x00007fb9d047ed2e: test   %r8d,%r8d
+  1.83%  │╰  0x00007fb9d047ed31: je     0x00007fb9d047ed10             ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+         │                                                             ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::getB_avgt_jmhStub@33 (line 315)
+         ↘   0x00007fb9d047ed33: movabs $0x7fb9e63ad670,%r10
+             0x00007fb9d047ed3d: callq  *%r10                          ;*invokestatic nanoTime {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::getB_avgt_jmhStub@34 (line 315)
+             0x00007fb9d047ed40: mov    %rbp,0x18(%rbx)                ;*putfield measuredOps {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::getB_avgt_jmhStub@49 (line 317)
+             0x00007fb9d047ed44: mov    %rax,0x30(%rbx)                ;*putfield stopTime {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::getB_avgt_jmhStub@37 (line 315)
+             0x00007fb9d047ed48: movq   $0x0,0x20(%rbx)                ;*putfield realTime {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::getB_avgt_jmhStub@43 (line 316)
+....................................................................................................
+ 69.25%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+c2, level 4, org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub, version 725 (564 bytes)
+
+                                                                                       ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@17 (line 325)
+                             0x00007fb9d047fe77: mov    0xf0(%r10),%r11d               ;*invokevirtual getInt {reexecute=0 rethrow=0 return_oop=0}
+                                                                                       ; - java.util.concurrent.ThreadLocalRandom::current@9 (line 177)
+                                                                                       ; - org.ad.MemBarrierTest::setB@4 (line 20)
+                                                                                       ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@17 (line 325)
+                             0x00007fb9d047fe7e: test   %r11d,%r11d
+                             0x00007fb9d047fe81: je     0x00007fb9d0480109             ;*ifne {reexecute=0 rethrow=0 return_oop=0}
+                                                                                       ; - java.util.concurrent.ThreadLocalRandom::current@12 (line 177)
+                                                                                       ; - org.ad.MemBarrierTest::setB@4 (line 20)
+                                                                                       ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@17 (line 325)
+  0.00%                      0x00007fb9d047fe87: movabs $0x9e3779b97f4a7c15,%r11
+  0.00%                      0x00007fb9d047fe91: add    0xe8(%r10),%r11                ;*ladd {reexecute=0 rethrow=0 return_oop=0}
+                                                                                       ; - java.util.concurrent.ThreadLocalRandom::nextSeed@24 (line 197)
+                                                                                       ; - java.util.concurrent.ThreadLocalRandom::nextLong@1 (line 347)
+                                                                                       ; - org.ad.MemBarrierTest::setB@7 (line 20)
+                                                                                       ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@17 (line 325)
+  0.00%                      0x00007fb9d047fe98: mov    %r11,0xe8(%r10)                ;*invokevirtual putLong {reexecute=0 rethrow=0 return_oop=0}
+                                                                                       ; - java.util.concurrent.ThreadLocalRandom::nextSeed@27 (line 196)
+                                                                                       ; - java.util.concurrent.ThreadLocalRandom::nextLong@1 (line 347)
+                                                                                       ; - org.ad.MemBarrierTest::setB@7 (line 20)
+                                                                                       ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@17 (line 325)
+  0.00%                      0x00007fb9d047fe9f: mov    0x0(%r13),%rax
+  4.92%                      0x00007fb9d047fea3: mov    %r11,%r10
+                             0x00007fb9d047fea6: shr    $0x21,%r10
+                             0x00007fb9d047feaa: xor    %r11,%r10
+  0.00%                      0x00007fb9d047fead: movabs $0xff51afd7ed558ccd,%r11
+                             0x00007fb9d047feb7: imul   %r11,%r10                      ;*lmul {reexecute=0 rethrow=0 return_oop=0}
+                                                                                       ; - java.util.concurrent.ThreadLocalRandom::mix64@9 (line 134)
+                                                                                       ; - java.util.concurrent.ThreadLocalRandom::nextLong@4 (line 347)
+                                                                                       ; - org.ad.MemBarrierTest::setB@7 (line 20)
+                                                                                       ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@17 (line 325)
+                             0x00007fb9d047febb: mov    %rax,%r11
+  0.00%                      0x00007fb9d047febe: and    $0x7,%r11
+                             0x00007fb9d047fec2: mov    %r10,%r8
+                             0x00007fb9d047fec5: shr    $0x21,%r8
+                             0x00007fb9d047fec9: xor    %r10,%r8
+  0.00%                      0x00007fb9d047fecc: movabs $0xc4ceb9fe1a85ec53,%r10
+                             0x00007fb9d047fed6: imul   %r10,%r8                       ;*lmul {reexecute=0 rethrow=0 return_oop=0}
+                                                                                       ; - java.util.concurrent.ThreadLocalRandom::mix64@20 (line 135)
+                                                                                       ; - java.util.concurrent.ThreadLocalRandom::nextLong@4 (line 347)
+                                                                                       ; - org.ad.MemBarrierTest::setB@7 (line 20)
+                                                                                       ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@17 (line 325)
+                             0x00007fb9d047feda: mov    %r8,%rbp
+  0.00%                      0x00007fb9d047fedd: shr    $0x21,%rbp
+                             0x00007fb9d047fee1: xor    %r8,%rbp
+                             0x00007fb9d047fee4: add    $0x42,%rbp                     ;*ladd {reexecute=0 rethrow=0 return_oop=0}
+                                                                                       ; - org.ad.MemBarrierTest::setB@10 (line 20)
+                                                                                       ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@17 (line 325)
+                             0x00007fb9d047fee8: cmp    $0x5,%r11
+  0.00%  ╭                   0x00007fb9d047feec: jne    0x00007fb9d047ff8b
+         │                   0x00007fb9d047fef2: mov    0x50(%rsp),%r10
+         │                   0x00007fb9d047fef7: mov    0xb8(%r10),%r10
+         │                   0x00007fb9d047fefe: mov    %r10,%r11                      ;*invokestatic currentThread {reexecute=0 rethrow=0 return_oop=0}
+         │                                                                             ; - java.util.concurrent.ThreadLocalRandom::current@3 (line 177)
+         │                                                                             ; - org.ad.MemBarrierTest::setB@4 (line 20)
+         │                                                                             ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@17 (line 325)
+         │                   0x00007fb9d047ff01: or     %r15,%r11
+         │                   0x00007fb9d047ff04: mov    %r11,%r8
+         │                   0x00007fb9d047ff07: xor    %rax,%r8
+         │                   0x00007fb9d047ff0a: test   $0xffffffffffffff87,%r8
+         │                   0x00007fb9d047ff11: jne    0x00007fb9d04800d5             ;*synchronization entry
+         │                                                                             ; - org.ad.MemBarrierTest$SyncBarrierPojo::set@-1 (line 67)
+         │                                                                             ; - org.ad.MemBarrierTest::setB@11 (line 20)
+         │                                                                             ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@17 (line 325)
+  0.00%  │    ↗↗             0x00007fb9d047ff17: mov    %rbp,0x10(%r13)
+  3.59%  │    ││             0x00007fb9d047ff1b: mov    $0x7,%r10d
+  0.19%  │    ││             0x00007fb9d047ff21: and    0x0(%r13),%r10
+  0.59%  │    ││             0x00007fb9d047ff25: cmp    $0x5,%r10
+         │╭   ││             0x00007fb9d047ff29: jne    0x00007fb9d0480026             ;*invokevirtual setB {reexecute=0 rethrow=0 return_oop=0}
+         ││   ││                                                                       ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@17 (line 325)
+  0.00%  ││   ││          ↗  0x00007fb9d047ff2f: mov    0x40(%rsp),%r10
+  0.00%  ││   ││          │  0x00007fb9d047ff34: movzbl 0x94(%r10),%r11d               ;*invokestatic currentThread {reexecute=0 rethrow=0 return_oop=0}
+         ││   ││          │                                                            ; - java.util.concurrent.ThreadLocalRandom::current@3 (line 177)
+         ││   ││          │                                                            ; - org.ad.MemBarrierTest::setB@4 (line 20)
+         ││   ││          │                                                            ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@17 (line 325)
+  0.00%  ││   ││          │  0x00007fb9d047ff3c: mov    0x108(%r15),%r10
+  0.00%  ││   ││          │  0x00007fb9d047ff43: add    $0x1,%r14                      ; ImmutableOopMap{r13=Oop [64]=Oop [72]=Oop [88]=Oop }
+         ││   ││          │                                                            ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         ││   ││          │                                                            ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@30 (line 327)
+         ││   ││          │  0x00007fb9d047ff47: test   %eax,(%r10)                    ;   {poll}
+         ││   ││          │  0x00007fb9d047ff4a: test   %r11d,%r11d
+  0.00%  ││   ││          │  0x00007fb9d047ff4d: je     0x00007fb9d047fe70             ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+         ││   ││          │                                                            ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@33 (line 328)
+         ││   ││          │  0x00007fb9d047ff53: movabs $0x7fb9e63ad670,%r10
+         ││   ││          │  0x00007fb9d047ff5d: callq  *%r10                          ;*invokestatic nanoTime {reexecute=0 rethrow=0 return_oop=0}
+         ││   ││          │                                                            ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@34 (line 328)
+         ││   ││          │  0x00007fb9d047ff60: mov    0x48(%rsp),%r10
+         ││   ││          │  0x00007fb9d047ff65: mov    %r14,0x18(%r10)                ;*putfield measuredOps {reexecute=0 rethrow=0 return_oop=0}
+         ││   ││          │                                                            ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@49 (line 330)
+         ││   ││          │  0x00007fb9d047ff69: mov    %rax,0x30(%r10)                ;*putfield stopTime {reexecute=0 rethrow=0 return_oop=0}
+         ││   ││          │                                                            ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@37 (line 328)
+         ││   ││          │  0x00007fb9d047ff6d: movq   $0x0,0x20(%r10)                ;*putfield realTime {reexecute=0 rethrow=0 return_oop=0}
+         ││   ││          │                                                            ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@43 (line 329)
+         ││   ││          │  0x00007fb9d047ff75: add    $0x30,%rsp
+         ││   ││          │  0x00007fb9d047ff79: pop    %rbp
+         ││   ││          │  0x00007fb9d047ff7a: mov    0x108(%r15),%r10
+         ││   ││          │  0x00007fb9d047ff81: test   %eax,(%r10)                    ;   {poll_return}
+         ││   ││          │  0x00007fb9d047ff84: retq
+         ││   ││          │  0x00007fb9d047ff85: lock cmpxchg %r10,0x0(%r13)
+  0.00%  ↘│   ││          │  0x00007fb9d047ff8b: lea    0x20(%rsp),%rbx
+  0.02%   │   ││          │  0x00007fb9d047ff90: mov    0x0(%r13),%rax
+  0.19%   │   ││          │  0x00007fb9d047ff94: test   $0x2,%rax
+          │╭  ││          │  0x00007fb9d047ff9a: jne    0x00007fb9d047ffc1
+          ││  ││          │  0x00007fb9d047ff9c: or     $0x1,%rax
+          ││  ││          │  0x00007fb9d047ffa0: mov    %rax,(%rbx)
+          ││  ││          │  0x00007fb9d047ffa3: lock cmpxchg %rbx,0x0(%r13)
+          ││╭ ││          │  0x00007fb9d047ffa9: je     0x00007fb9d047ffd4
+          │││ ││          │  0x00007fb9d047ffaf: sub    %rsp,%rax
+          │││ ││          │  0x00007fb9d047ffb2: and    $0xfffffffffffff007,%rax
+          │││ ││          │  0x00007fb9d047ffb9: mov    %rax,(%rbx)
+          │││╭││          │  0x00007fb9d047ffbc: jmpq   0x00007fb9d047ffd4
+  0.00%   │↘││││          │  0x00007fb9d047ffc1: mov    %rax,%r10
+  0.00%   │ ││││          │  0x00007fb9d047ffc4: xor    %rax,%rax
+  0.00%   │ ││││          │  0x00007fb9d047ffc7: lock cmpxchg %r15,0x7e(%r10)
+  0.82%   │ ││││          │  0x00007fb9d047ffcd: movq   $0x3,(%rbx)
+  0.03%   │ ↘↘╰│          │  0x00007fb9d047ffd4: je     0x00007fb9d047ff17
+          │    │          │  0x00007fb9d047ffda: mov    %r14,0x18(%rsp)
+  0.00%   │    │          │  0x00007fb9d047ffdf: rex.W pushq 0x50(%rsp)
+  0.00%   │    │          │  0x00007fb9d047ffe4: rex.W popq 0x10(%rsp)
+  0.01%   │    │          │  0x00007fb9d047ffe9: rex.W pushq 0x40(%rsp)
+  0.00%   │    │          │  0x00007fb9d047ffee: rex.W popq 0x8(%rsp)
+  0.00%   │    │          │  0x00007fb9d047fff3: mov    %r13,(%rsp)
+          │    │          │  0x00007fb9d047fff7: mov    %r13,%rsi
+          │    │          │  0x00007fb9d047fffa: lea    0x20(%rsp),%rdx
+  0.00%   │    │          │  0x00007fb9d047ffff: callq  0x00007fb9c899f880             ; ImmutableOopMap{[72]=Oop [88]=Oop [0]=Oop [8]=Oop }
+          │    │          │                                                            ;*synchronization entry
+          │    │          │                                                            ; - org.ad.MemBarrierTest$SyncBarrierPojo::set@-1 (line 67)
+          │    │          │                                                            ; - org.ad.MemBarrierTest::setB@11 (line 20)
+          │    │          │                                                            ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@17 (line 325)
+          │    │          │                                                            ;   {runtime_call _complete_monitor_locking_Java}
+          │    │          │  0x00007fb9d0480004: mov    (%rsp),%r13
+          │    │          │  0x00007fb9d0480008: rex.W pushq 0x8(%rsp)
+  0.00%   │    │          │  0x00007fb9d048000d: rex.W popq 0x40(%rsp)
+  0.00%   │    │          │  0x00007fb9d0480012: rex.W pushq 0x10(%rsp)
+  0.00%   │    │          │  0x00007fb9d0480017: rex.W popq 0x50(%rsp)
+  0.00%   │    │          │  0x00007fb9d048001c: mov    0x18(%rsp),%r14
+          │    ╰          │  0x00007fb9d0480021: jmpq   0x00007fb9d047ff17
+          ↘               │  0x00007fb9d0480026: lea    0x20(%rsp),%rax
+  0.01%                   │  0x00007fb9d048002b: cmpq   $0x0,(%rax)
+  0.01%         ╭         │  0x00007fb9d0480032: je     0x00007fb9d04800b2
+  0.00%         │         │  0x00007fb9d0480038: mov    0x0(%r13),%r10
+  0.08%         │         │  0x00007fb9d048003c: test   $0x2,%r10
+  0.66%         │╭        │  0x00007fb9d0480043: je     0x00007fb9d04800a9
+  0.01%         ││        │  0x00007fb9d0480045: xor    %rax,%rax
+  0.00%         ││        │  0x00007fb9d0480048: or     0x8e(%r10),%rax
+  0.02%         ││╭       │  0x00007fb9d048004f: jne    0x00007fb9d04800b2
+  0.00%         │││       │  0x00007fb9d0480051: mov    0x9e(%r10),%rax
+                │││       │  0x00007fb9d0480058: or     0x96(%r10),%rax
+  0.00%         │││╭      │  0x00007fb9d048005f: jne    0x00007fb9d048006b
+                ││││      │  0x00007fb9d0480061: movq   $0x0,0x7e(%r10)
+                ││││╭     │  0x00007fb9d0480069: jmp    0x00007fb9d04800b2
+  0.00%         │││↘│     │  0x00007fb9d048006b: cmpq   $0x0,0xa6(%r10)
+  0.00%         │││ │╭    │  0x00007fb9d0480076: je     0x00007fb9d048009d
+  0.00%         │││ ││    │  0x00007fb9d0480078: xor    %rax,%rax
+  0.00%         │││ ││    │  0x00007fb9d048007b: movq   $0x0,0x7e(%r10)
+  0.00%         │││ ││    │  0x00007fb9d0480083: lock addl $0x0,(%rsp)
+  0.62%         │││ ││    │  0x00007fb9d0480088: cmpq   $0x0,0xa6(%r10)
+  0.06%         │││ ││╭   │  0x00007fb9d0480093: jne    0x00007fb9d04800a2
+                │││ │││   │  0x00007fb9d0480095: lock cmpxchg %r15,0x7e(%r10)
+  0.00%         │││ │││╭  │  0x00007fb9d048009b: jne    0x00007fb9d04800a2
+                │││ │↘││  │  0x00007fb9d048009d: or     $0x1,%eax
+  0.00%         │││ │ ││╭ │  0x00007fb9d04800a0: jmp    0x00007fb9d04800b2
+  0.00%         │││ │ ↘↘│ │  0x00007fb9d04800a2: test   $0x0,%eax
+  0.00%         │││ │   │╭│  0x00007fb9d04800a7: jmp    0x00007fb9d04800b2
+                │↘│ │   │││  0x00007fb9d04800a9: mov    (%rax),%r10
+                │ │ │   │││  0x00007fb9d04800ac: lock cmpxchg %r10,0x0(%r13)
+  0.00%         ↘ ↘ ↘   ↘↘╰  0x00007fb9d04800b2: je     0x00007fb9d047ff2f
+  0.00%                      0x00007fb9d04800b8: mov    %r13,%rdi
+  0.00%                      0x00007fb9d04800bb: lea    0x20(%rsp),%rsi                ;*invokestatic currentThread {reexecute=0 rethrow=0 return_oop=0}
+                                                                                       ; - java.util.concurrent.ThreadLocalRandom::current@3 (line 177)
+                                                                                       ; - org.ad.MemBarrierTest::setB@4 (line 20)
+                                                                                       ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@17 (line 325)
+                             0x00007fb9d04800c0: mov    %r15,%rdx
+                             0x00007fb9d04800c3: movabs $0x7fb9e64965d0,%r10
+                             0x00007fb9d04800cd: callq  *%r10                          ;*return {reexecute=0 rethrow=0 return_oop=0}
+                                                                                       ; - org.ad.MemBarrierTest$SyncBarrierPojo::set@5 (line 68)
+                                                                                       ; - org.ad.MemBarrierTest::setB@11 (line 20)
+                                                                                       ; - org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub@17 (line 325)
+                             0x00007fb9d04800d0: jmpq   0x00007fb9d047ff2f             ;*invokevirtual nextLong {reexecute=0 rethrow=0 return_oop=0}
+....................................................................................................
+ 11.90%  <total for region 2>
+
+....[Hottest Regions]...............................................................................
+ 69.25%         c2, level 4  org.ad.generated.MemBarrierTest_bhack_jmhTest::getB_avgt_jmhStub, version 723 (33 bytes)
+ 11.90%         c2, level 4  org.ad.generated.MemBarrierTest_bhack_jmhTest::setB_avgt_jmhStub, version 725 (564 bytes)
+  7.69%           libjvm.so  markOopDesc* AccessInternal::PostRuntimeDispatch<EpsilonBarrierSet::AccessBarrier<540840ul, EpsilonBarrierSet>, (AccessInternal::BarrierType)3, 540840ul>::access_barrier<markOopDesc*>(oopDesc*, long) (10 bytes)
+  2.12%           libjvm.so  ObjectMonitor::TrySpin(Thread*) [clone .part.68] (2512 bytes)
+  1.28%         c1, level 3  org.ad.generated.MemBarrierTest_bhack_jmhTest::bhack_AverageTime, version 789 (1439 bytes)
+  0.90%   [kernel.kallsyms]  native_read_msr_safe (36 bytes)
+  0.65%           libjvm.so  ObjectSynchronizer::quick_enter(oopDesc*, Thread*, BasicLock*) (133 bytes)
+  0.65%        runtime stub  StubRoutines::SafeFetch32 (9 bytes)
+  0.59%           libjvm.so  ObjectMonitor::enter(Thread*) (241 bytes)
+  0.30%   [kernel.kallsyms]  __unqueue_futex (2628 bytes)
+  0.24%   [kernel.kallsyms]  system_call (210 bytes)
+  0.21%   [kernel.kallsyms]  __lock_text_start (968 bytes)
+  0.21%        libc-2.19.so  _IO_fwrite (279 bytes)
+  0.19%   [kernel.kallsyms]  __mutex_unlock_slowpath (589 bytes)
+  0.19%  libpthread-2.19.so  __pthread_enable_asynccancel (913 bytes)
+  0.17%         c1, level 3  org.ad.generated.MemBarrierTest_bhack_jmhTest::bhack_AverageTime, version 789 (1464 bytes)
+  0.13%         interpreter  goto  167 goto  (278 bytes)
+  0.11%           libjvm.so  SharedRuntime::complete_monitor_locking_C(oopDesc*, BasicLock*, JavaThread*) (534 bytes)
+  0.10%           libjvm.so  ObjectMonitor::enter(Thread*) [clone .part.90] (739 bytes)
+  0.09%         c1, level 3  org.ad.generated.MemBarrierTest_bhack_jmhTest::bhack_AverageTime, version 764 (542 bytes)
+  3.02%  <...other 552 warm regions...>
+....................................................................................................
+100.00%  <totals>
