@@ -14,42 +14,42 @@ import java.util.concurrent.TimeUnit;
 public class MemBarrierTest {
 
     @Benchmark
-    @Group("B")
+    @Group("bhack")
     @GroupThreads(8)
     public void setB(SyncBarrierPojo syncPojo) {
         syncPojo.set(0x42 + ThreadLocalRandom.current().nextLong());
     }
 
     @Benchmark
-    @Group("B")
+    @Group("bhack")
     @GroupThreads(8)
     public void getB(SyncBarrierPojo syncPojo) {
         syncPojo.get();
     }
 
     @Benchmark
-    @Group("S")
+    @Group("fullsync")
     @GroupThreads(8)
     public void setS(SyncedPojo syncedPojo) {
         syncedPojo.set(0x42 + ThreadLocalRandom.current().nextLong());
     }
 
     @Benchmark
-    @Group("S")
+    @Group("fullsync")
     @GroupThreads(8)
     public void getS(SyncedPojo syncedPojo) {
         syncedPojo.get();
     }
 
     @Benchmark
-    @Group("V")
+    @Group("volatile")
     @GroupThreads(8)
     public void setV(SyncedVolPojo syncedPojo) {
         syncedPojo.set(0x42 + ThreadLocalRandom.current().nextLong());
     }
 
     @Benchmark
-    @Group("V")
+    @Group("volatile")
     @GroupThreads(8)
     public void getV(SyncedVolPojo syncedPojo) {
         syncedPojo.get();

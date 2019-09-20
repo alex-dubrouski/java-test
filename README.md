@@ -242,4 +242,18 @@ Class method with synchronization block ([Full assembly code](docs/compiler-opti
          │  0x00007f824447bb84: mov    %r8,0x8(%rsp)
   1.23%  │  0x00007f824447bb89: mov    %r9,0x10(%rsp)                 ;*monitorexit {reexecute=0 rethrow=0 return_oop=0}   <---- exiting sync block
 ```
-and a lot of other things happening 
+and a lot of other things happening
+
+### Synchronization test
+Here I am trying to find the difference between different ways to synchronize access to fields (inspired by https://shipilev.net/blog/2014/jmm-pragmatics/). 
+There are three different implementation of a simple POJO, one fully `synchronized`, second with memory barrier hack (theoretically should work in HotSpot JVM, 
+but not guaranteed). Third one is proper implementation with volatile field
+```
+Benchmark              Mode  Cnt  Score    Error  Units
+MemBarrierTest.B:getB  avgt   10  0.016 ±  0.005  us/op
+MemBarrierTest.B:setB  avgt   10  9.775 ±  2.796  us/op
+MemBarrierTest.S:getS  avgt   10  2.941 ±  0.437  us/op
+MemBarrierTest.S:setS  avgt   10  3.113 ±  0.629  us/op
+MemBarrierTest.V:getV  avgt   10  0.001 ±  0.001  us/op
+MemBarrierTest.V:setV  avgt   10  1.592 ±  0.427  us/op
+```
