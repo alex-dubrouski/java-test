@@ -270,6 +270,7 @@ StringBenchmark.testStringBuilder    ss   50    9.255 ±  6.781  us/op
 ```
 Benefits of using StringBuilder/StringBuffer are only seen at scale, when you need to concat hundreds of strings in a loop.
 On small sets, like concatenating 3-5 values overhead of creating SB will supersede
+(inspired by Alex Shipilev blog)
 
 ### Volatiles test
 ```
@@ -284,3 +285,4 @@ VolatileBenchmark.setVI   10000    ss   50   4487.422 ±  506.901  us/op
 VolatileBenchmark.setVI  100000    ss   50  64766.597 ± 1446.683  us/op
 ```
 Java's implementation of volatile emits memory barrier after write in a form of `lock addl %(rsp-offset), $0`
+(inspired by Alex Shipilev blog)
