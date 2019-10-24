@@ -258,3 +258,29 @@ MemBarrierTest.volatile:getV  avgt   10   0.001 ±  0.001  us/op
 MemBarrierTest.volatile:setV  avgt   10   1.845 ±  0.674  us/op
 ```
 Assembly code makes me think barrier hack does not work (in OpenJDK12), as it is optimized into simple static field access
+
+### Strings test
+```
+Benchmark                          Mode  Cnt    Score    Error  Units
+StringBenchmark.testConcat           ss   50  306.682 ± 43.778  us/op
+StringBenchmark.testDummyConcat      ss   50    0.816 ±  0.304  us/op
+StringBenchmark.testDummySB          ss   50    2.354 ±  0.958  us/op
+StringBenchmark.testStringBuffer     ss   50   23.055 ± 24.159  us/op
+StringBenchmark.testStringBuilder    ss   50    9.255 ±  6.781  us/op
+```
+Benefits of using StringBuilder/StringBuffer are only seen at scale, when you need to concat hundreds of strings in a loop.
+On small sets, like concatenating 3-5 values overhead of creating SB will supersede
+
+### Volatiles test
+```
+Benchmark                (size)  Mode  Cnt      Score      Error  Units
+VolatileBenchmark.getI    10000    ss   50      0.505 ±    0.224  us/op
+VolatileBenchmark.getI   100000    ss   50      0.562 ±    0.274  us/op
+VolatileBenchmark.getVI   10000    ss   50      0.518 ±    0.243  us/op
+VolatileBenchmark.getVI  100000    ss   50      0.477 ±    0.231  us/op
+VolatileBenchmark.setI    10000    ss   50      0.959 ±    0.105  us/op
+VolatileBenchmark.setI   100000    ss   50      7.439 ±    1.946  us/op
+VolatileBenchmark.setVI   10000    ss   50   4487.422 ±  506.901  us/op
+VolatileBenchmark.setVI  100000    ss   50  64766.597 ± 1446.683  us/op
+```
+Java's implementation of volatile emits memory barrier after write in a form of `lock addl %(rsp-offset), $0`
