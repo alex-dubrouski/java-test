@@ -45,7 +45,7 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
-@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseEpsilonGC", "-XX:+AlwaysPreTouch", "-XX:+UnlockDiagnosticVMOptions", "-XX:+PrintAssembly", "-XX:+PrintNMethods", "-XX:+PrintNativeNMethods", "-XX:+PrintSignatureHandlers", "-XX:-DoEscapeAnalysis", "-Xms30g", "-Xmx30g"})
+@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseEpsilonGC", "-XX:+AlwaysPreTouch", "-XX:+UnlockDiagnosticVMOptions", "-XX:-DoEscapeAnalysis", "-Xms30g", "-Xmx30g"})
 public class LockElisionScalarReplacementNoEA {
 
     @Benchmark
