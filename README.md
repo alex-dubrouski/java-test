@@ -19,12 +19,12 @@ These tests were executed with AdoptOpenJDK `JDK 12.0.2, OpenJDK 64-Bit Server V
 I ran these tests on idle development server [2x AMD Opteron(tm) Processor 6328, 256GB]
 ### Notes
 - Optional creates so much memory overhead that I had to rollback from Epsilon no-op to Shenandoah compacting GC to avoid OOMs [Allocating Optional objects requires a lot of memory]
-- All other tests except `Optional` are running no-op EpsilonGC to exclude GC overhead
+- Most of the tests except `Optional` and `Strings` are running no-op EpsilonGC to exclude GC overhead
 - Bigger numbers mean worse result as metric is microseconds per operation (us/op)
 - Size is the size of ArrayList used for benchmark (it pre-filled with `String$i` strings, where i is [0..size] to make sure GC won't do deduplication)
-- Tests do not produce assembly code by default, but I captured hot spots with help of `-prof perfasm` and added text files with assembly code, you can find it here [Assembly code](docs/)
+- Tests do not produce assembly code by default, but I captured hot spots with help of `-prof perfasm` and added text files with assembly code, you can find it here [assembly code](docs/)
 
-### Obvious test ArrayList vs LinkedList (accessing LinkedList elements by index is O(n)), for loop vs forEach will be explained later
+### Obvious test: traversing ArrayList vs LinkedList (accessing LinkedList elements by index is O(n)), for(){} loop vs forEach will be explained later
 ```
 Benchmark                                      (size)  Mode  Cnt         Score        Error  Units
 ArrayLinkedListBenchmark.arrayListAdd          100000    ss    5      6156.139 ±   1793.898  us/op
@@ -35,7 +35,7 @@ ArrayLinkedListBenchmark.traverseAListForEach  100000    ss    5      1981.504 �
 ArrayLinkedListBenchmark.traverseLListForEach  100000    ss    5      1999.166 ±    927.983  us/op
 ```
 
-### Conventional If versus Optional.ofNullable().ifPresent() vs stream().filter(Objects::nonNull).forEach() [Bigger is worse]
+### Conventional if(){} versus Optional.ofNullable().ifPresent() vs stream().filter(Objects::nonNull).forEach() [Bigger is worse]
 ```
 Benchmark                        (size)  Mode  Cnt      Score      Error  Units
 IfBenchmark.walk                 100000    ss   50    692.066 ±   30.960  us/op
@@ -109,7 +109,7 @@ Iteration   2: 28211.536 ±(99.9%) 7414.660 us/op
                  ·gc.time:                  23.000 ms
 ```
 
-### Simple for loop versus stream().forEach() vs ArrayList.forEach() [Bigger is worse]
+### Simple for(){} loop versus stream().forEach() vs ArrayList.forEach() [Bigger is worse]
 ```
 Benchmark                              (size)  Mode  Cnt       Score        Error  Units
 CollectionForEachBenchmark.walk        100000  avgt   50    2064.416 ±     26.381  us/op
@@ -133,7 +133,7 @@ this test supposedly exhausts default FJPool which backs `stream().parallel()`.
 Also you might notice that for small collection custom approach is slower. This can be explained by the fact that 
 there is an overhead to spawn custom FJPool and new threads, while default one starts with JVM.
 
-### Anonymous classes vs Capturing and non-capturing lambdas and method references
+### Anonymous classes vs capturing and non-capturing lambdas and method references
 ```
 Benchmark                              (size)  Mode  Cnt       Score        Error  Units
 AnonymousInterfaceBenchmark.walk       100000  avgt   50    1851.074 ±     12.511  us/op
@@ -162,24 +162,24 @@ I deliberately used pretty dumb code with irrelevant class method and synchroniz
 ```
   0.22%  ↗  0x00007fab7447a830: mov    %r9,(%rsp)
          │  0x00007fab7447a834: mov    0x38(%rsp),%rsi
-         │  0x00007fab7447a839: mov    $0x43,%edx                     ; <-- Yes, yes, entire page of Java code, which includes 2 classes compacted into 1 constant
+         │  0x00007fab7447a839: mov    $0x43,%edx           ;Yes, yes, entire page of Java code, which includes 2 classes compacted into 1 constant
   6.82%  │  0x00007fab7447a83e: nop
-  0.65%  │  0x00007fab7447a83f: callq  0x00007fab6c8ced80             ; ImmutableOopMap{[48]=Oop [56]=Oop [64]=Oop [0]=Oop }
-         │                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
-         │                                                            ; - org.ad.LockElisionScalarReplacement::classMethod@14 (line 54)
-         │                                                            ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
-         │                                                            ;   {optimized virtual_call}
+  0.65%  │  0x00007fab7447a83f: callq  0x00007fab6c8ced80   ; ImmutableOopMap{[48]=Oop [56]=Oop [64]=Oop [0]=Oop }
+         │                                                  ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+         │                                                  ; - org.ad.LockElisionScalarReplacement::classMethod@14 (line 54)
+         │                                                  ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
+         │                                                  ;   {optimized virtual_call}
   7.55%  │  0x00007fab7447a844: mov    (%rsp),%r9
-  0.16%  │  0x00007fab7447a848: movzbl 0x94(%r9),%r8d                 ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
-         │                                                            ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
+  0.16%  │  0x00007fab7447a848: movzbl 0x94(%r9),%r8d       ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │                                                  ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
   7.92%  │  0x00007fab7447a850: mov    0x108(%r15),%r10
-  0.75%  │  0x00007fab7447a857: add    $0x1,%rbp                      ; ImmutableOopMap{r9=Oop [48]=Oop [56]=Oop [64]=Oop }
-         │                                                            ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
-         │                                                            ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
-         │  0x00007fab7447a85b: test   %eax,(%r10)                    ;   {poll}
+  0.75%  │  0x00007fab7447a857: add    $0x1,%rbp            ; ImmutableOopMap{r9=Oop [48]=Oop [56]=Oop [64]=Oop }
+         │                                                  ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         │                                                  ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
+         │  0x00007fab7447a85b: test   %eax,(%r10)          ;   {poll}
          │  0x00007fab7447a85e: test   %r8d,%r8d
-  7.69%  ╰  0x00007fab7447a861: je     0x00007fab7447a830             ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
-                                                                      ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@33 (line 193)
+  7.69%  ╰  0x00007fab7447a861: je     0x00007fab7447a830   ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - org.ad.generated.LockElisionScalarReplacement_classMethod_jmhTest::classMethod_avgt_jmhStub@33 (line 193)
 ```
 #### Escape Analysis disabled
 Oh, this get's ugly immediately
@@ -191,56 +191,56 @@ Simple class method ([Full assembly code](docs/compiler-optimisations/scalar-rep
   0.23%  │  0x00007f175447a0e7: mov    0x8(%rsp),%r11
   0.04%  │  0x00007f175447a0ec: mov    0xb8(%r11),%r10
   4.20%  │  0x00007f175447a0f3: mov    %r10,(%rax)
-  9.89%  │  0x00007f175447a0f6: movl   $0x234357,0x8(%rax)            ;   {metadata(&apos;org/ad/LockElisionScalarReplacementNoEA$SomeWork&apos;)}
-  5.98%  │  0x00007f175447a0fd: mov    %r8,(%rsp)                     ;*new {reexecute=0 rethrow=0 return_oop=0}                 <------- instantiating class
-         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA::classMethod@1 (line 54)
-         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
-  4.72%  │  0x00007f175447a101: movl   $0x1,0xc(%rax)                 ;*invokevirtual doAdd {reexecute=0 rethrow=0 return_oop=0} <------- invoking class method
-         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA::classMethod@11 (line 54)
-         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
+  9.89%  │  0x00007f175447a0f6: movl   $0x234357,0x8(%rax) ;   {metadata(&apos;org/ad/LockElisionScalarReplacementNoEA$SomeWork&apos;)}
+  5.98%  │  0x00007f175447a0fd: mov    %r8,(%rsp)          ;*new {reexecute=0 rethrow=0 return_oop=0}                 <------- instantiating class
+         │                                                 ; - org.ad.LockElisionScalarReplacementNoEA::classMethod@1 (line 54)
+         │                                                 ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
+  4.72%  │  0x00007f175447a101: movl   $0x1,0xc(%rax)      ;*invokevirtual doAdd {reexecute=0 rethrow=0 return_oop=0} <------- invoking class method
+         │                                                 ; - org.ad.LockElisionScalarReplacementNoEA::classMethod@11 (line 54)
+         │                                                 ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
   1.55%  │  0x00007f175447a108: mov    0x38(%rsp),%rsi
          │  0x00007f175447a10d: mov    $0x43,%edx
   4.33%  │  0x00007f175447a112: nop
-  0.02%  │  0x00007f175447a113: callq  0x00007f174c8ced80             ; ImmutableOopMap{[48]=Oop [56]=Oop [64]=Oop [0]=Oop }
-         │                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
-         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA::classMethod@14 (line 54)
-         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
-         │                                                            ;   {optimized virtual_call}
+  0.02%  │  0x00007f175447a113: callq  0x00007f174c8ced80  ; ImmutableOopMap{[48]=Oop [56]=Oop [64]=Oop [0]=Oop }
+         │                                                 ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+         │                                                 ; - org.ad.LockElisionScalarReplacementNoEA::classMethod@14 (line 54)
+         │                                                 ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@17 (line 190)
+         │                                                 ;   {optimized virtual_call}
   4.51%  │  0x00007f175447a118: mov    (%rsp),%r8
-  0.43%  │  0x00007f175447a11c: movzbl 0x94(%r8),%r11d                ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
-         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
+  0.43%  │  0x00007f175447a11c: movzbl 0x94(%r8),%r11d     ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │                                                 ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
   4.53%  │  0x00007f175447a124: mov    0x108(%r15),%r10
-  0.08%  │  0x00007f175447a12b: add    $0x1,%rbp                      ; ImmutableOopMap{r8=Oop [48]=Oop [56]=Oop [64]=Oop }
-         │                                                            ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
-         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
-         │  0x00007f175447a12f: test   %eax,(%r10)                    ;   {poll}
+  0.08%  │  0x00007f175447a12b: add    $0x1,%rbp           ; ImmutableOopMap{r8=Oop [48]=Oop [56]=Oop [64]=Oop }
+         │                                                 ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         │                                                 ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
+         │  0x00007f175447a12f: test   %eax,(%r10)         ;   {poll}
          │  0x00007f175447a132: test   %r11d,%r11d
   4.55%  │  0x00007f175447a135: jne    0x00007f175447a0aa
   0.06%  │  0x00007f175447a13b: mov    0x118(%r15),%rax
          │  0x00007f175447a142: mov    %rax,%r10
-         │  0x00007f175447a145: add    $0x10,%r10                     ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
-         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
+         │  0x00007f175447a145: add    $0x10,%r10          ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │                                                 ; - org.ad.generated.LockElisionScalarReplacementNoEA_classMethod_jmhTest::classMethod_avgt_jmhStub@30 (line 192)
   4.51%  │  0x00007f175447a149: cmp    0x128(%r15),%r10
   0.21%  ╰  0x00007f175447a150: jb     0x00007f175447a0e0
 ```
 Class method with synchronization block ([Full assembly code](docs/compiler-optimisations/scalar-replacement-and-lock-elision-128M-heap.txt))
 ```
-  1.07%  │  0x00007f824447bb26: movl   $0x684,0x8(%rdi)               ;   {metadata(&apos;java/lang/Object&apos;)}
-  1.54%  │  0x00007f824447bb2d: movl   $0x0,0xc(%rdi)                 ;*new {reexecute=0 rethrow=0 return_oop=0}           <---- instantiating lock Object
+  1.07%  │  0x00007f824447bb26: movl   $0x684,0x8(%rdi)         ;   {metadata(&apos;java/lang/Object&apos;)}
+  1.54%  │  0x00007f824447bb2d: movl   $0x0,0xc(%rdi)           ;<- instantiating lock Object *new {reexecute=0 rethrow=0 return_oop=0}
 ...
   0.90%  │  0x00007f824447bb5b: test   $0xffffffffffffff87,%rdx
-         │  0x00007f824447bb62: jne    0x00007f824447bdac             ;*monitorenter {reexecute=0 rethrow=0 return_oop=0}  <---- Entering sync block
-         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA$SomeWork::doSyncAdd@9 (line 71)
-         │                                                            ; - org.ad.LockElisionScalarReplacementNoEA::syncClassMethod@11 (line 59)
-         │                                                            ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@17 (line 190)
-         │  0x00007f824447bb68: mov    $0x42,%r10d                                                                         <---- Adding 0x42
+         │  0x00007f824447bb62: jne    0x00007f824447bdac       ;*monitorenter {reexecute=0 rethrow=0 return_oop=0}  <---- Entering sync block
+         │                                                      ; - org.ad.LockElisionScalarReplacementNoEA$SomeWork::doSyncAdd@9 (line 71)
+         │                                                      ; - org.ad.LockElisionScalarReplacementNoEA::syncClassMethod@11 (line 59)
+         │                                                      ; - org.ad.generated.LockElisionScalarReplacementNoEA_syncClassMethod_jmhTest::syncClassMethod_avgt_jmhStub@17 (line 190)
+         │  0x00007f824447bb68: mov    $0x42,%r10d              ;<-- Adding 0x42
   0.99%  │  0x00007f824447bb6e: add    0xc(%rcx),%r10d
   0.29%  │  0x00007f824447bb72: mov    $0x7,%ecx
          │  0x00007f824447bb77: and    (%rdi),%rcx
   0.02%  │  0x00007f824447bb7a: cmp    $0x5,%rcx
   0.92%  │  0x00007f824447bb7e: jne    0x00007f824447bd0d
          │  0x00007f824447bb84: mov    %r8,0x8(%rsp)
-  1.23%  │  0x00007f824447bb89: mov    %r9,0x10(%rsp)                 ;*monitorexit {reexecute=0 rethrow=0 return_oop=0}   <---- exiting sync block
+  1.23%  │  0x00007f824447bb89: mov    %r9,0x10(%rsp)           ;*monitorexit {reexecute=0 rethrow=0 return_oop=0}   <---- exiting sync block
 ```
 and a lot of other things happening
 
