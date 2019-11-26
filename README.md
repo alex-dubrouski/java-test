@@ -260,16 +260,32 @@ MemBarrierTest.volatile:setV  avgt   10   1.845 ±  0.674  us/op
 Assembly code makes me think barrier hack does not work (in OpenJDK12), as it is optimized into simple static field access
 
 ### Strings test
+With AdoptOpenJDK12
 ```
-Benchmark                          Mode  Cnt    Score    Error  Units
-StringBenchmark.testConcat           ss   50  306.682 ± 43.778  us/op
-StringBenchmark.testDummyConcat      ss   50    0.816 ±  0.304  us/op
-StringBenchmark.testDummySB          ss   50    2.354 ±  0.958  us/op
-StringBenchmark.testStringBuffer     ss   50   23.055 ± 24.159  us/op
-StringBenchmark.testStringBuilder    ss   50    9.255 ±  6.781  us/op
+1st run
+Benchmark                          Mode    Cnt   Score   Error  Units
+StringBenchmark.testConcat           ss  10000  16.827 ± 1.614  us/op
+StringBenchmark.testDummyConcat      ss  10000   0.153 ± 0.005  us/op
+StringBenchmark.testDummySB          ss  10000   0.490 ± 0.028  us/op
+StringBenchmark.testIntConcat        ss  10000   0.437 ± 0.056  us/op
+StringBenchmark.testIntToString      ss  10000   0.337 ± 0.065  us/op
+StringBenchmark.testIntToString2     ss  10000   0.255 ± 0.013  us/op
+StringBenchmark.testStringBuffer     ss  10000   1.131 ± 0.047  us/op
+StringBenchmark.testStringBuilder    ss  10000   1.073 ± 0.073  us/op
+
+2nd run
+Benchmark                          Mode   Cnt  Score   Error  Units
+StringBenchmark.testConcat           ss  1000  4.340 ± 0.236  us/op
+StringBenchmark.testDummyConcat      ss  1000  0.110 ± 0.005  us/op
+StringBenchmark.testDummySB          ss  1000  0.127 ± 0.006  us/op
+StringBenchmark.testIntConcat        ss  1000  0.115 ± 0.002  us/op
+StringBenchmark.testIntToString      ss  1000  0.182 ± 0.025  us/op
+StringBenchmark.testIntToString2     ss  1000  0.228 ± 0.028  us/op
+StringBenchmark.testStringBuffer     ss  1000  1.371 ± 0.084  us/op
+StringBenchmark.testStringBuilder    ss  1000  1.489 ± 0.108  us/op
 ```
-Benefits of using StringBuilder/StringBuffer are only seen at scale, when you need to concat hundreds of strings in a loop.
-On small sets, like concatenating 3-5 values overhead of creating SB will supersede
+This test has huge granularity, results might differ from run to run significantly and they are different between OpenJDK v11 and v12
+Even very long warm up phase does not help
 (inspired by Alex Shipilev blog)
 
 ### Volatiles test

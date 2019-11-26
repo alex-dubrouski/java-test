@@ -7,9 +7,9 @@ import java.util.concurrent.TimeUnit;
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.SingleShotTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
-@Warmup(iterations = 3, time = 1, timeUnit = TimeUnit.SECONDS)
-@Measurement(iterations = 50, time = 1, timeUnit = TimeUnit.SECONDS)
-@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseShenandoahGC", "-XX:+DisableExplicitGC", "-XX:+AlwaysPreTouch", "-XX:-UseBiasedLocking", "-Xms2g", "-Xmx2g"})
+@Warmup(iterations = 50000, time = 1, timeUnit = TimeUnit.SECONDS)
+@Measurement(iterations = 1000, time = 1, timeUnit = TimeUnit.SECONDS)
+@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseShenandoahGC", "-XX:+DisableExplicitGC", "-XX:+AlwaysPreTouch", "-XX:-UseBiasedLocking", "-Xms8g", "-Xmx8g"})
 @Threads(Threads.MAX)
 public class StringBenchmark {
     @Benchmark
@@ -47,5 +47,23 @@ public class StringBenchmark {
     @Benchmark
     public String testDummySB() {
         return (new StringBuilder()).append("One").append("Two").append("Three").append("Four").append("Five").toString();
+    }
+
+    @Benchmark
+    public String testIntConcat() {
+        int x = 1234;
+        return "" + x;
+    }
+
+    @Benchmark
+    public String testIntToString() {
+        int x = 1234;
+        return Integer.toString(x);
+    }
+
+    @Benchmark
+    public String testIntToString2() {
+        int x = 1234;
+        return String.valueOf(x);
     }
 }
