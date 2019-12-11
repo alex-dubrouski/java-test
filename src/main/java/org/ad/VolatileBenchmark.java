@@ -34,11 +34,15 @@ public class VolatileBenchmark {
 
     @Benchmark
     public void getI(Blackhole bh) {
-        bh.consume(i);
+        for (int j = 0; j < size; j++) {
+            bh.consume(i);
+        }
     }
 
     @Benchmark
     public void getVI(Blackhole bh) {
-        bh.consume(vi);
+        for (int j = 0; j < size; j++) {
+            bh.consume(vi);
+        }
     }
 }

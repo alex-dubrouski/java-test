@@ -1,0 +1,163 @@
+# Benchmark: org.ad.VolatileBenchmark.getVI
+# Parameters: (size = 100000)
+
+Secondary result "org.ad.VolatileBenchmark.getVI:·asm":
+PrintAssembly processed: 230031 total address lines.
+Perf output processed (skipped 6.122 seconds):
+ Column 1: cycles (1018 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+ [kernel.kallsyms], native_write_msr_safe (0 bytes)
+
+ <no assembly is recorded, native region>
+....................................................................................................
+ 30.06%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+c2, level 4, org.openjdk.jmh.infra.Blackhole::consume, version 670 (52 bytes)
+
+            0x00007f66c047ad24: shl    $0x3,%r10
+            0x00007f66c047ad28: movabs $0x800000000,%r12
+            0x00007f66c047ad32: add    %r12,%r10
+            0x00007f66c047ad35: xor    %r12,%r12
+            0x00007f66c047ad38: cmp    %r10,%rax
+            0x00007f66c047ad3b: jne    0x00007f66b88ceb00             ;   {runtime_call ic_miss_stub}
+            0x00007f66c047ad41: data16 xchg %ax,%ax
+            0x00007f66c047ad44: nopw   0x0(%rax,%rax,1)
+            0x00007f66c047ad4a: nopw   0x0(%rax,%rax,1)
+          [Verified Entry Point]
+  1.38%     0x00007f66c047ad50: mov    %eax,-0x14000(%rsp)
+  0.79%     0x00007f66c047ad57: push   %rbp
+  1.28%     0x00007f66c047ad58: sub    $0x20,%rsp                     ;*synchronization entry
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@-1 (line 378)
+            0x00007f66c047ad5c: mov    %edx,%r11d
+            0x00007f66c047ad5f: xor    0xb0(%rsi),%r11d               ;*getfield i1 {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@1 (line 378)
+  0.98%     0x00007f66c047ad66: mov    %edx,%r8d
+            0x00007f66c047ad69: xor    0xb8(%rsi),%r8d                ;*ixor {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@15 (line 380)
+            0x00007f66c047ad70: cmp    %r8d,%r11d
+         ╭  0x00007f66c047ad73: je     0x00007f66c047ad85             ;*if_icmpne {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.openjdk.jmh.infra.Blackhole::consume@16 (line 380)
+  0.79%  │  0x00007f66c047ad75: add    $0x20,%rsp
+         │  0x00007f66c047ad79: pop    %rbp
+         │  0x00007f66c047ad7a: mov    0x108(%r15),%r10
+  1.28%  │  0x00007f66c047ad81: test   %eax,(%r10)                    ;   {poll_return}
+  5.21%  │  0x00007f66c047ad84: retq
+         ↘  0x00007f66c047ad85: mov    %rsi,%rbp
+            0x00007f66c047ad88: mov    %edx,(%rsp)
+            0x00007f66c047ad8b: mov    %r11d,0x4(%rsp)
+            0x00007f66c047ad90: mov    %r8d,0x8(%rsp)
+            0x00007f66c047ad95: mov    $0xffffff4d,%esi
+            0x00007f66c047ad9a: nop
+            0x00007f66c047ad9b: callq  0x00007f66b88d0280             ; ImmutableOopMap{rbp=Oop }
+                                                                      ;*if_icmpne {reexecute=1 rethrow=0 return_oop=0}
+                                                                      ; - org.openjdk.jmh.infra.Blackhole::consume@16 (line 380)
+                                                                      ;   {runtime_call UncommonTrapBlob}
+....................................................................................................
+ 11.69%  <total for region 2>
+
+
+
+# Benchmark: org.ad.VolatileBenchmark.setVI
+# Parameters: (size = 10000)
+
+Secondary result "org.ad.VolatileBenchmark.setVI:·asm":
+PrintAssembly processed: 232893 total address lines.
+Perf output processed (skipped 6.038 seconds):
+ Column 1: cycles (2647 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, org.ad.VolatileBenchmark::setVI, version 713 (27 bytes)
+
+             0x00007f2d67c0cad7: mov    %rbp,0x10(%rsp)                ;*synchronization entry
+                                                                       ; - org.ad.VolatileBenchmark::setVI@-1 (line 30)
+             0x00007f2d67c0cadc: mov    0xc(%rsi),%r11d
+             0x00007f2d67c0cae0: test   %r11d,%r11d
+         ╭   0x00007f2d67c0cae3: jle    0x00007f2d67c0cb10             ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+         │                                                             ; - org.ad.VolatileBenchmark::setVI@7 (line 30)
+         │   0x00007f2d67c0cae5: xor    %r11d,%r11d                    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+         │                                                             ; - org.ad.VolatileBenchmark::setVI@20 (line 30)
+         │   0x00007f2d67c0cae8: nopl   0x0(%rax,%rax,1)               ;*putfield vi {reexecute=0 rethrow=0 return_oop=0}
+         │                                                             ; - org.ad.VolatileBenchmark::setVI@14 (line 31)
+  0.04%  │↗  0x00007f2d67c0caf0: inc    %r11d                          ;*iadd {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.VolatileBenchmark::setVI@13 (line 31)
+         ││  0x00007f2d67c0caf3: mov    %r11d,0x14(%rsi)
+  0.19%  ││  0x00007f2d67c0caf7: lock addl $0x0,-0x40(%rsp)            ;*putfield vi {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.VolatileBenchmark::setVI@14 (line 31)
+ 18.62%  ││  0x00007f2d67c0cafd: mov    0x108(%r15),%r10               ; ImmutableOopMap{rsi=Oop }
+         ││                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.VolatileBenchmark::setVI@20 (line 30)
+  0.68%  ││  0x00007f2d67c0cb04: test   %eax,(%r10)                    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.VolatileBenchmark::setVI@20 (line 30)
+         ││                                                            ;   {poll}
+  0.23%  ││  0x00007f2d67c0cb07: mov    0xc(%rsi),%r10d
+ 23.91%  ││  0x00007f2d67c0cb0b: cmp    %r10d,%r11d
+         │╰  0x00007f2d67c0cb0e: jl     0x00007f2d67c0caf0             ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+         │                                                             ; - org.ad.VolatileBenchmark::setVI@7 (line 30)
+         ↘   0x00007f2d67c0cb10: add    $0x10,%rsp
+             0x00007f2d67c0cb14: pop    %rbp
+             0x00007f2d67c0cb15: mov    0x108(%r15),%r10
+             0x00007f2d67c0cb1c: test   %eax,(%r10)                    ;   {poll_return}
+             0x00007f2d67c0cb1f: retq
+           [Exception Handler]
+           [Stub Code]
+             0x00007f2d67c0cb20: jmpq   0x00007f2d60098480             ;   {no_reloc}
+....................................................................................................
+ 43.67%  <total for region 1>
+
+
+
+# Benchmark: org.ad.VolatileBenchmark.setVI
+# Parameters: (size = 100000)
+
+Secondary result "org.ad.VolatileBenchmark.setVI:·asm":
+PrintAssembly processed: 228058 total address lines.
+Perf output processed (skipped 6.555 seconds):
+ Column 1: cycles (45985 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, org.ad.VolatileBenchmark::setVI, version 713 (30 bytes)
+
+             0x00007ff2c047e7d7: mov    %rbp,0x10(%rsp)                ;*synchronization entry
+                                                                       ; - org.ad.VolatileBenchmark::setVI@-1 (line 30)
+             0x00007ff2c047e7dc: mov    0xc(%rsi),%r11d
+             0x00007ff2c047e7e0: test   %r11d,%r11d
+         ╭   0x00007ff2c047e7e3: jle    0x00007ff2c047e810             ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+         │                                                             ; - org.ad.VolatileBenchmark::setVI@7 (line 30)
+         │   0x00007ff2c047e7e5: xor    %r11d,%r11d                    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+         │                                                             ; - org.ad.VolatileBenchmark::setVI@20 (line 30)
+         │   0x00007ff2c047e7e8: nopl   0x0(%rax,%rax,1)               ;*putfield vi {reexecute=0 rethrow=0 return_oop=0}
+         │                                                             ; - org.ad.VolatileBenchmark::setVI@14 (line 31)
+  0.04%  │↗  0x00007ff2c047e7f0: inc    %r11d                          ;*iadd {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.VolatileBenchmark::setVI@13 (line 31)
+  0.06%  ││  0x00007ff2c047e7f3: mov    %r11d,0x14(%rsi)
+  0.28%  ││  0x00007ff2c047e7f7: lock addl $0x0,-0x40(%rsp)            ;*putfield vi {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.VolatileBenchmark::setVI@14 (line 31)
+ 42.15%  ││  0x00007ff2c047e7fd: mov    0x108(%r15),%r10               ; ImmutableOopMap{rsi=Oop }
+         ││                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.VolatileBenchmark::setVI@20 (line 30)
+  1.49%  ││  0x00007ff2c047e804: test   %eax,(%r10)                    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.VolatileBenchmark::setVI@20 (line 30)
+         ││                                                            ;   {poll}
+  0.21%  ││  0x00007ff2c047e807: mov    0xc(%rsi),%r10d
+ 52.49%  ││  0x00007ff2c047e80b: cmp    %r10d,%r11d
+  0.06%  │╰  0x00007ff2c047e80e: jl     0x00007ff2c047e7f0             ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+         │                                                             ; - org.ad.VolatileBenchmark::setVI@7 (line 30)
+         ↘   0x00007ff2c047e810: add    $0x10,%rsp
+             0x00007ff2c047e814: pop    %rbp
+             0x00007ff2c047e815: mov    0x108(%r15),%r10
+             0x00007ff2c047e81c: test   %eax,(%r10)                    ;   {poll_return}
+             0x00007ff2c047e81f: retq
+           [Exception Handler]
+           [Stub Code]
+             0x00007ff2c047e820: jmpq   0x00007ff2b8908480             ;   {no_reloc}
+           [Deopt Handler Code]
+....................................................................................................
+ 96.77%  <total for region 1>

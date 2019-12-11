@@ -290,15 +290,16 @@ Even very long warm up phase does not help
 
 ### Volatiles test
 ```
-Benchmark                (size)  Mode  Cnt      Score      Error  Units
-VolatileBenchmark.getI    10000    ss   50      0.505 ±    0.224  us/op
-VolatileBenchmark.getI   100000    ss   50      0.562 ±    0.274  us/op
-VolatileBenchmark.getVI   10000    ss   50      0.518 ±    0.243  us/op
-VolatileBenchmark.getVI  100000    ss   50      0.477 ±    0.231  us/op
-VolatileBenchmark.setI    10000    ss   50      0.959 ±    0.105  us/op
-VolatileBenchmark.setI   100000    ss   50      7.439 ±    1.946  us/op
-VolatileBenchmark.setVI   10000    ss   50   4487.422 ±  506.901  us/op
-VolatileBenchmark.setVI  100000    ss   50  64766.597 ± 1446.683  us/op
+Benchmark                     (size)  Mode  Cnt      Score      Error  Units
+VolatileBenchmark.getI         10000    ss   50     40.041 ±    1.297  us/op
+VolatileBenchmark.getI        100000    ss   50    414.367 ±   15.535  us/op
+VolatileBenchmark.getVI        10000    ss   50     41.386 ±    8.148  us/op
+VolatileBenchmark.getVI       100000    ss   50    439.990 ±   16.668  us/op
+VolatileBenchmark.setI         10000    ss   50      1.060 ±    0.201  us/op
+VolatileBenchmark.setI        100000    ss   50      6.970 ±    1.052  us/op
+VolatileBenchmark.setVI        10000    ss   50   3752.773 ±  338.589  us/op
+VolatileBenchmark.setVI       100000    ss   50  61828.469 ± 2549.637  us/op
 ```
 Java's implementation of volatile emits memory barrier after write in a form of `lock addl %(rsp-offset), $0`
 (inspired by Alex Shipilev blog)
+Added a loop to track assembly code hot spots
