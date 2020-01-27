@@ -44,7 +44,7 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @Warmup(iterations = 1, time = 1, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
-@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseZGC", "-XX:+AlwaysPreTouch", "-Xms4g", "-Xmx4g", "-Xmn4g"})
+@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseShenandoahGC", "-XX:+AlwaysPreTouch", "-Xms4g", "-Xmx4g", "-Xmn4g"})
 @Threads(Threads.MAX)
 public class StreamParallelCustomTPBenchmark {
 

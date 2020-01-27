@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @Warmup(iterations = 15, time = 1, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 50, time = 1, timeUnit = TimeUnit.SECONDS)
-@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseZGC", "-XX:+AlwaysPreTouch", "-Xms1g", "-Xmx1g"})
+@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseShenandoahGC", "-XX:+AlwaysPreTouch", "-Xms1g", "-Xmx1g"})
 @Threads(Threads.MAX)
 public class VolatileBenchmark {
     @Param({"10000", "100000"})
