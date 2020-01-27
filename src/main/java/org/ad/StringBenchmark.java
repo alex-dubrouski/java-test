@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @Warmup(iterations = 50000, time = 1, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 1000, time = 1, timeUnit = TimeUnit.SECONDS)
-@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseShenandoahGC", "-XX:+DisableExplicitGC", "-XX:+AlwaysPreTouch", "-XX:-UseBiasedLocking", "-Xms8g", "-Xmx8g"})
+@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseZGC", "-XX:+DisableExplicitGC", "-XX:+AlwaysPreTouch", "-XX:-UseBiasedLocking", "-Xms4g", "-Xmx4g"})
 @Threads(Threads.MAX)
 public class StringBenchmark {
     @Benchmark
