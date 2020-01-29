@@ -1,3 +1,4 @@
+```
 Benchmark                                       (size)  Mode   Cnt         Score        Error  Units
 AnonymousInterfaceBenchmark.walk                100000  avgt    50       812.011 ±      9.510  us/op
 AnonymousInterfaceBenchmark.walk               1000000  avgt    50     12123.917 ±    107.457  us/op
@@ -56,3 +57,4 @@ VolatileBenchmark.setI                           10000    ss    50         3.131
 VolatileBenchmark.setI                          100000    ss    50         5.363 ±      1.173  us/op
 VolatileBenchmark.setVI                          10000    ss    50        89.825 ±     13.174  us/op
 VolatileBenchmark.setVI                         100000    ss    50      3611.266 ±    560.311  us/op
+```
