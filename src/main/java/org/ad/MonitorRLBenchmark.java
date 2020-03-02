@@ -58,6 +58,31 @@ public class MonitorRLBenchmark {
   }
 
   @Benchmark
+  @Group("monitorbiased")
+  @GroupThreads(8)
+  @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+  @Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseEpsilonGC", "-XX:+UnlockDiagnosticVMOptions", "-XX:-DoEscapeAnalysis", "-XX:+AlwaysPreTouch", "-XX:LoopUnrollLimit=1", "-Xms2g", "-Xmx2g"})
+  public void lockOnBMonitor(Blackhole bh) {
+    for(int i = 0; i < 25; i++) {
+      synchronized (mutex) {
+        bh.consume(0x42);
+      }
+    }
+  }
+  @Benchmark
+  @Group("monitorbiasedrtm")
+  @GroupThreads(8)
+  @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+  @Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseEpsilonGC", "-XX:+UnlockDiagnosticVMOptions", "-XX:-DoEscapeAnalysis", "-XX:+AlwaysPreTouch", "-XX:LoopUnrollLimit=1", "-XX:+UseRTMLocking", "-Xms2g", "-Xmx2g"})
+  public void lockOnBRTMMonitor(Blackhole bh) {
+    for(int i = 0; i < 25; i++) {
+      synchronized (mutex) {
+        bh.consume(0x42);
+      }
+    }
+  }
+
+  @Benchmark
   @Group("fairrelock")
   @GroupThreads(8)
   @CompilerControl(CompilerControl.Mode.DONT_INLINE)
