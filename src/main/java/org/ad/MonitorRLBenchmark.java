@@ -26,8 +26,10 @@ import org.openjdk.jmh.infra.Blackhole;
 @Threads(8)
 public class MonitorRLBenchmark {
   final Object mutex = new Object();
+  //RELock in fair mode
   final ReentrantLock flock = new ReentrantLock(true);
-  final ReentrantLock ulock = new ReentrantLock(true);
+  //RELock in unfair mode
+  final ReentrantLock ulock = new ReentrantLock();
 
   @Benchmark
   @Group("monitorrtm")
