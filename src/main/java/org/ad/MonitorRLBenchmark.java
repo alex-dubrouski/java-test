@@ -37,8 +37,6 @@ public class MonitorRLBenchmark {
   public void lockOnMonitorRTM(Blackhole bh) {
     for(int i = 0; i < 25; i++) {
       synchronized (mutex) {
-//        System.out.println(mutex);
-//        System.out.println(Thread.currentThread().getId());
         bh.consume(0x42);
       }
     }
@@ -52,8 +50,6 @@ public class MonitorRLBenchmark {
   public void lockOnMonitor(Blackhole bh) {
     for(int i = 0; i < 25; i++) {
       synchronized (mutex) {
-//        System.out.println(mutex);
-//        System.out.println(Thread.currentThread().getId());
         bh.consume(0x42);
       }
     }
@@ -68,8 +64,6 @@ public class MonitorRLBenchmark {
     for(int i = 0; i < 25; i++) {
       flock.lock();
       try {
-//        System.out.println(lock);
-//        System.out.println(Thread.currentThread().getId());
         bh.consume(0x42);
       } finally {
         flock.unlock();
@@ -86,8 +80,6 @@ public class MonitorRLBenchmark {
     for(int i = 0; i < 25; i++) {
       ulock.lock();
       try {
-//        System.out.println(lock);
-//        System.out.println(Thread.currentThread().getId());
         bh.consume(0x42);
       } finally {
         ulock.unlock();
