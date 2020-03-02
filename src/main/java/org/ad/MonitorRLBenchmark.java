@@ -12,7 +12,6 @@ import org.openjdk.jmh.annotations.Measurement;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Threads;
 import org.openjdk.jmh.annotations.Warmup;
@@ -23,25 +22,37 @@ import org.openjdk.jmh.infra.Blackhole;
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @Warmup(iterations = 10, time = 1, timeUnit = TimeUnit.SECONDS)
-@Measurement(iterations = 10, time = 1, timeUnit = TimeUnit.SECONDS)
-@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseEpsilonGC", "-XX:-UseBiasedLocking", "-XX:+UnlockDiagnosticVMOptions", "-XX:-DoEscapeAnalysis", "-XX:+AlwaysPreTouch", "-XX:LoopUnrollLimit=1", "-Xms2g", "-Xmx2g"})
+@Measurement(iterations = 20, time = 1, timeUnit = TimeUnit.SECONDS)
 @Threads(8)
 public class MonitorRLBenchmark {
   final Object mutex = new Object();
-  ReentrantLock lock;
+  final ReentrantLock lock = new ReentrantLock(true);
 
-  @Setup
-  public void setup() throws Exception {
-    lock = new ReentrantLock();
+  @Benchmark
+  @Group("monitorrtm")
+  @GroupThreads(8)
+  @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+  @Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseEpsilonGC", "-XX:-UseBiasedLocking", "-XX:+UnlockDiagnosticVMOptions", "-XX:-DoEscapeAnalysis", "-XX:+AlwaysPreTouch", "-XX:LoopUnrollLimit=1", "-XX:+UseRTMLocking", "-Xms2g", "-Xmx2g"})
+  public void lockOnMonitorRTM(Blackhole bh) {
+    for(int i = 0; i < 25; i++) {
+      synchronized (mutex) {
+//        System.out.println(mutex);
+//        System.out.println(Thread.currentThread().getId());
+        bh.consume(0x42);
+      }
+    }
   }
 
   @Benchmark
   @Group("monitor")
   @GroupThreads(8)
   @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+  @Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseEpsilonGC", "-XX:-UseBiasedLocking", "-XX:+UnlockDiagnosticVMOptions", "-XX:-DoEscapeAnalysis", "-XX:+AlwaysPreTouch", "-XX:LoopUnrollLimit=1", "-Xms2g", "-Xmx2g"})
   public void lockOnMonitor(Blackhole bh) {
     for(int i = 0; i < 25; i++) {
       synchronized (mutex) {
+//        System.out.println(mutex);
+//        System.out.println(Thread.currentThread().getId());
         bh.consume(0x42);
       }
     }
@@ -51,10 +62,13 @@ public class MonitorRLBenchmark {
   @Group("relock")
   @GroupThreads(8)
   @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+  @Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseEpsilonGC", "-XX:-UseBiasedLocking", "-XX:+UnlockDiagnosticVMOptions", "-XX:-DoEscapeAnalysis", "-XX:+AlwaysPreTouch", "-XX:LoopUnrollLimit=1", "-Xms2g", "-Xmx2g"})
   public void lockOnReLock(Blackhole bh) {
     for(int i = 0; i < 25; i++) {
       lock.lock();
       try {
+//        System.out.println(lock);
+//        System.out.println(Thread.currentThread().getId());
         bh.consume(0x42);
       } finally {
         lock.unlock();
