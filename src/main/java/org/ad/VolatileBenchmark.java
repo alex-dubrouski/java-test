@@ -17,6 +17,7 @@ public class VolatileBenchmark {
     int size;
     int i;
     volatile int vi;
+    volatile TestClazz tc = new TestClazz();
 
     @Benchmark
     public void setI() {
@@ -33,6 +34,20 @@ public class VolatileBenchmark {
     }
 
     @Benchmark
+    public void setVTCA() {
+        for (int j = 0; j < size; j++) {
+            tc.a = j + 1;
+        }
+    }
+
+    @Benchmark
+    public void setVTCB() {
+        for (long j = 0; j < size; j++) {
+            tc.b = j + 1;
+        }
+    }
+
+    @Benchmark
     public void getI(Blackhole bh) {
         for (int j = 0; j < size; j++) {
             bh.consume(i);
@@ -43,6 +58,22 @@ public class VolatileBenchmark {
     public void getVI(Blackhole bh) {
         for (int j = 0; j < size; j++) {
             bh.consume(vi);
+        }
+    }
+
+    @Benchmark
+    public void getVTC(Blackhole bh) {
+        for (int j = 0; j < size; j++) {
+            bh.consume(tc);
+        }
+    }
+
+    private class TestClazz {
+        int a;
+        long b;
+        TestClazz() {
+            a = 10;
+            b = 100L;
         }
     }
 }

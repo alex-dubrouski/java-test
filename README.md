@@ -303,3 +303,14 @@ VolatileBenchmark.setVI       100000    ss   50  61828.469 ± 2549.637  us/op
 Java's implementation of volatile emits memory barrier after write in a form of `lock addl %(rsp-offset), $0`
 (inspired by Alex Shipilev blog)
 Added a loop to track assembly code hot spots
+
+### VarHandlesBenchmark
+```
+Benchmark                                  (size)  Mode  Cnt       Score       Error  Units
+VarHandlesBenchmark.array_byte            1000000  avgt   10  302359.208 ± 24750.815  ns/op
+VarHandlesBenchmark.byteBuffer_byte       1000000  avgt   10  427770.862 ±  5294.746  ns/op
+VarHandlesBenchmark.byteBuffer_long       1000000  avgt   10   75093.438 ±  1115.174  ns/op
+VarHandlesBenchmark.unsafe_long           1000000  avgt   10   75885.083 ±  2496.315  ns/op
+VarHandlesBenchmark.varHandles            1000000  avgt   10   75074.925 ±  1551.601  ns/op
+```
+Executed with OpenJDK 13 (includes Java 9 fixes for ByteBuffer) on Dell desktop with Xeon 4108 CPU. Test updated to include changes to Unsafe implementation 
