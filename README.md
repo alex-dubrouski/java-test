@@ -313,4 +313,16 @@ VarHandlesBenchmark.byteBuffer_long       1000000  avgt   10   75093.438 ±  111
 VarHandlesBenchmark.unsafe_long           1000000  avgt   10   75885.083 ±  2496.315  ns/op
 VarHandlesBenchmark.varHandles            1000000  avgt   10   75074.925 ±  1551.601  ns/op
 ```
-Executed with OpenJDK 13 (includes Java 9 fixes for ByteBuffer) on Dell desktop with Xeon 4108 CPU. Test updated to include changes to Unsafe implementation 
+Executed with OpenJDK 13 (includes Java 9 fixes for ByteBuffer) on Dell desktop with Xeon 4108 CPU. Test updated to include changes to Unsafe implementation
+
+###MonitorRLBenchmark
+Tests ReentrantLock in two modes against fat monitor + RTMLocking
+```
+Benchmark                            Mode  Cnt     Score    Error  Units
+MonitorRLBenchmark.fairrelock        avgt   20  3319.645 ± 25.871  us/op
+MonitorRLBenchmark.monitor           avgt   20    93.096 ± 13.944  us/op
+MonitorRLBenchmark.monitorbiased     avgt   20    93.810 ± 14.230  us/op
+MonitorRLBenchmark.monitorbiasedrtm  avgt   20     2.341 ±  0.098  us/op
+MonitorRLBenchmark.monitorrtm        avgt   20     2.477 ±  0.078  us/op
+MonitorRLBenchmark.unfairrelock      avgt   20    19.924 ±  0.691  us/op
+``` 
