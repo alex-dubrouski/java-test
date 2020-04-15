@@ -315,7 +315,7 @@ VarHandlesBenchmark.varHandles            1000000  avgt   10   75074.925 ±  155
 ```
 Executed with OpenJDK 13 (includes Java 9 fixes for ByteBuffer) on Dell desktop with Xeon 4108 CPU. Test updated to include changes to Unsafe implementation
 
-###MonitorRLBenchmark
+### MonitorRLBenchmark
 Tests ReentrantLock in two modes against fat monitor + RTMLocking
 ```
 Benchmark                            Mode  Cnt     Score    Error  Units
