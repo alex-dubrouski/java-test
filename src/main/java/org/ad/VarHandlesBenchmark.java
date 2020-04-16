@@ -34,10 +34,10 @@ import org.openjdk.jmh.infra.Blackhole;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-@Warmup(iterations = 5, time = 1)
+@Warmup(iterations = 50, time = 1)
 @Measurement(iterations = 10, time = 1)
 //Access to Unsafe and LoopUnrollLimit to have readable ASM code
-@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseEpsilonGC", "-XX:+DisableExplicitGC", "-XX:+AlwaysPreTouch", "-Xms8g", "-Xmx8g", "--add-exports", "java.base/jdk.internal.misc=ALL-UNNAMED", "-XX:LoopUnrollLimit=1"})
+@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseEpsilonGC", "-XX:+DisableExplicitGC", "-XX:+AlwaysPreTouch", "-Xms8g", "-Xmx8g", "--add-exports", "java.base/jdk.internal.misc=ALL-UNNAMED"})
 @Threads(1)
 public class VarHandlesBenchmark {
   Unsafe unsafe;

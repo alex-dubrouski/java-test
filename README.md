@@ -12,8 +12,9 @@ I would like to use OpenJDK JMH benchmarking framework to find out how it affect
 
 ## Prerequisites
 
-Running this benchmark requires Java 12 as I used EpsilonGC to avoid possible GC overhead (ShenandoahGC for some tests, please visit https://adoptopenjdk.net to download JDK12 with ShenandoahGC)
-These tests were executed with AdoptOpenJDK `JDK 12.0.2, OpenJDK 64-Bit Server VM, 12.0.2+10`, hsdis compiled from OpenJDK source (binutils 2.32), 
+Running these benchmarks requires Java 14 as I used EpsilonGC to avoid possible GC overhead (ShenandoahGC for some tests, please visit https://adoptopenjdk.net to download JDK12 with ShenandoahGC)
+plus new benchmarks will use MemoryHandles (JEP-370) which are only available in Java 14 
+Older tests were executed with AdoptOpenJDK `JDK 12.0.2, OpenJDK 64-Bit Server VM, 12.0.2+10`, hsdis compiled from OpenJDK source (binutils 2.32), 
 
 ## Test results
 I ran these tests on idle development server [2x AMD Opteron(tm) Processor 6328, 256GB]
