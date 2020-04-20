@@ -1,0 +1,155 @@
+Secondary result "org.ad.VHReflectionBenchmark.testVH:·asm":
+PrintAssembly processed: 202932 total address lines.
+Perf output processed (skipped 42.059 seconds):
+ Column 1: cycles (10034 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, org.ad.generated.VHReflectionBenchmark_testVH_jmhTest::testVH_avgt_jmhStub, version 720 (166 bytes)
+
+              0x00007fbedb7c33da:   mov    %rbp,0x18(%r10)              ;*putfield measuredOps {reexecute=0 rethrow=0 return_oop=0}
+                                                                        ; - org.ad.generated.VHReflectionBenchmark_testVH_jmhTest::testVH_avgt_jmhStub@47 (line 191)
+              0x00007fbedb7c33de:   mov    %rax,0x30(%r10)              ;*putfield stopTime {reexecute=0 rethrow=0 return_oop=0}
+                                                                        ; - org.ad.generated.VHReflectionBenchmark_testVH_jmhTest::testVH_avgt_jmhStub@35 (line 189)
+              0x00007fbedb7c33e2:   movq   $0x0,0x20(%r10)
+              0x00007fbedb7c33ea:   add    $0x20,%rsp
+              0x00007fbedb7c33ee:   pop    %rbp
+              0x00007fbedb7c33ef:   mov    0x110(%r15),%r10
+              0x00007fbedb7c33f6:   test   %eax,(%r10)                  ;   {poll_return}
+              0x00007fbedb7c33f9:   retq
+  0.02%    ↗  0x00007fbedb7c33fa:   mov    0x50(%r15),%r11
+           │  0x00007fbedb7c33fe:   mov    %rdi,-0x8(%r11,%r10,1)
+  0.02%    │  0x00007fbedb7c3403:   add    $0xfffffffffffffff8,%r10
+           │  0x00007fbedb7c3407:   mov    %r10,0x40(%r15)
+  0.01%    │  0x00007fbedb7c340b:   nopl   0x0(%rax,%rax,1)
+  1.42%  ↗↗│  0x00007fbedb7c3410:   movl   $0xc0485224,0x10(%r13)       ;*invokevirtual testVH {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - org.ad.generated.VHReflectionBenchmark_testVH_jmhTest::testVH_avgt_jmhStub@15 (line 186)
+         │││                                                            ;   {oop(&quot;done&quot;{0x0000000602429120})}
+  6.07%  │││  0x00007fbedb7c3418:   movzbl 0x94(%rbx),%r10d             ;*invokevirtual putReference {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - java.lang.invoke.VarHandleReferences$FieldInstanceReadWrite::set@26 (line 110)
+         │││                                                            ; - java.lang.invoke.VarHandleGuards::guard_LL_V@33 (line 49)
+         │││                                                            ; - org.ad.VHReflectionBenchmark::testVH@13 (line 45)
+         │││                                                            ; - org.ad.generated.VHReflectionBenchmark_testVH_jmhTest::testVH_avgt_jmhStub@15 (line 186)
+  2.90%  │││  0x00007fbedb7c3420:   mov    0x110(%r15),%r11
+  1.59%  │││  0x00007fbedb7c3427:   add    $0x1,%rbp                    ; ImmutableOopMap {rbx=Oop [48]=Oop [64]=Oop }
+         │││                                                            ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         │││                                                            ; - (reexecute) org.ad.generated.VHReflectionBenchmark_testVH_jmhTest::testVH_avgt_jmhStub@28 (line 188)
+  0.98%  │││  0x00007fbedb7c342b:   test   %eax,(%r11)                  ;   {poll}
+  5.46%  │││  0x00007fbedb7c342e:   test   %r10d,%r10d
+         │││  0x00007fbedb7c3431:   jne    0x00007fbedb7c33c8
+  2.53%  │││  0x00007fbedb7c3433:   mov    0x120(%r15),%r13
+  1.48%  │││  0x00007fbedb7c343a:   mov    %r13,%r10
+  2.84%  │││  0x00007fbedb7c343d:   add    $0x18,%r10
+  6.28%  │││  0x00007fbedb7c3441:   cmp    0x130(%r15),%r10
+         │││  0x00007fbedb7c3448:   jae    0x00007fbedb7c34c9           ;*invokevirtual putReference {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - java.lang.invoke.VarHandleReferences$FieldInstanceReadWrite::set@26 (line 110)
+         │││                                                            ; - java.lang.invoke.VarHandleGuards::guard_LL_V@33 (line 49)
+         │││                                                            ; - org.ad.VHReflectionBenchmark::testVH@13 (line 45)
+         │││                                                            ; - org.ad.generated.VHReflectionBenchmark_testVH_jmhTest::testVH_avgt_jmhStub@15 (line 186)
+  4.72%  │││  0x00007fbedb7c344a:   mov    %r10,0x120(%r15)
+  3.49%  │││  0x00007fbedb7c3451:   prefetchw 0xc0(%r10)
+  5.54%  │││  0x00007fbedb7c3459:   mov    (%rsp),%r10
+  4.67%  │││  0x00007fbedb7c345d:   mov    0xb8(%r10),%r10
+  5.91%  │││  0x00007fbedb7c3464:   mov    %r10,0x0(%r13)
+ 11.26%  │││  0x00007fbedb7c3468:   movl   $0x1743f2,0x8(%r13)          ;   {metadata(&apos;org/ad/MyClass&apos;)}
+  8.60%  │││  0x00007fbedb7c3470:   movl   $0x0,0x14(%r13)              ;*invokevirtual allocateInstance {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - java.lang.invoke.DirectMethodHandle::allocateInstance@12 (line 487)
+         │││                                                            ; - java.lang.invoke.LambdaForm$DMH/0x0000000800ba9440::newInvokeSpecial@7
+         │││                                                            ; - java.lang.invoke.LambdaForm$MH/0x0000000800ba9040::invokeExact_MT@18
+         │││                                                            ; - org.ad.VHReflectionBenchmark::testVH@3 (line 44)
+         │││                                                            ; - org.ad.generated.VHReflectionBenchmark_testVH_jmhTest::testVH_avgt_jmhStub@15 (line 186)
+  5.05%  │││  0x00007fbedb7c3478:   movl   $0x1,0xc(%r13)               ;*putfield id {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - org.ad.MyClass::&lt;init&gt;@6 (line 65)
+         │││                                                            ; - java.lang.invoke.LambdaForm$DMH/0x0000000800ba9440::newInvokeSpecial@21
+         │││                                                            ; - java.lang.invoke.LambdaForm$MH/0x0000000800ba9040::invokeExact_MT@18
+         │││                                                            ; - org.ad.VHReflectionBenchmark::testVH@3 (line 44)
+         │││                                                            ; - org.ad.generated.VHReflectionBenchmark_testVH_jmhTest::testVH_avgt_jmhStub@15 (line 186)
+  5.58%  │││  0x00007fbedb7c3480:   movl   $0xc0048fbf,0x10(%r13)       ;   {oop(&quot;test&quot;{0x0000000600247df8})}
+  5.78%  │││  0x00007fbedb7c3488:   testb  $0x2,0x20(%r15)
+  1.73%  ╰││  0x00007fbedb7c348d:   je     0x00007fbedb7c3410
+          ││  0x00007fbedb7c3493:   mov    0x10(%r13),%r11d
+          ││  0x00007fbedb7c3497:   test   %r11d,%r11d
+          ╰│  0x00007fbedb7c349a:   je     0x00007fbedb7c3410
+  0.01%    │  0x00007fbedb7c34a0:   mov    0x40(%r15),%r10
+           │  0x00007fbedb7c34a4:   mov    %r11,%rdi
+           │  0x00007fbedb7c34a7:   shl    $0x3,%rdi
+           │  0x00007fbedb7c34ab:   test   %r10,%r10
+           ╰  0x00007fbedb7c34ae:   jne    0x00007fbedb7c33fa
+              0x00007fbedb7c34b4:   mov    %r15,%rsi
+              0x00007fbedb7c34b7:   movabs $0x7fbef3083540,%r10
+              0x00007fbedb7c34c1:   callq  *%r10                        ;*invokevirtual putReference {reexecute=0 rethrow=0 return_oop=0}
+                                                                        ; - java.lang.invoke.VarHandleReferences$FieldInstanceReadWrite::set@26 (line 110)
+                                                                        ; - java.lang.invoke.VarHandleGuards::guard_LL_V@33 (line 49)
+                                                                        ; - org.ad.VHReflectionBenchmark::testVH@13 (line 45)
+....................................................................................................
+ 93.96%  <total for region 1>
+
+....[Hottest Regions]...............................................................................
+ 93.96%          c2, level 4  org.ad.generated.VHReflectionBenchmark_testVH_jmhTest::testVH_avgt_jmhStub, version 720 (166 bytes)
+  0.50%            libjvm.so  ElfSymbolTable::lookup (54 bytes)
+  0.23%   libpthread-2.17.so  [unknown] (4 bytes)
+  0.22%            libjvm.so  OopOopIterateDispatch<ShenandoahMarkRefsMetadataClosure>::Table::oop_oop_iterate<InstanceKlass, unsigned int> (194 bytes)
+  0.20%         libc-2.17.so  syscall (8 bytes)
+  0.16%            libjvm.so  ShenandoahConcurrentMark::mark_loop_work<ShenandoahMarkRefsMetadataClosure, true> (66 bytes)
+  0.15%            libjvm.so  SpinPause (9 bytes)
+  0.11%            libjvm.so  ShenandoahConcurrentMark::mark_loop_work<ShenandoahMarkRefsMetadataClosure, true> (26 bytes)
+  0.10%               kernel  [unknown] (0 bytes)
+  0.09%            libjvm.so  Thread::SpinRelease (16 bytes)
+  0.09%   libpthread-2.17.so  __libc_nanosleep (4 bytes)
+  0.08%               kernel  [unknown] (0 bytes)
+  0.08%            libjvm.so  ShenandoahHeap::max_capacity (22 bytes)
+  0.08%            libjvm.so  ShenandoahSATBMarkQueueSet::filter (98 bytes)
+  0.08%            libjvm.so  xmlStream::write_text (48 bytes)
+  0.08%   libpthread-2.17.so  do_futex_wait.constprop.1 (0 bytes)
+  0.08%               [vdso]  __vdso_clock_gettime (19 bytes)
+  0.07%         libc-2.17.so  _IO_fwrite (37 bytes)
+  0.07%         libc-2.17.so  __memset_sse2 (12 bytes)
+  0.06%            libjvm.so  objArrayOopDesc::oop_iterate_range<ShenandoahMarkRefsMetadataClosure> (37 bytes)
+  3.51%  <...other 249 warm regions...>
+....................................................................................................
+ 99.99%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 93.97%          c2, level 4  org.ad.generated.VHReflectionBenchmark_testVH_jmhTest::testVH_avgt_jmhStub, version 720
+  0.50%            libjvm.so  ElfSymbolTable::lookup
+  0.44%            libjvm.so  ShenandoahConcurrentMark::mark_loop_work<ShenandoahMarkRefsMetadataClosure, true>
+  0.26%            libjvm.so  OopOopIterateDispatch<ShenandoahMarkRefsMetadataClosure>::Table::oop_oop_iterate<InstanceKlass, unsigned int>
+  0.23%   libpthread-2.17.so  [unknown]
+  0.20%         libc-2.17.so  syscall
+  0.18%               kernel  [unknown]
+  0.15%            libjvm.so  SpinPause
+  0.14%               [vdso]  __vdso_clock_gettime
+  0.13%            libjvm.so  xmlStream::write_text
+  0.12%            libjvm.so  ShenandoahControlThread::run_service
+  0.11%         libc-2.17.so  _IO_fwrite
+  0.10%            libjvm.so  objArrayOopDesc::oop_iterate_range<ShenandoahMarkRefsMetadataClosure>
+  0.10%   libpthread-2.17.so  __libc_nanosleep
+  0.09%            libjvm.so  Thread::SpinRelease
+  0.09%         libc-2.17.so  vfprintf
+  0.08%            libjvm.so  ShenandoahHeap::max_capacity
+  0.08%   libpthread-2.17.so  do_futex_wait.constprop.1
+  0.08%            libjvm.so  ShenandoahSATBMarkQueueSet::filter
+  0.08%            libjvm.so  OopOopIterateDispatch<ShenandoahMarkRefsMetadataClosure>::Table::oop_oop_iterate<InstanceMirrorKlass, unsigned int>
+  2.87%  <...other 159 warm methods...>
+....................................................................................................
+ 99.99%  <totals>
+
+....[Distribution by Source]........................................................................
+ 93.97%          c2, level 4
+  3.81%            libjvm.so
+  0.95%         libc-2.17.so
+  0.63%   libpthread-2.17.so
+  0.18%               kernel
+  0.14%               [vdso]
+  0.14%          interpreter
+  0.09%       hsdis-amd64.so
+  0.03%           ld-2.17.so
+  0.02%          c1, level 3
+  0.01%          classes.jsa
+  0.01%         runtime stub
+  0.01%  liblsaauth.so.0.0.0
+  0.01%      perf-427933.map
+....................................................................................................
+ 99.99%  <totals>
+

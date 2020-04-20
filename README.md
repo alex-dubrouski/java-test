@@ -326,4 +326,11 @@ MonitorRLBenchmark.monitorbiased     avgt   20    93.810 ± 14.230  us/op
 MonitorRLBenchmark.monitorbiasedrtm  avgt   20     2.341 ±  0.098  us/op
 MonitorRLBenchmark.monitorrtm        avgt   20     2.477 ±  0.078  us/op
 MonitorRLBenchmark.unfairrelock      avgt   20    19.924 ±  0.691  us/op
+```
+### VHReflectionBenchmark
+Testing class instantiation and setting private field value via Reflection and VarHandle (Escape Analysis disabled to avoid over optimization)
+```
+Benchmark                                  Mode  Cnt   Score   Error  Units
+VHReflectionBenchmark.testReflection       avgt   10  72.162 ± 2.562  ns/op
+VHReflectionBenchmark.testVH               avgt   10   3.528 ± 0.059  ns/op
 ``` 

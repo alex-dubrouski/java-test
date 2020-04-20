@@ -1,0 +1,1427 @@
+Secondary result "org.ad.VHReflectionBenchmark.testReflection:·asm":
+PrintAssembly processed: 232104 total address lines.
+Perf output processed (skipped 41.391 seconds):
+ Column 1: cycles (10063 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub, version 781 (1556 bytes)
+
+             0x00007f06077e51ce:   xchg   %ax,%ax
+         ↗↗  0x00007f06077e51d0:   mov    0x10(%rbx),%r10
+         ││  0x00007f06077e51d4:   mov    0x20(%rsp),%rbx
+         ││  0x00007f06077e51d9:   add    %r10,%rbx                    ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.44%  ││  0x00007f06077e51dc:   testb  $0x2,0x20(%r15)
+  0.01%  ││  0x00007f06077e51e1:   jne    0x00007f06077e5dd6
+         ││  0x00007f06077e51e7:   movl   $0xc0384c5c,(%rbx)           ;*invokevirtual putReference {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - jdk.internal.reflect.UnsafeObjectFieldAccessorImpl::set@52 (line 84)
+         ││                                                            ; - java.lang.reflect.Field::set@24 (line 778)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@46 (line 58)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││                                                            ;   {oop(&quot;done&quot;{0x0000000601c262e0})}
+         ││  0x00007f06077e51ed:   mov    0x48(%rsp),%r10
+  0.50%  ││  0x00007f06077e51f2:   add    $0x1,%r10                    ;*ladd {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@21 (line 187)
+  0.03%  ││  0x00007f06077e51f6:   mov    %r10,0x48(%rsp)
+         ││  0x00007f06077e51fb:   mov    0x70(%rsp),%r10
+         ││  0x00007f06077e5200:   movzbl 0x94(%r10),%r10d             ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.49%  ││  0x00007f06077e5208:   mov    0x110(%r15),%r11
+  0.01%  ││  0x00007f06077e520f:   movabs $0x600001478,%r8             ;   {oop(a &apos;java/lang/Class&apos;{0x0000000600001478} = &apos;java/lang/System&apos;)}
+         ││  0x00007f06077e5219:   movabs $0x600001178,%r9             ; ImmutableOopMap {r8=Oop r9=Oop [112]=Oop [120]=Oop [128]=Oop [0]=Derived_oop_r8 [8]=Derived_oop_r9 }
+         ││                                                            ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         ││                                                            ; - (reexecute) org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@28 (line 188)
+         ││                                                            ;   {oop(a &apos;java/lang/Class&apos;{0x0000000600001178} = &apos;java/lang/Class&apos;)}
+         ││  0x00007f06077e5223:   test   %eax,(%r11)                  ;   {poll}
+  0.43%  ││  0x00007f06077e5226:   test   %r10d,%r10d
+         ││  0x00007f06077e5229:   jne    0x00007f06077e60c4
+  0.03%  ││  0x00007f06077e522f:   mov    0x120(%r15),%rax
+         ││  0x00007f06077e5236:   mov    %rax,%r10
+         ││  0x00007f06077e5239:   add    $0x10,%r10
+  0.41%  ││  0x00007f06077e523d:   cmp    0x130(%r15),%r10
+         ││  0x00007f06077e5244:   jae    0x00007f06077e5ed4           ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.02%  ││  0x00007f06077e524a:   mov    %r10,0x120(%r15)
+         ││  0x00007f06077e5251:   prefetchw 0xc0(%r10)
+         ││  0x00007f06077e5259:   movq   $0x1,(%rax)
+  0.56%  ││  0x00007f06077e5260:   prefetchw 0x100(%r10)
+  0.02%  ││  0x00007f06077e5268:   movl   $0x6616f,0x8(%rax)           ;   {metadata(&apos;java/lang/Class&apos;[])}
+         ││  0x00007f06077e526f:   prefetchw 0x140(%r10)
+         ││  0x00007f06077e5277:   movl   $0x0,0xc(%rax)
+  0.38%  ││  0x00007f06077e527e:   prefetchw 0x180(%r10)               ;*anewarray {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@3 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.01%  ││  0x00007f06077e5286:   mov    %rax,%r13                    ;*invokestatic allowSecurityManager {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.System::getSecurityManager@0 (line 403)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@0 (line 2625)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e5289:   mov    (%rsp),%r10
+         ││  0x00007f06077e528d:   mov    (%r10),%r10d                 ;*getstatic security {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.System::getSecurityManager@6 (line 404)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@0 (line 2625)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.37%  ││  0x00007f06077e5290:   test   %r10d,%r10d
+         ││  0x00007f06077e5293:   jne    0x00007f06077e623e           ;*ifnull {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@5 (line 2626)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.01%  ││  0x00007f06077e5299:   mov    0x8(%rsp),%r10
+         ││  0x00007f06077e529e:   mov    (%r10),%ebx
+         ││  0x00007f06077e52a1:   mov    %rbx,%r10
+  0.44%  ││  0x00007f06077e52a4:   shl    $0x3,%r10                    ;*getstatic reflectionFactory {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.Class::getReflectionFactory@0 (line 3638)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@18 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.02%  ││  0x00007f06077e52a8:   mov    %r10,0x20(%rsp)              ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e52ad:   testb  $0x1,0x20(%r15)
+         ││  0x00007f06077e52b2:   jne    0x00007f06077e5914           ;*getstatic reflectionFactory {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.Class::getReflectionFactory@0 (line 3638)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@18 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.42%  ││  0x00007f06077e52b8:   test   %ebx,%ebx
+         ││  0x00007f06077e52ba:   je     0x00007f06077e62a4           ;*ifnonnull {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.Class::getReflectionFactory@3 (line 3638)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@18 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.02%  ││  0x00007f06077e52c0:   movabs $0x601c247a0,%rsi            ;   {oop(a &apos;java/lang/Class&apos;{0x0000000601c247a0} = &apos;org/ad/MyClass&apos;)}
+  0.01%  ││  0x00007f06077e52ca:   mov    %r13,%rdx
+         ││  0x00007f06077e52cd:   mov    $0x1,%ecx
+  0.47%  ││  0x00007f06077e52d2:   movabs $0x600001178,%rbp            ;   {oop(a &apos;java/lang/Class&apos;{0x0000000600001178} = &apos;java/lang/Class&apos;)}
+  0.02%  ││  0x00007f06077e52dc:   movabs $0x600001478,%r10            ;   {oop(a &apos;java/lang/Class&apos;{0x0000000600001478} = &apos;java/lang/System&apos;)}
+         ││  0x00007f06077e52e6:   mov    %r10,0x28(%rsp)
+         ││  0x00007f06077e52eb:   callq  0x00007f05ffc34a80           ; ImmutableOopMap {rbp=Oop [112]=Oop [120]=Oop [128]=Oop [0]=Derived_oop_[40] [8]=Derived_oop_rbp [32]=Oop [40]=Oop }
+         ││                                                            ;*invokevirtual getConstructor0 {reexecute=0 rethrow=0 return_oop=1}
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@24 (line 2631)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││                                                            ;   {optimized virtual_call}
+         ││  0x00007f06077e52f0:   mov    %rax,0x28(%rsp)
+  0.07%  ││  0x00007f06077e52f5:   mov    0x20(%rsp),%r10
+  0.32%  ││  0x00007f06077e52fa:   mov    0xc(%r10),%r11d
+  0.02%  ││  0x00007f06077e52fe:   mov    %r11,%rax
+  0.12%  ││  0x00007f06077e5301:   shl    $0x3,%rax                    ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e5305:   testb  $0x1,0x20(%r15)
+  0.40%  ││  0x00007f06077e530a:   jne    0x00007f06077e5956           ;*getfield langReflectAccess {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@1 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.02%  ││  0x00007f06077e5310:   mov    0x8(%rax),%r11d              ; implicit exception: dispatches to 0x00007f06077e6c9d
+  0.14%  ││  0x00007f06077e5314:   cmp    $0x652b8,%r11d               ;   {metadata(&apos;java/lang/reflect/ReflectAccess&apos;)}
+         ││  0x00007f06077e531b:   jne    0x00007f06077e613c           ;*invokeinterface copyConstructor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.01%  ││  0x00007f06077e5321:   mov    0x28(%rsp),%r10
+  0.36%  ││  0x00007f06077e5326:   mov    0x48(%r10),%r11d             ; implicit exception: dispatches to 0x00007f06077e73fc
+         ││                                                            ;*getfield root {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@1 (line 147)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.02%  ││  0x00007f06077e532a:   test   %r11d,%r11d
+         ││  0x00007f06077e532d:   jne    0x00007f06077e62e4
+  0.13%  ││  0x00007f06077e5333:   mov    0x120(%r15),%r10
+         ││  0x00007f06077e533a:   mov    %r10,0x20(%rsp)
+  0.31%  ││  0x00007f06077e533f:   add    $0x50,%r10
+  0.01%  ││  0x00007f06077e5343:   cmp    0x130(%r15),%r10
+         ││  0x00007f06077e534a:   jae    0x00007f06077e5f05           ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.10%  ││  0x00007f06077e5350:   mov    %r10,0x120(%r15)
+         ││  0x00007f06077e5357:   prefetchw 0xc0(%r10)
+  0.42%  ││  0x00007f06077e535f:   mov    0x10(%rsp),%r10
+         ││  0x00007f06077e5364:   mov    0xb8(%r10),%r10
+  0.07%  ││  0x00007f06077e536b:   mov    0x20(%rsp),%r11
+         ││  0x00007f06077e5370:   mov    %r10,(%r11)
+  0.40%  ││  0x00007f06077e5373:   mov    %r11,%r10
+  0.01%  ││  0x00007f06077e5376:   movl   $0x6de3b,0x8(%r10)           ;   {metadata(&apos;java/lang/reflect/Constructor&apos;)}
+  0.09%  ││  0x00007f06077e537e:   movl   $0x0,0xc(%r10)
+  0.11%  ││  0x00007f06077e5386:   movq   $0x0,0x10(%r10)
+  0.28%  ││  0x00007f06077e538e:   movq   $0x0,0x18(%r10)
+  0.15%  ││  0x00007f06077e5396:   movq   $0x0,0x20(%r10)
+  0.03%  ││  0x00007f06077e539e:   movq   $0x0,0x28(%r10)
+  0.26%  ││  0x00007f06077e53a6:   movq   $0x0,0x30(%r10)
+  0.21%  ││  0x00007f06077e53ae:   movq   $0x0,0x38(%r10)
+  0.12%  ││  0x00007f06077e53b6:   movq   $0x0,0x40(%r10)
+  0.04%  ││  0x00007f06077e53be:   movl   $0x0,0x4c(%r10)
+  0.19%  ││  0x00007f06077e53c6:   mov    0x28(%rsp),%r10
+  0.24%  ││  0x00007f06077e53cb:   mov    %r10,%r11
+  0.08%  ││  0x00007f06077e53ce:   shr    $0x3,%r11
+  0.08%  ││  0x00007f06077e53d2:   mov    0x20(%rsp),%r10
+  0.14%  ││  0x00007f06077e53d7:   mov    %r11d,0x48(%r10)             ;*new {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@17 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.22%  ││  0x00007f06077e53db:   mov    0x28(%rsp),%r10
+  0.06%  ││  0x00007f06077e53e0:   mov    0x28(%r10),%r10d             ;*getfield clazz {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@22 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.12%  ││  0x00007f06077e53e4:   mov    0x28(%rsp),%r11
+  0.12%  ││  0x00007f06077e53e9:   mov    0x40(%r11),%ebx              ;*getfield parameterAnnotations {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@50 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.26%  ││  0x00007f06077e53ed:   mov    0x3c(%r11),%r13d             ;*getfield annotations {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@46 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.10%  ││  0x00007f06077e53f1:   mov    0x2c(%r11),%r8d              ;*getfield parameterTypes {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@26 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.01%  ││  0x00007f06077e53f5:   mov    0x34(%r11),%ebp              ;*getfield signature {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@42 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.11%  ││  0x00007f06077e53f9:   mov    0x30(%r11),%r14d             ;*getfield exceptionTypes {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@30 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.23%  ││  0x00007f06077e53fd:   mov    %rbx,%r11
+  0.12%  ││  0x00007f06077e5400:   shl    $0x3,%r11                    ;*getfield parameterAnnotations {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@50 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.07%  ││  0x00007f06077e5404:   mov    %r11,0x30(%rsp)              ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.11%  ││  0x00007f06077e5409:   testb  $0x1,0x20(%r15)
+  0.18%  ││  0x00007f06077e540e:   jne    0x00007f06077e599a           ;*getfield parameterAnnotations {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@50 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.06%  ││  0x00007f06077e5414:   mov    0x20(%rsp),%r11              ;*new {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@17 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.07%  ││  0x00007f06077e5419:   mov    %r11,0x20(%rsp)
+  0.07%  ││  0x00007f06077e541e:   mov    %r10d,0x28(%r11)             ;*putfield clazz {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::&lt;init&gt;@6 (line 124)
+         ││                                                            ; - java.lang.reflect.Constructor::copy@53 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.22%  ││  0x00007f06077e5422:   mov    %r13d,0x3c(%r11)             ;*putfield annotations {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::&lt;init&gt;@40 (line 130)
+         ││                                                            ; - java.lang.reflect.Constructor::copy@53 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.09%  ││  0x00007f06077e5426:   mov    %ebp,0x34(%r11)              ;*putfield signature {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::&lt;init&gt;@34 (line 129)
+         ││                                                            ; - java.lang.reflect.Constructor::copy@53 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.03%  ││  0x00007f06077e542a:   mov    %r14d,0x30(%r11)             ;*putfield exceptionTypes {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::&lt;init&gt;@16 (line 126)
+         ││                                                            ; - java.lang.reflect.Constructor::copy@53 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.19%  ││  0x00007f06077e542e:   mov    %r8d,0x2c(%r11)              ;*putfield parameterTypes {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::&lt;init&gt;@11 (line 125)
+         ││                                                            ; - java.lang.reflect.Constructor::copy@53 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.23%  ││  0x00007f06077e5432:   mov    0x28(%rsp),%r10
+  0.08%  ││  0x00007f06077e5437:   mov    0x20(%r10),%r11d             ;*getfield slot {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@38 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.70%  ││  0x00007f06077e543b:   mov    0x20(%rsp),%r10
+  0.18%  ││  0x00007f06077e5440:   mov    %r11d,0x20(%r10)             ;*putfield slot {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::&lt;init&gt;@28 (line 128)
+         ││                                                            ; - java.lang.reflect.Constructor::copy@53 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  1.02%  ││  0x00007f06077e5444:   mov    0x28(%rsp),%r10
+  0.01%  ││  0x00007f06077e5449:   mov    0x24(%r10),%r10d             ;*getfield modifiers {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@34 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.17%  ││  0x00007f06077e544d:   mov    0x20(%rsp),%r11
+  0.11%  ││  0x00007f06077e5452:   mov    %r10d,0x24(%r11)             ;*putfield modifiers {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::&lt;init&gt;@22 (line 127)
+         ││                                                            ; - java.lang.reflect.Constructor::copy@53 (line 150)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.86%  ││  0x00007f06077e5456:   mov    0x28(%rsp),%r10
+         ││  0x00007f06077e545b:   mov    0x44(%r10),%ebp              ;*getfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@64 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.02%  ││  0x00007f06077e545f:   mov    0x30(%rsp),%r10
+         ││  0x00007f06077e5464:   mov    %r10,%r11
+  0.52%  ││  0x00007f06077e5467:   shr    $0x3,%r11
+         ││  0x00007f06077e546b:   mov    0x20(%rsp),%r10
+  0.02%  ││  0x00007f06077e5470:   mov    %r11d,0x40(%r10)
+  0.04%  ││  0x00007f06077e5474:   testb  $0x2,0x20(%r15)
+  0.34%  ││  0x00007f06077e5479:   jne    0x00007f06077e5b7c
+         ││  0x00007f06077e547f:   mov    %rbp,%rdi
+  0.02%  ││  0x00007f06077e5482:   shl    $0x3,%rdi                    ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.03%  ││  0x00007f06077e5486:   testb  $0x1,0x20(%r15)
+  0.53%  ││  0x00007f06077e548b:   jne    0x00007f06077e5bb3           ;*getfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@64 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e5491:   mov    %rdi,%r11
+  0.02%  ││  0x00007f06077e5494:   shr    $0x3,%r11
+         ││  0x00007f06077e5498:   mov    0x20(%rsp),%r10
+  0.31%  ││  0x00007f06077e549d:   mov    %r11d,0x44(%r10)
+  0.04%  ││  0x00007f06077e54a1:   lock addl $0x0,-0x40(%rsp)          ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  9.45%  ││  0x00007f06077e54a7:   mov    (%rsp),%r10
+  0.02%  ││  0x00007f06077e54ab:   mov    (%r10),%r10d                 ;*getstatic security {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.System::getSecurityManager@6 (line 404)
+         ││                                                            ; - java.lang.reflect.AccessibleObject::checkPermission@0 (line 87)
+         ││                                                            ; - java.lang.reflect.Constructor::setAccessible@0 (line 180)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@12 (line 54)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e54ae:   test   %r10d,%r10d
+         ││  0x00007f06077e54b1:   jne    0x00007f06077e634c           ;*ifnull {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.AccessibleObject::checkPermission@5 (line 88)
+         ││                                                            ; - java.lang.reflect.Constructor::setAccessible@0 (line 180)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@12 (line 54)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.49%  ││  0x00007f06077e54b7:   mov    0x20(%rsp),%r10
+         ││  0x00007f06077e54bc:   mov    0x28(%r10),%r10d
+  0.01%  ││  0x00007f06077e54c0:   mov    %r10,%rdi
+         ││  0x00007f06077e54c3:   shl    $0x3,%rdi                    ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.38%  ││  0x00007f06077e54c7:   testb  $0x1,0x20(%r15)
+         ││  0x00007f06077e54cc:   jne    0x00007f06077e5bf5           ;*getfield clazz {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::checkCanSetAccessible@3 (line 189)
+         ││                                                            ; - java.lang.reflect.Constructor::setAccessible@11 (line 182)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@12 (line 54)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e54d2:   mov    0x20(%rsp),%rsi
+         ││  0x00007f06077e54d7:   movabs $0x600c81350,%rdx            ;   {oop(a &apos;java/lang/Class&apos;{0x0000000600c81350} = &apos;org/ad/VHReflectionBenchmark&apos;)}
+  0.43%  ││  0x00007f06077e54e1:   mov    %rdi,%rcx
+         ││  0x00007f06077e54e4:   mov    $0x1,%r8d
+         ││  0x00007f06077e54ea:   movabs $0x600001178,%rbp            ;   {oop(a &apos;java/lang/Class&apos;{0x0000000600001178} = &apos;java/lang/Class&apos;)}
+         ││  0x00007f06077e54f4:   movabs $0x600001478,%r10            ;   {oop(a &apos;java/lang/Class&apos;{0x0000000600001478} = &apos;java/lang/System&apos;)}
+  0.36%  ││  0x00007f06077e54fe:   mov    %r10,0x28(%rsp)
+         ││  0x00007f06077e5503:   callq  0x00007f05ffc34a80           ; ImmutableOopMap {rbp=Oop [112]=Oop [120]=Oop [128]=Oop [0]=Derived_oop_[40] [8]=Derived_oop_rbp [32]=Oop [40]=Oop }
+         ││                                                            ;*invokevirtual checkCanSetAccessible {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.AccessibleObject::checkCanSetAccessible@4 (line 289)
+         ││                                                            ; - java.lang.reflect.Constructor::checkCanSetAccessible@6 (line 189)
+         ││                                                            ; - java.lang.reflect.Constructor::setAccessible@11 (line 182)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@12 (line 54)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││                                                            ;   {optimized virtual_call}
+         ││  0x00007f06077e5508:   mov    0x20(%rsp),%r10
+         ││  0x00007f06077e550d:   mov    0x28(%r10),%r10d
+  0.50%  ││  0x00007f06077e5511:   mov    %r10d,0x40(%rsp)
+         ││  0x00007f06077e5516:   shl    $0x3,%r10                    ;*getfield clazz {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::checkCanSetAccessible@10 (line 190)
+         ││                                                            ; - java.lang.reflect.Constructor::setAccessible@11 (line 182)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@12 (line 54)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e551a:   mov    %r10,0x28(%rsp)              ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e551f:   testb  $0x1,0x20(%r15)
+  0.43%  ││  0x00007f06077e5524:   jne    0x00007f06077e5c38           ;*getfield clazz {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::checkCanSetAccessible@10 (line 190)
+         ││                                                            ; - java.lang.reflect.Constructor::setAccessible@11 (line 182)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@12 (line 54)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e552a:   mov    0x28(%rsp),%r10
+  0.03%  ││  0x00007f06077e552f:   movabs $0x600001178,%r11            ;   {oop(a &apos;java/lang/Class&apos;{0x0000000600001178} = &apos;java/lang/Class&apos;)}
+         ││  0x00007f06077e5539:   cmp    %r11,%r10
+         ││  0x00007f06077e553c:   je     0x00007f06077e63b8           ;*if_acmpne {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::checkCanSetAccessible@15 (line 190)
+         ││                                                            ; - java.lang.reflect.Constructor::setAccessible@11 (line 182)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@12 (line 54)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.47%  ││  0x00007f06077e5542:   mov    0x20(%rsp),%r10
+         ││  0x00007f06077e5547:   movb   $0x1,0xc(%r10)
+  0.01%  ││  0x00007f06077e554c:   mov    0x120(%r15),%rax
+         ││  0x00007f06077e5553:   mov    %rax,%r10
+  0.51%  ││  0x00007f06077e5556:   add    $0x10,%r10
+         ││  0x00007f06077e555a:   cmp    0x130(%r15),%r10
+         ││  0x00007f06077e5561:   jae    0x00007f06077e5f2e           ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e5567:   mov    %r10,0x120(%r15)
+         ││  0x00007f06077e556e:   prefetchw 0xc0(%r10)
+  0.42%  ││  0x00007f06077e5576:   movq   $0x1,(%rax)
+         ││  0x00007f06077e557d:   prefetchw 0x100(%r10)
+         ││  0x00007f06077e5585:   movl   $0x705,0x8(%rax)             ;   {metadata(&apos;java/lang/Object&apos;[])}
+         ││  0x00007f06077e558c:   prefetchw 0x140(%r10)
+  0.68%  ││  0x00007f06077e5594:   movl   $0x0,0xc(%rax)
+         ││  0x00007f06077e559b:   prefetchw 0x180(%r10)               ;*anewarray {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@17 (line 55)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e55a3:   mov    %rax,0x30(%rsp)
+         ││  0x00007f06077e55a8:   mov    0x40(%rsp),%r10d
+  0.60%  ││  0x00007f06077e55ad:   test   %r10d,%r10d
+         ││  0x00007f06077e55b0:   je     0x00007f06077e60fb
+         ││  0x00007f06077e55b6:   mov    0x28(%rsp),%r10
+         ││  0x00007f06077e55bb:   mov    0x50(%r10),%r10              ;*invokevirtual getModifiers {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::newInstanceWithCaller@25 (line 492)
+         ││                                                            ; - java.lang.reflect.Constructor::newInstance@30 (line 481)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@20 (line 55)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e55bf:   mov    $0x4000,%r11d
+  0.56%  ││  0x00007f06077e55c5:   and    0xa0(%r10),%r11d             ; implicit exception: dispatches to 0x00007f06077e741c
+         ││                                                            ;*iand {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::newInstanceWithCaller@31 (line 492)
+         ││                                                            ; - java.lang.reflect.Constructor::newInstance@30 (line 481)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@20 (line 55)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.05%  ││  0x00007f06077e55cc:   test   %r11d,%r11d
+         ││  0x00007f06077e55cf:   jne    0x00007f06077e63fc           ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::newInstanceWithCaller@32 (line 492)
+         ││                                                            ; - java.lang.reflect.Constructor::newInstance@30 (line 481)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@20 (line 55)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e55d5:   mov    0x20(%rsp),%r10
+         ││  0x00007f06077e55da:   mov    0x44(%r10),%r11d             ;*getfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::newInstanceWithCaller@46 (line 495)
+         ││                                                            ; - java.lang.reflect.Constructor::newInstance@30 (line 481)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@20 (line 55)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.49%  ││  0x00007f06077e55de:   test   %r11d,%r11d
+         ││  0x00007f06077e55e1:   je     0x00007f06077e5eb5           ;*ifnonnull {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::newInstanceWithCaller@53 (line 496)
+         ││                                                            ; - java.lang.reflect.Constructor::newInstance@30 (line 481)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@20 (line 55)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e55e7:   mov    %r11,%rdi
+  0.01%  ││  0x00007f06077e55ea:   shl    $0x3,%rdi                    ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e55ee:   testb  $0x1,0x20(%r15)
+  0.41%  ││  0x00007f06077e55f3:   jne    0x00007f06077e5e0c           ;*aload {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::newInstanceWithCaller@62 (line 500)
+         ││                                                            ; - java.lang.reflect.Constructor::newInstance@30 (line 481)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@20 (line 55)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e55f9:   mov    0x8(%rdi),%r10d              ; implicit exception: dispatches to 0x00007f06077e7458
+         ││  0x00007f06077e55fd:   cmp    $0x399e4,%r10d               ;   {metadata(&apos;jdk/internal/reflect/DelegatingConstructorAccessorImpl&apos;)}
+         ││  0x00007f06077e5604:   jne    0x00007f06077e5e88           ;*invokeinterface newInstance {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::newInstanceWithCaller@65 (line 500)
+         ││                                                            ; - java.lang.reflect.Constructor::newInstance@30 (line 481)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@20 (line 55)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e560a:   mov    0xc(%rdi),%r10d
+  0.37%  ││  0x00007f06077e560e:   mov    %r10,%rax
+         ││  0x00007f06077e5611:   shl    $0x3,%rax                    ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e5615:   testb  $0x1,0x20(%r15)
+         ││  0x00007f06077e561a:   jne    0x00007f06077e5e46           ;*getfield delegate {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - jdk.internal.reflect.DelegatingConstructorAccessorImpl::newInstance@1 (line 45)
+         ││                                                            ; - java.lang.reflect.Constructor::newInstanceWithCaller@65 (line 500)
+         ││                                                            ; - java.lang.reflect.Constructor::newInstance@30 (line 481)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@20 (line 55)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.35%  ││  0x00007f06077e5620:   mov    0x8(%rax),%r11d              ; implicit exception: dispatches to 0x00007f06077e6d20
+         ││  0x00007f06077e5624:   cmp    $0x175208,%r11d              ;   {metadata(&apos;jdk/internal/reflect/GeneratedConstructorAccessor1&apos;)}
+         ││  0x00007f06077e562b:   jne    0x00007f06077e5f79
+         ││  0x00007f06077e5631:   mov    0x120(%r15),%rax
+         ││  0x00007f06077e5638:   mov    %rax,%r10
+  0.54%  ││  0x00007f06077e563b:   add    $0x18,%r10
+         ││  0x00007f06077e563f:   cmp    0x130(%r15),%r10
+         ││  0x00007f06077e5646:   jae    0x00007f06077e5f55           ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e564c:   mov    %r10,0x120(%r15)
+         ││  0x00007f06077e5653:   prefetchw 0xc0(%r10)
+  0.39%  ││  0x00007f06077e565b:   mov    0x18(%rsp),%r10
+         ││  0x00007f06077e5660:   mov    0xb8(%r10),%r10
+         ││  0x00007f06077e5667:   mov    %r10,(%rax)
+         ││  0x00007f06077e566a:   movl   $0x1743f2,0x8(%rax)          ;   {metadata(&apos;org/ad/MyClass&apos;)}
+  0.54%  ││  0x00007f06077e5671:   movl   $0x0,0x14(%rax)              ;*new {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - jdk.internal.reflect.GeneratedConstructorAccessor1::newInstance@0
+         ││                                                            ; - jdk.internal.reflect.DelegatingConstructorAccessorImpl::newInstance@5 (line 45)
+         ││                                                            ; - java.lang.reflect.Constructor::newInstanceWithCaller@65 (line 500)
+         ││                                                            ; - java.lang.reflect.Constructor::newInstance@30 (line 481)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@20 (line 55)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e5678:   movl   $0x1,0xc(%rax)               ;*putfield id {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.MyClass::&lt;init&gt;@6 (line 65)
+         ││                                                            ; - jdk.internal.reflect.GeneratedConstructorAccessor1::newInstance@24
+         ││                                                            ; - jdk.internal.reflect.DelegatingConstructorAccessorImpl::newInstance@5 (line 45)
+         ││                                                            ; - java.lang.reflect.Constructor::newInstanceWithCaller@65 (line 500)
+         ││                                                            ; - java.lang.reflect.Constructor::newInstance@30 (line 481)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@20 (line 55)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e567f:   movl   $0xc0048fc6,0x10(%rax)       ;*synchronization entry
+         ││                                                            ; - java.lang.reflect.Constructor::newInstanceWithCaller@-1 (line 489)
+         ││                                                            ; - java.lang.reflect.Constructor::newInstance@30 (line 481)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@20 (line 55)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││                                                            ;   {oop(&quot;test&quot;{0x0000000600247e30})}
+  0.01%  ││  0x00007f06077e5686:   mov    0x8(%rax),%r10d              ; implicit exception: dispatches to 0x00007f06077e747c
+  0.83%  ││  0x00007f06077e568a:   cmp    $0x1743f2,%r10d              ;   {metadata(&apos;org/ad/MyClass&apos;)}
+         ││  0x00007f06077e5691:   jne    0x00007f06077e73bc           ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@23 (line 55)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.02%  ││  0x00007f06077e5697:   mov    %rax,0x20(%rsp)              ;*invokevirtual newInstance {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@20 (line 55)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.01%  ││  0x00007f06077e569c:   movabs $0x601c247a0,%rsi            ;   {oop(a &apos;java/lang/Class&apos;{0x0000000601c247a0} = &apos;org/ad/MyClass&apos;)}
+         ││  0x00007f06077e56a6:   movabs $0x60001f890,%rdx            ;   {oop(&quot;name&quot;{0x000000060001f890})}
+  0.49%  ││  0x00007f06077e56b0:   movabs $0x600001478,%r10            ;   {oop(a &apos;java/lang/Class&apos;{0x0000000600001478} = &apos;java/lang/System&apos;)}
+         ││  0x00007f06077e56ba:   mov    %r10,0x28(%rsp)
+  0.09%  ││  0x00007f06077e56bf:   callq  0x00007f05ffc34a80           ; ImmutableOopMap {rbp=Oop [112]=Oop [120]=Oop [128]=Oop [0]=Derived_oop_[40] [8]=Derived_oop_rbp [32]=Oop [40]=Oop }
+         ││                                                            ;*invokevirtual getDeclaredField {reexecute=0 rethrow=0 return_oop=1}
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@33 (line 56)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││                                                            ;   {optimized virtual_call}
+  0.05%  ││  0x00007f06077e56c4:   mov    %rax,0x28(%rsp)
+         ││  0x00007f06077e56c9:   test   %rax,%rax
+         ││  0x00007f06077e56cc:   je     0x00007f06077e611c           ;*invokevirtual setAccessible {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@39 (line 57)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.46%  ││  0x00007f06077e56d2:   mov    (%rsp),%r10
+  0.02%  ││  0x00007f06077e56d6:   mov    (%r10),%r11d                 ;*getstatic security {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.System::getSecurityManager@6 (line 404)
+         ││                                                            ; - java.lang.reflect.AccessibleObject::checkPermission@0 (line 87)
+         ││                                                            ; - java.lang.reflect.Field::setAccessible@0 (line 167)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@39 (line 57)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.04%  ││  0x00007f06077e56d9:   test   %r11d,%r11d
+         ││  0x00007f06077e56dc:   jne    0x00007f06077e643c           ;*ifnull {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.AccessibleObject::checkPermission@5 (line 88)
+         ││                                                            ; - java.lang.reflect.Field::setAccessible@0 (line 167)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@39 (line 57)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e56e2:   mov    0x1c(%rax),%r11d
+  0.48%  ││  0x00007f06077e56e6:   mov    %r11,%rdi
+  0.01%  ││  0x00007f06077e56e9:   shl    $0x3,%rdi                    ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e56ed:   testb  $0x1,0x20(%r15)
+  0.04%  ││  0x00007f06077e56f2:   jne    0x00007f06077e5c84           ;*getfield clazz {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Field::checkCanSetAccessible@3 (line 174)
+         ││                                                            ; - java.lang.reflect.Field::setAccessible@11 (line 168)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@39 (line 57)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.39%  ││  0x00007f06077e56f8:   mov    0x28(%rsp),%rsi
+         ││  0x00007f06077e56fd:   movabs $0x600c81350,%rdx            ;   {oop(a &apos;java/lang/Class&apos;{0x0000000600c81350} = &apos;org/ad/VHReflectionBenchmark&apos;)}
+  0.02%  ││  0x00007f06077e5707:   mov    %rdi,%rcx
+  0.01%  ││  0x00007f06077e570a:   mov    $0x1,%r8d
+  0.34%  ││  0x00007f06077e5710:   movabs $0x600001478,%r10            ;   {oop(a &apos;java/lang/Class&apos;{0x0000000600001478} = &apos;java/lang/System&apos;)}
+         ││  0x00007f06077e571a:   mov    %r10,0x30(%rsp)
+         ││  0x00007f06077e571f:   callq  0x00007f05ffc34a80           ; ImmutableOopMap {rbp=Oop [112]=Oop [120]=Oop [128]=Oop [0]=Derived_oop_[48] [8]=Derived_oop_rbp [32]=Oop [40]=Oop [48]=Oop }
+         ││                                                            ;*invokevirtual checkCanSetAccessible {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.AccessibleObject::checkCanSetAccessible@4 (line 289)
+         ││                                                            ; - java.lang.reflect.Field::checkCanSetAccessible@6 (line 174)
+         ││                                                            ; - java.lang.reflect.Field::setAccessible@11 (line 168)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@39 (line 57)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││                                                            ;   {optimized virtual_call}
+  0.02%  ││  0x00007f06077e5724:   mov    0x28(%rsp),%r10
+  0.45%  ││  0x00007f06077e5729:   mov    0x38(%r10),%ebp
+         ││  0x00007f06077e572d:   mov    %rbp,%rdi
+         ││  0x00007f06077e5730:   shl    $0x3,%rdi                    ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e5734:   testb  $0x1,0x20(%r15)
+  0.44%  ││  0x00007f06077e5739:   jne    0x00007f06077e5cc5           ;*getfield overrideFieldAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Field::getFieldAccessor@10 (line 1083)
+         ││                                                            ; - java.lang.reflect.Field::set@19 (line 778)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@46 (line 58)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.01%  ││  0x00007f06077e573f:   mov    0x28(%rsp),%r10
+         ││  0x00007f06077e5744:   movb   $0x1,0xc(%r10)               ;*putfield override {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.AccessibleObject::setAccessible0@2 (line 201)
+         ││                                                            ; - java.lang.reflect.Field::setAccessible@16 (line 169)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@39 (line 57)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.01%  ││  0x00007f06077e5749:   test   %ebp,%ebp
+         ││  0x00007f06077e574b:   je     0x00007f06077e64a8           ;*ifnull {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Field::getFieldAccessor@22 (line 1084)
+         ││                                                            ; - java.lang.reflect.Field::set@19 (line 778)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@46 (line 58)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.43%  ││  0x00007f06077e5751:   mov    0x8(%rdi),%r11d
+  0.17%  ││  0x00007f06077e5755:   cmp    $0x169e43,%r11d              ;   {metadata(&apos;jdk/internal/reflect/UnsafeObjectFieldAccessorImpl&apos;)}
+         ││  0x00007f06077e575c:   jne    0x00007f06077e61a8           ;*invokeinterface set {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Field::set@24 (line 778)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@46 (line 58)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.12%  ││  0x00007f06077e5762:   mov    %rdi,%rbx
+  0.01%  ││  0x00007f06077e5765:   mov    0x18(%rdi),%r10d
+  0.24%  ││  0x00007f06077e5769:   mov    %r10,%rbp
+         ││  0x00007f06077e576c:   shl    $0x3,%rbp                    ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.18%  ││  0x00007f06077e5770:   testb  $0x1,0x20(%r15)
+         ││  0x00007f06077e5775:   jne    0x00007f06077e5d07           ;*getfield field {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - jdk.internal.reflect.UnsafeFieldAccessorImpl::ensureObj@1 (line 57)
+         ││                                                            ; - jdk.internal.reflect.UnsafeObjectFieldAccessorImpl::set@2 (line 75)
+         ││                                                            ; - java.lang.reflect.Field::set@24 (line 778)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@46 (line 58)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.25%  ││  0x00007f06077e577b:   mov    0x1c(%rbp),%r11d             ; implicit exception: dispatches to 0x00007f06077e6cc0
+  0.02%  ││  0x00007f06077e577f:   mov    %r11,%r10
+  0.13%  ││  0x00007f06077e5782:   shl    $0x3,%r10                    ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.01%  ││  0x00007f06077e5786:   testb  $0x1,0x20(%r15)
+  0.34%  ││  0x00007f06077e578b:   jne    0x00007f06077e5d4c           ;*getfield clazz {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Field::getDeclaringClass@1 (line 183)
+         ││                                                            ; - jdk.internal.reflect.UnsafeFieldAccessorImpl::ensureObj@4 (line 57)
+         ││                                                            ; - jdk.internal.reflect.UnsafeObjectFieldAccessorImpl::set@2 (line 75)
+         ││                                                            ; - java.lang.reflect.Field::set@24 (line 778)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@46 (line 58)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e5791:   mov    0x50(%r10),%rax              ; implicit exception: dispatches to 0x00007f06077e6ce0
+  0.73%  ││  0x00007f06077e5795:   mov    0x10(%rax),%r11d             ; implicit exception: dispatches to 0x00007f06077e74b8
+  1.40%  ││  0x00007f06077e5799:   movslq %r11d,%r10
+  0.27%  ││  0x00007f06077e579c:   movabs $0x800ba1f90,%r8             ;   {metadata(&apos;org/ad/MyClass&apos;)}
+         ││  0x00007f06077e57a6:   mov    (%r8,%r10,1),%r10
+  2.38%  ││  0x00007f06077e57aa:   cmp    %r10,%rax
+         ││  0x00007f06077e57ad:   jne    0x00007f06077e5880           ;*invokevirtual isAssignableFrom {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - jdk.internal.reflect.UnsafeFieldAccessorImpl::ensureObj@11 (line 57)
+         ││                                                            ; - jdk.internal.reflect.UnsafeObjectFieldAccessorImpl::set@2 (line 75)
+         ││                                                            ; - java.lang.reflect.Field::set@24 (line 778)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@46 (line 58)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.48%  ││  0x00007f06077e57b3:   movzbl 0xc(%rbx),%r11d              ;*getfield isFinal {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - jdk.internal.reflect.UnsafeObjectFieldAccessorImpl::set@6 (line 76)
+         ││                                                            ; - java.lang.reflect.Field::set@24 (line 778)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@46 (line 58)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e57b8:   test   %r11d,%r11d
+         ││  0x00007f06077e57bb:   jne    0x00007f06077e64e8           ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - jdk.internal.reflect.UnsafeObjectFieldAccessorImpl::set@9 (line 76)
+         ││                                                            ; - java.lang.reflect.Field::set@24 (line 778)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@46 (line 58)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e57c1:   mov    0x24(%rbp),%r10d
+         ││  0x00007f06077e57c5:   mov    %r10,%r11
+  0.32%  ││  0x00007f06077e57c8:   shl    $0x3,%r11                    ;*putfield constructorAccessor {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Constructor::copy@67 (line 158)
+         ││                                                            ; - java.lang.reflect.ReflectAccess::copyConstructor@1 (line 113)
+         ││                                                            ; - jdk.internal.reflect.ReflectionFactory::copyConstructor@5 (line 330)
+         ││                                                            ; - java.lang.Class::getDeclaredConstructor@27 (line 2630)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@6 (line 53)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+  0.01%  ││  0x00007f06077e57cc:   testb  $0x1,0x20(%r15)
+         ││  0x00007f06077e57d1:   jne    0x00007f06077e5d91           ;*getfield type {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                            ; - java.lang.reflect.Field::getType@1 (line 237)
+         ││                                                            ; - jdk.internal.reflect.UnsafeObjectFieldAccessorImpl::set@25 (line 80)
+         ││                                                            ; - java.lang.reflect.Field::set@24 (line 778)
+         ││                                                            ; - org.ad.VHReflectionBenchmark::testReflection@46 (line 58)
+         ││                                                            ; - org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub@15 (line 186)
+         ││  0x00007f06077e57d7:   mov    0x50(%r11),%rax              ; implicit exception: dispatches to 0x00007f06077e6d00
+  0.31%  ││  0x00007f06077e57db:   mov    0x10(%rax),%r10d             ; implicit exception: dispatches to 0x00007f06077e7508
+  0.02%  ││  0x00007f06077e57df:   movslq %r10d,%r11
+         ││  0x00007f06077e57e2:   movabs $0x80030f528,%r8             ;   {metadata(&apos;java/lang/String&apos;)}
+         ││  0x00007f06077e57ec:   mov    (%r8,%r11,1),%r11
+  0.42%  ││  0x00007f06077e57f0:   cmp    %r11,%rax
+         ╰│  0x00007f06077e57f3:   je     0x00007f06077e51d0
+          │  0x00007f06077e57f9:   cmp    $0x20,%r10d
+          │  0x00007f06077e57fd:   jne    0x00007f06077e5841
+          │  0x00007f06077e57ff:   movabs $0x80030f528,%r10            ;   {metadata(&apos;java/lang/String&apos;)}
+          │  0x00007f06077e5809:   cmp    %r10,%rax
+          ╰  0x00007f06077e580c:   je     0x00007f06077e51d0
+             0x00007f06077e5812:   movabs $0x80030f528,%rsi            ;   {metadata(&apos;java/lang/String&apos;)}
+             0x00007f06077e581c:   push   %rax
+             0x00007f06077e581d:   mov    %rax,%rax
+             0x00007f06077e5820:   mov    0x28(%rsi),%rdi
+....................................................................................................
+ 48.54%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+c2, level 4, java.lang.Class::getDeclaredField, version 793 (691 bytes)
+
+             0x00007f06077ec684:   shl    $0x3,%r10
+             0x00007f06077ec688:   movabs $0x800000000,%r12
+             0x00007f06077ec692:   add    %r12,%r10
+             0x00007f06077ec695:   xor    %r12,%r12
+             0x00007f06077ec698:   cmp    %r10,%rax
+             0x00007f06077ec69b:   jne    0x00007f05ffc34d80           ;   {runtime_call ic_miss_stub}
+             0x00007f06077ec6a1:   data16 xchg %ax,%ax
+             0x00007f06077ec6a4:   nopl   0x0(%rax,%rax,1)
+             0x00007f06077ec6ac:   data16 data16 xchg %ax,%ax
+           [Verified Entry Point]
+  0.52%      0x00007f06077ec6b0:   mov    %eax,-0x14000(%rsp)
+  0.04%      0x00007f06077ec6b7:   push   %rbp
+             0x00007f06077ec6b8:   sub    $0x50,%rsp
+  0.40%      0x00007f06077ec6bc:   nopl   0x0(%rax)
+  0.01%      0x00007f06077ec6c0:   cmpl   $0x1,0x70(%r15)
+         ╭   0x00007f06077ec6c8:   je     0x00007f06077ec6d3
+         │   0x00007f06077ec6ce:   callq  Stub::nmethod_entry_barrier  ;*synchronization entry
+         │                                                             ; - java.lang.Class::getDeclaredField@-1 (line 2482)
+         │                                                             ;   {runtime_call StubRoutines (2)}
+  0.46%  ↘   0x00007f06077ec6d3:   mov    %rsi,0x8(%rsp)
+  0.02%      0x00007f06077ec6d8:   mov    %rdx,0x10(%rsp)
+             0x00007f06077ec6dd:   test   %rdx,%rdx
+             0x00007f06077ec6e0:   je     0x00007f06077ed01e           ;*ifnonnull {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.util.Objects::requireNonNull@1 (line 221)
+                                                                       ; - java.lang.Class::getDeclaredField@1 (line 2482)
+             0x00007f06077ec6e6:   movabs $0x600001478,%rsi            ;   {oop(a &apos;java/lang/Class&apos;{0x0000000600001478} = &apos;java/lang/System&apos;)}
+  0.48%      0x00007f06077ec6f0:   add    $0x7c,%rsi
+  0.03%      0x00007f06077ec6f4:   mov    (%rsi),%r10d                 ;*getstatic security {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.System::getSecurityManager@6 (line 404)
+                                                                       ; - java.lang.Class::getDeclaredField@5 (line 2483)
+  0.01%      0x00007f06077ec6f7:   test   %r10d,%r10d
+             0x00007f06077ec6fa:   jne    0x00007f06077ed048           ;*ifnull {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::getDeclaredField@10 (line 2484)
+             0x00007f06077ec700:   mov    0x8(%rsp),%r10
+  0.40%      0x00007f06077ec705:   mov    0x24(%r10),%r13d             ;*getfield reflectionData {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::reflectionData@1 (line 3052)
+                                                                       ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+                                                                       ; - java.lang.Class::getDeclaredField@25 (line 2487)
+  0.07%      0x00007f06077ec709:   mov    0x60(%r10),%ebx              ;*getfield classRedefinedCount {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::reflectionData@6 (line 3053)
+                                                                       ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+                                                                       ; - java.lang.Class::getDeclaredField@25 (line 2487)
+  0.03%      0x00007f06077ec70d:   mov    %r13,%r14
+             0x00007f06077ec710:   shl    $0x3,%r14                    ;*invokespecial get {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.ref.SoftReference::get@1 (line 112)
+                                                                       ; - java.lang.Class::reflectionData@15 (line 3056)
+                                                                       ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+                                                                       ; - java.lang.Class::getDeclaredField@25 (line 2487)
+  0.38%      0x00007f06077ec714:   testb  $0x1,0x20(%r15)
+             0x00007f06077ec719:   jne    0x00007f06077ec9e8           ;*getfield reflectionData {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::reflectionData@1 (line 3052)
+                                                                       ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+                                                                       ; - java.lang.Class::getDeclaredField@25 (line 2487)
+             0x00007f06077ec71f:   test   %r13d,%r13d
+          ╭  0x00007f06077ec722:   je     0x00007f06077ec964           ;*ifnull {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.Class::reflectionData@11 (line 3055)
+          │                                                            ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+          │                                                            ; - java.lang.Class::getDeclaredField@25 (line 2487)
+          │  0x00007f06077ec728:   mov    0x8(%r14),%r11d
+  0.45%   │  0x00007f06077ec72c:   cmp    $0x2436,%r11d                ;   {metadata(&apos;java/lang/ref/SoftReference&apos;)}
+          │  0x00007f06077ec733:   jne    0x00007f06077ecf9a           ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.Class::reflectionData@15 (line 3056)
+          │                                                            ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+          │                                                            ; - java.lang.Class::getDeclaredField@25 (line 2487)
+  0.01%   │  0x00007f06077ec739:   mov    0xc(%r14),%ebp
+          │  0x00007f06077ec73d:   mov    %rbp,%r8
+          │  0x00007f06077ec740:   shl    $0x3,%r8
+  0.45%   │  0x00007f06077ec744:   testb  $0x1,0x20(%r15)
+  0.01%   │  0x00007f06077ec749:   jne    0x00007f06077ecdae
+          │  0x00007f06077ec74f:   testb  $0x2,0x20(%r15)
+          │  0x00007f06077ec754:   jne    0x00007f06077ecdf1           ;*invokespecial get {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.ref.SoftReference::get@1 (line 112)
+          │                                                            ; - java.lang.Class::reflectionData@15 (line 3056)
+          │                                                            ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+          │                                                            ; - java.lang.Class::getDeclaredField@25 (line 2487)
+  0.44%   │  0x00007f06077ec75a:   test   %ebp,%ebp
+          │  0x00007f06077ec75c:   je     0x00007f06077ed140           ;*ifnull {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.ref.SoftReference::get@6 (line 113)
+          │                                                            ; - java.lang.Class::reflectionData@15 (line 3056)
+          │                                                            ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+          │                                                            ; - java.lang.Class::getDeclaredField@25 (line 2487)
+  0.01%   │  0x00007f06077ec762:   mov    0x20(%r14),%r10
+          │  0x00007f06077ec766:   movabs $0x600002750,%r11            ;   {oop(a &apos;java/lang/Class&apos;{0x0000000600002750} = &apos;java/lang/ref/SoftReference&apos;)}
+          │  0x00007f06077ec770:   mov    0x70(%r11),%r11              ;*getstatic clock {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.ref.SoftReference::get@13 (line 113)
+          │                                                            ; - java.lang.Class::reflectionData@15 (line 3056)
+          │                                                            ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+          │                                                            ; - java.lang.Class::getDeclaredField@25 (line 2487)
+  0.52%   │  0x00007f06077ec774:   cmp    %r11,%r10
+          │  0x00007f06077ec777:   jne    0x00007f06077ec9df           ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.ref.SoftReference::get@27 (line 115)
+          │                                                            ; - java.lang.Class::reflectionData@15 (line 3056)
+          │                                                            ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+          │                                                            ; - java.lang.Class::getDeclaredField@25 (line 2487)
+  0.01%   │  0x00007f06077ec77d:   mov    0x8(%r8),%r10d
+  0.04%   │  0x00007f06077ec781:   cmp    $0x438fa,%r10d               ;   {metadata(&apos;java/lang/Class$ReflectionData&apos;)}
+          │  0x00007f06077ec788:   jne    0x00007f06077ed214           ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.Class::reflectionData@18 (line 3056)
+          │                                                            ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+          │                                                            ; - java.lang.Class::getDeclaredField@25 (line 2487)
+  0.08%   │  0x00007f06077ec78e:   mov    0xc(%r8),%ebp                ;*getfield redefinedCount {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.Class::reflectionData@27 (line 3056)
+          │                                                            ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+          │                                                            ; - java.lang.Class::getDeclaredField@25 (line 2487)
+  0.34%   │  0x00007f06077ec792:   cmp    %ebx,%ebp
+          │  0x00007f06077ec794:   jne    0x00007f06077ecfc8           ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.Class::privateGetDeclaredFields@10 (line 3135)
+          │                                                            ; - java.lang.Class::getDeclaredField@25 (line 2487)
+  0.04%   │  0x00007f06077ec79a:   mov    0x10(%r8),%r10d              ;*getfield declaredFields {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.Class::privateGetDeclaredFields@21 (line 3135)
+          │                                                            ; - java.lang.Class::getDeclaredField@25 (line 2487)
+          │  0x00007f06077ec79e:   test   %r10d,%r10d
+          │  0x00007f06077ec7a1:   je     0x00007f06077ec989           ;*ifnull {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.Class::privateGetDeclaredFields@26 (line 3136)
+          │                                                            ; - java.lang.Class::getDeclaredField@25 (line 2487)
+  0.05%   │  0x00007f06077ec7a7:   mov    %r10,%r9
+  0.40%   │  0x00007f06077ec7aa:   shl    $0x3,%r9                     ;*invokespecial get {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.ref.SoftReference::get@1 (line 112)
+          │                                                            ; - java.lang.Class::reflectionData@15 (line 3056)
+          │                                                            ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+          │                                                            ; - java.lang.Class::getDeclaredField@25 (line 2487)
+  0.01%   │  0x00007f06077ec7ae:   testb  $0x1,0x20(%r15)
+          │  0x00007f06077ec7b3:   jne    0x00007f06077ecd73           ;*invokevirtual privateGetDeclaredFields {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.Class::getDeclaredField@25 (line 2487)
+  0.04%   │  0x00007f06077ec7b9:   mov    %r9,%rsi
+  0.48%   │  0x00007f06077ec7bc:   mov    0x10(%rsp),%rdx
+  0.01%   │  0x00007f06077ec7c1:   xchg   %ax,%ax
+          │  0x00007f06077ec7c3:   callq  0x00007f06077bd5c0           ; ImmutableOopMap {[16]=Oop }
+          │                                                            ;*invokestatic searchFields {reexecute=0 rethrow=0 return_oop=1}
+          │                                                            ; - java.lang.Class::getDeclaredField@29 (line 2487)
+          │                                                            ;   {static_call}
+          │  0x00007f06077ec7c8:   mov    %rax,0x30(%rsp)
+  0.55%   │  0x00007f06077ec7cd:   test   %rax,%rax
+          │  0x00007f06077ec7d0:   je     0x00007f06077ece1c           ;*ifnonnull {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.Class::getDeclaredField@34 (line 2488)
+          │  0x00007f06077ec7d6:   movabs $0x600001178,%rsi            ;   {oop(a &apos;java/lang/Class&apos;{0x0000000600001178} = &apos;java/lang/Class&apos;)}
+          │  0x00007f06077ec7e0:   add    $0x80,%rsi
+          │  0x00007f06077ec7e7:   mov    (%rsi),%ebp
+  0.58%   │  0x00007f06077ec7e9:   mov    %rbp,%r8
+          │  0x00007f06077ec7ec:   shl    $0x3,%r8                     ;*invokespecial get {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.ref.SoftReference::get@1 (line 112)
+          │                                                            ; - java.lang.Class::reflectionData@15 (line 3056)
+          │                                                            ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+          │                                                            ; - java.lang.Class::getDeclaredField@25 (line 2487)
+          │  0x00007f06077ec7f0:   testb  $0x1,0x20(%r15)
+          │  0x00007f06077ec7f5:   jne    0x00007f06077eca2e           ;*getstatic reflectionFactory {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.Class::getReflectionFactory@0 (line 3638)
+          │                                                            ; - java.lang.Class::getDeclaredField@46 (line 2491)
+  0.42%   │  0x00007f06077ec7fb:   test   %ebp,%ebp
+          │  0x00007f06077ec7fd:   je     0x00007f06077ed0b0           ;*ifnonnull {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.Class::getReflectionFactory@3 (line 3638)
+          │                                                            ; - java.lang.Class::getDeclaredField@46 (line 2491)
+          │  0x00007f06077ec803:   mov    0xc(%r8),%r11d
+          │  0x00007f06077ec807:   mov    %r11,%rcx
+          │  0x00007f06077ec80a:   shl    $0x3,%rcx                    ;*invokespecial get {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.ref.SoftReference::get@1 (line 112)
+          │                                                            ; - java.lang.Class::reflectionData@15 (line 3056)
+          │                                                            ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+          │                                                            ; - java.lang.Class::getDeclaredField@25 (line 2487)
+  0.47%   │  0x00007f06077ec80e:   testb  $0x1,0x20(%r15)
+          │  0x00007f06077ec813:   jne    0x00007f06077eca6a           ;*getfield langReflectAccess {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@1 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+          │  0x00007f06077ec819:   mov    0x8(%rcx),%r11d              ; implicit exception: dispatches to 0x00007f06077ed1d1
+          │  0x00007f06077ec81d:   cmp    $0x652b8,%r11d               ;   {metadata(&apos;java/lang/reflect/ReflectAccess&apos;)}
+          │  0x00007f06077ec824:   jne    0x00007f06077ecf04           ;*invokeinterface copyField {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+  0.44%   │  0x00007f06077ec82a:   mov    0x30(%rsp),%r10
+          │  0x00007f06077ec82f:   mov    0x3c(%r10),%r11d             ;*getfield root {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::copy@1 (line 148)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+          │  0x00007f06077ec833:   test   %r11d,%r11d
+          │  0x00007f06077ec836:   jne    0x00007f06077ed0d8
+          │  0x00007f06077ec83c:   mov    0x120(%r15),%r10
+  0.40%   │  0x00007f06077ec843:   mov    %r10,%r11
+          │  0x00007f06077ec846:   add    $0x48,%r11
+          │  0x00007f06077ec84a:   cmp    0x130(%r15),%r11
+          │  0x00007f06077ec851:   jae    0x00007f06077ecea9           ;*invokespecial get {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.ref.SoftReference::get@1 (line 112)
+          │                                                            ; - java.lang.Class::reflectionData@15 (line 3056)
+          │                                                            ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+          │                                                            ; - java.lang.Class::getDeclaredField@25 (line 2487)
+          │  0x00007f06077ec857:   mov    %r11,0x120(%r15)
+  0.48%   │  0x00007f06077ec85e:   prefetchw 0xc0(%r11)
+          │  0x00007f06077ec866:   mov    $0x6ecfc,%r8d                ;   {metadata(&apos;java/lang/reflect/Field&apos;)}
+          │  0x00007f06077ec86c:   movabs $0x800000000,%r11
+          │  0x00007f06077ec876:   lea    (%r11,%r8,8),%r11
+  0.50%   │  0x00007f06077ec87a:   mov    0xb8(%r11),%r11
+          │  0x00007f06077ec881:   mov    %r11,(%r10)
+          │  0x00007f06077ec884:   movl   $0x6ecfc,0x8(%r10)           ;   {metadata(&apos;java/lang/reflect/Field&apos;)}
+          │  0x00007f06077ec88c:   movl   $0x0,0xc(%r10)
+  0.51%   │  0x00007f06077ec894:   movq   $0x0,0x10(%r10)
+          │  0x00007f06077ec89c:   movq   $0x0,0x18(%r10)
+          │  0x00007f06077ec8a4:   movq   $0x0,0x20(%r10)
+          │  0x00007f06077ec8ac:   movq   $0x0,0x28(%r10)
+  0.41%   │  0x00007f06077ec8b4:   movq   $0x0,0x30(%r10)
+          │  0x00007f06077ec8bc:   movl   $0x0,0x38(%r10)
+          │  0x00007f06077ec8c4:   movq   $0x0,0x40(%r10)
+          │  0x00007f06077ec8cc:   mov    0x30(%rsp),%r11
+  0.45%   │  0x00007f06077ec8d1:   mov    %r11,%r8
+          │  0x00007f06077ec8d4:   shr    $0x3,%r8
+          │  0x00007f06077ec8d8:   mov    %r8d,0x3c(%r10)              ;*new {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::copy@17 (line 151)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+          │  0x00007f06077ec8dc:   mov    0x1c(%r11),%r8d              ;*getfield clazz {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::copy@22 (line 151)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+  0.52%   │  0x00007f06077ec8e0:   mov    0x38(%r11),%r11d             ;*getfield overrideFieldAccessor {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::copy@68 (line 155)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+          │  0x00007f06077ec8e4:   mov    %r11d,0x28(%rsp)
+          │  0x00007f06077ec8e9:   mov    0x30(%rsp),%r11
+          │  0x00007f06077ec8ee:   mov    0x34(%r11),%ebx              ;*getfield fieldAccessor {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::copy@60 (line 154)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+  0.49%   │  0x00007f06077ec8f2:   mov    0x20(%r11),%ecx              ;*getfield name {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::copy@26 (line 151)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+          │  0x00007f06077ec8f6:   mov    0x30(%r11),%r13d             ;*getfield annotations {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::copy@46 (line 151)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+          │  0x00007f06077ec8fa:   mov    0x28(%r11),%ebp              ;*getfield signature {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::copy@42 (line 151)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+          │  0x00007f06077ec8fe:   mov    0x24(%r11),%r14d             ;*getfield type {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::copy@30 (line 151)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+  0.37%   │  0x00007f06077ec902:   mov    0x28(%rsp),%r9d
+  0.06%   │  0x00007f06077ec907:   mov    %r9,%r11
+          │  0x00007f06077ec90a:   shl    $0x3,%r11                    ;*invokespecial get {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.ref.SoftReference::get@1 (line 112)
+          │                                                            ; - java.lang.Class::reflectionData@15 (line 3056)
+          │                                                            ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+          │                                                            ; - java.lang.Class::getDeclaredField@25 (line 2487)
+          │  0x00007f06077ec90e:   testb  $0x1,0x20(%r15)
+  0.36%   │  0x00007f06077ec913:   jne    0x00007f06077ecaaf           ;*new {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::copy@17 (line 151)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+          │  0x00007f06077ec919:   mov    %r8d,0x1c(%r10)              ;*putfield clazz {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::&lt;init&gt;@6 (line 126)
+          │                                                            ; - java.lang.reflect.Field::copy@49 (line 151)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+          │  0x00007f06077ec91d:   mov    %ebx,0x34(%r10)              ;*putfield fieldAccessor {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::copy@63 (line 154)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+  0.01%   │  0x00007f06077ec921:   mov    %r13d,0x30(%r10)             ;*putfield annotations {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::&lt;init&gt;@40 (line 132)
+          │                                                            ; - java.lang.reflect.Field::copy@49 (line 151)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+  0.51%   │  0x00007f06077ec925:   mov    %ebp,0x28(%r10)              ;*putfield signature {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::&lt;init&gt;@34 (line 131)
+          │                                                            ; - java.lang.reflect.Field::copy@49 (line 151)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+          │  0x00007f06077ec929:   mov    %r14d,0x24(%r10)             ;*putfield type {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::&lt;init&gt;@16 (line 128)
+          │                                                            ; - java.lang.reflect.Field::copy@49 (line 151)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+          │  0x00007f06077ec92d:   mov    %ecx,0x20(%r10)              ;*putfield name {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::&lt;init&gt;@11 (line 127)
+          │                                                            ; - java.lang.reflect.Field::copy@49 (line 151)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+          │  0x00007f06077ec931:   mov    0x30(%rsp),%r8
+  0.41%   │  0x00007f06077ec936:   mov    0x14(%r8),%r9d               ;*getfield slot {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::copy@38 (line 151)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+  0.03%   │  0x00007f06077ec93a:   mov    %r9d,0x14(%r10)              ;*putfield slot {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::&lt;init&gt;@28 (line 130)
+          │                                                            ; - java.lang.reflect.Field::copy@49 (line 151)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+  0.01%   │  0x00007f06077ec93e:   mov    0x18(%r8),%r8d               ;*getfield modifiers {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::copy@34 (line 151)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+  0.03%   │  0x00007f06077ec942:   mov    %r8d,0x18(%r10)              ;*putfield modifiers {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.reflect.Field::&lt;init&gt;@22 (line 129)
+          │                                                            ; - java.lang.reflect.Field::copy@49 (line 151)
+          │                                                            ; - java.lang.reflect.ReflectAccess::copyField@1 (line 109)
+          │                                                            ; - jdk.internal.reflect.ReflectionFactory::copyField@5 (line 323)
+          │                                                            ; - java.lang.Class::getDeclaredField@50 (line 2491)
+  0.36%   │  0x00007f06077ec946:   mov    %r11,%r8
+          │  0x00007f06077ec949:   shr    $0x3,%r8
+          │  0x00007f06077ec94d:   mov    %r8d,0x38(%r10)              ;*synchronization entry
+          │                                                            ; - java.lang.Class::getDeclaredField@-1 (line 2482)
+          │  0x00007f06077ec951:   mov    %r10,%rax
+  0.54%   │  0x00007f06077ec954:   add    $0x50,%rsp
+          │  0x00007f06077ec958:   pop    %rbp
+  0.03%   │  0x00007f06077ec959:   mov    0x110(%r15),%r10
+  0.05%   │  0x00007f06077ec960:   test   %eax,(%r10)                  ;   {poll_return}
+  0.43%   │  0x00007f06077ec963:   retq
+          ↘  0x00007f06077ec964:   mov    0x8(%rsp),%rsi
+             0x00007f06077ec969:   mov    %r14,%rdx
+             0x00007f06077ec96c:   mov    %ebx,%ecx
+             0x00007f06077ec96e:   mov    0x10(%rsp),%rbp
+             0x00007f06077ec973:   callq  0x00007f05ffc34a80           ; ImmutableOopMap {rbp=Oop [8]=Oop [16]=Oop }
+                                                                       ;*invokevirtual newReflectionData {reexecute=0 rethrow=0 return_oop=1}
+                                                                       ; - java.lang.Class::reflectionData@39 (line 3062)
+                                                                       ; - java.lang.Class::privateGetDeclaredFields@1 (line 3133)
+                                                                       ; - java.lang.Class::getDeclaredField@25 (line 2487)
+                                                                       ;   {optimized virtual_call}
+....................................................................................................
+ 15.56%  <total for region 2>
+
+....[Hottest Region 3]..............................................................................
+c2, level 4, java.lang.Class::getConstructor0, version 776 (482 bytes)
+
+             0x00007f06077de504:   shl    $0x3,%r10
+             0x00007f06077de508:   movabs $0x800000000,%r12
+             0x00007f06077de512:   add    %r12,%r10
+             0x00007f06077de515:   xor    %r12,%r12
+             0x00007f06077de518:   cmp    %r10,%rax
+             0x00007f06077de51b:   jne    0x00007f05ffc34d80           ;   {runtime_call ic_miss_stub}
+             0x00007f06077de521:   data16 xchg %ax,%ax
+             0x00007f06077de524:   nopl   0x0(%rax,%rax,1)
+             0x00007f06077de52c:   data16 data16 xchg %ax,%ax
+           [Verified Entry Point]
+  0.54%      0x00007f06077de530:   mov    %eax,-0x14000(%rsp)
+  0.02%      0x00007f06077de537:   push   %rbp
+  0.39%      0x00007f06077de538:   sub    $0x60,%rsp
+  0.01%      0x00007f06077de53c:   nopl   0x0(%rax)
+             0x00007f06077de540:   cmpl   $0x1,0x70(%r15)
+  0.40%  ╭   0x00007f06077de548:   je     0x00007f06077de553
+         │   0x00007f06077de54e:   callq  Stub::nmethod_entry_barrier  ;*synchronization entry
+         │                                                             ; - java.lang.Class::getConstructor0@-1 (line 3419)
+         │                                                             ;   {runtime_call StubRoutines (2)}
+         ↘   0x00007f06077de553:   mov    %ecx,0x18(%rsp)
+             0x00007f06077de557:   mov    %rdx,0x8(%rsp)
+             0x00007f06077de55c:   mov    %rsi,0x10(%rsp)
+  0.26%      0x00007f06077de561:   movabs $0x600001178,%rsi            ;   {oop(a &apos;java/lang/Class&apos;{0x0000000600001178} = &apos;java/lang/Class&apos;)}
+  0.01%      0x00007f06077de56b:   add    $0x80,%rsi
+             0x00007f06077de572:   mov    (%rsi),%ebp
+             0x00007f06077de574:   mov    %rbp,%r10
+  0.40%      0x00007f06077de577:   shl    $0x3,%r10                    ;*getstatic reflectionFactory {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::getReflectionFactory@0 (line 3638)
+                                                                       ; - java.lang.Class::getConstructor0@0 (line 3419)
+  0.02%      0x00007f06077de57b:   mov    %r10,0x40(%rsp)              ;*invokespecial get {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.ref.SoftReference::get@1 (line 112)
+                                                                       ; - java.lang.Class::reflectionData@15 (line 3056)
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@1 (line 3204)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+             0x00007f06077de580:   testb  $0x1,0x20(%r15)
+  0.01%      0x00007f06077de585:   jne    0x00007f06077de7e2           ;*getstatic reflectionFactory {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::getReflectionFactory@0 (line 3638)
+                                                                       ; - java.lang.Class::getConstructor0@0 (line 3419)
+  0.42%      0x00007f06077de58b:   test   %ebp,%ebp
+             0x00007f06077de58d:   je     0x00007f06077dee8c           ;*ifnonnull {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::getReflectionFactory@3 (line 3638)
+                                                                       ; - java.lang.Class::getConstructor0@0 (line 3419)
+  0.02%      0x00007f06077de593:   mov    0x10(%rsp),%r10
+             0x00007f06077de598:   mov    0x24(%r10),%ebp              ;*getfield reflectionData {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::reflectionData@1 (line 3052)
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@1 (line 3204)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+             0x00007f06077de59c:   mov    0x60(%r10),%r14d             ;*getfield classRedefinedCount {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::reflectionData@6 (line 3053)
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@1 (line 3204)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+  0.42%      0x00007f06077de5a0:   mov    %rbp,%rbx
+  0.04%      0x00007f06077de5a3:   shl    $0x3,%rbx                    ;*invokespecial get {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.ref.SoftReference::get@1 (line 112)
+                                                                       ; - java.lang.Class::reflectionData@15 (line 3056)
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@1 (line 3204)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+             0x00007f06077de5a7:   testb  $0x1,0x20(%r15)
+             0x00007f06077de5ac:   jne    0x00007f06077de822           ;*getfield reflectionData {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::reflectionData@1 (line 3052)
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@1 (line 3204)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+  0.44%      0x00007f06077de5b2:   mov    0x18(%rsp),%r11d
+  0.03%      0x00007f06077de5b7:   test   %r11d,%r11d
+             0x00007f06077de5ba:   setne  %r10b
+  0.01%      0x00007f06077de5be:   movzbl %r10b,%r10d
+  0.49%      0x00007f06077de5c2:   xor    $0x1,%r10d                   ;*invokevirtual privateGetDeclaredConstructors {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+  0.03%      0x00007f06077de5c6:   test   %ebp,%ebp
+             0x00007f06077de5c8:   je     0x00007f06077de7b1           ;*ifnull {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::reflectionData@11 (line 3055)
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@1 (line 3204)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+             0x00007f06077de5ce:   mov    0x8(%rbx),%r8d
+             0x00007f06077de5d2:   cmp    $0x2436,%r8d                 ;   {metadata(&apos;java/lang/ref/SoftReference&apos;)}
+             0x00007f06077de5d9:   jne    0x00007f06077dedb0           ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::reflectionData@15 (line 3056)
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@1 (line 3204)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+  0.37%      0x00007f06077de5df:   mov    0xc(%rbx),%ebp
+  0.02%      0x00007f06077de5e2:   mov    %rbp,%r13
+             0x00007f06077de5e5:   shl    $0x3,%r13
+             0x00007f06077de5e9:   testb  $0x1,0x20(%r15)
+  0.37%      0x00007f06077de5ee:   jne    0x00007f06077de9aa
+             0x00007f06077de5f4:   testb  $0x2,0x20(%r15)
+             0x00007f06077de5f9:   jne    0x00007f06077de9f5           ;*invokespecial get {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.ref.SoftReference::get@1 (line 112)
+                                                                       ; - java.lang.Class::reflectionData@15 (line 3056)
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@1 (line 3204)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+             0x00007f06077de5ff:   test   %ebp,%ebp
+             0x00007f06077de601:   je     0x00007f06077deeec           ;*ifnull {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.ref.SoftReference::get@6 (line 113)
+                                                                       ; - java.lang.Class::reflectionData@15 (line 3056)
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@1 (line 3204)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+  0.30%      0x00007f06077de607:   mov    0x20(%rbx),%r11
+             0x00007f06077de60b:   movabs $0x600002750,%r8             ;   {oop(a &apos;java/lang/Class&apos;{0x0000000600002750} = &apos;java/lang/ref/SoftReference&apos;)}
+             0x00007f06077de615:   mov    0x70(%r8),%r8                ;*getstatic clock {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.ref.SoftReference::get@13 (line 113)
+                                                                       ; - java.lang.Class::reflectionData@15 (line 3056)
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@1 (line 3204)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+             0x00007f06077de619:   cmp    %r8,%r11
+             0x00007f06077de61c:   jne    0x00007f06077dea3a           ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.ref.SoftReference::get@27 (line 115)
+                                                                       ; - java.lang.Class::reflectionData@15 (line 3056)
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@1 (line 3204)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+  0.40%      0x00007f06077de622:   mov    0x8(%r13),%r11d
+  0.01%      0x00007f06077de626:   cmp    $0x438fa,%r11d               ;   {metadata(&apos;java/lang/Class$ReflectionData&apos;)}
+             0x00007f06077de62d:   jne    0x00007f06077df0f6           ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::reflectionData@18 (line 3056)
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@1 (line 3204)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+             0x00007f06077de633:   mov    0xc(%r13),%r11d              ;*getfield redefinedCount {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::reflectionData@27 (line 3056)
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@1 (line 3204)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+             0x00007f06077de637:   cmp    %r14d,%r11d
+             0x00007f06077de63a:   jne    0x00007f06077dee24           ;*invokevirtual reflectionData {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@1 (line 3204)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+  0.56%      0x00007f06077de640:   mov    0x18(%rsp),%r8d
+  0.02%      0x00007f06077de645:   test   %r8d,%r8d
+             0x00007f06077de648:   je     0x00007f06077deca8           ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@10 (line 3206)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+             0x00007f06077de64e:   mov    0x20(%r13),%r8d
+             0x00007f06077de652:   mov    %r8,%r14
+  0.38%      0x00007f06077de655:   shl    $0x3,%r14                    ;*invokespecial get {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.ref.SoftReference::get@1 (line 112)
+                                                                       ; - java.lang.Class::reflectionData@15 (line 3056)
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@1 (line 3204)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+  0.02%      0x00007f06077de659:   testb  $0x1,0x20(%r15)
+             0x00007f06077de65e:   jne    0x00007f06077de908           ;*astore_2 {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@24 (line 3206)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+             0x00007f06077de664:   test   %r14,%r14
+             0x00007f06077de667:   je     0x00007f06077dea43           ;*invokevirtual privateGetDeclaredConstructors {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+  0.42%      0x00007f06077de66d:   mov    0xc(%r14),%r11d              ;*arraylength {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::getConstructor0@25 (line 3421)
+  0.03%      0x00007f06077de671:   mov    %r11d,0x20(%rsp)
+  0.02%      0x00007f06077de676:   test   %r11d,%r11d
+             0x00007f06077de679:   jbe    0x00007f06077dedec           ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::getConstructor0@35 (line 3421)
+             0x00007f06077de67f:   mov    0x10(%r14),%ebx              ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::getConstructor0@42 (line 3421)
+  0.40%      0x00007f06077de683:   mov    0x40(%rsp),%r10
+  0.01%      0x00007f06077de688:   mov    0xc(%r10),%r13d
+  0.01%      0x00007f06077de68c:   mov    %r13,%r10
+             0x00007f06077de68f:   shl    $0x3,%r10                    ;*invokespecial get {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.ref.SoftReference::get@1 (line 112)
+                                                                       ; - java.lang.Class::reflectionData@15 (line 3056)
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@1 (line 3204)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+  0.47%      0x00007f06077de693:   testb  $0x1,0x20(%r15)
+  0.01%      0x00007f06077de698:   jne    0x00007f06077de867
+  0.04%      0x00007f06077de69e:   mov    %ebx,%ebp                    ;*getfield langReflectAccess {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.internal.reflect.ReflectionFactory::getExecutableSharedParameterTypes@1 (line 340)
+                                                                       ; - java.lang.Class::getConstructor0@49 (line 3423)
+             0x00007f06077de6a0:   mov    0x8(%r10),%r8d               ; implicit exception: dispatches to 0x00007f06077df076
+  0.46%      0x00007f06077de6a4:   cmp    $0x652b8,%r8d                ;   {metadata(&apos;java/lang/reflect/ReflectAccess&apos;)}
+             0x00007f06077de6ab:   jne    0x00007f06077ded28           ;*invokeinterface getExecutableSharedParameterTypes {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.internal.reflect.ReflectionFactory::getExecutableSharedParameterTypes@5 (line 340)
+                                                                       ; - java.lang.Class::getConstructor0@49 (line 3423)
+             0x00007f06077de6b1:   test   %ebx,%ebx
+             0x00007f06077de6b3:   je     0x00007f06077ded08           ;*invokevirtual getSharedParameterTypes {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.reflect.ReflectAccess::getExecutableSharedParameterTypes@1 (line 94)
+                                                                       ; - jdk.internal.reflect.ReflectionFactory::getExecutableSharedParameterTypes@5 (line 340)
+                                                                       ; - java.lang.Class::getConstructor0@49 (line 3423)
+  0.01%      0x00007f06077de6b9:   mov    0x2c(%r12,%rbp,8),%ebx
+  0.02%      0x00007f06077de6be:   lea    (%r12,%rbp,8),%rcx
+  0.45%      0x00007f06077de6c2:   mov    %rbx,%rdx
+  0.02%      0x00007f06077de6c5:   shl    $0x3,%rdx                    ;*invokespecial get {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.ref.SoftReference::get@1 (line 112)
+                                                                       ; - java.lang.Class::reflectionData@15 (line 3056)
+                                                                       ; - java.lang.Class::privateGetDeclaredConstructors@1 (line 3204)
+                                                                       ; - java.lang.Class::getConstructor0@14 (line 3420)
+  0.03%      0x00007f06077de6c9:   testb  $0x1,0x20(%r15)
+             0x00007f06077de6ce:   jne    0x00007f06077de952           ;*getfield parameterTypes {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.reflect.Constructor::getSharedParameterTypes@1 (line 250)
+                                                                       ; - java.lang.reflect.ReflectAccess::getExecutableSharedParameterTypes@1 (line 94)
+                                                                       ; - jdk.internal.reflect.ReflectionFactory::getExecutableSharedParameterTypes@5 (line 340)
+                                                                       ; - java.lang.Class::getConstructor0@49 (line 3423)
+  0.37%      0x00007f06077de6d4:   mov    0x8(%rsp),%r8
+  0.01%      0x00007f06077de6d9:   test   %r8,%r8
+             0x00007f06077de6dc:   je     0x00007f06077dea20           ;*ifnonnull {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::arrayContentsEq@1 (line 3435)
+                                                                       ; - java.lang.Class::getConstructor0@52 (line 3422)
+             0x00007f06077de6e2:   test   %ebx,%ebx
+             0x00007f06077de6e4:   je     0x00007f06077deeb8           ;*ifnonnull {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::arrayContentsEq@20 (line 3439)
+                                                                       ; - java.lang.Class::getConstructor0@52 (line 3422)
+             0x00007f06077de6ea:   mov    0xc(%rdx),%r10d              ;*arraylength {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::arrayContentsEq@37 (line 3443)
+                                                                       ; - java.lang.Class::getConstructor0@52 (line 3422)
+  0.59%      0x00007f06077de6ee:   mov    0xc(%r8),%r13d               ;*arraylength {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::arrayContentsEq@35 (line 3443)
+                                                                       ; - java.lang.Class::getConstructor0@52 (line 3422)
+  0.01%      0x00007f06077de6f2:   cmp    %r10d,%r13d
+             0x00007f06077de6f5:   jne    0x00007f06077ded76           ;*if_icmpeq {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::arrayContentsEq@38 (line 3443)
+                                                                       ; - java.lang.Class::getConstructor0@52 (line 3422)
+  0.05%      0x00007f06077de6fb:   test   %r13d,%r13d
+          ╭  0x00007f06077de6fe:   ja     0x00007f06077de713           ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          │                                                            ; - java.lang.Class::getConstructor0@55 (line 3422)
+          │  0x00007f06077de700:   mov    %rcx,%rax
+  0.31%   │  0x00007f06077de703:   add    $0x60,%rsp
+  0.01%   │  0x00007f06077de707:   pop    %rbp
+  0.12%   │  0x00007f06077de708:   mov    0x110(%r15),%r10
+          │  0x00007f06077de70f:   test   %eax,(%r10)                  ;   {poll_return}
+  0.41%   │  0x00007f06077de712:   retq
+          ↘  0x00007f06077de713:   mov    %r13d,%r9d
+             0x00007f06077de716:   dec    %r9d
+             0x00007f06077de719:   cmp    %r13d,%r9d
+             0x00007f06077de71c:   jae    0x00007f06077def5c
+             0x00007f06077de722:   test   %r10d,%r10d
+             0x00007f06077de725:   jbe    0x00007f06077def5c
+             0x00007f06077de72b:   cmp    %r10d,%r9d
+             0x00007f06077de72e:   jae    0x00007f06077def5c
+             0x00007f06077de734:   xor    %r10d,%r10d                  ;*aload_0 {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - java.lang.Class::arrayContentsEq@51 (line 3448)
+....................................................................................................
+ 10.62%  <total for region 3>
+
+....[Hottest Regions]...............................................................................
+ 48.54%         c2, level 4  org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub, version 781 (1556 bytes)
+ 15.56%         c2, level 4  java.lang.Class::getDeclaredField, version 793 (691 bytes)
+ 10.62%         c2, level 4  java.lang.Class::getConstructor0, version 776 (482 bytes)
+  9.88%         c2, level 4  java.lang.Class::searchFields, version 700 (209 bytes)
+  7.87%         c2, level 4  java.lang.reflect.AccessibleObject::checkCanSetAccessible, version 763 (139 bytes)
+  1.41%         c2, level 4  java.lang.Class::searchFields, version 700 (18 bytes)
+  0.51%           libjvm.so  ElfSymbolTable::lookup (47 bytes)
+  0.36%  libpthread-2.17.so  do_futex_wait.constprop.1 (2 bytes)
+  0.35%         c2, level 4  java.lang.Class::searchFields, version 700 (0 bytes)
+  0.27%        libc-2.17.so  syscall (8 bytes)
+  0.25%  libpthread-2.17.so  pthread_cond_timedwait@@GLIBC_2.3.2 (27 bytes)
+  0.21%           libjvm.so  fileStream::write (50 bytes)
+  0.18%  libpthread-2.17.so  [unknown] (4 bytes)
+  0.17%  libpthread-2.17.so  __libc_nanosleep (4 bytes)
+  0.11%           libjvm.so  os::elapsedTime (70 bytes)
+  0.09%           libjvm.so  SpinPause (0 bytes)
+  0.09%           libjvm.so  ShenandoahControlThread::run_service (17 bytes)
+  0.09%        libc-2.17.so  __clone (5 bytes)
+  0.09%              [vdso]  __vdso_clock_gettime (19 bytes)
+  0.08%           libjvm.so  ShenandoahConcurrentMark::mark_loop_work<ShenandoahMarkRefsMetadataClosure, true> (12 bytes)
+  3.26%  <...other 221 warm regions...>
+....................................................................................................
+ 99.98%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 48.54%         c2, level 4  org.ad.generated.VHReflectionBenchmark_testReflection_jmhTest::testReflection_avgt_jmhStub, version 781
+ 15.56%         c2, level 4  java.lang.Class::getDeclaredField, version 793
+ 11.64%         c2, level 4  java.lang.Class::searchFields, version 700
+ 10.62%         c2, level 4  java.lang.Class::getConstructor0, version 776
+  7.87%         c2, level 4  java.lang.reflect.AccessibleObject::checkCanSetAccessible, version 763
+  0.51%           libjvm.so  ElfSymbolTable::lookup
+  0.36%  libpthread-2.17.so  do_futex_wait.constprop.1
+  0.27%        libc-2.17.so  syscall
+  0.25%  libpthread-2.17.so  pthread_cond_timedwait@@GLIBC_2.3.2
+  0.23%           libjvm.so  ShenandoahConcurrentMark::mark_loop_work<ShenandoahMarkRefsMetadataClosure, true>
+  0.23%           libjvm.so  fileStream::write
+  0.22%                      <unknown>
+  0.20%           libjvm.so  ShenandoahControlThread::run_service
+  0.18%  libpthread-2.17.so  __libc_nanosleep
+  0.18%  libpthread-2.17.so  [unknown]
+  0.15%              [vdso]  __vdso_clock_gettime
+  0.12%        libc-2.17.so  vfprintf
+  0.11%           libjvm.so  os::elapsedTime
+  0.11%           libjvm.so  OopOopIterateDispatch<ShenandoahMarkRefsMetadataClosure>::Table::oop_oop_iterate<InstanceKlass, unsigned int>
+  0.10%        libc-2.17.so  __clone
+  2.54%  <...other 136 warm methods...>
+....................................................................................................
+ 99.98%  <totals>
+
+....[Distribution by Source]........................................................................
+ 94.24%         c2, level 4
+  2.89%           libjvm.so
+  1.19%  libpthread-2.17.so
+  0.98%        libc-2.17.so
+  0.22%
+  0.15%              [vdso]
+  0.09%              kernel
+  0.08%         interpreter
+  0.07%          ld-2.17.so
+  0.05%         c1, level 3
+  0.02%    Unknown, level 0
+....................................................................................................
+ 99.98%  <totals>
