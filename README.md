@@ -334,3 +334,13 @@ Benchmark                                  Mode  Cnt   Score   Error  Units
 VHReflectionBenchmark.testReflection       avgt   10  72.162 ± 2.562  ns/op
 VHReflectionBenchmark.testVH               avgt   10   3.528 ± 0.059  ns/op
 ``` 
+
+### MemoryHandlesBenchmark
+This benchmark is not verified. Might include some issues, though ASM code looks pretty clean
+I only wonder why BB direct benchmark does conversion of byte order 
+```
+Benchmark                          Mode  Cnt    Score    Error  Units
+MemoryHandlesBenchmark.rwBBD       avgt   10  580.084 ±  9.395  us/op
+MemoryHandlesBenchmark.rwBBI       avgt   10  687.093 ± 11.136  us/op
+MemoryHandlesBenchmark.rwMH        avgt   10  545.197 ± 18.321  us/op
+```

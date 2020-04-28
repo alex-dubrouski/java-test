@@ -1,0 +1,255 @@
+Secondary result "org.ad.MemoryHandlesBenchmark.rwMH:·asm":
+PrintAssembly processed: 241386 total address lines.
+Perf output processed (skipped 70.220 seconds):
+ Column 1: cycles (9880 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, org.ad.MemoryHandlesBenchmark::rwMH, version 870 (156 bytes)
+
+                                                                        ; - org.ad.MemoryHandlesBenchmark::rwMH@25 (line 71)
+                                                                        ;   {oop(a &apos;java/lang/Thread&apos;{0x00000006012e47a0})}
+              0x00007f7f5b7d49c0:   mov    0x2e8(%r15),%r11
+              0x00007f7f5b7d49c7:   cmp    %r10,%r11
+              0x00007f7f5b7d49ca:   jne    0x00007f7f5b7d4c00
+              0x00007f7f5b7d49d0:   test   %rdx,%rdx
+              0x00007f7f5b7d49d3:   je     0x00007f7f5b7d4c00
+              0x00007f7f5b7d49d9:   xor    %r11d,%r11d
+         ╭    0x00007f7f5b7d49dc:   jmp    0x00007f7f5b7d49e4
+         │    0x00007f7f5b7d49de:   xchg   %ax,%ax
+  3.86%  │ ↗  0x00007f7f5b7d49e0:   mov    (%rsp),%rdx                  ;*getstatic elemHandle {reexecute=0 rethrow=0 return_oop=0}
+         │ │                                                            ; - org.ad.MemoryHandlesBenchmark::rwMH@8 (line 71)
+  0.05%  ↘ │  0x00007f7f5b7d49e4:   movabs $0x60209cf28,%r10            ;   {oop(a &apos;jdk/internal/foreign/MemoryScope&apos;{0x000000060209cf28})}
+  0.22%    │  0x00007f7f5b7d49ee:   mov    0xc(%r10),%r10d              ;*getfield activeCount {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.internal.foreign.MemoryScope::checkAliveConfined@1 (line 77)
+           │                                                            ; - jdk.internal.foreign.MemorySegmentImpl::checkValidState@24 (line 161)
+           │                                                            ; - jdk.internal.foreign.MemorySegmentImpl::checkRange@1 (line 174)
+           │                                                            ; - jdk.internal.foreign.MemoryAddressImpl::checkAccess@21 (line 84)
+           │                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs::checkAddress@15 (line 50)
+           │                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs::set0@7 (line 85)
+           │                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs1/0x0000000800bb1040::set@18
+           │                                                            ; - java.lang.invoke.VarHandleGuards::guard_LJJ_V@38 (line 1003)
+           │                                                            ; - org.ad.MemoryHandlesBenchmark::rwMH@25 (line 71)
+  1.51%    │  0x00007f7f5b7d49f2:   mov    %rbp,%rcx
+  3.88%    │  0x00007f7f5b7d49f5:   mov    0x10(%rbp),%r8               ;*getfield posL {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - org.ad.MemoryHandlesBenchmark::rwMH@15 (line 71)
+  0.08%    │  0x00007f7f5b7d49f9:   movslq %r11d,%r9
+  0.29%    │  0x00007f7f5b7d49fc:   add    %r8,%r9
+  1.57%    │  0x00007f7f5b7d49ff:   shl    $0x3,%r9                     ;*lmul {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs1/0x0000000800bb1040::set@14
+           │                                                            ; - java.lang.invoke.VarHandleGuards::guard_LJJ_V@38 (line 1003)
+           │                                                            ; - org.ad.MemoryHandlesBenchmark::rwMH@25 (line 71)
+  3.81%    │  0x00007f7f5b7d4a03:   cmp    $0xffffffff,%r10d
+           │  0x00007f7f5b7d4a07:   je     0x00007f7f5b7d4b2c           ;*if_icmpne {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.internal.foreign.MemoryScope::checkAliveConfined@5 (line 77)
+           │                                                            ; - jdk.internal.foreign.MemorySegmentImpl::checkValidState@24 (line 161)
+           │                                                            ; - jdk.internal.foreign.MemorySegmentImpl::checkRange@1 (line 174)
+           │                                                            ; - jdk.internal.foreign.MemoryAddressImpl::checkAccess@21 (line 84)
+           │                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs::checkAddress@15 (line 50)
+           │                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs::set0@7 (line 85)
+           │                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs1/0x0000000800bb1040::set@18
+           │                                                            ; - java.lang.invoke.VarHandleGuards::guard_LJJ_V@38 (line 1003)
+           │                                                            ; - org.ad.MemoryHandlesBenchmark::rwMH@25 (line 71)
+  0.03%    │  0x00007f7f5b7d4a0d:   test   %r9,%r9
+          ╭│  0x00007f7f5b7d4a10:   jl     0x00007f7f5b7d4a99           ;*iflt {reexecute=0 rethrow=0 return_oop=0}
+          ││                                                            ; - jdk.internal.foreign.MemorySegmentImpl::checkBounds@9 (line 196)
+          ││                                                            ; - jdk.internal.foreign.MemorySegmentImpl::checkRange@29 (line 178)
+          ││                                                            ; - jdk.internal.foreign.MemoryAddressImpl::checkAccess@21 (line 84)
+          ││                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs::checkAddress@15 (line 50)
+          ││                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs::set0@7 (line 85)
+          ││                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs1/0x0000000800bb1040::set@18
+          ││                                                            ; - java.lang.invoke.VarHandleGuards::guard_LJJ_V@38 (line 1003)
+          ││                                                            ; - org.ad.MemoryHandlesBenchmark::rwMH@25 (line 71)
+  0.33%   ││  0x00007f7f5b7d4a16:   cmp    $0x3ffffff8,%r9
+          ││  0x00007f7f5b7d4a1d:   jg     0x00007f7f5b7d4b64           ;*ifle {reexecute=0 rethrow=0 return_oop=0}
+          ││                                                            ; - jdk.internal.foreign.MemorySegmentImpl::checkBounds@20 (line 196)
+          ││                                                            ; - jdk.internal.foreign.MemorySegmentImpl::checkRange@29 (line 178)
+          ││                                                            ; - jdk.internal.foreign.MemoryAddressImpl::checkAccess@21 (line 84)
+          ││                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs::checkAddress@15 (line 50)
+          ││                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs::set0@7 (line 85)
+          ││                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs1/0x0000000800bb1040::set@18
+          ││                                                            ; - java.lang.invoke.VarHandleGuards::guard_LJJ_V@38 (line 1003)
+          ││                                                            ; - org.ad.MemoryHandlesBenchmark::rwMH@25 (line 71)
+  1.69%   ││  0x00007f7f5b7d4a23:   movabs $0x7f7e4fffe010,%r10
+  3.94%   ││  0x00007f7f5b7d4a2d:   add    %r10,%r9
+  0.07%   ││  0x00007f7f5b7d4a30:   mov    %r8,%r10
+  0.36%   ││  0x00007f7f5b7d4a33:   shl    $0x3,%r10                    ;*lmul {reexecute=0 rethrow=0 return_oop=0}
+          ││                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs1/0x0000000800bb1040::get@14
+          ││                                                            ; - java.lang.invoke.VarHandleGuards::guard_LJ_J@36 (line 192)
+          ││                                                            ; - org.ad.MemoryHandlesBenchmark::rwMH@39 (line 74)
+  1.79%   ││  0x00007f7f5b7d4a37:   mov    %r8,(%r9)                    ;*invokevirtual putLongUnaligned {reexecute=0 rethrow=0 return_oop=0}
+          ││                                                            ; - jdk.internal.misc.Unsafe::putLongUnaligned@10 (line 3671)
+          ││                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs::set0@38 (line 86)
+          ││                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs1/0x0000000800bb1040::set@18
+          ││                                                            ; - java.lang.invoke.VarHandleGuards::guard_LJJ_V@38 (line 1003)
+          ││                                                            ; - org.ad.MemoryHandlesBenchmark::rwMH@25 (line 71)
+  6.57%   ││  0x00007f7f5b7d4a3a:   test   %r10,%r10
+          ││  0x00007f7f5b7d4a3d:   jl     0x00007f7f5b7d4ae4           ;*iflt {reexecute=0 rethrow=0 return_oop=0}
+          ││                                                            ; - jdk.internal.foreign.MemorySegmentImpl::checkBounds@9 (line 196)
+          ││                                                            ; - jdk.internal.foreign.MemorySegmentImpl::checkRange@29 (line 178)
+          ││                                                            ; - jdk.internal.foreign.MemoryAddressImpl::checkAccess@21 (line 84)
+          ││                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs::checkAddress@15 (line 50)
+          ││                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs::get0@7 (line 76)
+          ││                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs1/0x0000000800bb1040::get@16
+          ││                                                            ; - java.lang.invoke.VarHandleGuards::guard_LJ_J@36 (line 192)
+          ││                                                            ; - org.ad.MemoryHandlesBenchmark::rwMH@39 (line 74)
+  0.07%   ││  0x00007f7f5b7d4a43:   cmp    $0x3ffffff8,%r10
+          ││  0x00007f7f5b7d4a4a:   jg     0x00007f7f5b7d4bb4           ;*ifle {reexecute=0 rethrow=0 return_oop=0}
+          ││                                                            ; - jdk.internal.foreign.MemorySegmentImpl::checkBounds@20 (line 196)
+          ││                                                            ; - jdk.internal.foreign.MemorySegmentImpl::checkRange@29 (line 178)
+          ││                                                            ; - jdk.internal.foreign.MemoryAddressImpl::checkAccess@21 (line 84)
+          ││                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs::checkAddress@15 (line 50)
+          ││                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs::get0@7 (line 76)
+          ││                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs1/0x0000000800bb1040::get@16
+          ││                                                            ; - java.lang.invoke.VarHandleGuards::guard_LJ_J@36 (line 192)
+          ││                                                            ; - org.ad.MemoryHandlesBenchmark::rwMH@39 (line 74)
+  0.27%   ││  0x00007f7f5b7d4a50:   mov    %r11d,0x8(%rsp)
+  1.44%   ││  0x00007f7f5b7d4a55:   mov    %rdx,(%rsp)                  ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+          ││                                                            ; - org.ad.MemoryHandlesBenchmark::rwMH@39 (line 74)
+  4.27%   ││  0x00007f7f5b7d4a59:   movabs $0x7f7e4fffe010,%r11
+  0.06%   ││  0x00007f7f5b7d4a63:   add    %r11,%r10
+  0.17%   ││  0x00007f7f5b7d4a66:   mov    (%r10),%rdx                  ;*invokevirtual getLongUnaligned {reexecute=0 rethrow=0 return_oop=0}
+          ││                                                            ; - jdk.internal.misc.Unsafe::getLongUnaligned@5 (line 3550)
+          ││                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs::get0@36 (line 77)
+          ││                                                            ; - java.lang.invoke.VarHandleMemoryAddressAsLongs1/0x0000000800bb1040::get@16
+          ││                                                            ; - java.lang.invoke.VarHandleGuards::guard_LJ_J@36 (line 192)
+          ││                                                            ; - org.ad.MemoryHandlesBenchmark::rwMH@39 (line 74)
+  1.49%   ││  0x00007f7f5b7d4a69:   mov    (%rsp),%rsi
+  4.30%   ││  0x00007f7f5b7d4a6d:   xchg   %ax,%ax
+  0.05%   ││  0x00007f7f5b7d4a6f:   callq  0x00007f7f5b7ce450           ; ImmutableOopMap {rbp=Oop [0]=Oop }
+          ││                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+          ││                                                            ; - org.ad.MemoryHandlesBenchmark::rwMH@42 (line 74)
+          ││                                                            ;   {optimized virtual_call}
+ 17.37%   ││  0x00007f7f5b7d4a74:   mov    0x8(%rsp),%r11d
+  0.39%   ││  0x00007f7f5b7d4a79:   inc    %r11d                        ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+          ││                                                            ; - org.ad.MemoryHandlesBenchmark::rwMH@45 (line 70)
+  1.66%   ││  0x00007f7f5b7d4a7c:   cmp    $0x186a0,%r11d
+          │╰  0x00007f7f5b7d4a83:   jl     0x00007f7f5b7d49e0           ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+          │                                                             ; - org.ad.MemoryHandlesBenchmark::rwMH@5 (line 70)
+          │   0x00007f7f5b7d4a89:   add    $0x40,%rsp
+          │   0x00007f7f5b7d4a8d:   pop    %rbp
+          │   0x00007f7f5b7d4a8e:   mov    0x110(%r15),%r10
+          │   0x00007f7f5b7d4a95:   test   %eax,(%r10)                  ;   {poll_return}
+          │   0x00007f7f5b7d4a98:   retq
+          ↘   0x00007f7f5b7d4a99:   xor    %r10d,%r10d
+              0x00007f7f5b7d4a9c:   cmp    %r10,%r9
+....................................................................................................
+ 61.60%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+c2, level 4, org.openjdk.jmh.infra.Blackhole::consume, version 846 (75 bytes)
+
+              0x00007f7f5b7ce424:   shl    $0x3,%r10
+              0x00007f7f5b7ce428:   movabs $0x800000000,%r12
+              0x00007f7f5b7ce432:   add    %r12,%r10
+              0x00007f7f5b7ce435:   xor    %r12,%r12
+              0x00007f7f5b7ce438:   cmp    %r10,%rax
+              0x00007f7f5b7ce43b:   jne    0x00007f7f53c34d80           ;   {runtime_call ic_miss_stub}
+              0x00007f7f5b7ce441:   data16 xchg %ax,%ax
+              0x00007f7f5b7ce444:   nopl   0x0(%rax,%rax,1)
+              0x00007f7f5b7ce44c:   data16 data16 xchg %ax,%ax
+            [Verified Entry Point]
+  1.50%       0x00007f7f5b7ce450:   mov    %eax,-0x14000(%rsp)
+  4.55%       0x00007f7f5b7ce457:   push   %rbp
+  0.58%       0x00007f7f5b7ce458:   sub    $0x20,%rsp
+  5.45%       0x00007f7f5b7ce45c:   nopl   0x0(%rax)
+  0.20%       0x00007f7f5b7ce460:   cmpl   $0x1,0x70(%r15)
+  0.45%  ╭    0x00007f7f5b7ce468:   je     0x00007f7f5b7ce473
+         │    0x00007f7f5b7ce46e:   callq  Stub::nmethod_entry_barrier  ;*synchronization entry
+         │                                                              ; - org.openjdk.jmh.infra.Blackhole::consume@-1 (line 392)
+         │                                                              ;   {runtime_call StubRoutines (2)}
+  1.60%  ↘    0x00007f7f5b7ce473:   mov    %rdx,%r10
+  4.04%       0x00007f7f5b7ce476:   xor    0x90(%rsi),%r10              ;*getfield l1 {reexecute=0 rethrow=0 return_oop=0}
+                                                                        ; - org.openjdk.jmh.infra.Blackhole::consume@1 (line 392)
+  2.96%       0x00007f7f5b7ce47d:   mov    %rdx,%r11
+  0.25%       0x00007f7f5b7ce480:   xor    0xa0(%rsi),%r11              ;*lxor {reexecute=0 rethrow=0 return_oop=0}
+                                                                        ; - org.openjdk.jmh.infra.Blackhole::consume@17 (line 394)
+  2.07%       0x00007f7f5b7ce487:   cmp    %r11,%r10
+          ╭   0x00007f7f5b7ce48a:   je     0x00007f7f5b7ce49c           ;*ifne {reexecute=0 rethrow=0 return_oop=0}
+          │                                                             ; - org.openjdk.jmh.infra.Blackhole::consume@19 (line 394)
+  4.18%   │   0x00007f7f5b7ce48c:   add    $0x20,%rsp
+  0.03%   │   0x00007f7f5b7ce490:   pop    %rbp
+  0.18%   │   0x00007f7f5b7ce491:   mov    0x110(%r15),%r10
+  1.11%   │   0x00007f7f5b7ce498:   test   %eax,(%r10)                  ;   {poll_return}
+  5.03%   │   0x00007f7f5b7ce49b:   retq
+          ↘   0x00007f7f5b7ce49c:   cmp    %r11,%r10
+              0x00007f7f5b7ce49f:   mov    $0xffffffff,%ebp
+           ╭  0x00007f7f5b7ce4a4:   jl     0x00007f7f5b7ce4ae
+           │  0x00007f7f5b7ce4a6:   setne  %bpl
+           │  0x00007f7f5b7ce4aa:   movzbl %bpl,%ebp                    ;*lcmp {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - org.openjdk.jmh.infra.Blackhole::consume@18 (line 394)
+           ↘  0x00007f7f5b7ce4ae:   mov    %rsi,(%rsp)
+              0x00007f7f5b7ce4b2:   mov    %rdx,0x8(%rsp)
+              0x00007f7f5b7ce4b7:   mov    $0xffffff45,%esi
+              0x00007f7f5b7ce4bc:   data16 xchg %ax,%ax
+....................................................................................................
+ 34.18%  <total for region 2>
+
+....[Hottest Regions]...............................................................................
+ 61.60%         c2, level 4  org.ad.MemoryHandlesBenchmark::rwMH, version 870 (156 bytes)
+ 34.18%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 846 (75 bytes)
+  0.53%           libjvm.so  ElfSymbolTable::lookup (47 bytes)
+  0.32%  libpthread-2.17.so  [unknown] (4 bytes)
+  0.27%        libc-2.17.so  syscall (8 bytes)
+  0.10%              kernel  [unknown] (0 bytes)
+  0.10%           libjvm.so  fileStream::write (43 bytes)
+  0.09%        libc-2.17.so  __clone (5 bytes)
+  0.07%           libjvm.so  xmlStream::write_text (24 bytes)
+  0.06%           libjvm.so  outputStream::update_position (18 bytes)
+  0.06%  libpthread-2.17.so  pthread_cond_timedwait@@GLIBC_2.3.2 (3 bytes)
+  0.06%  libpthread-2.17.so  __pthread_enable_asynccancel (31 bytes)
+  0.05%        libc-2.17.so  _IO_fwrite (0 bytes)
+  0.05%        libc-2.17.so  __strchr_sse42 (18 bytes)
+  0.05%  libpthread-2.17.so  __lll_lock_wait (2 bytes)
+  0.04%         interpreter  invokevirtual  182 invokevirtual  (31 bytes)
+  0.04%           libjvm.so  jio_print (28 bytes)
+  0.04%           libjvm.so  defaultStream::write (24 bytes)
+  0.04%           libjvm.so  RelocIterator::initialize (24 bytes)
+  0.04%  libpthread-2.17.so  [unknown] (4 bytes)
+  2.20%  <...other 184 warm regions...>
+....................................................................................................
+100.00%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 61.60%         c2, level 4  org.ad.MemoryHandlesBenchmark::rwMH, version 870
+ 34.18%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 846
+  0.53%           libjvm.so  ElfSymbolTable::lookup
+  0.37%  libpthread-2.17.so  [unknown]
+  0.27%        libc-2.17.so  syscall
+  0.13%              kernel  [unknown]
+  0.12%        libc-2.17.so  vfprintf
+  0.11%           libjvm.so  fileStream::write
+  0.11%           libjvm.so  xmlStream::write_text
+  0.10%      hsdis-amd64.so  print_insn
+  0.10%        libc-2.17.so  __clone
+  0.09%           libjvm.so  defaultStream::write
+  0.08%        libc-2.17.so  _IO_fwrite
+  0.07%  libpthread-2.17.so  pthread_cond_timedwait@@GLIBC_2.3.2
+  0.06%  libpthread-2.17.so  __pthread_enable_asynccancel
+  0.06%        libc-2.17.so  _IO_default_xsputn
+  0.06%           libjvm.so  outputStream::update_position
+  0.06%        libc-2.17.so  __strchr_sse42
+  0.05%           libjvm.so  RelocIterator::initialize
+  0.05%        libc-2.17.so  _IO_fflush
+  1.78%  <...other 127 warm methods...>
+....................................................................................................
+100.00%  <totals>
+
+....[Distribution by Source]........................................................................
+ 95.78%         c2, level 4
+  1.96%           libjvm.so
+  1.08%        libc-2.17.so
+  0.62%  libpthread-2.17.so
+  0.14%      hsdis-amd64.so
+  0.13%              kernel
+  0.11%         interpreter
+  0.05%         c1, level 3
+  0.05%          ld-2.17.so
+  0.02%     perf-275771.map
+  0.02%              [vdso]
+  0.01%
+  0.01%        runtime stub
+  0.01%       libz.so.1.2.7
+....................................................................................................
+100.00%  <totals>
