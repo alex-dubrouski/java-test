@@ -1,261 +1,287 @@
 Secondary result "org.ad.MemoryHandlesBenchmark.rwBBI:·asm":
-PrintAssembly processed: 230651 total address lines.
-Perf output processed (skipped 69.039 seconds):
- Column 1: cycles (9848 events)
+PrintAssembly processed: 231575 total address lines.
+Perf output processed (skipped 119.717 seconds):
+ Column 1: cycles (24879 events)
 
 Hottest code regions (>10.00% "cycles" events):
 
 ....[Hottest Region 1]..............................................................................
-c2, level 4, org.ad.MemoryHandlesBenchmark::rwBBI, version 822 (229 bytes)
+c2, level 4, org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub, version 871 (260 bytes)
 
-               0x00007f969b7cc89c:   mov    %r10,%rdi
-               0x00007f969b7cc89f:   mov    0x18(%rsp),%rsi
-               0x00007f969b7cc8a4:   movabs $0x7f96b3032590,%r10
-               0x00007f969b7cc8ae:   callq  *%r10
-               0x00007f969b7cc8b1:   mov    0x10(%rsp),%rcx
-               0x00007f969b7cc8b6:   mov    0x18(%rsp),%rdi
-               0x00007f969b7cc8bb:   mov    %rax,%r10
-               0x00007f969b7cc8be:   xchg   %ax,%ax                      ;*getfield hb {reexecute=0 rethrow=0 return_oop=0}
-                                                                         ; - java.nio.HeapByteBuffer::putLong@8 (line 534)
-                                                                         ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
-  1.47%   ↗↗↗  0x00007f969b7cc8c0:   test   %r14d,%r14d
-          │││  0x00007f969b7cc8c3:   jl     0x00007f969b7cca1c           ;*iflt {reexecute=0 rethrow=0 return_oop=0}
-          │││                                                            ; - java.nio.Buffer::checkIndex@1 (line 736)
-          │││                                                            ; - java.nio.HeapByteBuffer::putLong@16 (line 534)
-          │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
-  1.27%   │││  0x00007f969b7cc8c9:   movabs $0x601c23950,%r11            ;   {oop(a &apos;java/nio/HeapByteBuffer&apos;{0x0000000601c23950})}
-  0.05%   │││  0x00007f969b7cc8d3:   mov    0x1c(%r11),%r8d              ;*getfield limit {reexecute=0 rethrow=0 return_oop=0}
-          │││                                                            ; - java.nio.Buffer::checkIndex@6 (line 736)
-          │││                                                            ; - java.nio.HeapByteBuffer::putLong@16 (line 534)
-          │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
-  2.06%   │││  0x00007f969b7cc8d7:   mov    %r8d,%r9d
-  1.76%   │││  0x00007f969b7cc8da:   sub    %r14d,%r9d                   ;*isub {reexecute=0 rethrow=0 return_oop=0}
-          │││                                                            ; - java.nio.Buffer::checkIndex@10 (line 736)
-          │││                                                            ; - java.nio.HeapByteBuffer::putLong@16 (line 534)
-          │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
-  1.22%   │││  0x00007f969b7cc8dd:   cmp    $0x8,%r9d
-          │││  0x00007f969b7cc8e1:   jl     0x00007f969b7ccb30           ;*if_icmple {reexecute=0 rethrow=0 return_oop=0}
-          │││                                                            ; - java.nio.Buffer::checkIndex@11 (line 736)
-          │││                                                            ; - java.nio.HeapByteBuffer::putLong@16 (line 534)
-          │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
-  0.06%   │││  0x00007f969b7cc8e7:   mov    0x10(%r11),%rdx              ;*getfield address {reexecute=0 rethrow=0 return_oop=0}
-          │││                                                            ; - java.nio.HeapByteBuffer::byteOffset@1 (line 160)
-          │││                                                            ; - java.nio.HeapByteBuffer::putLong@20 (line 534)
-          │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
-  2.10%   │││  0x00007f969b7cc8eb:   movzbl 0x2d(%r11),%r11d             ;*getfield bigEndian {reexecute=0 rethrow=0 return_oop=0}
-          │││                                                            ; - java.nio.HeapByteBuffer::putLong@25 (line 534)
-          │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
-  1.69%   │││  0x00007f969b7cc8f0:   movslq %r14d,%r9
-  1.07%   │││  0x00007f969b7cc8f3:   add    %rdx,%r9                     ;*ladd {reexecute=0 rethrow=0 return_oop=0}
-          │││                                                            ; - java.nio.HeapByteBuffer::byteOffset@5 (line 160)
-          │││                                                            ; - java.nio.HeapByteBuffer::putLong@20 (line 534)
-          │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
-  0.03%   │││  0x00007f969b7cc8f6:   test   %r11d,%r11d
-          │││  0x00007f969b7cc8f9:   jne    0x00007f969b7cca60           ;*if_icmpne {reexecute=0 rethrow=0 return_oop=0}
-          │││                                                            ; - jdk.internal.misc.Unsafe::convEndian@4 (line 3814)
-          │││                                                            ; - jdk.internal.misc.Unsafe::putLongUnaligned@7 (line 3671)
-          │││                                                            ; - java.nio.HeapByteBuffer::putLong@28 (line 534)
-          │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
-  1.96%   │││  0x00007f969b7cc8ff:   test   %r13d,%r13d
-          │││  0x00007f969b7cc902:   je     0x00007f969b7cc9e5
-  1.55%   │││  0x00007f969b7cc908:   mov    0x20(%rsp),%r11
-  1.07%   │││  0x00007f969b7cc90d:   mov    %r11,(%r10,%r9,1)            ;*invokevirtual putLongUnaligned {reexecute=0 rethrow=0 return_oop=0}
-          │││                                                            ; - jdk.internal.misc.Unsafe::putLongUnaligned@10 (line 3671)
-          │││                                                            ; - java.nio.HeapByteBuffer::putLong@28 (line 534)
-          │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
- 11.46%   │││  0x00007f969b7cc911:   shl    $0x3,%ebp                    ;*imul {reexecute=0 rethrow=0 return_oop=0}
-          │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@39 (line 64)
-  0.45%   │││  0x00007f969b7cc914:   test   %ebp,%ebp
-          │││  0x00007f969b7cc916:   jl     0x00007f969b7ccaa0           ;*iflt {reexecute=0 rethrow=0 return_oop=0}
-          │││                                                            ; - java.nio.Buffer::checkIndex@1 (line 736)
-          │││                                                            ; - java.nio.HeapByteBuffer::getLong@16 (line 516)
-          │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@40 (line 64)
-  0.59%   │││  0x00007f969b7cc91c:   sub    %ebp,%r8d                    ;*isub {reexecute=0 rethrow=0 return_oop=0}
-          │││                                                            ; - java.nio.Buffer::checkIndex@10 (line 736)
-          │││                                                            ; - java.nio.HeapByteBuffer::getLong@16 (line 516)
-          │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@40 (line 64)
-  0.10%   │││  0x00007f969b7cc91f:   cmp    $0x8,%r8d
-          │││  0x00007f969b7cc923:   jl     0x00007f969b7ccb78           ;*if_icmple {reexecute=0 rethrow=0 return_oop=0}
-          │││                                                            ; - java.nio.Buffer::checkIndex@11 (line 736)
-          │││                                                            ; - java.nio.HeapByteBuffer::getLong@16 (line 516)
-          │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@40 (line 64)
-  3.95%   │││  0x00007f969b7cc929:   mov    %rdi,0x20(%rsp)
-  0.51%   │││  0x00007f969b7cc92e:   mov    %rcx,0x18(%rsp)
-  0.62%   │││  0x00007f969b7cc933:   mov    %ebx,0x10(%rsp)              ;*invokevirtual getLong {reexecute=0 rethrow=0 return_oop=0}
-          │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@40 (line 64)
-  0.07%   │││  0x00007f969b7cc937:   movslq %ebp,%r11
-  3.75%   │││  0x00007f969b7cc93a:   add    %rdx,%r11
-  0.60%   │││  0x00007f969b7cc93d:   mov    (%r10,%r11,1),%rdx           ;*invokevirtual getLongUnaligned {reexecute=0 rethrow=0 return_oop=0}
-          │││                                                            ; - jdk.internal.misc.Unsafe::getLongUnaligned@5 (line 3550)
-          │││                                                            ; - java.nio.HeapByteBuffer::getLong@27 (line 516)
-          │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@40 (line 64)
-  1.02%   │││  0x00007f969b7cc941:   mov    0x8(%rsp),%rsi
-  0.16%   │││  0x00007f969b7cc946:   movabs $0x601c23950,%rbp            ;   {oop(a &apos;java/nio/HeapByteBuffer&apos;{0x0000000601c23950})}
-  3.67%   │││  0x00007f969b7cc950:   data16 xchg %ax,%ax
-  0.60%   │││  0x00007f969b7cc953:   callq  0x00007f969b7c8e50           ; ImmutableOopMap {rbp=Oop [0]=Oop [8]=Oop [24]=Derived_oop_rbp [32]=Derived_oop_rbp }
-          │││                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
-          │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@43 (line 64)
-          │││                                                            ;   {optimized virtual_call}
-  5.38%   │││  0x00007f969b7cc958:   mov    0x10(%rsp),%ebx
-  0.37%   │││  0x00007f969b7cc95c:   inc    %ebx                         ;*iinc {reexecute=0 rethrow=0 return_oop=0}
-          │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@46 (line 62)
-  2.15%   │││  0x00007f969b7cc95e:   cmp    $0x186a0,%ebx
-         ╭│││  0x00007f969b7cc964:   jge    0x00007f969b7cc9d5           ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
-         ││││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@5 (line 62)
-  2.02%  ││││  0x00007f969b7cc966:   mov    0x18(%rsp),%rcx
-  0.43%  ││││  0x00007f969b7cc96b:   mov    0x20(%rsp),%rdi              ;*getstatic bufI {reexecute=0 rethrow=0 return_oop=0}
-         ││││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@8 (line 63)
-  0.01%  ││││  0x00007f969b7cc970:   mov    (%rcx),%r10d                 ;*getfield segment {reexecute=0 rethrow=0 return_oop=0}
-         ││││                                                            ; - java.nio.Buffer::checkSegment@1 (line 751)
-         ││││                                                            ; - java.nio.HeapByteBuffer::putLong@1 (line 533)
-         ││││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
-  2.25%  ││││  0x00007f969b7cc973:   mov    (%rsp),%r11
-  2.00%  ││││  0x00007f969b7cc977:   mov    0xc(%r11),%ebp               ;*getfield posI {reexecute=0 rethrow=0 return_oop=0}
-         ││││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@12 (line 63)
-  0.43%  ││││  0x00007f969b7cc97b:   mov    %ebx,%r14d
-  0.02%  ││││  0x00007f969b7cc97e:   add    %ebp,%r14d
-  2.67%  ││││  0x00007f969b7cc981:   movslq %ebp,%r11                    ;*i2l {reexecute=0 rethrow=0 return_oop=0}
-         ││││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@24 (line 63)
-  1.83%  ││││  0x00007f969b7cc984:   mov    %r11,0x20(%rsp)
-  1.29%  ││││  0x00007f969b7cc989:   shl    $0x3,%r14d                   ;*imul {reexecute=0 rethrow=0 return_oop=0}
-         ││││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@19 (line 63)
-  0.04%  ││││  0x00007f969b7cc98d:   test   %r10d,%r10d
-         ││││  0x00007f969b7cc990:   jne    0x00007f969b7ccac8           ;*ifnull {reexecute=0 rethrow=0 return_oop=0}
-         ││││                                                            ; - java.nio.Buffer::checkSegment@4 (line 751)
-         ││││                                                            ; - java.nio.HeapByteBuffer::putLong@1 (line 533)
-         ││││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
-  1.85%  ││││  0x00007f969b7cc996:   mov    (%rdi),%r13d
-  1.47%  ││││  0x00007f969b7cc999:   mov    %r13,%r10
-  1.04%  ││││  0x00007f969b7cc99c:   shl    $0x3,%r10                    ;*getfield hb {reexecute=0 rethrow=0 return_oop=0}
-         ││││                                                            ; - java.nio.HeapByteBuffer::putLong@8 (line 534)
-         ││││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
-  0.04%  ││││  0x00007f969b7cc9a0:   testb  $0x1,0x20(%r15)
-  1.98%  │╰││  0x00007f969b7cc9a5:   je     0x00007f969b7cc8c0
-         │ ││  0x00007f969b7cc9ab:   test   %r13d,%r13d
-         │ ╰│  0x00007f969b7cc9ae:   je     0x00007f969b7cc8c0
-         │  │  0x00007f969b7cc9b4:   mov    %r10,%r11
-         │  │  0x00007f969b7cc9b7:   shr    $0x16,%r11
-         │  │  0x00007f969b7cc9bb:   movabs $0x7f96b46ab000,%r8
-         │  │  0x00007f969b7cc9c5:   cmpb   $0x0,(%r8,%r11,1)
-         │  ╰  0x00007f969b7cc9ca:   je     0x00007f969b7cc8c0
-         │     0x00007f969b7cc9d0:   jmpq   0x00007f969b7cc892
-         ↘     0x00007f969b7cc9d5:   add    $0x40,%rsp
-               0x00007f969b7cc9d9:   pop    %rbp
+              0x00007f7f777d30f5:   movabs $0x7f7f90066590,%r10
+              0x00007f7f777d30ff:   callq  *%r10
+              0x00007f7f777d3102:   mov    %r13,%rcx
+              0x00007f7f777d3105:   mov    %r14,%rdi
+              0x00007f7f777d3108:   mov    (%rsp),%r14
+              0x00007f7f777d310c:   mov    0x8(%rsp),%r13d
+              0x00007f7f777d3111:   mov    %rax,%r9                     ;*getfield hb {reexecute=0 rethrow=0 return_oop=0}
+                                                                        ; - java.nio.HeapByteBuffer::putLong@8 (line 534)
+                                                                        ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
+                                                                        ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  3.12%  ↗↗↗  0x00007f7f777d3114:   test   %ebx,%ebx
+         │││  0x00007f7f777d3116:   jl     0x00007f7f777d348c           ;*iflt {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - java.nio.Buffer::checkIndex@1 (line 736)
+         │││                                                            ; - java.nio.HeapByteBuffer::putLong@16 (line 534)
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  1.38%  │││  0x00007f7f777d311c:   movabs $0x602023a30,%r10            ;   {oop(a &apos;java/nio/HeapByteBuffer&apos;{0x0000000602023a30})}
+  0.15%  │││  0x00007f7f777d3126:   mov    0x1c(%r10),%r10d             ;*getfield limit {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - java.nio.Buffer::checkIndex@6 (line 736)
+         │││                                                            ; - java.nio.HeapByteBuffer::putLong@16 (line 534)
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  0.61%  │││  0x00007f7f777d312a:   mov    %r10d,%r11d
+  3.03%  │││  0x00007f7f777d312d:   sub    %ebx,%r11d                   ;*isub {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - java.nio.Buffer::checkIndex@10 (line 736)
+         │││                                                            ; - java.nio.HeapByteBuffer::putLong@16 (line 534)
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  1.41%  │││  0x00007f7f777d3130:   cmp    $0x8,%r11d
+         │││  0x00007f7f777d3134:   jl     0x00007f7f777d35e0           ;*if_icmple {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - java.nio.Buffer::checkIndex@11 (line 736)
+         │││                                                            ; - java.nio.HeapByteBuffer::putLong@16 (line 534)
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  0.12%  │││  0x00007f7f777d313a:   movabs $0x602023a30,%r11            ;   {oop(a &apos;java/nio/HeapByteBuffer&apos;{0x0000000602023a30})}
+  0.50%  │││  0x00007f7f777d3144:   mov    0x10(%r11),%rdx              ;*getfield address {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - java.nio.HeapByteBuffer::byteOffset@1 (line 160)
+         │││                                                            ; - java.nio.HeapByteBuffer::putLong@20 (line 534)
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  3.28%  │││  0x00007f7f777d3148:   movzbl 0x2d(%r11),%r8d              ;*getfield bigEndian {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - java.nio.HeapByteBuffer::putLong@25 (line 534)
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  1.42%  │││  0x00007f7f777d314d:   movslq %ebx,%r11
+  0.15%  │││  0x00007f7f777d3150:   add    %rdx,%r11                    ;*ladd {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - java.nio.HeapByteBuffer::byteOffset@5 (line 160)
+         │││                                                            ; - java.nio.HeapByteBuffer::putLong@20 (line 534)
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  0.52%  │││  0x00007f7f777d3153:   test   %r8d,%r8d
+         │││  0x00007f7f777d3156:   jne    0x00007f7f777d34e0           ;*if_icmpne {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - jdk.internal.misc.Unsafe::convEndian@4 (line 3814)
+         │││                                                            ; - jdk.internal.misc.Unsafe::putLongUnaligned@7 (line 3671)
+         │││                                                            ; - java.nio.HeapByteBuffer::putLong@28 (line 534)
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  3.22%  │││  0x00007f7f777d315c:   mov    0xc(%rsp),%ebx
+  1.46%  │││  0x00007f7f777d3160:   test   %ebx,%ebx
+         │││  0x00007f7f777d3162:   je     0x00007f7f777d3444
+  0.13%  │││  0x00007f7f777d3168:   mov    0x30(%rsp),%r8
+  0.56%  │││  0x00007f7f777d316d:   mov    %r8,(%r9,%r11,1)             ;*invokevirtual putLongUnaligned {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - jdk.internal.misc.Unsafe::putLongUnaligned@10 (line 3671)
+         │││                                                            ; - java.nio.HeapByteBuffer::putLong@28 (line 534)
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  3.46%  │││  0x00007f7f777d3171:   shl    $0x3,%ebp                    ;*imul {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@39 (line 64)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  1.38%  │││  0x00007f7f777d3174:   test   %ebp,%ebp
+         │││  0x00007f7f777d3176:   jl     0x00007f7f777d3530           ;*iflt {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - java.nio.Buffer::checkIndex@1 (line 736)
+         │││                                                            ; - java.nio.HeapByteBuffer::getLong@16 (line 516)
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@40 (line 64)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  0.14%  │││  0x00007f7f777d317c:   sub    %ebp,%r10d                   ;*isub {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - java.nio.Buffer::checkIndex@10 (line 736)
+         │││                                                            ; - java.nio.HeapByteBuffer::getLong@16 (line 516)
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@40 (line 64)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  0.49%  │││  0x00007f7f777d317f:   cmp    $0x8,%r10d
+  0.00%  │││  0x00007f7f777d3183:   jl     0x00007f7f777d3638           ;*if_icmple {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - java.nio.Buffer::checkIndex@11 (line 736)
+         │││                                                            ; - java.nio.HeapByteBuffer::getLong@16 (line 516)
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@40 (line 64)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  3.37%  │││  0x00007f7f777d3189:   mov    %r13d,0x18(%rsp)
+  1.39%  │││  0x00007f7f777d318e:   mov    %r14,0x10(%rsp)
+  0.18%  │││  0x00007f7f777d3193:   mov    %rdi,0x8(%rsp)
+  0.57%  │││  0x00007f7f777d3198:   mov    %rcx,(%rsp)                  ;*invokevirtual getLong {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@40 (line 64)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  3.39%  │││  0x00007f7f777d319c:   movslq %ebp,%r10
+  1.56%  │││  0x00007f7f777d319f:   add    %rdx,%r10
+  0.14%  │││  0x00007f7f777d31a2:   mov    (%r9,%r10,1),%rdx            ;*invokevirtual getLongUnaligned {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - jdk.internal.misc.Unsafe::getLongUnaligned@5 (line 3550)
+         │││                                                            ; - java.nio.HeapByteBuffer::getLong@27 (line 516)
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@40 (line 64)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  0.49%  │││  0x00007f7f777d31a6:   mov    0x28(%rsp),%rsi
+  3.53%  │││  0x00007f7f777d31ab:   movabs $0x602023a30,%rbp            ;   {oop(a &apos;java/nio/HeapByteBuffer&apos;{0x0000000602023a30})}
+  1.42%  │││  0x00007f7f777d31b5:   xchg   %ax,%ax
+  0.12%  │││  0x00007f7f777d31b7:   callq  0x00007f7f6fc34a80           ; ImmutableOopMap {rbp=Oop [96]=Oop [104]=Oop [112]=Oop [0]=Derived_oop_rbp [8]=Derived_oop_rbp [40]=Oop }
+         │││                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@43 (line 64)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+         │││                                                            ;   {optimized virtual_call}
+  0.23%  │││  0x00007f7f777d31bc:   mov    0x18(%rsp),%r13d
+  3.94%  │││  0x00007f7f777d31c1:   inc    %r13d                        ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@46 (line 62)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  1.40%  │││  0x00007f7f777d31c4:   cmp    $0x186a0,%r13d
+         │││  0x00007f7f777d31cb:   jge    0x00007f7f777d309b           ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@5 (line 62)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  0.16%  │││  0x00007f7f777d31d1:   mov    0x10(%rsp),%r14              ;*getstatic bufI {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@8 (line 63)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  0.53%  │││  0x00007f7f777d31d6:   mov    (%rsp),%rcx
+  3.34%  │││  0x00007f7f777d31da:   mov    (%rcx),%r11d                 ;*getfield segment {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - java.nio.Buffer::checkSegment@1 (line 751)
+         │││                                                            ; - java.nio.HeapByteBuffer::putLong@1 (line 533)
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  1.37%  │││  0x00007f7f777d31dd:   mov    0x70(%rsp),%r10
+  0.15%  │││  0x00007f7f777d31e2:   mov    0xc(%r10),%ebp               ;*getfield posI {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@12 (line 63)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  0.52%  │││  0x00007f7f777d31e6:   mov    %r13d,%ebx
+  3.16%  │││  0x00007f7f777d31e9:   add    %ebp,%ebx
+  1.52%  │││  0x00007f7f777d31eb:   movslq %ebp,%r10                    ;*i2l {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@24 (line 63)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  0.13%  │││  0x00007f7f777d31ee:   mov    %r10,0x30(%rsp)
+  0.61%  │││  0x00007f7f777d31f3:   shl    $0x3,%ebx                    ;*imul {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@19 (line 63)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  3.29%  │││  0x00007f7f777d31f6:   test   %r11d,%r11d
+         │││  0x00007f7f777d31f9:   jne    0x00007f7f777d3568           ;*ifnull {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - java.nio.Buffer::checkSegment@4 (line 751)
+         │││                                                            ; - java.nio.HeapByteBuffer::putLong@1 (line 533)
+         │││                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBI@25 (line 63)
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@17 (line 308)
+  1.43%  │││  0x00007f7f777d31ff:   mov    0x8(%rsp),%rdi
+  0.14%  │││  0x00007f7f777d3204:   mov    (%rdi),%r10d
+  0.56%  │││  0x00007f7f777d3207:   mov    %r10d,0xc(%rsp)
+  3.42%  │││  0x00007f7f777d320c:   mov    %r10,%r9
+  1.36%  │││  0x00007f7f777d320f:   shl    $0x3,%r9                     ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │││                                                            ; - org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub@30 (line 310)
+  0.13%  │││  0x00007f7f777d3213:   testb  $0x1,0x20(%r15)
+  0.62%  ╰││  0x00007f7f777d3218:   je     0x00007f7f777d3114
+          ││  0x00007f7f777d321e:   test   %r10d,%r10d
+          ╰│  0x00007f7f777d3221:   je     0x00007f7f777d3114
+           │  0x00007f7f777d3227:   mov    %r9,%r10
+           │  0x00007f7f777d322a:   shr    $0x16,%r10
+           │  0x00007f7f777d322e:   movabs $0x7f7f916df000,%r11
+           │  0x00007f7f777d3238:   cmpb   $0x0,(%r11,%r10,1)
+           ╰  0x00007f7f777d323d:   je     0x00007f7f777d3114
+              0x00007f7f777d3243:   jmpq   0x00007f7f777d30e0
+              0x00007f7f777d3248:   mov    $0xffffff5c,%esi
+              0x00007f7f777d324d:   mov    0x60(%rsp),%rbp
 ....................................................................................................
- 72.16%  <total for region 1>
+ 70.75%  <total for region 1>
 
 ....[Hottest Region 2]..............................................................................
-c2, level 4, org.openjdk.jmh.infra.Blackhole::consume, version 812 (75 bytes)
+c2, level 4, org.openjdk.jmh.infra.Blackhole::consume, version 816 (75 bytes)
 
-              0x00007f969b7c8e24:   shl    $0x3,%r10
-              0x00007f969b7c8e28:   movabs $0x800000000,%r12
-              0x00007f969b7c8e32:   add    %r12,%r10
-              0x00007f969b7c8e35:   xor    %r12,%r12
-              0x00007f969b7c8e38:   cmp    %r10,%rax
-              0x00007f969b7c8e3b:   jne    0x00007f9693c34d80           ;   {runtime_call ic_miss_stub}
-              0x00007f969b7c8e41:   data16 xchg %ax,%ax
-              0x00007f969b7c8e44:   nopl   0x0(%rax,%rax,1)
-              0x00007f969b7c8e4c:   data16 data16 xchg %ax,%ax
+              0x00007f7f777cb8a4:   shl    $0x3,%r10
+              0x00007f7f777cb8a8:   movabs $0x800000000,%r12
+              0x00007f7f777cb8b2:   add    %r12,%r10
+              0x00007f7f777cb8b5:   xor    %r12,%r12
+              0x00007f7f777cb8b8:   cmp    %r10,%rax
+              0x00007f7f777cb8bb:   jne    0x00007f7f6fc34d80           ;   {runtime_call ic_miss_stub}
+              0x00007f7f777cb8c1:   data16 xchg %ax,%ax
+              0x00007f7f777cb8c4:   nopl   0x0(%rax,%rax,1)
+              0x00007f7f777cb8cc:   data16 data16 xchg %ax,%ax
             [Verified Entry Point]
-  0.92%       0x00007f969b7c8e50:   mov    %eax,-0x14000(%rsp)
-  3.80%       0x00007f969b7c8e57:   push   %rbp
-  0.67%       0x00007f969b7c8e58:   sub    $0x20,%rsp
-  3.50%       0x00007f969b7c8e5c:   nopl   0x0(%rax)
-  0.68%       0x00007f969b7c8e60:   cmpl   $0x1,0x70(%r15)
-  0.79%  ╭    0x00007f969b7c8e68:   je     0x00007f969b7c8e73
-         │    0x00007f969b7c8e6e:   callq  Stub::nmethod_entry_barrier  ;*synchronization entry
+  3.75%       0x00007f7f777cb8d0:   mov    %eax,-0x14000(%rsp)
+  1.60%       0x00007f7f777cb8d7:   push   %rbp
+  0.52%       0x00007f7f777cb8d8:   sub    $0x20,%rsp
+  4.30%       0x00007f7f777cb8dc:   nopl   0x0(%rax)
+  0.10%       0x00007f7f777cb8e0:   cmpl   $0x1,0x70(%r15)
+  0.57%  ╭    0x00007f7f777cb8e8:   je     0x00007f7f777cb8f3
+         │    0x00007f7f777cb8ee:   callq  Stub::nmethod_entry_barrier  ;*synchronization entry
          │                                                              ; - org.openjdk.jmh.infra.Blackhole::consume@-1 (line 392)
          │                                                              ;   {runtime_call StubRoutines (2)}
-  0.05%  ↘    0x00007f969b7c8e73:   mov    %rdx,%r10
-  3.21%       0x00007f969b7c8e76:   xor    0x90(%rsi),%r10              ;*getfield l1 {reexecute=0 rethrow=0 return_oop=0}
+  3.23%  ↘    0x00007f7f777cb8f3:   mov    %rdx,%r10
+  1.55%       0x00007f7f777cb8f6:   xor    0x90(%rsi),%r10              ;*getfield l1 {reexecute=0 rethrow=0 return_oop=0}
                                                                         ; - org.openjdk.jmh.infra.Blackhole::consume@1 (line 392)
-  1.32%       0x00007f969b7c8e7d:   mov    %rdx,%r11
-  0.66%       0x00007f969b7c8e80:   xor    0xa0(%rsi),%r11              ;*lxor {reexecute=0 rethrow=0 return_oop=0}
+  0.12%       0x00007f7f777cb8fd:   mov    %rdx,%r11
+  0.56%       0x00007f7f777cb900:   xor    0xa0(%rsi),%r11              ;*lxor {reexecute=0 rethrow=0 return_oop=0}
                                                                         ; - org.openjdk.jmh.infra.Blackhole::consume@17 (line 394)
-  0.21%       0x00007f969b7c8e87:   cmp    %r11,%r10
-          ╭   0x00007f969b7c8e8a:   je     0x00007f969b7c8e9c           ;*ifne {reexecute=0 rethrow=0 return_oop=0}
+  3.25%       0x00007f7f777cb907:   cmp    %r11,%r10
+          ╭   0x00007f7f777cb90a:   je     0x00007f7f777cb91c           ;*ifne {reexecute=0 rethrow=0 return_oop=0}
           │                                                             ; - org.openjdk.jmh.infra.Blackhole::consume@19 (line 394)
-  3.50%   │   0x00007f969b7c8e8c:   add    $0x20,%rsp
-  0.42%   │   0x00007f969b7c8e90:   pop    %rbp
-  0.64%   │   0x00007f969b7c8e91:   mov    0x110(%r15),%r10
-  0.15%   │   0x00007f969b7c8e98:   test   %eax,(%r10)                  ;   {poll_return}
-  3.38%   │   0x00007f969b7c8e9b:   retq
-          ↘   0x00007f969b7c8e9c:   cmp    %r11,%r10
-              0x00007f969b7c8e9f:   mov    $0xffffffff,%ebp
-           ╭  0x00007f969b7c8ea4:   jl     0x00007f969b7c8eae
-           │  0x00007f969b7c8ea6:   setne  %bpl
-           │  0x00007f969b7c8eaa:   movzbl %bpl,%ebp                    ;*lcmp {reexecute=0 rethrow=0 return_oop=0}
+  1.43%   │   0x00007f7f777cb90c:   add    $0x20,%rsp
+  0.14%   │   0x00007f7f777cb910:   pop    %rbp
+  0.56%   │   0x00007f7f777cb911:   mov    0x110(%r15),%r10
+  3.40%   │   0x00007f7f777cb918:   test   %eax,(%r10)                  ;   {poll_return}
+  1.48%   │   0x00007f7f777cb91b:   retq
+          ↘   0x00007f7f777cb91c:   cmp    %r11,%r10
+              0x00007f7f777cb91f:   mov    $0xffffffff,%ebp
+           ╭  0x00007f7f777cb924:   jl     0x00007f7f777cb92e
+           │  0x00007f7f777cb926:   setne  %bpl
+           │  0x00007f7f777cb92a:   movzbl %bpl,%ebp                    ;*lcmp {reexecute=0 rethrow=0 return_oop=0}
            │                                                            ; - org.openjdk.jmh.infra.Blackhole::consume@18 (line 394)
-           ↘  0x00007f969b7c8eae:   mov    %rsi,(%rsp)
-              0x00007f969b7c8eb2:   mov    %rdx,0x8(%rsp)
-              0x00007f969b7c8eb7:   mov    $0xffffff45,%esi
-              0x00007f969b7c8ebc:   data16 xchg %ax,%ax
+           ↘  0x00007f7f777cb92e:   mov    %rsi,(%rsp)
+              0x00007f7f777cb932:   mov    %rdx,0x8(%rsp)
+              0x00007f7f777cb937:   mov    $0xffffff45,%esi
+              0x00007f7f777cb93c:   data16 xchg %ax,%ax
 ....................................................................................................
- 23.91%  <total for region 2>
+ 26.56%  <total for region 2>
 
 ....[Hottest Regions]...............................................................................
- 72.16%         c2, level 4  org.ad.MemoryHandlesBenchmark::rwBBI, version 822 (229 bytes)
- 23.91%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 812 (75 bytes)
-  0.46%           libjvm.so  ElfSymbolTable::lookup (54 bytes)
-  0.22%        libc-2.17.so  syscall (33 bytes)
-  0.22%  libpthread-2.17.so  [unknown] (15 bytes)
-  0.14%           libjvm.so  fileStream::write (33 bytes)
-  0.09%        libc-2.17.so  __clock_gettime (14 bytes)
-  0.07%              kernel  [unknown] (0 bytes)
-  0.06%           libjvm.so  ShenandoahControlThread::run_service (13 bytes)
-  0.06%        libc-2.17.so  __strchr_sse42 (75 bytes)
-  0.06%  libpthread-2.17.so  pthread_cond_timedwait@@GLIBC_2.3.2 (3 bytes)
-  0.06%  libpthread-2.17.so  __pthread_enable_asynccancel (31 bytes)
-  0.06%              [vdso]  __vdso_clock_gettime (6 bytes)
-  0.05%           libjvm.so  defaultStream::write (37 bytes)
-  0.05%           libjvm.so  defaultStream::write (26 bytes)
-  0.05%           libjvm.so  ShenandoahHeap::max_capacity (22 bytes)
-  0.05%           libjvm.so  xmlStream::write_text (7 bytes)
-  0.05%  libpthread-2.17.so  __libc_nanosleep (4 bytes)
-  0.05%          ld-2.17.so  __tls_get_addr (21 bytes)
-  0.05%              [vdso]  __vdso_clock_gettime (8 bytes)
-  2.05%  <...other 166 warm regions...>
+ 70.75%         c2, level 4  org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub, version 871 (260 bytes)
+ 26.56%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 816 (75 bytes)
+  0.25%           libjvm.so  ElfSymbolTable::lookup (54 bytes)
+  0.21%        libc-2.17.so  syscall (8 bytes)
+  0.18%  libpthread-2.17.so  [unknown] (15 bytes)
+  0.11%  libpthread-2.17.so  __libc_nanosleep (42 bytes)
+  0.09%           libjvm.so  fileStream::write (64 bytes)
+  0.08%  libpthread-2.17.so  pthread_cond_timedwait@@GLIBC_2.3.2 (6 bytes)
+  0.08%        libc-2.17.so  __clock_gettime (58 bytes)
+  0.06%           libjvm.so  ShenandoahAdaptiveHeuristics::should_start_gc (55 bytes)
+  0.05%              kernel  [unknown] (0 bytes)
+  0.04%           libjvm.so  outputStream::update_position (54 bytes)
+  0.04%        libc-2.17.so  __strchr_sse42 (61 bytes)
+  0.03%        libc-2.17.so  vfprintf (27 bytes)
+  0.03%           libjvm.so  os::elapsedTime (18 bytes)
+  0.03%           libjvm.so  ShenandoahControlThread::run_service (17 bytes)
+  0.03%           libjvm.so  ShenandoahHeap::max_capacity (22 bytes)
+  0.03%           libjvm.so  xmlStream::write_text (57 bytes)
+  0.03%  libpthread-2.17.so  __pthread_disable_asynccancel (23 bytes)
+  0.02%  libpthread-2.17.so  __pthread_enable_asynccancel (0 bytes)
+  1.27%  <...other 207 warm regions...>
 ....................................................................................................
- 99.99%  <totals>
+ 99.98%  <totals>
 
 ....[Hottest Methods (after inlining)]..............................................................
- 72.16%         c2, level 4  org.ad.MemoryHandlesBenchmark::rwBBI, version 822
- 23.91%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 812
-  0.46%           libjvm.so  ElfSymbolTable::lookup
-  0.23%  libpthread-2.17.so  [unknown]
-  0.22%        libc-2.17.so  syscall
-  0.21%                      <unknown>
-  0.15%           libjvm.so  fileStream::write
-  0.13%           libjvm.so  defaultStream::write
-  0.11%              [vdso]  __vdso_clock_gettime
-  0.10%              kernel  [unknown]
-  0.09%        libc-2.17.so  __clock_gettime
-  0.09%        libc-2.17.so  _IO_fwrite
-  0.09%           libjvm.so  ShenandoahAdaptiveHeuristics::should_start_gc
-  0.08%        libc-2.17.so  vfprintf
-  0.08%           libjvm.so  xmlStream::write_text
-  0.07%           libjvm.so  ShenandoahControlThread::run_service
-  0.07%  libpthread-2.17.so  pthread_cond_timedwait@@GLIBC_2.3.2
-  0.06%  libpthread-2.17.so  __pthread_enable_asynccancel
-  0.06%  libpthread-2.17.so  __libc_nanosleep
-  0.06%        libc-2.17.so  __strchr_sse42
-  1.53%  <...other 106 warm methods...>
+ 70.75%         c2, level 4  org.ad.generated.MemoryHandlesBenchmark_rwBBI_jmhTest::rwBBI_avgt_jmhStub, version 871
+ 26.56%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 816
+  0.25%           libjvm.so  ElfSymbolTable::lookup
+  0.21%        libc-2.17.so  syscall
+  0.18%  libpthread-2.17.so  [unknown]
+  0.11%  libpthread-2.17.so  __libc_nanosleep
+  0.11%        libc-2.17.so  vfprintf
+  0.10%           libjvm.so  fileStream::write
+  0.08%  libpthread-2.17.so  pthread_cond_timedwait@@GLIBC_2.3.2
+  0.08%           libjvm.so  ShenandoahAdaptiveHeuristics::should_start_gc
+  0.08%        libc-2.17.so  __clock_gettime
+  0.06%              kernel  [unknown]
+  0.06%           libjvm.so  xmlStream::write_text
+  0.06%        libc-2.17.so  _IO_fwrite
+  0.05%           libjvm.so  ShenandoahControlThread::run_service
+  0.05%      hsdis-amd64.so  print_insn
+  0.05%           libjvm.so  outputStream::update_position
+  0.04%           libjvm.so  defaultStream::write
+  0.04%           libjvm.so  RelocIterator::initialize
+  0.04%        libc-2.17.so  _IO_default_xsputn
+  1.01%  <...other 124 warm methods...>
 ....................................................................................................
- 99.99%  <totals>
+ 99.98%  <totals>
 
 ....[Distribution by Source]........................................................................
- 96.07%         c2, level 4
-  1.97%           libjvm.so
-  0.82%        libc-2.17.so
-  0.47%  libpthread-2.17.so
-  0.21%
-  0.11%              [vdso]
-  0.10%              kernel
-  0.09%         interpreter
-  0.07%          ld-2.17.so
-  0.04%         c1, level 3
-  0.01%         c1, level 1
-  0.01%         classes.jsa
-  0.01%     perf-275600.map
+ 97.32%         c2, level 4
+  1.21%           libjvm.so
+  0.75%        libc-2.17.so
+  0.45%  libpthread-2.17.so
+  0.08%      hsdis-amd64.so
+  0.06%              kernel
+  0.04%              [vdso]
+  0.04%         interpreter
+  0.02%          ld-2.17.so
+  0.00%         c1, level 3
+  0.00%       libz.so.1.2.7
 ....................................................................................................
- 99.99%  <totals>
+ 99.98%  <totals>

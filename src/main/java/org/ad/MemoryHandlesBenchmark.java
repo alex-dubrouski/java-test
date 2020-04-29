@@ -28,13 +28,13 @@ import org.openjdk.jmh.infra.Blackhole;
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
-@Warmup(iterations = 50, time = 1)
+@Warmup(iterations = 10, time = 5)
 @Measurement(iterations = 10, time = 1)
 @Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseShenandoahGC", "-XX:+DisableExplicitGC", "-XX:+AlwaysPreTouch", "-Xms8g", "-Xmx8g", "--add-modules", "jdk.incubator.foreign", "-XX:MaxDirectMemorySize=2G"})
 @Threads(1)
 public class MemoryHandlesBenchmark {
   static final byte[] bytes = new byte[1_073_741_824];
-  static final ByteBuffer bufD = ByteBuffer.allocateDirect(1_073_741_824);
+  static final ByteBuffer bufD = ByteBuffer.allocateDirect(1_073_741_824).order(ByteOrder.nativeOrder());
   static final ByteBuffer bufI = ByteBuffer.wrap(bytes).order(ByteOrder.nativeOrder());
   static final SequenceLayout arrayLayout = MemoryLayout.ofSequence(134_217_728, MemoryLayout.ofValueBits(64, ByteOrder.nativeOrder()));
   static final VarHandle elemHandle = arrayLayout.varHandle(long.class, MemoryLayout.PathElement.sequenceElement());
