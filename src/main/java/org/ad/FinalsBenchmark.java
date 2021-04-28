@@ -1,6 +1,5 @@
 package org.ad;
 
-import com.linkedin.Feature;
 import com.linkedin.FeatureName;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
@@ -28,8 +27,8 @@ import org.openjdk.jmh.infra.Blackhole;
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.SECONDS)
-@Warmup(iterations = 1, time = 5)
-@Measurement(iterations = 3, time = 5)
+@Warmup(iterations = 5, time = 10)
+@Measurement(iterations = 25, time = 10)
 @Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseParallelGC", "-XX:+DisableExplicitGC", "-XX:+UnlockDiagnosticVMOptions", "-XX:+AlwaysPreTouch", "-Xms20g", "-Xmx20g"})
 @Threads(1)
 public class FinalsBenchmark {
@@ -38,8 +37,8 @@ public class FinalsBenchmark {
 
   @Setup
   public void setup() {
-    l = new ArrayList<>(100);
-    for (int i = 0; i < 100; i++) {
+    l = new ArrayList<>(800);
+    for (int i = 0; i < 800; i++) {
       Pojo p = new Pojo(getAlphaNumericString(100), ThreadLocalRandom.current().nextDouble(), randomEnum(FeatureName.class));
       l.add(p);
     }
@@ -51,14 +50,19 @@ public class FinalsBenchmark {
    */
   @Benchmark
   public void testNonFinal(Blackhole bh) {
-    Map<String, Pojo2> m = new HashMap<>(100);
-    l.stream().map(Pojo2::new).forEach(p2 -> m.put(p2._featureName, p2));
+    Map<String, Pojo2> m = new HashMap<>(800);
+    for (int i = 0; i < l.size(); i++) {
+      Pojo p = l.get(i);
+      String fn = p._featureName.toString();
+      Pojo2 p2 = new Pojo2(p._string, p._double, fn);
+      m.put(fn, p2);
+    }
     bh.consume(m);
   }
 
   @Benchmark
   public void testFinal(Blackhole bh) {
-    final Map<String, Pojo2> m = new HashMap<>(100);
+    final Map<String, Pojo2> m = new HashMap<>(800);
     for (int i = 0; i < l.size(); i++) {
       final Pojo p = l.get(i);
       final String fn = p._featureName.toString();
