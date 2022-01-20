@@ -5,10 +5,8 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
-import jdk.incubator.foreign.MemoryAddress;
-import jdk.incubator.foreign.MemoryLayout;
-import jdk.incubator.foreign.MemorySegment;
-import jdk.incubator.foreign.SequenceLayout;
+
+import jdk.incubator.foreign.*;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Fork;
@@ -36,10 +34,11 @@ public class MemoryHandlesBenchmark {
   static final byte[] bytes = new byte[1_073_741_824];
   static final ByteBuffer bufD = ByteBuffer.allocateDirect(1_073_741_824).order(ByteOrder.nativeOrder());
   static final ByteBuffer bufI = ByteBuffer.wrap(bytes).order(ByteOrder.nativeOrder());
-  static final SequenceLayout arrayLayout = MemoryLayout.ofSequence(134_217_728, MemoryLayout.ofValueBits(64, ByteOrder.nativeOrder()));
+  static final SequenceLayout arrayLayout = MemoryLayout.sequenceLayout(134_217_728, MemoryLayout.valueLayout(64, ByteOrder.nativeOrder()));
   static final VarHandle elemHandle = arrayLayout.varHandle(long.class, MemoryLayout.PathElement.sequenceElement());
-  static final MemorySegment segment = MemorySegment.allocateNative(arrayLayout);
-  static final MemoryAddress base = segment.baseAddress();
+  static final ResourceScope scope = ResourceScope.newConfinedScope();
+  static final MemorySegment segment = MemorySegment.allocateNative(arrayLayout, scope);
+  static final MemoryAddress base = segment.address();
   int posI;
   long posL;
 
@@ -77,6 +76,6 @@ public class MemoryHandlesBenchmark {
 
   @TearDown
   public void teardown() {
-    segment.close();
+    scope.close();
   }
 }
