@@ -2,6 +2,8 @@ package org.ad;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.LongAdder;
 import java.util.concurrent.locks.ReentrantLock;
 import jdk.internal.vm.annotation.Contended;
 import org.openjdk.jmh.annotations.Benchmark;
@@ -27,6 +29,10 @@ public class ReVsAtomicBenchmark {
   @Contended
   private final AtomicInteger ai = new AtomicInteger(0);
   @Contended
+  private final AtomicLong al = new AtomicLong(0L);
+  @Contended
+  private final LongAdder la = new LongAdder();
+  @Contended
   private final ReentrantLock l = new ReentrantLock();
   @Contended
   private int number = 0;
@@ -47,11 +53,27 @@ public class ReVsAtomicBenchmark {
   }
 
   @Benchmark
-  public int testAtomic() {
+  public int testAtomicInt() {
     for(int i = 0; i < 100; i++) {
       ai.incrementAndGet();
     }
     return ai.get();
+  }
+
+  @Benchmark
+  public long testAtomicLong() {
+    for(int i = 0; i < 100; i++) {
+      al.incrementAndGet();
+    }
+    return al.get();
+  }
+
+  @Benchmark
+  public long testLongAdder() {
+    for(int i = 0; i < 100; i++) {
+      la.add(1L);
+    }
+    return al.get();
   }
 
   @Benchmark

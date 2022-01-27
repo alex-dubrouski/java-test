@@ -28,7 +28,7 @@ import org.openjdk.jmh.infra.Blackhole;
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @Warmup(iterations = 10, time = 5)
 @Measurement(iterations = 10, time = 1)
-@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseShenandoahGC", "-XX:+DisableExplicitGC", "-XX:+AlwaysPreTouch", "-Xms8g", "-Xmx8g", "--add-modules", "jdk.incubator.foreign", "-XX:MaxDirectMemorySize=2G"})
+@Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseShenandoahGC", "-XX:+DisableExplicitGC", "-XX:+AlwaysPreTouch", "-Xms8g", "-Xmx8g", "--add-modules", "jdk.incubator.foreign", "-XX:MaxDirectMemorySize=4G"})
 @Threads(1)
 public class MemoryHandlesBenchmark {
   static final byte[] bytes = new byte[1_073_741_824];
