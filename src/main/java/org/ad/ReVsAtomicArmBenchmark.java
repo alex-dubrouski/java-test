@@ -25,14 +25,14 @@ import org.openjdk.jmh.annotations.Warmup;
 @Measurement(iterations = 3, time = 10, timeUnit = TimeUnit.SECONDS)
 //Disabled LSE to check if LL/SC could be faster than ARM v8.1 SWP
 @Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseEpsilonGC", "-XX:+AlwaysPreTouch", "-Xms2g", "-Xmx2g", "-XX:-RestrictContended", "-XX:-UseLSE"})
-@Threads(Threads.MAX)
+@Threads(8)
 public class ReVsAtomicArmBenchmark {
   @Contended
-  private final AtomicInteger ai = new AtomicInteger(0);
+  private final AtomicInteger _atomicInteger = new AtomicInteger(0);
   @Contended
-  private final AtomicLong al = new AtomicLong(0L);
+  private final AtomicLong _atomicLong = new AtomicLong(0L);
   @Contended
-  private final LongAdder la = new LongAdder();
+  private final LongAdder _longAdder = new LongAdder();
   @Contended
   private final ReentrantLock l = new ReentrantLock();
   @Contended
@@ -41,7 +41,7 @@ public class ReVsAtomicArmBenchmark {
   private final Object lock = new Object();
 
   @Benchmark
-  public int testRE() {
+  public int testReentrantLock() {
     for(int i = 0; i < 100; i++) {
       l.lock();
       try {
@@ -56,25 +56,25 @@ public class ReVsAtomicArmBenchmark {
   @Benchmark
   public int testAtomicInt() {
     for(int i = 0; i < 100; i++) {
-      ai.incrementAndGet();
+      _atomicInteger.incrementAndGet();
     }
-    return ai.get();
+    return _atomicInteger.get();
   }
 
   @Benchmark
   public long testAtomicLong() {
     for(int i = 0; i < 100; i++) {
-      al.incrementAndGet();
+      _atomicLong.incrementAndGet();
     }
-    return al.get();
+    return _atomicLong.get();
   }
 
   @Benchmark
   public long testLongAdder() {
     for(int i = 0; i < 100; i++) {
-      la.add(1L);
+      _longAdder.add(1L);
     }
-    return al.get();
+    return _longAdder.sum();
   }
 
   @Benchmark

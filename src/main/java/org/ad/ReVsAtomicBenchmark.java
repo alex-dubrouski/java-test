@@ -24,7 +24,7 @@ import org.openjdk.jmh.annotations.Warmup;
 @Warmup(iterations = 5, time = 10, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 3, time = 10, timeUnit = TimeUnit.SECONDS)
 @Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseEpsilonGC", "-XX:+AlwaysPreTouch", "-Xms2g", "-Xmx2g", "-XX:-RestrictContended"})
-@Threads(Threads.MAX)
+@Threads(8)
 public class ReVsAtomicBenchmark {
   @Contended
   private final AtomicInteger ai = new AtomicInteger(0);
@@ -40,7 +40,7 @@ public class ReVsAtomicBenchmark {
   private final Object lock = new Object();
 
   @Benchmark
-  public int testRE() {
+  public int testReentrantLock() {
     for(int i = 0; i < 100; i++) {
       l.lock();
       try {
