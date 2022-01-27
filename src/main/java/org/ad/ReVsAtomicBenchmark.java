@@ -27,11 +27,11 @@ import org.openjdk.jmh.annotations.Warmup;
 @Threads(8)
 public class ReVsAtomicBenchmark {
   @Contended
-  private final AtomicInteger ai = new AtomicInteger(0);
+  private final AtomicInteger _atomicInteger = new AtomicInteger(0);
   @Contended
-  private final AtomicLong al = new AtomicLong(0L);
+  private final AtomicLong _atomicLong = new AtomicLong(0L);
   @Contended
-  private final LongAdder la = new LongAdder();
+  private final LongAdder _longAdder = new LongAdder();
   @Contended
   private final ReentrantLock l = new ReentrantLock();
   @Contended
@@ -55,25 +55,25 @@ public class ReVsAtomicBenchmark {
   @Benchmark
   public int testAtomicInt() {
     for(int i = 0; i < 100; i++) {
-      ai.incrementAndGet();
+      _atomicInteger.incrementAndGet();
     }
-    return ai.get();
+    return _atomicInteger.get();
   }
 
   @Benchmark
   public long testAtomicLong() {
     for(int i = 0; i < 100; i++) {
-      al.incrementAndGet();
+      _atomicLong.incrementAndGet();
     }
-    return al.get();
+    return _atomicLong.get();
   }
 
   @Benchmark
   public long testLongAdder() {
     for(int i = 0; i < 100; i++) {
-      la.add(1L);
+      _longAdder.add(1L);
     }
-    return al.get();
+    return _longAdder.sum();
   }
 
   @Benchmark
