@@ -36,7 +36,7 @@ Running on G1GC or ParallelGC also does not show any signs of degradation
 # VM version: JDK 18.0.1, OpenJDK 64-Bit Server VM, 18.0.1+10
 # VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -Xms8g -Xmx8g -Xlog:gc*,gc+age=trace,gc+phases=debug:file=gc.log:tags,uptime,time,level:filecount=5,filesize=100M -XX:MaxDirectMemorySize=4G
 ...
-# Benchmark: com.linkedin.MemoryHandlesBenchmark.rwBBD
+# Benchmark: org.ad.MemoryHandlesBenchmark.rwBBD
 
 # Warmup Iteration   1: 248.819 us/op
 ...

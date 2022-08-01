@@ -9,7 +9,7 @@
 # Timeout: 10 min per iteration
 # Threads: 1 thread, will synchronize iterations
 # Benchmark mode: Average time, time/op
-# Benchmark: com.linkedin.MemoryHandlesBenchmark.rwBBD
+# Benchmark: org.ad.MemoryHandlesBenchmark.rwBBD
 
 # Run progress: 0.00% complete, ETA 00:01:05
 # Fork: 1 of 1
@@ -31,12 +31,12 @@ Iteration   6: 391.281 us/op
 # Processing profiler results: LinuxPerfAsmProfiler
 
 
-Result "com.linkedin.MemoryHandlesBenchmark.rwBBD":
+Result "org.ad.MemoryHandlesBenchmark.rwBBD":
   392.944 ±(99.9%) 8.805 us/op [Average]
   (min, avg, max) = (389.438, 392.944, 397.806), stdev = 3.140
   CI (99.9%): [384.139, 401.749] (assumes normal distribution)
 
-Secondary result "com.linkedin.MemoryHandlesBenchmark.rwBBD:·asm":
+Secondary result "org.ad.MemoryHandlesBenchmark.rwBBD:·asm":
 PrintAssembly processed: 204893 total address lines.
 Perf output processed (skipped 43.186 seconds):
  Column 1: cpu-clock (30043 events)
@@ -44,7 +44,7 @@ Perf output processed (skipped 43.186 seconds):
 Hottest code regions (>10.00% "cpu-clock" events):
 
 ....[Hottest Region 1]..............................................................................
-c2, level 4, com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub, version 777 (357 bytes)
+c2, level 4, org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub, version 777 (357 bytes)
 
             0x00007f63ccf8cdff:   mov    0x18(%rsp),%r10
             0x00007f63ccf8ce04:   mov    %r10,(%rsp)
@@ -53,79 +53,79 @@ c2, level 4, com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rw
                                                                       ;*if_icmple {reexecute=1 rethrow=0 return_oop=0}
                                                                       ; - (reexecute) java.nio.Buffer::checkIndex@11 (line 745)
                                                                       ; - java.nio.DirectByteBuffer::getLong@6 (line 789)
-                                                                      ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@40 (line 42)
-                                                                      ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+                                                                      ; - org.ad.MemoryHandlesBenchmark::rwBBD@40 (line 42)
+                                                                      ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
                                                                       ;   {runtime_call UncommonTrapBlob}
   4.37%  ↗  0x00007f63ccf8ce10:   mov    %r9d,%r11d                   ;*getstatic bufD {reexecute=0 rethrow=0 return_oop=0}
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@8 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@8 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.13%  │  0x00007f63ccf8ce13:   mov    0x70(%rsp),%r10
   0.08%  │  0x00007f63ccf8ce18:   mov    0xc(%r10),%ecx               ;*getfield posI {reexecute=0 rethrow=0 return_oop=0}
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@12 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@12 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.24%  │  0x00007f63ccf8ce1c:   mov    %r11d,%r8d
   4.35%  │  0x00007f63ccf8ce1f:   add    %ecx,%r8d
   0.17%  │  0x00007f63ccf8ce22:   movslq %ecx,%r9                     ;*i2l {reexecute=0 rethrow=0 return_oop=0}
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@24 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@24 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.08%  │  0x00007f63ccf8ce25:   shl    $0x3,%r8d                    ;*imul {reexecute=0 rethrow=0 return_oop=0}
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@19 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@19 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.20%  │  0x00007f63ccf8ce29:   test   %r8d,%r8d
          │  0x00007f63ccf8ce2c:   jl     0x00007f63ccf8d1a2           ;*iflt {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.Buffer::checkIndex@1 (line 745)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@6 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   4.34%  │  0x00007f63ccf8ce32:   movabs $0x602032dc0,%r10            ;   {oop(a &apos;java/nio/DirectByteBuffer&apos;{0x0000000602032dc0})}
   0.13%  │  0x00007f63ccf8ce3c:   mov    0x1c(%r10),%edi              ;*getfield limit {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.Buffer::checkIndex@6 (line 745)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@6 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.07%  │  0x00007f63ccf8ce40:   mov    %edi,%r10d
   0.04%  │  0x00007f63ccf8ce43:   sub    %r8d,%r10d                   ;*isub {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.Buffer::checkIndex@10 (line 745)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@6 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   4.49%  │  0x00007f63ccf8ce46:   cmp    $0x8,%r10d
          │  0x00007f63ccf8ce4a:   jl     0x00007f63ccf8d247           ;*if_icmple {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.Buffer::checkIndex@11 (line 745)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@6 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.20%  │  0x00007f63ccf8ce50:   movabs $0x602032dc0,%r10            ;   {oop(a &apos;java/nio/DirectByteBuffer&apos;{0x0000000602032dc0})}
   0.00%  │  0x00007f63ccf8ce5a:   mov    0x10(%r10),%rbp              ;*getfield address {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.DirectByteBuffer::ix@1 (line 316)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@9 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.17%  │  0x00007f63ccf8ce5e:   vmovq  %xmm0,%r10
   4.14%  │  0x00007f63ccf8ce63:   mov    (%r10),%r10d                 ;*getfield segment {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.Buffer::scope@1 (line 760)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@7 (line 801)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@13 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.20%  │  0x00007f63ccf8ce66:   movslq %r8d,%r8                     ;*i2l {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.DirectByteBuffer::ix@5 (line 316)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@9 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
          │  0x00007f63ccf8ce69:   test   %r10d,%r10d
          │  0x00007f63ccf8ce6c:   jne    0x00007f63ccf8d109           ;*getfield segment {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.Buffer::scope@1 (line 760)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@7 (line 801)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@13 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.35%  │  0x00007f63ccf8ce72:   movabs $0x602032dc0,%r10            ;   {oop(a &apos;java/nio/DirectByteBuffer&apos;{0x0000000602032dc0})}
   4.17%  │  0x00007f63ccf8ce7c:   movzbl 0x2d(%r10),%r10d             ;*getfield bigEndian {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.DirectByteBuffer::putLong@15 (line 801)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@13 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.21%  │  0x00007f63ccf8ce81:   test   %r10d,%r10d
          │  0x00007f63ccf8ce84:   jne    0x00007f63ccf8d1d7           ;*if_icmpne {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - jdk.internal.misc.Unsafe::convEndian@4 (line 3819)
@@ -134,11 +134,11 @@ c2, level 4, com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rw
          │                                                            ; - jdk.internal.misc.ScopedMemoryAccess::putLongUnaligned@8 (line 2653)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@18 (line 801)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@13 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   2.89%  │  0x00007f63ccf8ce8a:   shl    $0x3,%ecx                    ;*imul {reexecute=0 rethrow=0 return_oop=0}
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@39 (line 42)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@39 (line 42)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.06%  │  0x00007f63ccf8ce8d:   mov    %rbp,%r10
   1.33%  │  0x00007f63ccf8ce90:   mov    %r9,(%r10,%r8,1)             ;*invokevirtual putLongUnaligned {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - jdk.internal.misc.Unsafe::putLongUnaligned@10 (line 3676)
@@ -146,99 +146,99 @@ c2, level 4, com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rw
          │                                                            ; - jdk.internal.misc.ScopedMemoryAccess::putLongUnaligned@8 (line 2653)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@18 (line 801)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@13 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
  11.96%  │  0x00007f63ccf8ce94:   test   %ecx,%ecx
          │  0x00007f63ccf8ce96:   jl     0x00007f63ccf8d217           ;*iflt {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.Buffer::checkIndex@1 (line 745)
          │                                                            ; - java.nio.DirectByteBuffer::getLong@6 (line 789)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@40 (line 42)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@40 (line 42)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.02%  │  0x00007f63ccf8ce9c:   sub    %ecx,%edi                    ;*isub {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.Buffer::checkIndex@10 (line 745)
          │                                                            ; - java.nio.DirectByteBuffer::getLong@6 (line 789)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@40 (line 42)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@40 (line 42)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.01%  │  0x00007f63ccf8ce9e:   cmp    $0x8,%edi
          │  0x00007f63ccf8cea1:   jl     0x00007f63ccf8d283           ;*synchronization entry
          │                                                            ; - org.openjdk.jmh.infra.Blackhole::consume@-1 (line 392)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@43 (line 42)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@43 (line 42)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.11%  │  0x00007f63ccf8cea7:   movslq %ecx,%r8
   4.35%  │  0x00007f63ccf8ceaa:   mov    (%r10,%r8,1),%r10            ;*invokestatic consumeCompiler {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - org.openjdk.jmh.infra.Blackhole::consume@7 (line 393)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@43 (line 42)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@43 (line 42)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.34%  │  0x00007f63ccf8ceae:   mov    0x70(%rsp),%r10
   0.08%  │  0x00007f63ccf8ceb3:   mov    0xc(%r10),%ecx               ;*getfield posI {reexecute=0 rethrow=0 return_oop=0}
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@12 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@12 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.71%  │  0x00007f63ccf8ceb7:   mov    %r11d,%eax
   3.54%  │  0x00007f63ccf8ceba:   add    %ecx,%eax
   0.68%  │  0x00007f63ccf8cebc:   movslq %ecx,%r9                     ;*i2l {reexecute=0 rethrow=0 return_oop=0}
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@24 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@24 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.03%  │  0x00007f63ccf8cebf:   shl    $0x3,%eax
   3.96%  │  0x00007f63ccf8cec2:   mov    %eax,%r8d
   0.24%  │  0x00007f63ccf8cec5:   add    $0x8,%r8d                    ;*imul {reexecute=0 rethrow=0 return_oop=0}
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@19 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@19 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   4.11%  │  0x00007f63ccf8cec9:   test   %r8d,%r8d
          │  0x00007f63ccf8cecc:   jl     0x00007f63ccf8d19f           ;*iflt {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.Buffer::checkIndex@1 (line 745)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@6 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   4.05%  │  0x00007f63ccf8ced2:   movabs $0x602032dc0,%r10            ;   {oop(a &apos;java/nio/DirectByteBuffer&apos;{0x0000000602032dc0})}
   0.04%  │  0x00007f63ccf8cedc:   mov    0x1c(%r10),%edi              ;*getfield limit {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.Buffer::checkIndex@6 (line 745)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@6 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.22%  │  0x00007f63ccf8cee0:   mov    %edi,%r10d
   0.25%  │  0x00007f63ccf8cee3:   sub    %eax,%r10d
   3.84%  │  0x00007f63ccf8cee6:   add    $0xfffffff8,%r10d            ;*isub {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.Buffer::checkIndex@10 (line 745)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@6 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.05%  │  0x00007f63ccf8ceea:   cmp    $0x8,%r10d
          │  0x00007f63ccf8ceee:   jl     0x00007f63ccf8d244           ;*if_icmple {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.Buffer::checkIndex@11 (line 745)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@6 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.61%  │  0x00007f63ccf8cef4:   movabs $0x602032dc0,%r10            ;   {oop(a &apos;java/nio/DirectByteBuffer&apos;{0x0000000602032dc0})}
   0.22%  │  0x00007f63ccf8cefe:   mov    0x10(%r10),%rbp              ;*getfield address {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.DirectByteBuffer::ix@1 (line 316)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@9 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   3.51%  │  0x00007f63ccf8cf02:   vmovq  %xmm0,%r10
   0.04%  │  0x00007f63ccf8cf07:   mov    (%r10),%r10d                 ;*getfield segment {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.Buffer::scope@1 (line 760)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@7 (line 801)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@13 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.61%  │  0x00007f63ccf8cf0a:   movslq %r8d,%r8                     ;*i2l {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.DirectByteBuffer::ix@5 (line 316)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@9 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.20%  │  0x00007f63ccf8cf0d:   test   %r10d,%r10d
          │  0x00007f63ccf8cf10:   jne    0x00007f63ccf8d106           ;*getfield segment {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.Buffer::scope@1 (line 760)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@7 (line 801)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@13 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   3.61%  │  0x00007f63ccf8cf16:   movabs $0x602032dc0,%r10            ;   {oop(a &apos;java/nio/DirectByteBuffer&apos;{0x0000000602032dc0})}
   0.05%  │  0x00007f63ccf8cf20:   movzbl 0x2d(%r10),%r10d             ;*getfield bigEndian {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.DirectByteBuffer::putLong@15 (line 801)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@13 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.65%  │  0x00007f63ccf8cf25:   test   %r10d,%r10d
          │  0x00007f63ccf8cf28:   jne    0x00007f63ccf8d1d4           ;*if_icmpne {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - jdk.internal.misc.Unsafe::convEndian@4 (line 3819)
@@ -247,11 +247,11 @@ c2, level 4, com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rw
          │                                                            ; - jdk.internal.misc.ScopedMemoryAccess::putLongUnaligned@8 (line 2653)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@18 (line 801)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@13 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.23%  │  0x00007f63ccf8cf2e:   shl    $0x3,%ecx                    ;*imul {reexecute=0 rethrow=0 return_oop=0}
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@39 (line 42)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@39 (line 42)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   3.53%  │  0x00007f63ccf8cf31:   mov    %rbp,%r10
   0.07%  │  0x00007f63ccf8cf34:   mov    %r9,(%r10,%r8,1)             ;*invokevirtual putLongUnaligned {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - jdk.internal.misc.Unsafe::putLongUnaligned@10 (line 3676)
@@ -259,46 +259,46 @@ c2, level 4, com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rw
          │                                                            ; - jdk.internal.misc.ScopedMemoryAccess::putLongUnaligned@8 (line 2653)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@18 (line 801)
          │                                                            ; - java.nio.DirectByteBuffer::putLong@13 (line 822)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@25 (line 41)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@25 (line 41)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   9.61%  │  0x00007f63ccf8cf38:   test   %ecx,%ecx
          │  0x00007f63ccf8cf3a:   jl     0x00007f63ccf8d214           ;*iflt {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.Buffer::checkIndex@1 (line 745)
          │                                                            ; - java.nio.DirectByteBuffer::getLong@6 (line 789)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@40 (line 42)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@40 (line 42)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.02%  │  0x00007f63ccf8cf40:   sub    %ecx,%edi                    ;*isub {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - java.nio.Buffer::checkIndex@10 (line 745)
          │                                                            ; - java.nio.DirectByteBuffer::getLong@6 (line 789)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@40 (line 42)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@40 (line 42)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.01%  │  0x00007f63ccf8cf42:   cmp    $0x8,%edi
          │  0x00007f63ccf8cf45:   jl     0x00007f63ccf8d280           ;*synchronization entry
          │                                                            ; - org.openjdk.jmh.infra.Blackhole::consume@-1 (line 392)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@43 (line 42)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@43 (line 42)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.04%  │  0x00007f63ccf8cf4b:   movslq %ecx,%r8
   4.54%  │  0x00007f63ccf8cf4e:   mov    (%r10,%r8,1),%r10            ;*invokestatic consumeCompiler {reexecute=0 rethrow=0 return_oop=0}
          │                                                            ; - org.openjdk.jmh.infra.Blackhole::consume@7 (line 393)
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@43 (line 42)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@43 (line 42)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.69%  │  0x00007f63ccf8cf52:   mov    %r11d,%r9d
   0.02%  │  0x00007f63ccf8cf55:   add    $0x2,%r9d                    ;*iinc {reexecute=0 rethrow=0 return_oop=0}
-         │                                                            ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@46 (line 40)
-         │                                                            ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+         │                                                            ; - org.ad.MemoryHandlesBenchmark::rwBBD@46 (line 40)
+         │                                                            ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.03%  │  0x00007f63ccf8cf59:   cmp    %esi,%r9d
          ╰  0x00007f63ccf8cf5c:   jl     0x00007f63ccf8ce10           ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
-                                                                      ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@5 (line 40)
-                                                                      ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+                                                                      ; - org.ad.MemoryHandlesBenchmark::rwBBD@5 (line 40)
+                                                                      ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
   0.04%     0x00007f63ccf8cf62:   mov    0x340(%r15),%rsi
   0.03%     0x00007f63ccf8cf69:   movabs $0x602032dc0,%rax            ; ImmutableOopMap {rdx=Oop rax=Oop xmm0=Derived_oop_rax [112]=Oop [8]=Oop [16]=Oop }
                                                                       ;*goto {reexecute=1 rethrow=0 return_oop=0}
-                                                                      ; - (reexecute) com.linkedin.MemoryHandlesBenchmark::rwBBD@49 (line 40)
-                                                                      ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+                                                                      ; - (reexecute) org.ad.MemoryHandlesBenchmark::rwBBD@49 (line 40)
+                                                                      ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
                                                                       ;   {oop(a &apos;java/nio/DirectByteBuffer&apos;{0x0000000602032dc0})}
             0x00007f63ccf8cf73:   test   %eax,(%rsi)                  ;*goto {reexecute=0 rethrow=0 return_oop=0}
-                                                                      ; - com.linkedin.MemoryHandlesBenchmark::rwBBD@49 (line 40)
-                                                                      ; - com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
+                                                                      ; - org.ad.MemoryHandlesBenchmark::rwBBD@49 (line 40)
+                                                                      ; - org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub@17 (line 264)
                                                                       ;   {poll}
   0.03%     0x00007f63ccf8cf75:   cmp    $0x1869f,%r9d
             0x00007f63ccf8cf7c:   jge    0x00007f63ccf8d33d
@@ -312,21 +312,21 @@ c2, level 4, com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rw
  99.40%  <total for region 1>
 
 ....[Hottest Regions]...............................................................................
- 99.40%         c2, level 4  com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub, version 777 (357 bytes)
+ 99.40%         c2, level 4  org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub, version 777 (357 bytes)
   0.10%        libc-2.17.so  syscall (13 bytes)
   0.07%  libpthread-2.17.so  [unknown] (0 bytes)
   0.03%           libjvm.so  ElfSymbolTable::lookup (24 bytes)
   0.01%           libjvm.so  ShenandoahPeriodicPacerNotify::task (17 bytes)
   0.01%        libc-2.17.so  __clock_gettime (14 bytes)
-  0.01%         c2, level 4  com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub, version 777 (33 bytes)
+  0.01%         c2, level 4  org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub, version 777 (33 bytes)
   0.01%        libc-2.17.so  __GI___libc_write (0 bytes)
   0.01%  libpthread-2.17.so  pthread_mutex_lock (22 bytes)
   0.01%  libpthread-2.17.so  pthread_cond_timedwait@@GLIBC_2.3.2 (0 bytes)
   0.01%                      <unknown> (4 bytes)
   0.01%          ld-2.17.so  __tls_get_addr (27 bytes)
   0.01%              [vdso]  __vdso_clock_gettime (1 bytes)
-  0.01%         c2, level 4  com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub, version 777 (24 bytes)
-  0.01%         c2, level 4  com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub, version 777 (0 bytes)
+  0.01%         c2, level 4  org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub, version 777 (24 bytes)
+  0.01%         c2, level 4  org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub, version 777 (0 bytes)
   0.01%                      <unknown> (0 bytes)
   0.01%           libjvm.so  ShenandoahHeuristics::should_start_gc (30 bytes)
   0.01%           libjvm.so  PeriodicTask::real_time_tick (0 bytes)
@@ -337,7 +337,7 @@ c2, level 4, com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rw
 100.00%  <totals>
 
 ....[Hottest Methods (after inlining)]..............................................................
- 99.43%         c2, level 4  com.linkedin.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub, version 777
+ 99.43%         c2, level 4  org.ad.jmh_generated.MemoryHandlesBenchmark_rwBBD_jmhTest::rwBBD_avgt_jmhStub, version 777
   0.10%        libc-2.17.so  syscall
   0.07%  libpthread-2.17.so  [unknown]
   0.03%                      <unknown>
