@@ -45,7 +45,7 @@ Running on G1GC or ParallelGC also does not show any signs of degradation
 ...
 Iteration  10: 394.420 us/op
 ```
-Profiling with perfasm shows that after recompilation (there is switch to a new code version at around iteration 7 of warmup) new code started loading quite a few fields from memory directly. I.e.
+Profiling with perfasm shows that after recompilation (there is switch to a new code version at around iteration 7 of warmup) new code started loading quite a few absolute data moves prepending field loads. I.e.
 ```
 Before
   1.08%  │  ││  0x00007fd8500eb61c:   mov    0x1c(%r11),%ecx          ;*getfield limit {reexecute=0 rethrow=0 return_oop=0}
