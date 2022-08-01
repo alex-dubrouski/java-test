@@ -1,0 +1,489 @@
+64K
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub, version 1187 (449 bytes)
+
+              0x00007ff99cfab251:   mov    %rbx,%r10
+              0x00007ff99cfab254:   add    $0xfffffffffffffff9,%r10
+              0x00007ff99cfab258:   movslq %r8d,%r8
+              0x00007ff99cfab25b:   mov    %r10d,%r11d
+              0x00007ff99cfab25e:   cmp    %r10,%rbx
+              0x00007ff99cfab261:   mov    %edi,%ebx
+              0x00007ff99cfab263:   cmovg  %r11d,%ebx
+              0x00007ff99cfab267:   add    $0xfffffffffffffff9,%r8
+              0x00007ff99cfab26b:   movslq %ebx,%r11
+              0x00007ff99cfab26e:   mov    %r8d,%r10d
+  0.02%       0x00007ff99cfab271:   cmp    %r8,%r11
+              0x00007ff99cfab274:   cmovg  %r10d,%ebx
+              0x00007ff99cfab278:   add    $0xfffffff8,%ebx
+              0x00007ff99cfab27b:   cmp    $0x8,%ebx
+              0x00007ff99cfab27e:   jle    0x00007ff99cfab7b0           ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+                                                                        ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+                                                                        ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+                                                                        ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+                                                                        ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+              0x00007ff99cfab284:   mov    $0x8,%r8d
+              0x00007ff99cfab28a:   nopw   0x0(%rax,%rax,1)             ;*invokevirtual check {reexecute=0 rethrow=0 return_oop=0}
+                                                                        ; - jdk.incubator.vector.FloatVector::compareTemplate@9 (line 1760)
+                                                                        ; - jdk.incubator.vector.Float256Vector::compare@5 (line 365)
+                                                                        ; - jdk.incubator.vector.Float256Vector::compare@3 (line 41)
+                                                                        ; - jdk.incubator.vector.AbstractMask::checkIndex0@25 (line 263)
+                                                                        ; - jdk.incubator.vector.AbstractMask::indexInRange@26 (line 191)
+                                                                        ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+                                                                        ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+                                                                        ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  0.05%    ↗  0x00007ff99cfab290:   mov    %edi,%r11d
+  0.09%    │  0x00007ff99cfab293:   sub    %r8d,%r11d
+  2.37%    │  0x00007ff99cfab296:   movabs $0x76c74e7a0,%r10            ;   {oop([F{0x000000076c74e7a0})}
+  0.61%    │  0x00007ff99cfab2a0:   vmovdqu 0x10(%r10),%ymm0            ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  0.09%    │  0x00007ff99cfab2a6:   movabs $0x76c74e760,%r10            ;   {oop([F{0x000000076c74e760})}
+  0.04%    │  0x00007ff99cfab2b0:   vaddps 0x10(%r10),%ymm0,%ymm11      ;*invokevirtual check {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.FloatVector::compareTemplate@9 (line 1760)
+           │                                                            ; - jdk.incubator.vector.Float256Vector::compare@5 (line 365)
+           │                                                            ; - jdk.incubator.vector.Float256Vector::compare@3 (line 41)
+           │                                                            ; - jdk.incubator.vector.AbstractMask::checkIndex0@25 (line 263)
+           │                                                            ; - jdk.incubator.vector.AbstractMask::indexInRange@26 (line 191)
+           │                                                            ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  2.46%    │  0x00007ff99cfab2b6:   cmp    $0x8,%r11d
+  0.56%    │  0x00007ff99cfab2ba:   mov    %r11d,%r10d                  ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  0.06%    │  0x00007ff99cfab2bd:   mov    $0x8,%eax
+  0.05%    │  0x00007ff99cfab2c2:   cmovge %eax,%r10d                   ;*invokevirtual compare {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.Float256Vector::compare@3 (line 41)
+           │                                                            ; - jdk.incubator.vector.AbstractMask::checkIndex0@25 (line 263)
+           │                                                            ; - jdk.incubator.vector.AbstractMask::indexInRange@26 (line 191)
+           │                                                            ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  2.65%    │  0x00007ff99cfab2c6:   xor    %eax,%eax
+  0.11%    │  0x00007ff99cfab2c8:   test   %r10d,%r10d                  ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  0.03%    │  0x00007ff99cfab2cb:   cmovle %eax,%r10d                   ;*invokevirtual compare {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.Float256Vector::compare@3 (line 41)
+           │                                                            ; - jdk.incubator.vector.AbstractMask::checkIndex0@25 (line 263)
+           │                                                            ; - jdk.incubator.vector.AbstractMask::indexInRange@26 (line 191)
+           │                                                            ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  3.21%    │  0x00007ff99cfab2cf:   movslq %r10d,%rax                   ;*invokevirtual compare {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.AbstractMask::checkIndex0@25 (line 263)
+           │                                                            ; - jdk.incubator.vector.AbstractMask::indexInRange@26 (line 191)
+           │                                                            ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  0.04%    │  0x00007ff99cfab2d2:   vcvtsi2ss %rax,%xmm0,%xmm0          ;*invokevirtual compare {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.Float256Vector::compare@3 (line 41)
+           │                                                            ; - jdk.incubator.vector.AbstractMask::checkIndex0@25 (line 263)
+           │                                                            ; - jdk.incubator.vector.AbstractMask::indexInRange@26 (line 191)
+           │                                                            ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  2.87%    │  0x00007ff99cfab2d7:   vcvttss2si %xmm0,%rsi
+  0.12%    │  0x00007ff99cfab2dc:   cmp    -0x7c043e3(%rip),%rsi        # Stub::double_sign_flip
+           │                                                            ;   {external_word}
+  2.40%  ╭ │  0x00007ff99cfab2e3:   jne    0x00007ff99cfab2f4
+         │ │  0x00007ff99cfab2e5:   sub    $0x8,%rsp
+         │ │  0x00007ff99cfab2e9:   vmovss %xmm0,(%rsp)
+         │ │  0x00007ff99cfab2ee:   call   Stub::f2l_fixup              ;   {runtime_call StubRoutines (1)}
+         │ │  0x00007ff99cfab2f3:   pop    %rsi
+  0.66%  ↘ │  0x00007ff99cfab2f4:   cmp    %rax,%rsi
+           │  0x00007ff99cfab2f7:   jne    0x00007ff99cfab557
+  0.09%    │  0x00007ff99cfab2fd:   vmovdqu 0x10(%rcx,%r8,4),%ymm10
+  0.44%    │  0x00007ff99cfab304:   vmovdqu 0x10(%rdx,%r8,4),%ymm12
+  3.09%    │  0x00007ff99cfab30b:   vbroadcastss %xmm0,%ymm0
+  0.60%    │  0x00007ff99cfab310:   vcmpge_oqps %ymm0,%ymm11,%ymm0
+  0.06%    │  0x00007ff99cfab315:   vpxor  %ymm8,%ymm0,%ymm0            ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  0.07%    │  0x00007ff99cfab31a:   vpand  %ymm0,%ymm8,%ymm11
+  2.45%    │  0x00007ff99cfab31e:   vptest %ymm8,%ymm11
+  1.76%    │  0x00007ff99cfab323:   setb   %r10b
+  1.38%    │  0x00007ff99cfab327:   movzbl %r10b,%r10d
+  2.51%    │  0x00007ff99cfab32b:   vmovdqu %ymm11,%ymm0                ;*invokevirtual compare {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.Float256Vector::compare@3 (line 41)
+           │                                                            ; - jdk.incubator.vector.AbstractMask::checkIndex0@25 (line 263)
+           │                                                            ; - jdk.incubator.vector.AbstractMask::indexInRange@26 (line 191)
+           │                                                            ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  0.18%    │  0x00007ff99cfab330:   vblendvps %ymm0,%ymm12,%ymm7,%ymm12
+  0.21%    │  0x00007ff99cfab336:   vblendvps %ymm0,%ymm10,%ymm7,%ymm0  ;*invokevirtual compare {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.AbstractMask::checkIndex0@25 (line 263)
+           │                                                            ; - jdk.incubator.vector.AbstractMask::indexInRange@26 (line 191)
+           │                                                            ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  2.65%    │  0x00007ff99cfab33c:   vmulps %ymm12,%ymm12,%ymm10
+  2.85%    │  0x00007ff99cfab341:   vmulps %ymm0,%ymm0,%ymm0
+  3.60%    │  0x00007ff99cfab345:   vaddps %ymm0,%ymm10,%ymm0           ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  7.73%    │  0x00007ff99cfab349:   vxorps -0x7bd4811(%rip),%ymm0,%ymm10        # Stub::vector_float_sign_flip
+           │                                                            ;*invokevirtual compare {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.AbstractMask::checkIndex0@25 (line 263)
+           │                                                            ; - jdk.incubator.vector.AbstractMask::indexInRange@26 (line 191)
+           │                                                            ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+           │                                                            ;   {external_word}
+  2.62%    │  0x00007ff99cfab351:   test   %r10d,%r10d
+           │  0x00007ff99cfab354:   je     0x00007ff99cfab5cc           ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  0.04%    │  0x00007ff99cfab35a:   vmovdqu %ymm10,0x10(%r9,%r8,4)      ;*invokeinterface indexInRange {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  2.73%    │  0x00007ff99cfab361:   add    $0xfffffff8,%r11d
+  0.26%    │  0x00007ff99cfab365:   cmp    $0x8,%r11d                   ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  0.10%    │  0x00007ff99cfab369:   mov    $0x8,%esi
+  0.06%    │  0x00007ff99cfab36e:   cmovge %esi,%r11d                   ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.Float256Vector$Float256Mask::maskAll@27 (line 733)
+           │                                                            ; - jdk.incubator.vector.FloatVector$FloatSpecies::maskAll@71 (line 3885)
+           │                                                            ; - jdk.incubator.vector.AbstractSpecies::indexInRange@2 (line 209)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  2.77%    │  0x00007ff99cfab372:   xor    %r10d,%r10d
+  0.03%    │  0x00007ff99cfab375:   test   %r11d,%r11d
+  0.03%    │  0x00007ff99cfab378:   cmovle %r10d,%r11d                  ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  2.68%    │  0x00007ff99cfab37c:   movslq %r11d,%rax                   ;*if_acmpne {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.FloatVector$FloatSpecies::maskAll@6 (line 3880)
+           │                                                            ; - jdk.incubator.vector.AbstractSpecies::indexInRange@2 (line 209)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  0.10%    │  0x00007ff99cfab37f:   movabs $0x76c74e7a0,%r10            ;   {oop([F{0x000000076c74e7a0})}
+  0.02%    │  0x00007ff99cfab389:   vmovdqu 0x10(%r10),%ymm0            ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  2.61%    │  0x00007ff99cfab38f:   movabs $0x76c74e760,%r10            ;   {oop([F{0x000000076c74e760})}
+  0.23%    │  0x00007ff99cfab399:   vaddps 0x10(%r10),%ymm0,%ymm11      ;*if_acmpne {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.FloatVector$FloatSpecies::maskAll@6 (line 3880)
+           │                                                            ; - jdk.incubator.vector.AbstractSpecies::indexInRange@2 (line 209)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  0.10%    │  0x00007ff99cfab39f:   vcvtsi2ss %rax,%xmm0,%xmm0
+  2.98%    │  0x00007ff99cfab3a4:   vcvttss2si %xmm0,%rsi
+  0.10%    │  0x00007ff99cfab3a9:   cmp    -0x7c044b0(%rip),%rsi        # Stub::double_sign_flip
+           │                                                            ;   {external_word}
+  2.81%   ╭│  0x00007ff99cfab3b0:   jne    0x00007ff99cfab3c1
+          ││  0x00007ff99cfab3b2:   sub    $0x8,%rsp
+          ││  0x00007ff99cfab3b6:   vmovss %xmm0,(%rsp)
+          ││  0x00007ff99cfab3bb:   call   Stub::f2l_fixup              ;   {runtime_call StubRoutines (1)}
+          ││  0x00007ff99cfab3c0:   pop    %rsi
+  0.26%   ↘│  0x00007ff99cfab3c1:   cmp    %rax,%rsi
+           │  0x00007ff99cfab3c4:   jne    0x00007ff99cfab55c
+  0.03%    │  0x00007ff99cfab3ca:   vmovdqu 0x30(%rcx,%r8,4),%ymm10
+  0.79%    │  0x00007ff99cfab3d1:   vmovdqu 0x30(%rdx,%r8,4),%ymm12
+  3.76%    │  0x00007ff99cfab3d8:   vbroadcastss %xmm0,%ymm0
+  0.28%    │  0x00007ff99cfab3dd:   vcmpge_oqps %ymm0,%ymm11,%ymm0
+  0.09%    │  0x00007ff99cfab3e2:   vpxor  %ymm8,%ymm0,%ymm0            ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  0.11%    │  0x00007ff99cfab3e7:   vpand  %ymm0,%ymm8,%ymm11           ;*invokestatic broadcastCoerced {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.Float256Vector$Float256Mask::maskAll@24 (line 733)
+           │                                                            ; - jdk.incubator.vector.FloatVector$FloatSpecies::maskAll@71 (line 3885)
+           │                                                            ; - jdk.incubator.vector.AbstractSpecies::indexInRange@2 (line 209)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  2.49%    │  0x00007ff99cfab3eb:   vptest %ymm8,%ymm11
+  0.58%    │  0x00007ff99cfab3f0:   setb   %r10b
+  0.30%    │  0x00007ff99cfab3f4:   movzbl %r10b,%r10d
+  2.78%    │  0x00007ff99cfab3f8:   vmovdqu %ymm11,%ymm0                ;*invokevirtual length {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.AbstractMask::indexInRange@1 (line 189)
+           │                                                            ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  0.15%    │  0x00007ff99cfab3fd:   vblendvps %ymm0,%ymm12,%ymm7,%ymm12 ;*i2l {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.Float256Vector$Float256Mask::maskAll@17 (line 734)
+           │                                                            ; - jdk.incubator.vector.FloatVector$FloatSpecies::maskAll@71 (line 3885)
+           │                                                            ; - jdk.incubator.vector.AbstractSpecies::indexInRange@2 (line 209)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  0.16%    │  0x00007ff99cfab403:   vblendvps %ymm0,%ymm10,%ymm7,%ymm0  ;*invokevirtual vspecies {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.Float256Vector$Float256Mask::vspecies@1 (line 532)
+           │                                                            ; - jdk.incubator.vector.AbstractMask::vectorSpecies@1 (line 63)
+           │                                                            ; - jdk.incubator.vector.AbstractMask::indexInRange@6 (line 190)
+           │                                                            ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  2.90%    │  0x00007ff99cfab409:   vmulps %ymm12,%ymm12,%ymm10
+  1.00%    │  0x00007ff99cfab40e:   vmulps %ymm0,%ymm0,%ymm0
+  2.09%    │  0x00007ff99cfab412:   vaddps %ymm0,%ymm10,%ymm0           ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  7.06%    │  0x00007ff99cfab416:   vxorps -0x7bd48de(%rip),%ymm0,%ymm10        # Stub::vector_float_sign_flip
+           │                                                            ;*invokeinterface indexInRange {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+           │                                                            ;   {external_word}
+  2.36%    │  0x00007ff99cfab41e:   test   %r10d,%r10d
+           │  0x00007ff99cfab421:   je     0x00007ff99cfab5c8           ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+           │                                                            ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  0.07%    │  0x00007ff99cfab427:   vmovdqu %ymm10,0x30(%r9,%r8,4)      ;*getstatic SPECIES {reexecute=0 rethrow=0 return_oop=0}
+           │                                                            ; - org.ad.VectorBenchmark::vectorComputation@10 (line 61)
+           │                                                            ; - org.ad.jmh_generated.VectorBenchmark_vectorComputation_jmhTest::vectorComputation_avgt_jmhStub@17 (line 264)
+  2.75%    │  0x00007ff99cfab42e:   add    $0x10,%r8d
+  0.51%    │  0x00007ff99cfab432:   cmp    %ebx,%r8d
+           ╰  0x00007ff99cfab435:   jl     0x00007ff99cfab290
+              0x00007ff99cfab43b:   cmp    %edi,%r8d
+              0x00007ff99cfab43e:   jge    0x00007ff99cfab051           ;*invokevirtual length {reexecute=0 rethrow=0 return_oop=0}
+                                                                        ; - jdk.incubator.vector.FloatVector::lanewiseTemplate@93 (line 676)
+                                                                        ; - jdk.incubator.vector.Float256Vector::lanewise@3 (line 285)
+                                                                        ; - jdk.incubator.vector.Float256Vector::lanewise@3 (line 41)
+                                                                        ; - jdk.incubator.vector.FloatVector::add@5 (line 1121)
+                                                                        ; - jdk.incubator.vector.FloatVector::lambda$addIndexTemplate$66@27 (line 1938)
+                                                                        ; - jdk.incubator.vector.FloatVector$$Lambda$60/0x0000000800c803f0::index@9
+                                                                        ; - jdk.internal.vm.vector.VectorSupport::indexVector@31 (line 230)
+....................................................................................................
+
+
+64M perfasm cut some code, so loop is not even visible
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, org.ad.VectorBenchmark::vectorComputation, version 1195 (357 bytes)
+
+                                                                       ; - jdk.incubator.vector.FloatVector::lambda$addIndexTemplate$66@1 (line 1936)
+                                                                       ; - jdk.incubator.vector.FloatVector$$Lambda$60/0x0000000800c2dcc8::index@9
+                                                                       ; - jdk.internal.vm.vector.VectorSupport::indexVector@31 (line 230)
+                                                                       ; - jdk.incubator.vector.FloatVector::addIndexTemplate@29 (line 1928)
+                                                                       ; - jdk.incubator.vector.Float256Vector::addIndex@2 (line 316)
+                                                                       ; - jdk.incubator.vector.Float256Vector::addIndex@2 (line 41)
+                                                                       ; - jdk.incubator.vector.AbstractMask::indexInRange@15 (line 190)
+                                                                       ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+             0x00007f02c8fab910:   mov    %r9d,%ecx
+  0.01%      0x00007f02c8fab913:   sub    %ebx,%ecx
+  0.96%      0x00007f02c8fab915:   vmovdqu 0x10(%r13),%ymm0            ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+  0.02%      0x00007f02c8fab91b:   vaddps 0x10(%rbp),%ymm0,%ymm0       ;*if_acmpne {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector$FloatSpecies::iota@6 (line 3865)
+                                                                       ; - jdk.incubator.vector.FloatVector::lambda$addIndexTemplate$66@1 (line 1936)
+                                                                       ; - jdk.incubator.vector.FloatVector$$Lambda$60/0x0000000800c2dcc8::index@9
+                                                                       ; - jdk.internal.vm.vector.VectorSupport::indexVector@31 (line 230)
+                                                                       ; - jdk.incubator.vector.FloatVector::addIndexTemplate@29 (line 1928)
+                                                                       ; - jdk.incubator.vector.Float256Vector::addIndex@2 (line 316)
+                                                                       ; - jdk.incubator.vector.Float256Vector::addIndex@2 (line 41)
+                                                                       ; - jdk.incubator.vector.AbstractMask::indexInRange@15 (line 190)
+                                                                       ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+  0.02%      0x00007f02c8fab920:   cmp    $0x8,%ecx
+             0x00007f02c8fab923:   mov    %ecx,%r10d                   ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+  0.91%      0x00007f02c8fab926:   mov    $0x8,%r8d
+             0x00007f02c8fab92c:   cmovge %r8d,%r10d                   ;*invokevirtual vectorType {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector$FloatSpecies::iota@1 (line 3865)
+                                                                       ; - jdk.incubator.vector.FloatVector::lambda$addIndexTemplate$66@1 (line 1936)
+                                                                       ; - jdk.incubator.vector.FloatVector$$Lambda$60/0x0000000800c2dcc8::index@9
+                                                                       ; - jdk.internal.vm.vector.VectorSupport::indexVector@31 (line 230)
+                                                                       ; - jdk.incubator.vector.FloatVector::addIndexTemplate@29 (line 1928)
+                                                                       ; - jdk.incubator.vector.Float256Vector::addIndex@2 (line 316)
+                                                                       ; - jdk.incubator.vector.Float256Vector::addIndex@2 (line 41)
+                                                                       ; - jdk.incubator.vector.AbstractMask::indexInRange@15 (line 190)
+                                                                       ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+             0x00007f02c8fab930:   xor    %r8d,%r8d
+  1.05%      0x00007f02c8fab933:   test   %r10d,%r10d                  ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+             0x00007f02c8fab936:   cmovle %r8d,%r10d
+             0x00007f02c8fab93a:   movslq %r10d,%r8                    ;*invokevirtual vectorType {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector$FloatSpecies::iota@1 (line 3865)
+                                                                       ; - jdk.incubator.vector.FloatVector::lambda$addIndexTemplate$66@1 (line 1936)
+                                                                       ; - jdk.incubator.vector.FloatVector$$Lambda$60/0x0000000800c2dcc8::index@9
+                                                                       ; - jdk.internal.vm.vector.VectorSupport::indexVector@31 (line 230)
+                                                                       ; - jdk.incubator.vector.FloatVector::addIndexTemplate@29 (line 1928)
+                                                                       ; - jdk.incubator.vector.Float256Vector::addIndex@2 (line 316)
+                                                                       ; - jdk.incubator.vector.Float256Vector::addIndex@2 (line 41)
+                                                                       ; - jdk.incubator.vector.AbstractMask::indexInRange@15 (line 190)
+                                                                       ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+  1.02%      0x00007f02c8fab93d:   vcvtsi2ss %r8,%xmm1,%xmm1
+             0x00007f02c8fab942:   vcvttss2si %xmm1,%rax
+  1.08%      0x00007f02c8fab947:   cmp    -0x7c04a4e(%rip),%rax        # Stub::double_sign_flip
+                                                                       ;   {external_word}
+  0.07%  ╭   0x00007f02c8fab94e:   jne    0x00007f02c8fab95f
+         │   0x00007f02c8fab950:   sub    $0x8,%rsp
+         │   0x00007f02c8fab954:   vmovss %xmm1,(%rsp)
+         │   0x00007f02c8fab959:   call   Stub::f2l_fixup              ;   {runtime_call StubRoutines (1)}
+         │   0x00007f02c8fab95e:   pop    %rax
+  0.96%  ↘   0x00007f02c8fab95f:   cmp    %r8,%rax
+             0x00007f02c8fab962:   jne    0x00007f02c8fabb99
+  0.31%      0x00007f02c8fab968:   vmovdqu 0x10(%rsi,%rbx,4),%ymm6
+  1.45%      0x00007f02c8fab96e:   vmovdqu 0x10(%rdi,%rbx,4),%ymm7
+  2.73%      0x00007f02c8fab974:   vbroadcastss %xmm1,%ymm1
+  0.57%      0x00007f02c8fab979:   vcmpge_oqps %ymm1,%ymm0,%ymm0
+  0.34%      0x00007f02c8fab97e:   vpxor  %ymm4,%ymm0,%ymm0            ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+  0.41%      0x00007f02c8fab982:   vpand  %ymm0,%ymm4,%ymm9
+  0.96%      0x00007f02c8fab986:   vptest %ymm4,%ymm9
+  3.66%      0x00007f02c8fab98b:   setb   %r8b
+  1.06%      0x00007f02c8fab98f:   movzbl %r8b,%r8d
+  0.93%      0x00007f02c8fab993:   vmovdqu %ymm9,%ymm0                 ;*invokevirtual iota {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector::lambda$addIndexTemplate$66@1 (line 1936)
+                                                                       ; - jdk.incubator.vector.FloatVector$$Lambda$60/0x0000000800c2dcc8::index@9
+                                                                       ; - jdk.internal.vm.vector.VectorSupport::indexVector@31 (line 230)
+                                                                       ; - jdk.incubator.vector.FloatVector::addIndexTemplate@29 (line 1928)
+                                                                       ; - jdk.incubator.vector.Float256Vector::addIndex@2 (line 316)
+                                                                       ; - jdk.incubator.vector.Float256Vector::addIndex@2 (line 41)
+                                                                       ; - jdk.incubator.vector.AbstractMask::indexInRange@15 (line 190)
+                                                                       ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+             0x00007f02c8fab998:   vblendvps %ymm0,%ymm6,%ymm8,%ymm1
+  0.03%      0x00007f02c8fab99e:   vblendvps %ymm0,%ymm7,%ymm8,%ymm0   ;*invokestatic lambda$addIndexTemplate$66 {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector$$Lambda$60/0x0000000800c2dcc8::index@9
+                                                                       ; - jdk.internal.vm.vector.VectorSupport::indexVector@31 (line 230)
+                                                                       ; - jdk.incubator.vector.FloatVector::addIndexTemplate@29 (line 1928)
+                                                                       ; - jdk.incubator.vector.Float256Vector::addIndex@2 (line 316)
+                                                                       ; - jdk.incubator.vector.Float256Vector::addIndex@2 (line 41)
+                                                                       ; - jdk.incubator.vector.AbstractMask::indexInRange@15 (line 190)
+                                                                       ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+  0.97%      0x00007f02c8fab9a4:   vmulps %ymm1,%ymm1,%ymm1
+  1.38%      0x00007f02c8fab9a8:   vmulps %ymm0,%ymm0,%ymm0
+  1.76%      0x00007f02c8fab9ac:   vaddps %ymm0,%ymm1,%ymm0            ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+  3.03%      0x00007f02c8fab9b0:   vxorps -0x7bd4e78(%rip),%ymm0,%ymm1        # Stub::vector_float_sign_flip
+                                                                       ;*invokevirtual iota {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector::lambda$addIndexTemplate$66@1 (line 1936)
+                                                                       ; - jdk.incubator.vector.FloatVector$$Lambda$60/0x0000000800c2dcc8::index@9
+                                                                       ; - jdk.internal.vm.vector.VectorSupport::indexVector@31 (line 230)
+                                                                       ; - jdk.incubator.vector.FloatVector::addIndexTemplate@29 (line 1928)
+                                                                       ; - jdk.incubator.vector.Float256Vector::addIndex@2 (line 316)
+                                                                       ; - jdk.incubator.vector.Float256Vector::addIndex@2 (line 41)
+                                                                       ; - jdk.incubator.vector.AbstractMask::indexInRange@15 (line 190)
+                                                                       ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+                                                                       ;   {external_word}
+  0.94%      0x00007f02c8fab9b8:   test   %r8d,%r8d
+             0x00007f02c8fab9bb:   je     0x00007f02c8fabbfb           ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+             0x00007f02c8fab9c1:   vmovdqu %ymm1,0x10(%rdx,%rbx,4)     ;*invokevirtual laneCount {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.VectorMask::length@9 (line 155)
+                                                                       ; - jdk.incubator.vector.AbstractMask::indexInRange@1 (line 189)
+                                                                       ; - jdk.incubator.vector.AbstractSpecies::indexInRange@7 (line 209)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+  1.23%      0x00007f02c8fab9c7:   add    $0xfffffff8,%ecx
+             0x00007f02c8fab9ca:   cmp    $0x8,%ecx                    ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+             0x00007f02c8fab9cd:   mov    $0x8,%r10d
+             0x00007f02c8fab9d3:   cmovge %r10d,%ecx                   ;*invokevirtual maskAll {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.AbstractSpecies::indexInRange@2 (line 209)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+  1.00%      0x00007f02c8fab9d7:   xor    %r10d,%r10d
+             0x00007f02c8fab9da:   test   %ecx,%ecx                    ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+             0x00007f02c8fab9dc:   cmovle %r10d,%ecx
+  0.92%      0x00007f02c8fab9e0:   movslq %ecx,%r8                     ;*getstatic SPECIES {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@10 (line 61)
+             0x00007f02c8fab9e3:   vmovdqu 0x10(%r13),%ymm0            ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+             0x00007f02c8fab9e9:   vaddps 0x10(%rbp),%ymm0,%ymm0
+  1.04%      0x00007f02c8fab9ee:   vcvtsi2ss %r8,%xmm1,%xmm1           ;*getstatic SPECIES {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@10 (line 61)
+             0x00007f02c8fab9f3:   vcvttss2si %xmm1,%rax
+  1.03%      0x00007f02c8fab9f8:   cmp    -0x7c04aff(%rip),%rax        # Stub::double_sign_flip
+                                                                       ;   {external_word}
+  0.93%   ╭  0x00007f02c8fab9ff:   jne    0x00007f02c8faba10
+          │  0x00007f02c8faba01:   sub    $0x8,%rsp
+          │  0x00007f02c8faba05:   vmovss %xmm1,(%rsp)
+          │  0x00007f02c8faba0a:   call   Stub::f2l_fixup              ;   {runtime_call StubRoutines (1)}
+          │  0x00007f02c8faba0f:   pop    %rax
+  0.96%   ↘  0x00007f02c8faba10:   cmp    %r8,%rax
+             0x00007f02c8faba13:   jne    0x00007f02c8fabb9e
+  0.31%      0x00007f02c8faba19:   vmovdqu 0x30(%rsi,%rbx,4),%ymm6
+  3.29%      0x00007f02c8faba1f:   vmovdqu 0x30(%rdi,%rbx,4),%ymm7
+  1.44%      0x00007f02c8faba25:   vbroadcastss %xmm1,%ymm1
+  0.50%      0x00007f02c8faba2a:   vcmpge_oqps %ymm1,%ymm0,%ymm0
+  0.29%      0x00007f02c8faba2f:   vpxor  %ymm4,%ymm0,%ymm0            ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+  0.52%      0x00007f02c8faba33:   vpand  %ymm0,%ymm4,%ymm9
+  0.85%      0x00007f02c8faba37:   vptest %ymm4,%ymm9
+  3.83%      0x00007f02c8faba3c:   setb   %r8b
+  1.05%      0x00007f02c8faba40:   movzbl %r8b,%r8d
+  0.80%      0x00007f02c8faba44:   vmovdqu %ymm9,%ymm0                 ;*invokevirtual maskAll {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.AbstractSpecies::indexInRange@2 (line 209)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@18 (line 61)
+  0.01%      0x00007f02c8faba49:   vblendvps %ymm0,%ymm6,%ymm8,%ymm1   ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@7 (line 60)
+  0.07%      0x00007f02c8faba4f:   vblendvps %ymm0,%ymm7,%ymm8,%ymm0
+  0.83%      0x00007f02c8faba55:   vmulps %ymm1,%ymm1,%ymm1
+  1.78%      0x00007f02c8faba59:   vmulps %ymm0,%ymm0,%ymm0
+  1.58%      0x00007f02c8faba5d:   vaddps %ymm0,%ymm1,%ymm0            ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+  2.97%      0x00007f02c8faba61:   vxorps -0x7bd4f29(%rip),%ymm0,%ymm1        # Stub::vector_float_sign_flip
+                                                                       ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@7 (line 60)
+                                                                       ;   {external_word}
+  0.95%      0x00007f02c8faba69:   test   %r8d,%r8d
+             0x00007f02c8faba6c:   je     0x00007f02c8fabbf8           ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+             0x00007f02c8faba72:   vmovdqu %ymm1,0x30(%rdx,%rbx,4)     ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@7 (line 60)
+  1.02%      0x00007f02c8faba78:   add    $0x10,%ebx
+             0x00007f02c8faba7b:   cmp    %r11d,%ebx
+             0x00007f02c8faba7e:   jl     0x00007f02c8fab910
+             0x00007f02c8faba84:   cmp    %r9d,%ebx
+             0x00007f02c8faba87:   jge    0x00007f02c8fabb78           ;*invokestatic store {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@42 (line 2995)
+                                                                       ; - jdk.incubator.vector.FloatVector::intoArray@10 (line 3034)
+                                                                       ; - org.ad.VectorBenchmark::vectorComputation@76 (line 67)
+             0x00007f02c8faba8d:   data16 xchg %ax,%ax                 ;*invokevirtual laneCount {reexecute=0 rethrow=0 return_oop=0}
+                                                                       ; - jdk.incubator.vector.VectorMask::length@9 (line 155)
+....................................................................................................

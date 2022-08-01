@@ -31,14 +31,14 @@ import org.openjdk.jmh.infra.Blackhole;
 @Fork(value = 1, jvmArgsAppend = {"-XX:+UnlockExperimentalVMOptions", "-XX:+UseShenandoahGC", "-XX:+DisableExplicitGC", "-XX:+AlwaysPreTouch", "-Xms8g", "-Xmx8g", "--add-modules", "jdk.incubator.foreign", "-XX:MaxDirectMemorySize=4G"})
 @Threads(1)
 public class MemoryHandlesBenchmark {
-  static final byte[] bytes = new byte[1_073_741_824];
-  static final ByteBuffer bufD = ByteBuffer.allocateDirect(1_073_741_824).order(ByteOrder.nativeOrder());
-  static final ByteBuffer bufI = ByteBuffer.wrap(bytes).order(ByteOrder.nativeOrder());
-  static final SequenceLayout arrayLayout = MemoryLayout.sequenceLayout(134_217_728, MemoryLayout.valueLayout(64, ByteOrder.nativeOrder()));
-  static final VarHandle elemHandle = arrayLayout.varHandle(long.class, MemoryLayout.PathElement.sequenceElement());
-  static final ResourceScope scope = ResourceScope.newConfinedScope();
-  static final MemorySegment segment = MemorySegment.allocateNative(arrayLayout, scope);
-  static final MemoryAddress base = segment.address();
+  private static final byte[] bytes = new byte[1_073_741_824];
+  private static final ByteBuffer bufD = ByteBuffer.allocateDirect(1_073_741_824).order(ByteOrder.nativeOrder());
+  private static final ByteBuffer bufI = ByteBuffer.wrap(bytes).order(ByteOrder.nativeOrder());
+  private static final SequenceLayout arrayLayout = MemoryLayout.sequenceLayout(134_217_728, MemoryLayout.valueLayout(long.class, ByteOrder.nativeOrder()));
+  private static final VarHandle elemHandle = arrayLayout.varHandle(MemoryLayout.PathElement.sequenceElement());
+  private static final ResourceScope scope = ResourceScope.newConfinedScope();
+  private static final MemorySegment segment = MemorySegment.allocateNative(arrayLayout, scope);
+  private static final MemoryAddress base = segment.address();
   int posI;
   long posL;
 
@@ -67,10 +67,10 @@ public class MemoryHandlesBenchmark {
   @Benchmark
   public void rwMH(Blackhole bh) {
     for (int i = 0; i < 100_000; i++) {
-      elemHandle.set(base, posL + i, posL);
+      elemHandle.set(segment, posL + i, posL);
       //Explicit conversion pushes JVM to return unboxed type
       //Otherwise it will convert long -> Long (due to VarHandle polymorphic signature / bh.consume signature) and this benchmark will be 3 times slower
-      bh.consume((long) elemHandle.get(base, posL));
+      bh.consume((long) elemHandle.get(segment, posL));
     }
   }
 

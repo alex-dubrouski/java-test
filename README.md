@@ -1,8 +1,7 @@
 # java-test
 
 ## Idea
-Recent Java releases added a lot of syntactical sugarcoating like `Collection.stream().forEach()` and in this repo
-I would like to use OpenJDK JMH benchmarking framework to find out how it affects performance.
+This is a collection of different benchmarks for different JDK features and frameworks
 
 ## Running
 
@@ -12,9 +11,50 @@ I would like to use OpenJDK JMH benchmarking framework to find out how it affect
 
 ## Prerequisites
 
-Benchmark code was updated to OJDK17. Results listed here we measured with OJDK14 and 15
+- Benchmark code was updated to OJDK18. Added benchmark for JEP-417 
+- Benchmark code was updated to OJDK17. Results listed here we measured with OJDK14 and 15
 plus new benchmarks will use MemoryHandles (JEP-370) and preview features which are only available in Java 14+ 
-Older tests were executed with AdoptOpenJDK `JDK 12.0.2, OpenJDK 64-Bit Server VM, 12.0.2+10`, hsdis compiled from OpenJDK source (binutils 2.32), 
+- Older tests were executed with AdoptOpenJDK `JDK 12.0.2, OpenJDK 64-Bit Server VM, 12.0.2+10`, hsdis compiled from OpenJDK source (binutils 2.32), 
+
+## Interesting findings
+
+### Auto vectorization in JDK18 works better than new Vector API
+I used simple example described in JEP-417 for benchmarking. Surprisingly, scalar code was auto vectorized resulting in better performance than its' Vector counterpart
+```
+Benchmark                            (size)  Mode  Cnt      Score      Error  Units
+VectorBenchmark.scalarComputation     64000  avgt   10     28.391 ±    0.522  us/op
+VectorBenchmark.scalarComputation  64000000  avgt   10  67771.693 ± 2875.739  us/op
+VectorBenchmark.vectorComputation     64000  avgt   10     50.042 ±    0.805  us/op
+VectorBenchmark.vectorComputation  64000000  avgt   10  88617.490 ± 2072.552  us/op
+```
+Check [ASM code](docs/). Scalar method is auto-vectorized with minimum of overhead, while Vector API has a lot of additional checks and computations
+
+### MemoryHandles benchmark performance drops significantly during warmup for direct ByteBuffer running on ShenandoahGC on JDK18
+Performance abruptly drops at iteration 7 of the warmup and only on ShenandoahGC running JDK18. JDK11/JDK17 do not suffer from the same problem
+Running on G1GC or ParallelGC also does not show any signs of degradation
+```
+# VM version: JDK 18.0.1, OpenJDK 64-Bit Server VM, 18.0.1+10
+# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -Xms8g -Xmx8g -Xlog:gc*,gc+age=trace,gc+phases=debug:file=gc.log:tags,uptime,time,level:filecount=5,filesize=100M -XX:MaxDirectMemorySize=4G
+...
+# Benchmark: com.linkedin.MemoryHandlesBenchmark.rwBBD
+
+# Warmup Iteration   1: 248.819 us/op
+...
+# Warmup Iteration   7: 387.206 us/op
+# Warmup Iteration   8: 389.188 us/op
+...
+Iteration  10: 394.420 us/op
+```
+Profiling with perfasm shows that after recompilation (there is switch to a new code version at around iteration 7 of warmup) new code started loading quite a few fields from memory directly. I.e.
+```
+Before
+  1.08%  │  ││  0x00007fd8500eb61c:   mov    0x1c(%r11),%ecx          ;*getfield limit {reexecute=0 rethrow=0 return_oop=0}
+After
+  4.34%  │  0x00007f63ccf8ce32:   movabs $0x602032dc0,%r10            ;   {oop(a &apos;java/nio/DirectByteBuffer&apos;{0x0000000602032dc0})}
+  0.13%  │  0x00007f63ccf8ce3c:   mov    0x1c(%r10),%edi              ;*getfield limit {reexecute=0 rethrow=0 return_oop=0}
+
+```
+causing significant degradation of performance. What's surprising - it does not happen on other garbage collectors
 
 ## Test results
 I ran these tests on idle development server [2x AMD Opteron(tm) Processor 6328, 256GB]

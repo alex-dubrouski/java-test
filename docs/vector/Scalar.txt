@@ -1,0 +1,151 @@
+64K vectorized (vmulps, vaddps, ...)
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, org.ad.jmh_generated.VectorBenchmark_scalarComputation_jmhTest::scalarComputation_avgt_jmhStub, version 839 (147 bytes)
+
+            0x00007f48a4f89f64:   mov    %r10d,%edx
+            0x00007f48a4f89f67:   jmp    0x00007f48a4f89f31
+            0x00007f48a4f89f69:   mov    %ecx,%ebp
+            0x00007f48a4f89f6b:   add    $0xffffffe1,%ebp
+            0x00007f48a4f89f6e:   cmp    %ebp,%r10d
+            0x00007f48a4f89f71:   jge    0x00007f48a4f8a08c
+            0x00007f48a4f89f77:   inc    %edx
+            0x00007f48a4f89f79:   nopl   0x0(%rax)                    ;*getstatic c {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.VectorBenchmark::scalarComputation@10 (line 53)
+                                                                      ; - org.ad.jmh_generated.VectorBenchmark_scalarComputation_jmhTest::scalarComputation_avgt_jmhStub@17 (line 264)
+  0.54%  ↗  0x00007f48a4f89f80:   vmovdqu 0x10(%r9,%rdx,4),%ymm0      ;*faload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@29 (line 53)
+         │                                                            ; - org.ad.jmh_generated.VectorBenchmark_scalarComputation_jmhTest::scalarComputation_avgt_jmhStub@17 (line 264)
+  6.72%  │  0x00007f48a4f89f87:   vmovdqu 0x10(%r11,%rdx,4),%ymm1     ;*faload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@18 (line 53)
+         │                                                            ; - org.ad.jmh_generated.VectorBenchmark_scalarComputation_jmhTest::scalarComputation_avgt_jmhStub@17 (line 264)
+  3.73%  │  0x00007f48a4f89f8e:   vmulps %ymm0,%ymm0,%ymm0
+  2.34%  │  0x00007f48a4f89f92:   vmulps %ymm1,%ymm1,%ymm1
+  1.80%  │  0x00007f48a4f89f96:   vaddps %ymm0,%ymm1,%ymm0
+  2.33%  │  0x00007f48a4f89f9a:   vmulps %ymm3,%ymm0,%ymm0
+  6.43%  │  0x00007f48a4f89f9e:   vmovdqu %ymm0,0x10(%rax,%rdx,4)     ;*fastore {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@40 (line 53)
+         │                                                            ; - org.ad.jmh_generated.VectorBenchmark_scalarComputation_jmhTest::scalarComputation_avgt_jmhStub@17 (line 264)
+  1.49%  │  0x00007f48a4f89fa4:   vmovdqu 0x30(%r11,%rdx,4),%ymm0     ;*faload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@18 (line 53)
+         │                                                            ; - org.ad.jmh_generated.VectorBenchmark_scalarComputation_jmhTest::scalarComputation_avgt_jmhStub@17 (line 264)
+  2.22%  │  0x00007f48a4f89fab:   vmulps %ymm0,%ymm0,%ymm0
+  1.59%  │  0x00007f48a4f89faf:   vmovdqu 0x30(%r9,%rdx,4),%ymm1      ;*faload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@29 (line 53)
+         │                                                            ; - org.ad.jmh_generated.VectorBenchmark_scalarComputation_jmhTest::scalarComputation_avgt_jmhStub@17 (line 264)
+  8.49%  │  0x00007f48a4f89fb6:   vmulps %ymm1,%ymm1,%ymm1
+  3.02%  │  0x00007f48a4f89fba:   vaddps %ymm1,%ymm0,%ymm0
+  2.57%  │  0x00007f48a4f89fbe:   vmulps %ymm3,%ymm0,%ymm0
+  5.46%  │  0x00007f48a4f89fc2:   vmovdqu %ymm0,0x30(%rax,%rdx,4)     ;*fastore {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@40 (line 53)
+         │                                                            ; - org.ad.jmh_generated.VectorBenchmark_scalarComputation_jmhTest::scalarComputation_avgt_jmhStub@17 (line 264)
+  1.60%  │  0x00007f48a4f89fc8:   vmovdqu 0x50(%r11,%rdx,4),%ymm0     ;*faload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@18 (line 53)
+         │                                                            ; - org.ad.jmh_generated.VectorBenchmark_scalarComputation_jmhTest::scalarComputation_avgt_jmhStub@17 (line 264)
+  2.96%  │  0x00007f48a4f89fcf:   vmulps %ymm0,%ymm0,%ymm0
+  1.44%  │  0x00007f48a4f89fd3:   vmovdqu 0x50(%r9,%rdx,4),%ymm1      ;*faload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@29 (line 53)
+         │                                                            ; - org.ad.jmh_generated.VectorBenchmark_scalarComputation_jmhTest::scalarComputation_avgt_jmhStub@17 (line 264)
+  7.59%  │  0x00007f48a4f89fda:   vmulps %ymm1,%ymm1,%ymm1
+  2.79%  │  0x00007f48a4f89fde:   vaddps %ymm1,%ymm0,%ymm0
+  2.56%  │  0x00007f48a4f89fe2:   vmulps %ymm3,%ymm0,%ymm0
+  5.20%  │  0x00007f48a4f89fe6:   vmovdqu %ymm0,0x50(%rax,%rdx,4)     ;*fastore {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@40 (line 53)
+         │                                                            ; - org.ad.jmh_generated.VectorBenchmark_scalarComputation_jmhTest::scalarComputation_avgt_jmhStub@17 (line 264)
+  1.39%  │  0x00007f48a4f89fec:   vmovdqu 0x70(%r11,%rdx,4),%ymm0     ;*faload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@18 (line 53)
+         │                                                            ; - org.ad.jmh_generated.VectorBenchmark_scalarComputation_jmhTest::scalarComputation_avgt_jmhStub@17 (line 264)
+  3.29%  │  0x00007f48a4f89ff3:   vmulps %ymm0,%ymm0,%ymm0
+  2.11%  │  0x00007f48a4f89ff7:   vmovdqu 0x70(%r9,%rdx,4),%ymm1      ;*faload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@29 (line 53)
+         │                                                            ; - org.ad.jmh_generated.VectorBenchmark_scalarComputation_jmhTest::scalarComputation_avgt_jmhStub@17 (line 264)
+  5.86%  │  0x00007f48a4f89ffe:   vmulps %ymm1,%ymm1,%ymm1
+  2.96%  │  0x00007f48a4f8a002:   vaddps %ymm1,%ymm0,%ymm0
+  2.82%  │  0x00007f48a4f8a006:   vmulps %ymm3,%ymm0,%ymm0
+  5.62%  │  0x00007f48a4f8a00a:   vmovdqu %ymm0,0x70(%rax,%rdx,4)     ;*fastore {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@40 (line 53)
+         │                                                            ; - org.ad.jmh_generated.VectorBenchmark_scalarComputation_jmhTest::scalarComputation_avgt_jmhStub@17 (line 264)
+  1.58%  │  0x00007f48a4f8a010:   add    $0x20,%edx                   ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@41 (line 52)
+         │                                                            ; - org.ad.jmh_generated.VectorBenchmark_scalarComputation_jmhTest::scalarComputation_avgt_jmhStub@17 (line 264)
+  0.53%  │  0x00007f48a4f8a013:   cmp    %ebp,%edx
+         ╰  0x00007f48a4f8a015:   jl     0x00007f48a4f89f80           ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.VectorBenchmark::scalarComputation@7 (line 52)
+                                                                      ; - org.ad.jmh_generated.VectorBenchmark_scalarComputation_jmhTest::scalarComputation_avgt_jmhStub@17 (line 264)
+            0x00007f48a4f8a01b:   mov    %ecx,%r10d
+            0x00007f48a4f8a01e:   add    $0xfffffff9,%r10d
+            0x00007f48a4f8a022:   cmp    %r10d,%edx
+            0x00007f48a4f8a025:   jl     0x00007f48a4f89e24
+            0x00007f48a4f8a02b:   jmp    0x00007f48a4f89e50           ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+....................................................................................................
+
+64M vectorized (vmulps, vaddps, ...)
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, org.ad.VectorBenchmark::scalarComputation, version 808 (152 bytes)
+
+            0x00007f9624f8472e:   mov    %ebp,%edx
+            0x00007f9624f84730:   add    $0xffffffe1,%edx
+            0x00007f9624f84733:   cmp    %edx,%ecx
+            0x00007f9624f84735:   jge    0x00007f9624f8488c
+            0x00007f9624f8473b:   vmovss -0x123(%rip),%xmm0        # 0x00007f9624f84620
+                                                                      ;   {section_word}
+            0x00007f9624f84743:   inc    %r9d
+            0x00007f9624f84746:   vbroadcastss %xmm0,%ymm2
+            0x00007f9624f8474b:   nopl   0x0(%rax,%rax,1)             ;*getstatic c {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.VectorBenchmark::scalarComputation@10 (line 53)
+  0.10%  ↗  0x00007f9624f84750:   vmovdqu 0x10(%r11,%r9,4),%ymm0      ;*faload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@29 (line 53)
+  8.50%  │  0x00007f9624f84757:   vmovdqu 0x10(%r10,%r9,4),%ymm1      ;*faload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@18 (line 53)
+  4.39%  │  0x00007f9624f8475e:   vmulps %ymm0,%ymm0,%ymm0
+  0.92%  │  0x00007f9624f84762:   vmulps %ymm1,%ymm1,%ymm1
+  0.55%  │  0x00007f9624f84766:   vaddps %ymm0,%ymm1,%ymm0
+  0.80%  │  0x00007f9624f8476a:   vmulps %ymm2,%ymm0,%ymm0
+  1.86%  │  0x00007f9624f8476e:   vmovdqu %ymm0,0x10(%r8,%r9,4)       ;*fastore {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@40 (line 53)
+  0.42%  │  0x00007f9624f84775:   vmovdqu 0x30(%r10,%r9,4),%ymm0      ;*faload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@18 (line 53)
+  3.50%  │  0x00007f9624f8477c:   vmulps %ymm0,%ymm0,%ymm0
+  0.46%  │  0x00007f9624f84780:   vmovdqu 0x30(%r11,%r9,4),%ymm1      ;*faload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@29 (line 53)
+  3.75%  │  0x00007f9624f84787:   vmulps %ymm1,%ymm1,%ymm1
+  0.76%  │  0x00007f9624f8478b:   vaddps %ymm1,%ymm0,%ymm0
+  0.58%  │  0x00007f9624f8478f:   vmulps %ymm2,%ymm0,%ymm0
+  1.18%  │  0x00007f9624f84793:   vmovdqu %ymm0,0x30(%r8,%r9,4)       ;*fastore {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@40 (line 53)
+  0.33%  │  0x00007f9624f8479a:   vmovdqu 0x50(%r10,%r9,4),%ymm0      ;*faload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@18 (line 53)
+  5.95%  │  0x00007f9624f847a1:   vmulps %ymm0,%ymm0,%ymm0
+  0.54%  │  0x00007f9624f847a5:   vmovdqu 0x50(%r11,%r9,4),%ymm1      ;*faload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@29 (line 53)
+  8.37%  │  0x00007f9624f847ac:   vmulps %ymm1,%ymm1,%ymm1
+  1.17%  │  0x00007f9624f847b0:   vaddps %ymm1,%ymm0,%ymm0
+  0.78%  │  0x00007f9624f847b4:   vmulps %ymm2,%ymm0,%ymm0
+  1.54%  │  0x00007f9624f847b8:   vmovdqu %ymm0,0x50(%r8,%r9,4)       ;*fastore {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@40 (line 53)
+  0.48%  │  0x00007f9624f847bf:   vmovdqu 0x70(%r10,%r9,4),%ymm0      ;*faload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@18 (line 53)
+  4.40%  │  0x00007f9624f847c6:   vmulps %ymm0,%ymm0,%ymm0
+  0.52%  │  0x00007f9624f847ca:   vmovdqu 0x70(%r11,%r9,4),%ymm1      ;*faload {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@29 (line 53)
+  4.41%  │  0x00007f9624f847d1:   vmulps %ymm1,%ymm1,%ymm1
+  0.59%  │  0x00007f9624f847d5:   vaddps %ymm1,%ymm0,%ymm0
+  0.64%  │  0x00007f9624f847d9:   vmulps %ymm2,%ymm0,%ymm0
+  1.43%  │  0x00007f9624f847dd:   vmovdqu %ymm0,0x70(%r8,%r9,4)       ;*fastore {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@40 (line 53)
+  0.28%  │  0x00007f9624f847e4:   add    $0x20,%r9d                   ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+         │                                                            ; - org.ad.VectorBenchmark::scalarComputation@41 (line 52)
+  0.16%  │  0x00007f9624f847e8:   cmp    %edx,%r9d
+         ╰  0x00007f9624f847eb:   jl     0x00007f9624f84750           ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.VectorBenchmark::scalarComputation@7 (line 52)
+            0x00007f9624f847f1:   mov    %ebp,%ecx
+            0x00007f9624f847f3:   add    $0xfffffff9,%ecx
+            0x00007f9624f847f6:   cmp    %ecx,%r9d
+            0x00007f9624f847f9:   jge    0x00007f9624f8482a
+            0x00007f9624f847fb:   nop                                 ;*getstatic c {reexecute=0 rethrow=0 return_oop=0}
+                                                                      ; - org.ad.VectorBenchmark::scalarComputation@10 (line 53)
+            0x00007f9624f847fc:   vmovdqu 0x10(%r11,%r9,4),%ymm0      ;*faload {reexecute=0 rethrow=0 return_oop=0}
+....................................................................................................
+
+
