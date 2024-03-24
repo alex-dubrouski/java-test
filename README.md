@@ -29,7 +29,7 @@ VectorBenchmark.vectorComputation  64000000  avgt   10  88617.490 ± 2072.552  u
 ```
 Check [ASM code](docs/). Scalar method is auto-vectorized with minimum of overhead, while Vector API has a lot of additional checks and computations
 
-### MemoryHandles benchmark performance drops significantly during warmup for direct ByteBuffer running on ShenandoahGC on JDK18
+### MemoryHandles[deleted] benchmark performance drops significantly during warmup for direct ByteBuffer running on ShenandoahGC on JDK18
 Performance abruptly drops at iteration 7 of the warmup and only on ShenandoahGC running JDK18. JDK11/JDK17 do not suffer from the same problem
 Running on G1GC or ParallelGC also does not show any signs of degradation
 ```
@@ -375,7 +375,7 @@ VHReflectionBenchmark.testReflection       avgt   10  72.162 ± 2.562  ns/op
 VHReflectionBenchmark.testVH               avgt   10   3.528 ± 0.059  ns/op
 ``` 
 
-### MemoryHandlesBenchmark
+### MemoryHandlesBenchmark (deleted due to unstable API)
 This benchmark is not verified. Might include some issues, though ASM code looks pretty clean
 ```
 Benchmark                          Mode  Cnt    Score     Error  Units
